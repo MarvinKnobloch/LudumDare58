@@ -1,0 +1,9 @@
+{
+    "name": "com.marvin.sceneviewsystem",
+    "version": "1.0.0",
+    "displayName": "SceneViewSystem",
+    "description": "Scene View System",
+    "unity": "6000.1",
+    "dependencies": {
+    }
+}

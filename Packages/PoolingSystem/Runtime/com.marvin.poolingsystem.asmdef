@@ -1,0 +1,14 @@
+{
+    "name": "com.marvin.poolingsystem",
+    "rootNamespace": "Marvin.PoolingSystem",
+    "references": [],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

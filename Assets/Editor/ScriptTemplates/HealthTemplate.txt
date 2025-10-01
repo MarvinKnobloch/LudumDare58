@@ -1,0 +1,70 @@
+using System;
+using System.Collections;
+using UnityEngine;
+
+public class TestHealth : MonoBehaviour
+{
+    [Header("Values")]
+    [SerializeField] private int maxHealth = 10;
+    [SerializeField] private int currentHealth;
+
+    [Header("HitEffect")]
+    [SerializeField] private int hitEffectAmount;
+    private int currentHitEffectAmount;
+    [SerializeField] private SpriteRenderer objSprite;
+    [SerializeField] private float hitEffectDuration;
+
+    public int Value
+    {
+        get { return currentHealth; }
+        set { currentHealth = Math.Min(Math.Max(0, value), maxHealth); }
+    }
+
+    public int MaxValue
+    {
+        get { return maxHealth; }
+        set { maxHealth = Math.Max(0, value); currentHealth = Math.Min(value, currentHealth); }
+    }
+
+    private void Awake()
+    {
+        Value = MaxValue;
+    }
+    public void TakeDamage(int amount)
+    {
+        if (amount == 0)
+            return;
+        if (Value <= 0)
+            return;
+
+        Value -= amount;
+
+        if (hitEffectAmount != 0) HitEffect();
+
+        if (Value <= 0)
+        {
+            //DeathEvent
+        }
+    }
+    private void HitEffect()
+    {
+        StopCoroutine("HitEffectBlink");
+        objSprite.material.color = Color.white;
+        currentHitEffectAmount = 0;
+
+        StartCoroutine("HitEffectBlink");
+    }
+    IEnumerator HitEffectBlink()
+    {
+        while (currentHitEffectAmount < hitEffectAmount)
+        {
+            if (currentHitEffectAmount % 2 == 0) objSprite.material.color = Color.red;
+            else objSprite.color = Color.white;
+
+            currentHitEffectAmount++;
+            yield return new WaitForSeconds(hitEffectDuration);
+        }
+
+        objSprite.color = Color.white;
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "name": "com.marvin.audiosystem",
+    "version": "1.0.0",
+    "displayName": "AudioSystem",
+    "description" : "Audio System",
+    "unity": "6000.1",
+    "dependencies": {
+    }
+}

@@ -1,0 +1,9 @@
+{
+    "name": "com.marvin.poolingsystem",
+    "version": "1.0.0",
+    "displayName": "PoolingSystem",
+    "description" : "Object Pooling",
+    "unity": "6000.1",
+    "dependencies": {
+    }
+}

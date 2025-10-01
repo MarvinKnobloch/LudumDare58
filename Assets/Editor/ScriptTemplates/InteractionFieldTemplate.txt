@@ -1,0 +1,10 @@
+using UnityEngine;
+
+public class #SCRIPTNAME# : MonoBehaviour
+{
+    [SerializeField] private float yOffset;
+    private void LateUpdate()
+    {
+        transform.position = Player.Instance.transform.position + transform.up * yOffset;
+    }
+}
