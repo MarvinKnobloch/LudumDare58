@@ -39,7 +39,7 @@ namespace Marvin.SceneViewSystem
                     if (bookmark.HasValue && string.IsNullOrEmpty(name) == false)
                     {
                         Button viewButton = new Button();
-                        viewButton.transform.scale = new Vector3(1, 1, 1);
+                        viewButton.style.scale = new Vector3(1, 1, 1);
                         viewButton.text = name;
                         viewButton.clickable.clicked += () => SwitchSceneView(bookmark);
                         addedElements++;
@@ -51,9 +51,9 @@ namespace Marvin.SceneViewSystem
 
             //addButton
             Button addButton = new Button();
-            addButton.transform.scale = new Vector3(1, 1, 1);
+            addButton.style.scale = new Vector3(1, 1, 1);
             addButton.text = ("Add View");
-            addButton.transform.position = new Vector3(0, 30, 0);
+            addButton.style.translate = new Vector3(0, 30, 0);
             addButton.clickable.clicked += () => SVTool.AddMenuItem(this);
 
             root.Add(addButton);
