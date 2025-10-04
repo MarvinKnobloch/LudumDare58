@@ -159,7 +159,7 @@ namespace Tower
 
         private void TriggerSingleHit(Enemy enemy, int damage)
         {
-            enemy.HealthChange(damage);
+            enemy.TakeDamage(damage);
         }
     }
 }

@@ -89,15 +89,22 @@ public class Enemy : MonoBehaviour, IPoolingList
         MaxValue = Mathf.RoundToInt(baseHealth * scaling);
         Value = MaxValue;
     }
-    public void HealthChange(int amount)
+    public void TakeDamage(int amount)
     {
-        Value += amount;
+        if (amount == 0) return;
+
+        Value -= amount;
+
+        Onhit();
 
         if (currentHealth <= 0)
         {
-            //PlayerUI.Instance.scoreManager.ScoreUpdate(1);
             OnDeath();
         }
+    }
+    private void Onhit()
+    {
+        //HitEffect
     }
     private void OnDeath()
     {
