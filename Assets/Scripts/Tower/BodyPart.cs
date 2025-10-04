@@ -6,5 +6,6 @@ namespace Tower
         Arm,
         Head,
         Torso,
+        Weapon, 
     }
 }
