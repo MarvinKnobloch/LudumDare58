@@ -13,10 +13,6 @@ namespace Marvin.SceneViewSystem
     {
         private int baseHeight = 67;
         private int addedElements;
-        public void Test()
-        {
-            this.size = new Vector2(10, 200);
-        }
         public override VisualElement CreatePanelContent()
         {
             addedElements = 0;

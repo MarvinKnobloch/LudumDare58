@@ -13,7 +13,7 @@ public class PlayerUI : MonoBehaviour
     [SerializeField] private GameObject interactionField;
     [SerializeField] private TextMeshProUGUI interactionText;
 
-    [Header("Health")]
+    [Header("Value")]
     [SerializeField] private Image healthbar;
     [SerializeField] private TextMeshProUGUI healthText;
 

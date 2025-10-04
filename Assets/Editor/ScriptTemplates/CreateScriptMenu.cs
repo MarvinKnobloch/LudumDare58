@@ -37,7 +37,7 @@ public static class CreateScriptMenu
     [MenuItem("Assets/Scripts/BasicClass/Create HealthScript")]
     private static void CreateHealthScript()
     {
-        string pathToNewFile = EditorUtility.SaveFilePanel("Create Health Script", GetCurrentPath(), "Health", "cs");
+        string pathToNewFile = EditorUtility.SaveFilePanel("Create Value Script", GetCurrentPath(), "Value", "cs");
         string pathToTemplate = Application.dataPath + savePathString + "/HealthTemplate.txt";
 
         CreateScriptFromTemplate(pathToNewFile, pathToTemplate);
