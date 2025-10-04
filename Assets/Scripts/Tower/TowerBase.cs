@@ -11,9 +11,10 @@ namespace Tower
 {
     public class TowerBase : MonoBehaviour
     {
-        public static UnityEvent<TowerBase, BodyObject> BodyPartEquipped { get; set; } = new();
-        public static UnityEvent<TowerBase, BodyObject> BodyPartUnequipped { get; set; } = new();
-
+        public static UnityEvent<TowerBase, BodyObject> BodyPartEquipped { get; } = new();
+        public static UnityEvent<TowerBase, BodyObject> BodyPartUnequipped { get; } = new();
+        public static UnityEvent<List<Enemy>, int> AoeHit { get; } = new();
+            
         [SerializeField] private readonly float _baseAttackSpeed;
         [SerializeField] private readonly float _baseDamage;
         [SerializeField] private readonly float _baseRange;
@@ -23,9 +24,25 @@ namespace Tower
         private float _currentDamage;
         private float _currentRange;
         private Transform _transform;
-        private AttackAnimationType _animationType = AttackAnimationType.None;
+        private WeaponType _weaponType = WeaponType.None;
 
         public readonly List<BodyObject> EquippedBodyParts = new();
+
+        private readonly Dictionary<WeaponType, float> _weaponStats = new()
+        {
+            {WeaponType.Boulder, 10},
+            {WeaponType.IceStaff, 5},
+            {WeaponType.Sword, 10},
+            {WeaponType.Bow, 25},
+            {WeaponType.Crossbow, 25},
+            {WeaponType.Scroll, 10},
+            {WeaponType.Club, 15},
+            {WeaponType.Dagger, 20},
+            {WeaponType.None, 0},
+            {WeaponType.RubyStaff, 20},
+            {WeaponType.CrystalStaff, 20},
+            {WeaponType.Stone, 0},
+        };
 
         private void Awake()
         {
@@ -57,9 +74,9 @@ namespace Tower
             _currentDamage += bodyObject.DamageModifier;
             _currentRange += bodyObject.RangeModifier;
             _aoeRadius = bodyObject.AoeRadius;
-            
+
             if (bodyObject.Part == BodyPart.Arm)
-                _animationType = bodyObject.AnimationType;
+                _weaponType = bodyObject.Weapon;
         }
 
         private void OnBodyPartUnequipped(TowerBase tower, BodyObject bodyObject)
@@ -72,34 +89,36 @@ namespace Tower
             _currentDamage -= bodyObject.DamageModifier;
             _currentRange = bodyObject.RangeModifier;
             _aoeRadius = 0;
-            
+
             if (bodyObject.Part == BodyPart.Arm)
-                _animationType = AttackAnimationType.None;
+                _weaponType = WeaponType.None;
         }
 
         private bool Attack()
         {
             var enemy = GetClosestEnemy();
 
-            if (enemy == null || _animationType == AttackAnimationType.None) return false;
+            if (enemy == null || _weaponType == WeaponType.None) return false;
 
             if (Vector2.Distance(_transform.position, enemy.position) > _currentRange) return false;
 
-            switch (_animationType)
+            // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
+            switch (_weaponType)
             {
-                case AttackAnimationType.AoeMelee:
-                case AttackAnimationType.SingleMelee:
-                    HandleMeleeAttack(enemy);
+                case WeaponType.Boulder:
+                case WeaponType.Bow:
+                case WeaponType.Club:
+                case WeaponType.Crossbow:
+                case WeaponType.CrystalStaff:
+                case WeaponType.Dagger:
+                case WeaponType.IceStaff:
+                case WeaponType.RubyStaff:
+                case WeaponType.Scroll:
+                case WeaponType.Stone:
+                case WeaponType.Sword:
                     break;
-                case AttackAnimationType.AoeRanged:
-                case AttackAnimationType.SingleRanged:
-                    HandleRangedAttack(enemy);
-                    break;
-                case AttackAnimationType.None:
-                default:
-                    throw new ArgumentOutOfRangeException();
             }
-            
+
             return true;
         }
 
@@ -115,13 +134,13 @@ namespace Tower
 
             var closestEnemy = enemies.First();
             var minDistance = float.MaxValue;
-            
+
             foreach (var enemy in enemies)
             {
                 var distance = Vector2.Distance(_transform.position, enemy.position);
-                
+
                 if (!(distance < minDistance)) continue;
-                
+
                 minDistance = distance;
                 closestEnemy = enemy;
             }
@@ -129,29 +148,19 @@ namespace Tower
             return closestEnemy;
         }
 
-        private void HandleMeleeAttack(Transform target)
+        private int CalculateDamage()
         {
-            // ToDo
-            // Aoe:
-            // OverlapCircle with tower as center
-            // Single:
-            // Attack Animation on top of target
-            // Both with some kind of faked tower animation/ color blip
-            
-            // Or switch by weapon type
+            return Mathf.RoundToInt(_weaponStats[_weaponType] * _currentDamage);
         }
 
-        private void HandleRangedAttack(Transform target)
+        private void TriggerAoeHit(List<Enemy> enemies, int damage)
         {
-            // ToDo
-            // Particle flies to enemy, then
-            // Aoe:
-            // OverlapCircle with enemy as center
-            // Single:
-            // Attack Animation on top of target
-            // Both with some kind of faked tower animation/ color blip
-            
-            // or switch by weapon type
+            AoeHit.Invoke(enemies, damage);   
+        }
+
+        private void TriggerSingleHit(Enemy enemy, int damage)
+        {
+            enemy.TakeDamage(damage);
         }
     }
 }
