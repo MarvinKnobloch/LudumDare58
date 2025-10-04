@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8541068012965371889}
   m_Layer: 0
-  m_Name: DefaultTowerPreview
+  m_Name: TestTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -113,7 +113,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 1}
+  m_Color: {r: 0.41996536, g: 0.02616591, b: 0.7924528, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -134,9 +134,8 @@ GameObject:
   - component: {fileID: 2931422020584010614}
   - component: {fileID: 517069718789919597}
   - component: {fileID: 3234127056150760133}
-  - component: {fileID: 5412194519662266056}
   - component: {fileID: 4652260026523848089}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TowerCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +205,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_Color: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -252,27 +251,6 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
---- !u!114 &5412194519662266056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7072708735225341183}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa6717e3b0a54a14ca0fa42965553525, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TowerCollider
-  towerToBuild: {fileID: 415905073778643426, guid: ff7d3086990a92949a7b05f8668d847c, type: 3}
-  buildLayer:
-    serializedVersion: 2
-    m_Bits: 3072
-  buildArea:
-    serializedVersion: 2
-    m_Bits: 4096
-  canBuildColor: {r: 0, g: 0.509434, b: 0.055200957, a: 0.80784315}
-  cantBuildColor: {r: 0.5377358, g: 0, b: 0.02714382, a: 0.78431374}
 --- !u!50 &4652260026523848089
 Rigidbody2D:
   serializedVersion: 5
@@ -296,7 +274,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4

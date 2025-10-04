@@ -4,11 +4,13 @@ using UnityEngine.EventSystems;
 
 public class TowerPreview : MonoBehaviour
 {
+    [SerializeField] private GameObject towerToBuild;
+
+    [Space]
     [SerializeField] private LayerMask buildLayer;
     [SerializeField] private LayerMask buildArea;
     [SerializeField] private Color canBuildColor;
     [SerializeField] private Color cantBuildColor;
-    private bool isBuild;
     private bool canBuild;
     private SpriteRenderer spriteRenderer;
     private CircleCollider2D circleCollider;
@@ -39,7 +41,10 @@ public class TowerPreview : MonoBehaviour
             BuildCheck();
             if (canBuild == true)
             {
-                Debug.Log("Build");
+                //CheckForResources
+                Debug.Log("Check for Souls");
+                Instantiate(towerToBuild,transform.root.position, Quaternion.identity);
+                BuildCheck();
             }
         }
         if (controls.Player.Cancel.WasPerformedThisFrame())
