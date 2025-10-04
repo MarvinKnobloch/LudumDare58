@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Events;
 using Vector2 = UnityEngine.Vector2;
@@ -13,20 +14,23 @@ namespace Tower
         public static UnityEvent<TowerBase, BodyObject> BodyPartUnequipped { get; } = new();
         public static UnityEvent<List<Enemy>, int, WeaponType> AoeHit { get; } = new();
 
-        [SerializeField] private readonly float _baseCooldown;
-        [SerializeField] private readonly float _baseDamage;
-        [SerializeField] private readonly float _baseRange;
-        [SerializeField] private float _aoeRadius = 0;
+        [SerializeField] private float _baseCooldown;
+        [SerializeField] private float _baseDamage;
+        [SerializeField] private float _baseRange;
+        
+        [SerializeField] private GameObject _projectilePrefab;
 
+        private float _aoeRadius;
         private float _currentCooldown;
         private float _currentDamage;
         private float _currentRange;
         private Transform _transform;
         private WeaponType _weaponType = WeaponType.None;
+        private BodyObject _weapon;
         private float _timer = 0;
         private Animator _animator;
-
-        public readonly List<BodyObject> EquippedBodyParts = new();
+        
+        public List<BodyObject> EquippedBodyObjects = new();
 
         private readonly Dictionary<WeaponType, float> _weaponStats = new()
         {
@@ -51,6 +55,14 @@ namespace Tower
             _currentCooldown = _baseCooldown;
             _transform = transform;
             _animator = GetComponentInChildren<Animator>();
+
+            var weaponObject = EquippedBodyObjects.FirstOrDefault(b => b.Weapon != WeaponType.None);
+
+            if (!weaponObject) return;
+
+            _weapon = weaponObject;
+            _weaponType = weaponObject.Weapon;
+            _aoeRadius = weaponObject.AoeRadius;
         }
 
         private void OnEnable()
@@ -69,9 +81,12 @@ namespace Tower
         {
             _timer += Time.deltaTime;
 
-            if (!(_timer >= _currentCooldown)) return;
+            if (_timer < _currentCooldown) return;
 
-            _timer = Attack() ? 0 : _currentCooldown - 0.1f;
+            var attackPossible= Attack();
+            Debug.Log(attackPossible);
+            _timer = attackPossible ? 0 : _currentCooldown - 0.1f;
+            Debug.Log(_timer);
         }
 
         private void OnBodyPartEquipped(TowerBase tower, BodyObject bodyObject)
@@ -79,10 +94,10 @@ namespace Tower
             if (tower != this)
                 return;
 
-            EquippedBodyParts.Add(bodyObject);
-            _currentCooldown *= bodyObject.AttackSpeedModifier;
-            _currentDamage += bodyObject.DamageModifier;
-            _currentRange += bodyObject.RangeModifier;
+            EquippedBodyObjects.Add(bodyObject);
+            _currentCooldown *= bodyObject.AttackSpeedModifier > 0 ? bodyObject.AttackSpeedModifier : 1;
+            _currentDamage += bodyObject.DamageModifier > 0 ? bodyObject.AttackSpeedModifier : 1;
+            _currentRange += bodyObject.RangeModifier > 0 ? bodyObject.AttackSpeedModifier : 1;
             _aoeRadius = bodyObject.AoeRadius;
 
             if (bodyObject.Part == BodyPart.Arm)
@@ -94,7 +109,7 @@ namespace Tower
             if (tower != this)
                 return;
 
-            EquippedBodyParts.Remove(bodyObject);
+            EquippedBodyObjects.Remove(bodyObject);
             _currentCooldown /= bodyObject.AttackSpeedModifier;
             _currentDamage -= bodyObject.DamageModifier;
             _currentRange = bodyObject.RangeModifier;
@@ -106,7 +121,9 @@ namespace Tower
 
         private bool Attack()
         {
+            Debug.Log("Attack!");
             var enemy = GetClosestEnemy();
+            Debug.Log(enemy.position);
 
             if (enemy == null || _weaponType == WeaponType.None) return false;
 
@@ -121,15 +138,16 @@ namespace Tower
                 case WeaponType.Crossbow:
                 case WeaponType.IceStaff:
                 case WeaponType.Scroll:
+                case WeaponType.Stone:
                     HandleRangedStandardAttack(damage, enemy);
                     break;
-
                 case WeaponType.Club:
-                case WeaponType.CrystalStaff:
                 case WeaponType.Dagger:
-                case WeaponType.RubyStaff:
-                case WeaponType.Stone:
                 case WeaponType.Sword:
+                    HandleMeleeStandardAttack(damage, enemy);
+                    break;
+                case WeaponType.CrystalStaff:
+                case WeaponType.RubyStaff:
                     break;
             }
 
@@ -176,21 +194,8 @@ namespace Tower
             return Mathf.RoundToInt(_weaponStats[_weaponType] * _currentDamage);
         }
 
-        private void TriggerSingleHit(Enemy enemy, int damage)
-        {
-            enemy.TakeDamage(damage);
-        }
-
         private void HandleMeleeStandardAttack(int damage, Transform targetEnemy)
         {
-        }
-
-        private void HandleRangedStandardAttack(int damage, Transform targetEnemy)
-        {
-            // Instantiate Projectile
-            // Tween it to destination
-            // Destroy Particle
-
             if (_aoeRadius == 0)
             {
                 targetEnemy.GetComponent<Enemy>().TakeDamage(damage);
@@ -198,11 +203,41 @@ namespace Tower
             }
 
             var enemies = GetAoeEnemies(_transform);
+            var direction = (targetEnemy.position - transform.position).normalized;
+            _animator.transform.forward = direction;
+            _animator.SetTrigger("Melee");
 
-            // Trigger animation in target enemy
-
-            // Enemy Damage
             AoeHit.Invoke(enemies, damage, _weaponType);
+        }
+
+        private void HandleRangedStandardAttack(int damage, Transform targetEnemy)
+        {
+            // Instantiate Projectile
+            var projectile = Instantiate(_projectilePrefab);
+            
+            projectile.GetComponent<SpriteRenderer>().sprite = _weapon.Sprite;
+            
+            projectile.transform
+                .DOMove(targetEnemy.position, 0.1f)
+                .SetEase(Ease.OutExpo)
+                .OnComplete(() =>
+                {
+                    // Single target hit
+                    if (_aoeRadius == 0)
+                    {
+                        targetEnemy.GetComponent<Enemy>().TakeDamage(damage);
+                        return;
+                    }
+
+                    // AOE hit
+                    var enemies = GetAoeEnemies(targetEnemy);
+
+                    // Trigger animation in target enemy animator
+                    targetEnemy.GetComponentInChildren<Animator>().SetTrigger(_weaponType.ToString());
+
+                    // Enemy Damage
+                    AoeHit.Invoke(enemies, damage, _weaponType);
+                });
         }
     }
 }
