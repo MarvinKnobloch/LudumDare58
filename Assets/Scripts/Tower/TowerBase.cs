@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Events;
-using Enemies;
 using JetBrains.Annotations;
 using Vector2 = UnityEngine.Vector2;
 
@@ -160,7 +159,7 @@ namespace Tower
 
         private void TriggerSingleHit(Enemy enemy, int damage)
         {
-            enemy.TakeDamage(damage);
+            enemy.HealthChange(damage);
         }
     }
 }
