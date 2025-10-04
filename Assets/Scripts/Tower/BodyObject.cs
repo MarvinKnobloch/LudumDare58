@@ -1,4 +1,3 @@
-using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Tower
@@ -11,10 +10,10 @@ namespace Tower
         [field: SerializeField] public float AttackSpeedModifier {get; private set; }
         [field: SerializeField] public float DamageModifier {get; private set; }
         [field: SerializeField] public float RangeModifier {get; private set; }
-        [field: SerializeField] public float AoeRadius { get; private set; } = 0;
+        [field: SerializeField] public float AoeRadius { get; private set; }
         [field: SerializeField] public Sprite Sprite { get; private set; }
         
-        [field: SerializeField] [CanBeNull] public Sprite ProjectileSprite { get; private set; } = null;
+        [field: SerializeField] public Sprite ProjectileSprite { get; private set; }
         [field: SerializeField] public WeaponType Weapon { get; private set; } 
     }
 }
