@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ea8efa18da62d7499f4cfae870a7421, type: 3}
+  m_Name: MarvinTestBookmarks
+  m_EditorClassIdentifier: Assembly-CSharp-Editor::Marvin.SceneViewSystem.SVDirectory
+  sceneGuid: 480658eaa43a44747890ed678d3b022b
+  bookmarks:
+  - sceneViewName: UI View
+    pivot: {x: 919.4755, y: 533.4548, z: 2.658764}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    size: 835.57697
+    isOrthographic: 1
+  - sceneViewName: Camera View
+    pivot: {x: 34.779514, y: -0.52749455, z: -0.055296946}
+    rotation: {x: 0, y: 0, z: 0, w: 1}
+    size: 15.529694
+    isOrthographic: 1
