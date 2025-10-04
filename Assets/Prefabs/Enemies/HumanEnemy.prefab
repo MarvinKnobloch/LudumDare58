@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8126320194445910005}
   - component: {fileID: 652183524967720000}
   - component: {fileID: 2701071940875089523}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: HumanEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,9 +105,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   movementSpeed: 4
-  currentHealth: 0
   baseHealth: 3
   armorType: 0
+  currentHealth: 0
+  maxHealth: 0
 --- !u!58 &2701071940875089523
 CircleCollider2D:
   m_ObjectHideFlags: 0
