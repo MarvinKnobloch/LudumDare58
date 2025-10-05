@@ -23,6 +23,11 @@ public class PlayerUI : MonoBehaviour
     [Header("TowerInfoMenu")]
     public TowerInfo towerInfoMenu;
 
+
+    [Header("Inventory")]
+    public Inventory inventory;
+
+
     private float timer;
 
     private void Awake()

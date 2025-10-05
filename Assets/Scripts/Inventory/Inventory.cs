@@ -5,7 +5,22 @@ public class Inventory : MonoBehaviour
 {
     public Dictionary<string, int> resources = new Dictionary<string, int>();
 
+    [SerializeField] private GameObject prefabSlot;
+    [SerializeField] private int slotAmount = 28;
 
+    [SerializeField] private GameObject InventoryGrid;
+
+    private void Awake()
+    {
+        for (int i = 0; i < slotAmount; i++)
+        {
+            Instantiate(prefabSlot, Vector3.zero, Quaternion.identity, InventoryGrid.transform);
+
+
+        }
+
+
+    }
 
     public void AddResource(string resourceName, int amount)
     {

@@ -1,16 +1,22 @@
 using NUnit.Framework.Interfaces;
+using Tower;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class InventoryItemDrag : MonoBehaviour
+public class InventoryPickUp : MonoBehaviour
 {
 
-    public ItemSO ItemInformation;
+    public BodyObject ItemInformation;
     private Inventory inventory;
+
+    private int amount = 1;
 
     void Start()
     {
-        inventory = Object.FindFirstObjectByType<Inventory>();
+        inventory = IngameController.Instance.playerUI.inventory;
+
+
+
     }
     void Update()
     {
@@ -22,7 +28,10 @@ public class InventoryItemDrag : MonoBehaviour
             if (hit.collider != null)
             {
                 Debug.Log("Wirde angeklickt");
-                inventory.AddResource(ItemInformation.itemName, ItemInformation.amount);
+                inventory.AddResource(ItemInformation.Name, amount);
+
+
+                Destroy(gameObject);
 
             }
         }
