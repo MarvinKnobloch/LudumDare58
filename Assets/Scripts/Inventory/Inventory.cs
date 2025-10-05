@@ -22,6 +22,7 @@ public class Inventory : MonoBehaviour
 
     }
 
+
     public void AddResource(string resourceName, int amount)
     {
         if (resources.ContainsKey(resourceName))

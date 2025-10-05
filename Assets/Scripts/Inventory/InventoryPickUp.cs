@@ -31,7 +31,7 @@ public class InventoryPickUp : MonoBehaviour
                 inventory.AddResource(ItemInformation.Name, amount);
 
 
-                Destroy(gameObject);
+                //Destroy(gameObject);
 
             }
         }
