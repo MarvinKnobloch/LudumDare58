@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Tower;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
@@ -11,16 +12,16 @@ public class Inventory : MonoBehaviour
     [SerializeField] private GameObject prefabSlot;
     [SerializeField] private int slotAmount = 28;
 
-    private int currentInventoryPosition;
     [SerializeField] private GameObject InventoryGrid;
+
+    [Space] 
+    private GameObject dragImage;
 
     private void Awake()
     {
         for (int i = 0; i < slotAmount; i++)
         {
-            InventorySlot slot = Instantiate(prefabSlot, Vector3.zero, Quaternion.identity, InventoryGrid.transform).GetComponent<InventorySlot>();
-            slots.Add(slot);
-            slots[i].HideText();
+            CreateNewSlot();
         }
     }
 
@@ -35,15 +36,16 @@ public class Inventory : MonoBehaviour
                 slotAmount = amount
             });
 
-            //resources[bodyObject].slotPosition = GetEmptySlot();
-            //resources[bodyObject].amount += amount;
-            slots[resources[bodyObject].slotPosition].SetAmount(resources[bodyObject].slotAmount, bodyObject.Sprite);
+
+            slots[resources[bodyObject].slotPosition].bodyObject = bodyObject;
+            slots[resources[bodyObject].slotPosition].SetValues(resources[bodyObject].slotAmount, bodyObject.Sprite);
         }
 
         else
         {
             resources[bodyObject].slotAmount += amount;
-            slots[resources[bodyObject].slotPosition].SetAmount(resources[bodyObject].slotAmount, bodyObject.Sprite);
+
+            slots[resources[bodyObject].slotPosition].SetValues(resources[bodyObject].slotAmount, bodyObject.Sprite);
         }
 
         Debug.Log($"Added {amount} {bodyObject} to inventory. Total: {resources[bodyObject]}");
@@ -62,6 +64,13 @@ public class Inventory : MonoBehaviour
     {
         InventorySlot slot = Instantiate(prefabSlot, Vector3.zero, Quaternion.identity, InventoryGrid.transform).GetComponent<InventorySlot>();
         slots.Add(slot);
+        slot.inventory = this;
+        slot.HideText();
+    }
+    public void StartDrag(BodyObject bodyObject)
+    {
+        dragImage.SetActive(true);
+        dragImage.GetComponent<DragImage>().SetDragImage(bodyObject);
     }
 
     [Serializable]
