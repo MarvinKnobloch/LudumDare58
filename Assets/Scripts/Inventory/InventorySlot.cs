@@ -65,6 +65,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 //SetValues(-1, bodyObject.Sprite);
                 inventory.AddResource(bodyObject, -1);
                 inventory.currentBodySlots.TowerUpdate(inventory.currentSelectedTower, bodyObject);
+                inventory.rangeIndicator.DrawCircle(inventory.currentSelectedTower._currentRange);
             }
         }
 

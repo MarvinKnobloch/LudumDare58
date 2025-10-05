@@ -12,9 +12,9 @@ namespace Tower
 
         [field: SerializeField] public BodyPart Part { get; private set; }
         [field: SerializeField] public BodyType Type { get; private set; } = BodyType.Default;
-        [field: SerializeField] public float AttackSpeedModifier { get; private set; }
-        [field: SerializeField] public float DamageModifier { get; private set; }
-        [field: SerializeField] public float RangeModifier { get; private set; }
+        [field: SerializeField] public float BonusAttackSpeed { get; private set; }
+        [field: SerializeField] public float BonusDamage { get; private set; }
+        [field: SerializeField] public float BonusRange { get; private set; }
         
         [field: SerializeField, Tooltip("The UI Sprite to use.")]
         public Sprite Sprite { get; private set; }
@@ -26,7 +26,7 @@ namespace Tower
         [field: SerializeField] public float WeaponRange { get; private set; }
         [field: SerializeField] public float WeaponSpeed { get; private set; }
         [field: SerializeField, Tooltip("Must be 0 for single target attacks.")]
-        public float AoeRadius { get; private set; }
+        public float BonusAoeRadius { get; private set; }
         
     }
 }

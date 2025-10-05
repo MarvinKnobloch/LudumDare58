@@ -22,6 +22,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private BodySlots armsSlot;
     [SerializeField] private BodySlots bodySlot;
     [SerializeField] private BodySlots weaponSlot;
+    public RangeIndicator rangeIndicator;
 
     [HideInInspector] public BodySlots currentBodySlots;
     [HideInInspector] public TowerBase currentSelectedTower;
@@ -90,7 +91,6 @@ public class Inventory : MonoBehaviour
     {
         if (bodyObject != null)
         {
-            Debug.Log("Hllo");
             bodySlots.UpdateSlot(bodyObject);
         }
         else

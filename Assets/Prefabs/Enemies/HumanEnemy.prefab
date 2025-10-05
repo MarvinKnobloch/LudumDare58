@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 652183524967720000}
   - component: {fileID: 2701071940875089523}
   - component: {fileID: 9063273166960193225}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HumanEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   movementSpeed: 4
-  baseHealth: 3
+  baseHealth: 1
   armorType: 0
   currentHealth: 0
   maxHealth: 0
@@ -159,5 +159,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemDropper
   itemPrefabs:
-  - {fileID: 521797631800312581, guid: b75ffcca767d59f43a09d7d2753ccf49, type: 3}
+  - {fileID: 278846005705160690, guid: d0823ed7214e21e4e8998925ee1d1680, type: 3}
   dropAmounts: 01000000

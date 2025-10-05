@@ -15,22 +15,25 @@ namespace Tower
         public static UnityEvent<TowerBase, BodyObject> BodyPartUnequipped { get; } = new();
         public static UnityEvent<List<Enemy>, int, WeaponType> AoeHit { get; } = new();
 
-        [SerializeField] private float _baseCooldownModifier = 1;
-        [SerializeField] private float _baseDamageModifier = 1;
-        [SerializeField] private float _baseRangeModifier = 1;
+        [SerializeField] private float baseAttackSpeed = 3;
+        [SerializeField] private float baseDamage = 1;
+        [SerializeField] private float baseRange = 1;
 
         [SerializeField] private GameObject _projectilePrefab;
         [SerializeField] private GameObject _rubyFirePrefab;
 
-        private float _aoeRadius;
-        private float _currentCooldown;
-        private float _currentDamage;
-        private float _currentRange;
+        [Space]
+        [SerializeField] private LayerMask attackLayer;
+        [SerializeField] private float _aoeRadius;
+        [SerializeField] private float _currentCooldown;
+        [SerializeField] private float _currentDamage;
+        public float _currentRange;
         private Transform _transform;
         private WeaponType _weaponType = WeaponType.None;
         private float _timer;
         private Animator _animator;
 
+        [Space]
         public BodyObject accessoires;
         public BodyObject head;
         public BodyObject arms;
@@ -44,16 +47,16 @@ namespace Tower
 
         private void Awake()
         {
-            _currentRange = _baseRangeModifier;
-            _currentDamage = _baseDamageModifier;
-            _currentCooldown = _baseCooldownModifier;
+            _currentRange = baseRange;
+            _currentDamage = baseDamage;
+            _currentCooldown = baseAttackSpeed;
             _transform = transform;
             _animator = GetComponentInChildren<Animator>();
 
             if (weapon == null) return;
 
             _weaponType = weapon.Weapon;
-            _aoeRadius = weapon.AoeRadius;
+            _aoeRadius = weapon.BonusAoeRadius;
         }
 
         private void Update()
@@ -104,10 +107,10 @@ namespace Tower
         {
             // Equip Object and adjust stats
 
-            _currentCooldown *= bodyObject.AttackSpeedModifier > 0 ? bodyObject.AttackSpeedModifier : 1;
-            _currentDamage *= bodyObject.DamageModifier > 0 ? bodyObject.DamageModifier : 1;
-            _currentRange *= bodyObject.RangeModifier > 0 ? bodyObject.RangeModifier : 1;
-            _aoeRadius = bodyObject.AoeRadius;
+            _currentCooldown -= bodyObject.BonusAttackSpeed;
+            _currentDamage += bodyObject.BonusDamage;
+            _currentRange += bodyObject.BonusRange;
+            _aoeRadius += bodyObject.BonusAoeRadius;
 
             EquippedBodyObjects.Add(bodyObject);
 
@@ -138,11 +141,11 @@ namespace Tower
                 return;
 
             EquippedBodyObjects.Remove(bodyObject);
-            _currentCooldown /= bodyObject.AttackSpeedModifier > 0 ? bodyObject.AttackSpeedModifier : 1;
-            _currentDamage /= bodyObject.DamageModifier > 0 ? bodyObject.DamageModifier : 1;
-            _currentRange /= bodyObject.RangeModifier > 0 ? bodyObject.RangeModifier : 1;
+            _currentCooldown += bodyObject.BonusAttackSpeed;
+            _currentDamage += bodyObject.BonusDamage;
+            _currentRange += bodyObject.BonusRange;
 
-            _aoeRadius = 0;
+            _aoeRadius -= bodyObject.BonusAoeRadius;
 
             EquippedBodyObjects.Remove(bodyObject);
         }
@@ -151,7 +154,7 @@ namespace Tower
         {
             var enemy = GetClosestEnemy();
 
-            if (enemy == null || _weaponType == WeaponType.None) return false;
+            if (enemy == null) return false;
 
             if (Vector2.Distance(_transform.position, enemy.position) > _currentRange) return false;
 
@@ -160,6 +163,10 @@ namespace Tower
             // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
             switch (_weaponType)
             {
+                case WeaponType.None:
+                    Debug.Log("Attack");
+                    HandleRangedStandardAttack(damage, enemy);
+                    break;
                 case WeaponType.Boulder:
                 case WeaponType.Crossbow:
                 case WeaponType.IceStaff:
@@ -183,24 +190,25 @@ namespace Tower
 
         private Transform GetClosestEnemy()
         {
-            var enemies = GameObject
-                .FindObjectsByType<Enemy>(FindObjectsInactive.Exclude, FindObjectsSortMode.None)
-                .Select(e => e.transform)
-                .ToList();
-
-            if (enemies.Count == 0) return null;
-
-            var closestEnemy = enemies.First();
+            Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, _currentRange, attackLayer);
+            
+            if(cols.Length == 0) return null;
+            
+            Transform closestEnemy = null;
             var minDistance = float.MaxValue;
 
-            foreach (var enemy in enemies)
+            foreach (Collider2D col in cols)
             {
-                var distance = Vector2.Distance(_transform.position, enemy.position);
+                if (col.TryGetComponent(out Enemy enemy))
+                {
+                    var distance = Vector2.Distance(_transform.position, enemy.transform.position);
 
-                if (!(distance < minDistance)) continue;
+                    if (!(distance < minDistance)) continue;
 
-                minDistance = distance;
-                closestEnemy = enemy;
+                    minDistance = distance;
+                    closestEnemy = enemy.transform;
+                }
+                else continue;
             }
 
             return closestEnemy;
@@ -218,7 +226,7 @@ namespace Tower
 
         private int CalculateDamage()
         {
-            return Mathf.RoundToInt(weapon.WeaponDamage * _currentDamage);
+            return (int)_currentDamage;
         }
 
         private void HandleMeleeStandardAttack(int damage, Transform targetEnemy)
@@ -250,7 +258,7 @@ namespace Tower
             var angle = new Vector3(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
 
             projectile.transform.rotation = Quaternion.Euler(angle);
-            projectile.GetComponent<SpriteRenderer>().sprite = weapon.ProjectileSprite;
+            if(weapon!= null) projectile.GetComponent<SpriteRenderer>().sprite = weapon.ProjectileSprite;
 
             projectile.transform
                 .DOMove(targetEnemy.position, 0.15f)

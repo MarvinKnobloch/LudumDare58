@@ -87,7 +87,7 @@ public class Enemy : MonoBehaviour, IPoolingList
         }
         else
         {
-            OnDeath();
+            Despawn();
         }
     }
     public void SetMaxHealth(float scaling)
@@ -124,10 +124,12 @@ public class Enemy : MonoBehaviour, IPoolingList
             itemDropper.DropItems(transform.position);
         }
         //DesiDONE
+        Despawn();
+    }
+    private void Despawn()
+    {
 
         enemyHasDied?.Invoke();
         PoolingSystem.ReturnObjectToPool(gameObject, poolingList);
-
-
     }
 }
