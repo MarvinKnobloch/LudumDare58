@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fb730ab8f8b4d00984553cfe4f19369, type: 3}
   m_Name: TestSchwert
   m_EditorClassIdentifier: Assembly-CSharp::Tower.BodyObject
-  <Name>k__BackingField: Elfen Body
+  <Name>k__BackingField: Test Schwert
   <Description>k__BackingField: "Das ist ein k\xF6rperteil"
   <Part>k__BackingField: 3
   <Type>k__BackingField: 2
