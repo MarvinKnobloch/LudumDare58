@@ -4,7 +4,7 @@ using UnityEngine;
 public class WorldItem : MonoBehaviour
 {
     public BodyObject itemInformationen;
-    public int dropAmount;
+    public int dropAmount = 1;
 
     private void OnDrawGizmos()
     {
