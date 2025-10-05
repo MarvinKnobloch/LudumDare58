@@ -1,36 +1,78 @@
+using System;
 using System.Collections.Generic;
+using Tower;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
-    public Dictionary<string, int> resources = new Dictionary<string, int>();
+    public Dictionary<BodyObject, InventoryInfo> resources = new Dictionary<BodyObject, InventoryInfo>();
 
+    private List<InventorySlot> slots = new List<InventorySlot>();
     [SerializeField] private GameObject prefabSlot;
     [SerializeField] private int slotAmount = 28;
 
     [SerializeField] private GameObject InventoryGrid;
 
+    [Space]
+    public GameObject dragImage;
+
     private void Awake()
     {
         for (int i = 0; i < slotAmount; i++)
         {
-            Instantiate(prefabSlot, Vector3.zero, Quaternion.identity, InventoryGrid.transform);
-
-
+            CreateNewSlot();
         }
-
-
     }
 
-
-    public void AddResource(string resourceName, int amount)
+    public void AddResource(BodyObject bodyObject, int amount)
     {
-        if (resources.ContainsKey(resourceName))
-            resources[resourceName] += amount;
-        else
-            resources[resourceName] = amount;
+        if (resources.ContainsKey(bodyObject) == false)
+        {
+            int test = GetEmptySlot();
+            resources.Add(bodyObject, new InventoryInfo()
+            {
+                slotPosition = GetEmptySlot(),
+                slotAmount = amount
+            });
 
-        Debug.Log($"Added {amount} {resourceName} to inventory. Total: {resources[resourceName]}");
+
+            slots[resources[bodyObject].slotPosition].bodyObject = bodyObject;
+            slots[resources[bodyObject].slotPosition].SetValues(resources[bodyObject].slotAmount, bodyObject.Sprite);
+        }
+
+        else
+        {
+            resources[bodyObject].slotAmount += amount;
+
+            slots[resources[bodyObject].slotPosition].SetValues(resources[bodyObject].slotAmount, bodyObject.Sprite);
+        }
+
+        Debug.Log($"Added {amount} {bodyObject} to inventory. Total: {resources[bodyObject]}");
+    }
+    private int GetEmptySlot()
+    {
+        for(int i = 0;i < slots.Count; i++)
+        {
+            if (slots[i].slotAmount == 0) return i;
+        }
+        Debug.Log("No more empty slots");
+        CreateNewSlot();
+        return slots.Count - 1;
+    }
+    private void CreateNewSlot()
+    {
+        InventorySlot slot = Instantiate(prefabSlot, Vector3.zero, Quaternion.identity, InventoryGrid.transform).GetComponent<InventorySlot>();
+        slots.Add(slot);
+        slot.inventory = this;
+        slot.HideText();
+    }
+
+    [Serializable]
+    public class InventoryInfo
+    {
+        public int slotPosition;
+        public int slotAmount;
     }
 
 }

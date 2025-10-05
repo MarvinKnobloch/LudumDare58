@@ -4,13 +4,8 @@ using UnityEngine.UI;
 
 public class InventoryScroll : MonoBehaviour
 {
-
-
-
     public ScrollRect scrollRect;
-
-
-
+    [SerializeField] private float scrollSpeed = 0.08f;
     void Update()
     {
         if (Mouse.current != null)
@@ -22,7 +17,7 @@ public class InventoryScroll : MonoBehaviour
 
             if (scroll != 0f)
             {
-                scrollRect.verticalNormalizedPosition += scroll * -0.003f;
+                scrollRect.verticalNormalizedPosition += scroll * scrollSpeed;
                 scrollRect.verticalNormalizedPosition = Mathf.Clamp01(scrollRect.verticalNormalizedPosition);
             }
 
