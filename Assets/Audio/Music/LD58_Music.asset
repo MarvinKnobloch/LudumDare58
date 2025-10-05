@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: com.Marvin.AudioSystem::Marvin.AudioSystem.MusicListObj
   songs:
   - {fileID: 11400000, guid: b60f8c4ec81db214ca25e51c64c0772c, type: 2}
-  - {fileID: 11400000, guid: b60f8c4ec81db214ca25e51c64c0772c, type: 2}
+  - {fileID: 11400000, guid: 19e1ad3d1912d6240947147a61884f53, type: 2}
