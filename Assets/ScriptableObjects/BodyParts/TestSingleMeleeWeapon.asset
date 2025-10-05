@@ -15,10 +15,10 @@ MonoBehaviour:
   <Name>k__BackingField: 
   <Description>k__BackingField: 
   <Part>k__BackingField: 0
-  <AttackSpeedModifier>k__BackingField: 0
-  <DamageModifier>k__BackingField: 0
-  <RangeModifier>k__BackingField: 0
+  <AttackSpeedModifier>k__BackingField: 1
+  <DamageModifier>k__BackingField: 1
+  <RangeModifier>k__BackingField: 1
   <AoeRadius>k__BackingField: 0
   <Sprite>k__BackingField: {fileID: 0}
-  <ProjectileSprite>k__BackingField: {fileID: 0}
-  <Weapon>k__BackingField: 0
+  <ProjectileSprite>k__BackingField: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  <Weapon>k__BackingField: 2
