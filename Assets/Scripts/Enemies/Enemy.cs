@@ -117,6 +117,8 @@ public class Enemy : MonoBehaviour, IPoolingList
     private void OnDeath()
     {
         //Desi
+        Debug.Log("OnDeath wurde aufgerufen!");
+
         if (itemDropper != null)
         {
             itemDropper.DropItems(transform.position);
