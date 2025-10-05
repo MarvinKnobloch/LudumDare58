@@ -349,6 +349,7 @@ GameObject:
   - component: {fileID: 620667323}
   - component: {fileID: 620667325}
   - component: {fileID: 620667324}
+  - component: {fileID: 620667326}
   m_Layer: 5
   m_Name: InfoMenu
   m_TagString: Untagged
@@ -414,6 +415,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 620667322}
   m_CullTransparentMesh: 1
+--- !u!114 &620667326
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620667322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bce888d00dde11c44afa9e6cb41f7ace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerInfo
+  upgradeText: {fileID: 0}
+  numberText: {fileID: 0}
+  targetText: {fileID: 0}
+  specialText: {fileID: 0}
 --- !u!1 &664817636
 GameObject:
   m_ObjectHideFlags: 0
@@ -2278,6 +2295,63 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1001 &7074761114386878484
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4931852023473920931, guid: 16a0ab87947b0fd49a2cff929d1887d3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 801.5887
+      objectReference: {fileID: 0}
+    - target: {fileID: 4931852023473920931, guid: 16a0ab87947b0fd49a2cff929d1887d3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 475.25092
+      objectReference: {fileID: 0}
+    - target: {fileID: 4931852023473920931, guid: 16a0ab87947b0fd49a2cff929d1887d3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4931852023473920931, guid: 16a0ab87947b0fd49a2cff929d1887d3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4931852023473920931, guid: 16a0ab87947b0fd49a2cff929d1887d3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4931852023473920931, guid: 16a0ab87947b0fd49a2cff929d1887d3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4931852023473920931, guid: 16a0ab87947b0fd49a2cff929d1887d3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4931852023473920931, guid: 16a0ab87947b0fd49a2cff929d1887d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4931852023473920931, guid: 16a0ab87947b0fd49a2cff929d1887d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4931852023473920931, guid: 16a0ab87947b0fd49a2cff929d1887d3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6426895937490447815, guid: 16a0ab87947b0fd49a2cff929d1887d3, type: 3}
+      propertyPath: m_Name
+      value: SelectTower
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 16a0ab87947b0fd49a2cff929d1887d3, type: 3}
 --- !u!224 &7726168362149955669
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2473,8 +2547,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bce888d00dde11c44afa9e6cb41f7ace, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerInfo
-  InfoMenu: {fileID: 620667322}
+  upgradeText: {fileID: 0}
   numberText: {fileID: 0}
+  targetText: {fileID: 0}
+  specialText: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2490,4 +2566,5 @@ SceneRoots:
   - {fileID: 7918995277454829543}
   - {fileID: 4155656067453217058}
   - {fileID: 3810067072387299627}
+  - {fileID: 7074761114386878484}
   - {fileID: 1376056063626036511}

@@ -121,9 +121,9 @@ namespace Tower
 
         private bool Attack()
         {
-            Debug.Log("Attack!");
+            //Debug.Log("Attack!");
             var enemy = GetClosestEnemy();
-            Debug.Log(enemy.position);
+            //Debug.Log(enemy.position);
 
             if (enemy == null || _weaponType == WeaponType.None) return false;
 
