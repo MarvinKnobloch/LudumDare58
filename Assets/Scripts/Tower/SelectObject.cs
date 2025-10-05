@@ -1,7 +1,7 @@
 using Tower;
 using UnityEngine;
 
-public class SelectTower : MonoBehaviour
+public class SelectObject : MonoBehaviour
 {
     private Controls controls;
     [SerializeField] private RangeIndicator rangeIndicator;
@@ -19,13 +19,18 @@ public class SelectTower : MonoBehaviour
             {
                 for (int i = 0; i < cols.Length; i++)
                 {
-                    if (cols[i].TryGetComponent(out TowerBase towerBase))
+                    if (cols[i].TryGetComponent(out WorldItem worldItem))
+                    {
+                        IngameController.Instance.playerUI.inventory.AddResource(worldItem.itemInformationen, worldItem.dropAmount);
+                    }
+                    else if (cols[i].TryGetComponent(out TowerBase towerBase))
                     {
                         rangeIndicator.gameObject.transform.position = towerBase.gameObject.transform.position;
                         rangeIndicator.gameObject.SetActive(true);
                         rangeIndicator.DrawCircle(3);
                         break;
                     }
+
                 }
             }
         }

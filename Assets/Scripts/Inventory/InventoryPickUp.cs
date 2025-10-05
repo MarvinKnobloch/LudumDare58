@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 
 public class InventoryPickUp : MonoBehaviour
 {
-
     public BodyObject ItemInformation;
     private Inventory inventory;
 
@@ -14,9 +13,6 @@ public class InventoryPickUp : MonoBehaviour
     void Start()
     {
         inventory = IngameController.Instance.playerUI.inventory;
-
-
-
     }
     void Update()
     {
@@ -28,7 +24,7 @@ public class InventoryPickUp : MonoBehaviour
             if (hit.collider != null)
             {
                 Debug.Log("Wirde angeklickt");
-                inventory.AddResource(ItemInformation.Name, amount);
+                inventory.AddResource(ItemInformation, amount);
 
 
                 Destroy(gameObject);
