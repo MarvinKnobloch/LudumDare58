@@ -19,7 +19,7 @@ MonoBehaviour:
   <AttackSpeedModifier>k__BackingField: 3
   <DamageModifier>k__BackingField: 5
   <RangeModifier>k__BackingField: 2
-  <Sprite>k__BackingField: {fileID: 21300000, guid: f8271709277b2ab45baadab6145523b9, type: 3}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 9bd49a76d62bb4145a7d04492695fa05, type: 3}
   <ProjectileSprite>k__BackingField: {fileID: 0}
   <Weapon>k__BackingField: 1
   <WeaponDamage>k__BackingField: 2

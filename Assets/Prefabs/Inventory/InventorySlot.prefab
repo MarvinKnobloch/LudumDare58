@@ -89,7 +89,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f40057268168724094c1532c82746b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InventorySlot
+  inventory: {fileID: 0}
   slotAmount: 0
+  bodyObject: {fileID: 0}
   amountText: {fileID: 5284603129730158357}
 --- !u!1 &5054446359219333345
 GameObject:

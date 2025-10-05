@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventorySlot : MonoBehaviour, IPointerClickHandler
+public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [HideInInspector] public Inventory inventory;
     public int slotAmount;
@@ -40,10 +40,25 @@ public class InventorySlot : MonoBehaviour, IPointerClickHandler
         amountText.gameObject.SetActive(false);
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public void OnBeginDrag(PointerEventData eventData)
     {
         if (slotAmount == 0 || bodyObject == null) return;
 
-        inventory.StartDrag(bodyObject);
+        inventory.dragImage.SetActive(true);
+        inventory.dragImage.GetComponent<Image>().sprite = bodyObject.Sprite;
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        if (slotAmount == 0 || bodyObject == null) return;
+
+        inventory.dragImage.transform.position = eventData.position;
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        if (slotAmount == 0 || bodyObject == null) return;
+
+        inventory.dragImage.SetActive(false);
     }
 }

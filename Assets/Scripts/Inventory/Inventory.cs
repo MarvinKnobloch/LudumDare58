@@ -14,8 +14,8 @@ public class Inventory : MonoBehaviour
 
     [SerializeField] private GameObject InventoryGrid;
 
-    [Space] 
-    private GameObject dragImage;
+    [Space]
+    public GameObject dragImage;
 
     private void Awake()
     {
@@ -66,11 +66,6 @@ public class Inventory : MonoBehaviour
         slots.Add(slot);
         slot.inventory = this;
         slot.HideText();
-    }
-    public void StartDrag(BodyObject bodyObject)
-    {
-        dragImage.SetActive(true);
-        dragImage.GetComponent<DragImage>().SetDragImage(bodyObject);
     }
 
     [Serializable]
