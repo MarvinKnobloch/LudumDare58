@@ -200,8 +200,7 @@ MonoBehaviour:
   _baseRangeModifier: 1
   _projectilePrefab: {fileID: 4780432458198478164, guid: 23de8da67dce62a5daae89654ac2efa2, type: 3}
   _rubyFirePrefab: {fileID: 3206756834370009715, guid: 8d978a9ca37fc42daaaf91163405524e, type: 3}
-  EquippedBodyObjects:
-  - {fileID: 11400000, guid: 8eda117f0bea46469bf58f844429e17b, type: 2}
+  EquippedBodyObjects: []
   TowerRecipes: []
 --- !u!114 &6012593460756343380
 MonoBehaviour:

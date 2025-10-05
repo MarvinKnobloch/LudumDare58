@@ -14,9 +14,17 @@ public class Inventory : MonoBehaviour
 
     [SerializeField] private GameObject InventoryGrid;
 
-    [Space]
+    [Header("Equip Items")]
     public GameObject dragImage;
-    public BodySlots bodySlots;
+    public GameObject bodySlotsUI;
+    [SerializeField] private BodySlots accessoiresSlot;
+    [SerializeField] private BodySlots headSlot;
+    [SerializeField] private BodySlots armsSlot;
+    [SerializeField] private BodySlots bodySlot;
+    [SerializeField] private BodySlots weaponSlot;
+
+    [HideInInspector] public BodySlots currentBodySlots;
+    [HideInInspector] public TowerBase currentSelectedTower;
 
     private void Awake()
     {
@@ -37,16 +45,15 @@ public class Inventory : MonoBehaviour
                 slotAmount = amount
             });
 
-
             slots[resources[bodyObject].slotPosition].bodyObject = bodyObject;
-            slots[resources[bodyObject].slotPosition].SetValues(resources[bodyObject].slotAmount, bodyObject.Sprite);
+            slots[resources[bodyObject].slotPosition].SetValues(amount, bodyObject.Sprite);
         }
 
         else
         {
             resources[bodyObject].slotAmount += amount;
 
-            slots[resources[bodyObject].slotPosition].SetValues(resources[bodyObject].slotAmount, bodyObject.Sprite);
+            slots[resources[bodyObject].slotPosition].SetValues(amount, bodyObject.Sprite);
         }
 
         Debug.Log($"Added {amount} {bodyObject} to inventory. Total: {resources[bodyObject]}");
@@ -67,6 +74,29 @@ public class Inventory : MonoBehaviour
         slots.Add(slot);
         slot.inventory = this;
         slot.HideText();
+    }
+    public void SetCurrentTower(TowerBase tower)
+    {
+        currentSelectedTower = tower;
+        SetSlots(accessoiresSlot, currentSelectedTower.accessoires);
+        SetSlots(headSlot, currentSelectedTower.head);
+        SetSlots(armsSlot, currentSelectedTower.arms);
+        SetSlots(bodySlot, currentSelectedTower.body);
+        SetSlots(weaponSlot, currentSelectedTower.weapon);
+
+        bodySlotsUI.SetActive(true);
+    }
+    private void SetSlots(BodySlots bodySlots , BodyObject bodyObject)
+    {
+        if (bodyObject != null)
+        {
+            Debug.Log("Hllo");
+            bodySlots.UpdateSlot(bodyObject);
+        }
+        else
+        {
+            bodySlots.ClearSlot();
+        }
     }
 
     [Serializable]

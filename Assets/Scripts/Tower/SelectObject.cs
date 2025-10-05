@@ -28,6 +28,7 @@ public class SelectObject : MonoBehaviour
                         rangeIndicator.gameObject.transform.position = towerBase.gameObject.transform.position;
                         rangeIndicator.gameObject.SetActive(true);
                         rangeIndicator.DrawCircle(3);
+                        IngameController.Instance.playerUI.inventory.SetCurrentTower(towerBase);
                         break;
                     }
 

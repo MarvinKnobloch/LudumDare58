@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class BodySlots : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public BodyPart bodyPart;
+    [SerializeField] private Sprite noItemImage;
 
     [Space]
     public BodyObject bodyObject;
@@ -18,21 +19,30 @@ public class BodySlots : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        IngameController.Instance.playerUI.inventory.bodySlots = this;
+        IngameController.Instance.playerUI.inventory.currentBodySlots = this;
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        IngameController.Instance.playerUI.inventory.bodySlots = null;
+        IngameController.Instance.playerUI.inventory.currentBodySlots = null;
     }
-    public void SetBodySlot(BodyObject obj)
+    public void TowerUpdate(TowerBase towerBase, BodyObject obj)
     {
-        //RemoveOldValues
+        towerBase.OnBodyPartEquipped(towerBase, obj);
 
+        UpdateSlot(obj);
+    
+        //reduce souls
+    }
+    public void UpdateSlot(BodyObject obj)
+    {
         bodyObject = obj;
         bodyImage.sprite = bodyObject.Sprite;
-
-        //reduce amount
-        //SetValues
+    }
+    public void ClearSlot()
+    {
+        bodyObject = null;
+        if(bodyImage == null) bodyImage = GetComponent<Image>();
+        bodyImage.sprite = noItemImage;
     }
 }

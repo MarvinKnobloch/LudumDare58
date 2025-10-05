@@ -2392,8 +2392,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7576168055607655788, guid: f798a7cfcd867e547a39730496a55ed5, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2415,6 +2415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BodySlots
   bodyPart: 1
+  noItemImage: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   bodyObject: {fileID: 0}
 --- !u!1 &4283687697853171893
 GameObject:
@@ -2675,7 +2676,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 5155583813887768062}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.4151376
+  m_Size: 0.41484794
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2746,8 +2747,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7576168055607655788, guid: f798a7cfcd867e547a39730496a55ed5, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -2769,6 +2770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BodySlots
   bodyPart: 2
+  noItemImage: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   bodyObject: {fileID: 0}
 --- !u!1 &5285981625052332806
 GameObject:
@@ -2921,7 +2923,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4930520986873836705
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3144,8 +3146,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7576168055607655788, guid: f798a7cfcd867e547a39730496a55ed5, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3167,6 +3169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BodySlots
   bodyPart: 0
+  noItemImage: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   bodyObject: {fileID: 0}
 --- !u!1 &5572551694709987763
 GameObject:
@@ -3444,8 +3447,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7576168055607655788, guid: f798a7cfcd867e547a39730496a55ed5, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -3467,6 +3470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BodySlots
   bodyPart: 4
+  noItemImage: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   bodyObject: {fileID: 0}
 --- !u!1 &6089910044471663833
 GameObject:
@@ -4411,7 +4415,13 @@ MonoBehaviour:
   slotAmount: 28
   InventoryGrid: {fileID: 8209662348413434294}
   dragImage: {fileID: 3092948926281576221}
-  bodySlots: {fileID: 0}
+  bodySlotsUI: {fileID: 5287573034633626664}
+  accessoiresSlot: {fileID: 7972384900609565429}
+  headSlot: {fileID: 6333431914510207841}
+  armsSlot: {fileID: 8344662116961236768}
+  bodySlot: {fileID: 2298634159793065050}
+  weaponSlot: {fileID: 6719612403487462797}
+  currentBodySlots: {fileID: 0}
 --- !u!1 &7892422611415161642
 GameObject:
   m_ObjectHideFlags: 0
@@ -4626,8 +4636,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7576168055607655788, guid: f798a7cfcd867e547a39730496a55ed5, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4649,6 +4659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BodySlots
   bodyPart: 3
+  noItemImage: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
   bodyObject: {fileID: 0}
 --- !u!1 &8083494080606374024
 GameObject:
@@ -5031,7 +5042,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 244.475, y: -236.00073}
+  m_AnchoredPosition: {x: 244.475, y: -236.00076}
   m_SizeDelta: {x: 479.3197, y: 807.03}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &8263319202288417698

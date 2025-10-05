@@ -22,17 +22,16 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void SetValues(int amount, Sprite icon)
     {
-        slotAmount = amount;
+        slotAmount += amount;
         if (amount > 0)
         {
             amountText.gameObject.SetActive(true);
             amountText.text = slotAmount.ToString();
-            inventoryImage.sprite  = icon;
+            inventoryImage.sprite = icon;
         }
         else
         {
-            amountText.gameObject.SetActive(false);
-            inventoryImage.sprite = null;
+            amountText.text = slotAmount.ToString();
         }
     }
     public void HideText()
@@ -59,15 +58,17 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         if (slotAmount == 0 || bodyObject == null) return;
 
-        if(inventory.bodySlots != null)
+        if(inventory.currentBodySlots != null)
         {
-            if (inventory.bodySlots.bodyPart == bodyObject.Part)
+            if (inventory.currentBodySlots.bodyPart == bodyObject.Part)
             {
-                inventory.bodySlots.SetBodySlot(bodyObject);
+                //SetValues(-1, bodyObject.Sprite);
+                inventory.AddResource(bodyObject, -1);
+                inventory.currentBodySlots.TowerUpdate(inventory.currentSelectedTower, bodyObject);
             }
         }
 
-        inventory.bodySlots = null;
+        inventory.currentBodySlots = null;
         inventory.dragImage.SetActive(false);
     }
 }

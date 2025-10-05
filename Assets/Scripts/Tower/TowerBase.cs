@@ -28,9 +28,14 @@ namespace Tower
         private float _currentRange;
         private Transform _transform;
         private WeaponType _weaponType = WeaponType.None;
-        private BodyObject _weapon;
         private float _timer;
         private Animator _animator;
+
+        public BodyObject accessoires;
+        public BodyObject head;
+        public BodyObject arms;
+        public BodyObject body;
+        public BodyObject weapon;
 
         public List<BodyObject> EquippedBodyObjects = new();
         public List<TowerRecipe> TowerRecipes = new();
@@ -45,25 +50,10 @@ namespace Tower
             _transform = transform;
             _animator = GetComponentInChildren<Animator>();
 
-            var weaponObject = EquippedBodyObjects.FirstOrDefault(b => b.Weapon != WeaponType.None);
+            if (weapon == null) return;
 
-            if (!weaponObject) return;
-
-            _weapon = weaponObject;
-            _weaponType = weaponObject.Weapon;
-            _aoeRadius = weaponObject.AoeRadius;
-        }
-
-        private void OnEnable()
-        {
-            BodyPartEquipped.AddListener(OnBodyPartEquipped);
-            BodyPartUnequipped.AddListener(OnBodyPartUnequipped);
-        }
-
-        private void OnDisable()
-        {
-            BodyPartEquipped.RemoveListener(OnBodyPartEquipped);
-            BodyPartUnequipped.RemoveListener(OnBodyPartUnequipped);
+            _weaponType = weapon.Weapon;
+            _aoeRadius = weapon.AoeRadius;
         }
 
         private void Update()
@@ -75,39 +65,70 @@ namespace Tower
             if (Attack()) _timer = 0;
         }
 
-        private void OnBodyPartEquipped(TowerBase tower, BodyObject bodyObject)
+        public void OnBodyPartEquipped(TowerBase tower, BodyObject bodyObject)
         {
             if (tower != this)
                 return;
 
+            switch (bodyObject.Part)
+            {
+                case BodyPart.Accessory:
+                    if (accessoires != null) OnBodyPartUnequipped(tower, accessoires);
+                    accessoires = bodyObject;
+                    AddTowerValues(bodyObject);
+                    break;
+                case BodyPart.Head:
+                    if (head != null) OnBodyPartUnequipped(tower, head);
+                    head = bodyObject;
+                    AddTowerValues(bodyObject);
+                    break;
+                case BodyPart.Arm:
+                    if (arms != null) OnBodyPartUnequipped(tower, arms);
+                    arms = bodyObject;
+                    AddTowerValues(bodyObject);
+                    break;
+                case BodyPart.Torso:
+                    if (body != null) OnBodyPartUnequipped(tower, body);
+                    body = bodyObject;
+                    AddTowerValues(bodyObject);
+                    break;
+                case BodyPart.Weapon:
+                    if (weapon != null) OnBodyPartUnequipped(tower, weapon);
+                    weapon = bodyObject;
+                    _weaponType = bodyObject.Weapon;
+                    AddTowerValues(bodyObject);
+                    break;
+            }
+        }
+        private void AddTowerValues(BodyObject bodyObject)
+        {
             // Equip Object and adjust stats
-            EquippedBodyObjects.Add(bodyObject);
+
             _currentCooldown *= bodyObject.AttackSpeedModifier > 0 ? bodyObject.AttackSpeedModifier : 1;
             _currentDamage *= bodyObject.DamageModifier > 0 ? bodyObject.DamageModifier : 1;
             _currentRange *= bodyObject.RangeModifier > 0 ? bodyObject.RangeModifier : 1;
             _aoeRadius = bodyObject.AoeRadius;
 
-            if (bodyObject.Part == BodyPart.Weapon)
-                _weaponType = bodyObject.Weapon;
-            
+            EquippedBodyObjects.Add(bodyObject);
+
             // Find best recipe match
             float bestMatchPercent = 0;
             foreach (var recipe in TowerRecipes)
             {
                 var count = EquippedBodyObjects.Count(bo => recipe.Recipe.Contains(bo));
-                var matchPercent = count / (float) recipe.Recipe.Count;
+                var matchPercent = count / (float)recipe.Recipe.Count;
 
                 if (count == recipe.Recipe.Count)
                 {
                     // ToDo: Recipe Fullfilled - what now?
                 }
-                
+
                 if (matchPercent > bestMatchPercent)
                 {
                     bestMatchPercent = matchPercent;
                 }
             }
-            
+
             RecipeMatchPercent = bestMatchPercent;
         }
 
@@ -123,8 +144,7 @@ namespace Tower
 
             _aoeRadius = 0;
 
-            if (bodyObject.Part == BodyPart.Weapon)
-                _weaponType = WeaponType.None;
+            EquippedBodyObjects.Remove(bodyObject);
         }
 
         private bool Attack()
@@ -198,7 +218,7 @@ namespace Tower
 
         private int CalculateDamage()
         {
-            return Mathf.RoundToInt(_weapon.WeaponDamage * _currentDamage);
+            return Mathf.RoundToInt(weapon.WeaponDamage * _currentDamage);
         }
 
         private void HandleMeleeStandardAttack(int damage, Transform targetEnemy)
@@ -230,7 +250,7 @@ namespace Tower
             var angle = new Vector3(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
 
             projectile.transform.rotation = Quaternion.Euler(angle);
-            projectile.GetComponent<SpriteRenderer>().sprite = _weapon.ProjectileSprite;
+            projectile.GetComponent<SpriteRenderer>().sprite = weapon.ProjectileSprite;
 
             projectile.transform
                 .DOMove(targetEnemy.position, 0.15f)
