@@ -59,6 +59,15 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         if (slotAmount == 0 || bodyObject == null) return;
 
+        if(inventory.bodySlots != null)
+        {
+            if (inventory.bodySlots.bodyPart == bodyObject.Part)
+            {
+                inventory.bodySlots.SetBodySlot(bodyObject);
+            }
+        }
+
+        inventory.bodySlots = null;
         inventory.dragImage.SetActive(false);
     }
 }

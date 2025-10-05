@@ -16,6 +16,7 @@ public class Inventory : MonoBehaviour
 
     [Space]
     public GameObject dragImage;
+    public BodySlots bodySlots;
 
     private void Awake()
     {

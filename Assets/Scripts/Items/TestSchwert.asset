@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Tower.BodyObject
   <Name>k__BackingField: Test Schwert
   <Description>k__BackingField: "Das ist ein k\xF6rperteil"
-  <Part>k__BackingField: 3
+  <Part>k__BackingField: 4
   <Type>k__BackingField: 2
   <AttackSpeedModifier>k__BackingField: 3
   <DamageModifier>k__BackingField: 5
