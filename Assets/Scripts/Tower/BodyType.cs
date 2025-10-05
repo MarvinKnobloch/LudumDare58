@@ -4,7 +4,7 @@ namespace Tower
     {
         Default,
         Goblin,
-        Elf,
+        Frankenstein,
         Skeleton,
         Orc,
     }

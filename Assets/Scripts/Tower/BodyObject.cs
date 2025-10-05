@@ -15,9 +15,7 @@ namespace Tower
         [field: SerializeField] public float AttackSpeedModifier { get; private set; }
         [field: SerializeField] public float DamageModifier { get; private set; }
         [field: SerializeField] public float RangeModifier { get; private set; }
-
-
-
+        
         [field: SerializeField, Tooltip("The UI Sprite to use.")]
         public Sprite Sprite { get; private set; }
 

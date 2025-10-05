@@ -11,7 +11,7 @@ namespace Tower
         private TowerBase _tower;
         private SpriteRenderer _renderer;
         [SerializeField] private Sprite _orcSprite;
-        [SerializeField] private Sprite _elfSprite;
+        [SerializeField] private Sprite _frankensteinSprite;
         [SerializeField] private Sprite _skeletonSprite;
         [SerializeField] private Sprite _goblinSprite;
         [SerializeField] private Sprite _defaultSprite;
@@ -24,7 +24,7 @@ namespace Tower
             _bodySprites = new Dictionary<BodyType, Sprite>
             {
                 { BodyType.Default, _defaultSprite },
-                { BodyType.Elf, _elfSprite },
+                { BodyType.Frankenstein, _frankensteinSprite },
                 { BodyType.Orc, _orcSprite },
                 { BodyType.Skeleton, _skeletonSprite },
                 { BodyType.Goblin, _goblinSprite },
@@ -46,7 +46,7 @@ namespace Tower
             if (tower != _tower) return;
             
             var _orcCount = 0;
-            var _elfCount = 0;
+            var _frankensteinCount = 0;
             var _skeleCount = 0;
             var _gobboCount = 0;
 
@@ -62,8 +62,8 @@ namespace Tower
                     case BodyType.Goblin:
                         _gobboCount++;
                         break;
-                    case BodyType.Elf:
-                        _elfCount++;
+                    case BodyType.Frankenstein:
+                        _frankensteinCount++;
                         break;
                     case BodyType.Orc:
                         _orcCount++;
@@ -76,7 +76,7 @@ namespace Tower
             var countList = new List<(BodyType, int)>()
             {
                 (BodyType.Orc, _orcCount),
-                (BodyType.Elf, _elfCount),
+                (BodyType.Frankenstein, _frankensteinCount),
                 (BodyType.Goblin, _gobboCount),
                 (BodyType.Skeleton, _skeleCount)
             };

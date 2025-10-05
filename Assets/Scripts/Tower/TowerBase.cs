@@ -29,10 +29,13 @@ namespace Tower
         private Transform _transform;
         private WeaponType _weaponType = WeaponType.None;
         private BodyObject _weapon;
-        private float _timer = 0;
+        private float _timer;
         private Animator _animator;
 
         public List<BodyObject> EquippedBodyObjects = new();
+        public List<TowerRecipe> TowerRecipes = new();
+        
+        public float RecipeMatchPercent { get; private set; }
 
         private void Awake()
         {
@@ -77,14 +80,35 @@ namespace Tower
             if (tower != this)
                 return;
 
+            // Equip Object and adjust stats
             EquippedBodyObjects.Add(bodyObject);
             _currentCooldown *= bodyObject.AttackSpeedModifier > 0 ? bodyObject.AttackSpeedModifier : 1;
             _currentDamage *= bodyObject.DamageModifier > 0 ? bodyObject.DamageModifier : 1;
             _currentRange *= bodyObject.RangeModifier > 0 ? bodyObject.RangeModifier : 1;
             _aoeRadius = bodyObject.AoeRadius;
 
-            if (bodyObject.Part == BodyPart.Arm)
+            if (bodyObject.Part == BodyPart.Weapon)
                 _weaponType = bodyObject.Weapon;
+            
+            // Find best recipe match
+            float bestMatchPercent = 0;
+            foreach (var recipe in TowerRecipes)
+            {
+                var count = EquippedBodyObjects.Count(bo => recipe.Recipe.Contains(bo));
+                var matchPercent = count / (float) recipe.Recipe.Count;
+
+                if (count == recipe.Recipe.Count)
+                {
+                    // ToDo: Recipe Fullfilled - what now?
+                }
+                
+                if (matchPercent > bestMatchPercent)
+                {
+                    bestMatchPercent = matchPercent;
+                }
+            }
+            
+            RecipeMatchPercent = bestMatchPercent;
         }
 
         private void OnBodyPartUnequipped(TowerBase tower, BodyObject bodyObject)
@@ -99,15 +123,13 @@ namespace Tower
 
             _aoeRadius = 0;
 
-            if (bodyObject.Part == BodyPart.Arm)
+            if (bodyObject.Part == BodyPart.Weapon)
                 _weaponType = WeaponType.None;
         }
 
         private bool Attack()
         {
-            //Debug.Log("Attack!");
             var enemy = GetClosestEnemy();
-            //Debug.Log(enemy.position);
 
             if (enemy == null || _weaponType == WeaponType.None) return false;
 
