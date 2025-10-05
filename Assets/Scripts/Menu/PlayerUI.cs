@@ -20,6 +20,9 @@ public class PlayerUI : MonoBehaviour
     [Header("DialogBox")]
     public GameObject dialogBox;
 
+    [Header("TowerInfoMenu")]
+    public TowerInfo towerInfoMenu;
+
     private float timer;
 
     private void Awake()
@@ -48,5 +51,10 @@ public class PlayerUI : MonoBehaviour
     {
         healthbar.fillAmount = (float)current / max;
         healthText.text = current + "/" + max;
+    }
+    public void ToggleTowerInfoMenu()
+    {
+        if (towerInfoMenu.gameObject.activeSelf == false) towerInfoMenu.gameObject.SetActive(true);
+        else towerInfoMenu.gameObject.SetActive(false);
     }
 }

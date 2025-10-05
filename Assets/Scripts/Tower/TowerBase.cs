@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
@@ -14,11 +15,12 @@ namespace Tower
         public static UnityEvent<TowerBase, BodyObject> BodyPartUnequipped { get; } = new();
         public static UnityEvent<List<Enemy>, int, WeaponType> AoeHit { get; } = new();
 
-        [SerializeField] private float _baseCooldown;
-        [SerializeField] private float _baseDamage;
-        [SerializeField] private float _baseRange;
-        
+        [SerializeField] private float _baseCooldownModifier = 1;
+        [SerializeField] private float _baseDamageModifier = 1;
+        [SerializeField] private float _baseRangeModifier = 1;
+
         [SerializeField] private GameObject _projectilePrefab;
+        [SerializeField] private GameObject _rubyFirePrefab;
 
         private float _aoeRadius;
         private float _currentCooldown;
@@ -27,32 +29,19 @@ namespace Tower
         private Transform _transform;
         private WeaponType _weaponType = WeaponType.None;
         private BodyObject _weapon;
-        private float _timer = 0;
+        private float _timer;
         private Animator _animator;
-        
-        public List<BodyObject> EquippedBodyObjects = new();
 
-        private readonly Dictionary<WeaponType, float> _weaponStats = new()
-        {
-            { WeaponType.Boulder, 10 },
-            { WeaponType.IceStaff, 5 },
-            { WeaponType.Sword, 10 },
-            { WeaponType.Bow, 25 },
-            { WeaponType.Crossbow, 25 },
-            { WeaponType.Scroll, 10 },
-            { WeaponType.Club, 15 },
-            { WeaponType.Dagger, 20 },
-            { WeaponType.None, 0 },
-            { WeaponType.RubyStaff, 20 },
-            { WeaponType.CrystalStaff, 20 },
-            { WeaponType.Stone, 10 },
-        };
+        public List<BodyObject> EquippedBodyObjects = new();
+        public List<TowerRecipe> TowerRecipes = new();
+        
+        public float RecipeMatchPercent { get; private set; }
 
         private void Awake()
         {
-            _currentRange = _baseRange;
-            _currentDamage = _baseDamage;
-            _currentCooldown = _baseCooldown;
+            _currentRange = _baseRangeModifier;
+            _currentDamage = _baseDamageModifier;
+            _currentCooldown = _baseCooldownModifier;
             _transform = transform;
             _animator = GetComponentInChildren<Animator>();
 
@@ -83,10 +72,7 @@ namespace Tower
 
             if (_timer < _currentCooldown) return;
 
-            var attackPossible= Attack();
-            Debug.Log(attackPossible);
-            _timer = attackPossible ? 0 : _currentCooldown - 0.1f;
-            Debug.Log(_timer);
+            if (Attack()) _timer = 0;
         }
 
         private void OnBodyPartEquipped(TowerBase tower, BodyObject bodyObject)
@@ -94,14 +80,35 @@ namespace Tower
             if (tower != this)
                 return;
 
+            // Equip Object and adjust stats
             EquippedBodyObjects.Add(bodyObject);
             _currentCooldown *= bodyObject.AttackSpeedModifier > 0 ? bodyObject.AttackSpeedModifier : 1;
-            _currentDamage += bodyObject.DamageModifier > 0 ? bodyObject.AttackSpeedModifier : 1;
-            _currentRange += bodyObject.RangeModifier > 0 ? bodyObject.AttackSpeedModifier : 1;
+            _currentDamage *= bodyObject.DamageModifier > 0 ? bodyObject.DamageModifier : 1;
+            _currentRange *= bodyObject.RangeModifier > 0 ? bodyObject.RangeModifier : 1;
             _aoeRadius = bodyObject.AoeRadius;
 
-            if (bodyObject.Part == BodyPart.Arm)
+            if (bodyObject.Part == BodyPart.Weapon)
                 _weaponType = bodyObject.Weapon;
+            
+            // Find best recipe match
+            float bestMatchPercent = 0;
+            foreach (var recipe in TowerRecipes)
+            {
+                var count = EquippedBodyObjects.Count(bo => recipe.Recipe.Contains(bo));
+                var matchPercent = count / (float) recipe.Recipe.Count;
+
+                if (count == recipe.Recipe.Count)
+                {
+                    // ToDo: Recipe Fullfilled - what now?
+                }
+                
+                if (matchPercent > bestMatchPercent)
+                {
+                    bestMatchPercent = matchPercent;
+                }
+            }
+            
+            RecipeMatchPercent = bestMatchPercent;
         }
 
         private void OnBodyPartUnequipped(TowerBase tower, BodyObject bodyObject)
@@ -110,20 +117,19 @@ namespace Tower
                 return;
 
             EquippedBodyObjects.Remove(bodyObject);
-            _currentCooldown /= bodyObject.AttackSpeedModifier;
-            _currentDamage -= bodyObject.DamageModifier;
-            _currentRange = bodyObject.RangeModifier;
+            _currentCooldown /= bodyObject.AttackSpeedModifier > 0 ? bodyObject.AttackSpeedModifier : 1;
+            _currentDamage /= bodyObject.DamageModifier > 0 ? bodyObject.DamageModifier : 1;
+            _currentRange /= bodyObject.RangeModifier > 0 ? bodyObject.RangeModifier : 1;
+
             _aoeRadius = 0;
 
-            if (bodyObject.Part == BodyPart.Arm)
+            if (bodyObject.Part == BodyPart.Weapon)
                 _weaponType = WeaponType.None;
         }
 
         private bool Attack()
         {
-            Debug.Log("Attack!");
             var enemy = GetClosestEnemy();
-            Debug.Log(enemy.position);
 
             if (enemy == null || _weaponType == WeaponType.None) return false;
 
@@ -144,10 +150,11 @@ namespace Tower
                 case WeaponType.Club:
                 case WeaponType.Dagger:
                 case WeaponType.Sword:
+                case WeaponType.CrystalStaff:
                     HandleMeleeStandardAttack(damage, enemy);
                     break;
-                case WeaponType.CrystalStaff:
                 case WeaponType.RubyStaff:
+                    StartCoroutine(HandleRubyStaffAttack(damage, enemy));
                     break;
             }
 
@@ -191,7 +198,7 @@ namespace Tower
 
         private int CalculateDamage()
         {
-            return Mathf.RoundToInt(_weaponStats[_weaponType] * _currentDamage);
+            return Mathf.RoundToInt(_weapon.WeaponDamage * _currentDamage);
         }
 
         private void HandleMeleeStandardAttack(int damage, Transform targetEnemy)
@@ -204,21 +211,29 @@ namespace Tower
 
             var enemies = GetAoeEnemies(_transform);
             var direction = (targetEnemy.position - transform.position).normalized;
-            _animator.transform.forward = direction;
-            _animator.SetTrigger("Melee");
+            var angle = new Vector3(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
+
+            if (_animator != null)
+            {
+                _animator.transform.rotation = Quaternion.Euler(angle);
+                _animator.SetTrigger("Melee");
+            }
 
             AoeHit.Invoke(enemies, damage, _weaponType);
         }
 
         private void HandleRangedStandardAttack(int damage, Transform targetEnemy)
         {
-            // Instantiate Projectile
-            var projectile = Instantiate(_projectilePrefab);
-            
-            projectile.GetComponent<SpriteRenderer>().sprite = _weapon.Sprite;
-            
+            var projectile = Instantiate(_projectilePrefab, _transform.position, Quaternion.identity);
+
+            var direction = (targetEnemy.position - transform.position).normalized;
+            var angle = new Vector3(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
+
+            projectile.transform.rotation = Quaternion.Euler(angle);
+            projectile.GetComponent<SpriteRenderer>().sprite = _weapon.ProjectileSprite;
+
             projectile.transform
-                .DOMove(targetEnemy.position, 0.1f)
+                .DOMove(targetEnemy.position, 0.15f)
                 .SetEase(Ease.OutExpo)
                 .OnComplete(() =>
                 {
@@ -226,18 +241,30 @@ namespace Tower
                     if (_aoeRadius == 0)
                     {
                         targetEnemy.GetComponent<Enemy>().TakeDamage(damage);
+                        Destroy(projectile);
                         return;
                     }
 
-                    // AOE hit
                     var enemies = GetAoeEnemies(targetEnemy);
-
-                    // Trigger animation in target enemy animator
                     targetEnemy.GetComponentInChildren<Animator>().SetTrigger(_weaponType.ToString());
-
-                    // Enemy Damage
                     AoeHit.Invoke(enemies, damage, _weaponType);
+
+                    Destroy(projectile);
                 });
+        }
+
+        private IEnumerator HandleRubyStaffAttack(int damage, Transform targetEnemy)
+        {
+            var direction = (targetEnemy.position - transform.position).normalized;
+            var towerPos = _transform.position;
+
+            for (var i = 0; i < 9; i++)
+            {
+                var position = new Vector2(towerPos.x + direction.x * i / 1.5f, towerPos.y + direction.y * i / 1.5f);
+                var fire = Instantiate(_rubyFirePrefab, position, Quaternion.identity).GetComponent<RubyStaffFire>();
+                fire.Initialize(damage);
+                yield return new WaitForSeconds(0.1f);
+            }
         }
     }
 }
