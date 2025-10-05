@@ -500,8 +500,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 15201bf9b1b364e4da0c11c8ef4f5cdf, type: 2}
-  m_sharedMaterial: {fileID: -8555946764304407439, guid: 15201bf9b1b364e4da0c11c8ef4f5cdf, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1562,8 +1562,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Continue (LMB or F)
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 15201bf9b1b364e4da0c11c8ef4f5cdf, type: 2}
-  m_sharedMaterial: {fileID: -8555946764304407439, guid: 15201bf9b1b364e4da0c11c8ef4f5cdf, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2453,8 +2453,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Close (F)
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 15201bf9b1b364e4da0c11c8ef4f5cdf, type: 2}
-  m_sharedMaterial: {fileID: -8555946764304407439, guid: 15201bf9b1b364e4da0c11c8ef4f5cdf, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2741,8 +2741,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 15201bf9b1b364e4da0c11c8ef4f5cdf, type: 2}
-  m_sharedMaterial: {fileID: -8555946764304407439, guid: 15201bf9b1b364e4da0c11c8ef4f5cdf, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2846,7 +2846,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 3, y: 0}
+  m_AnchoredPosition: {x: -4, y: -4}
   m_SizeDelta: {x: 20, y: -17}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &1343841921186110040
@@ -2930,8 +2930,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2173045041030124941}
   m_HandleRect: {fileID: 5155583813887768062}
   m_Direction: 2
-  m_Value: 1.0000004
-  m_Size: 0.37551194
+  m_Value: 1.0000002
+  m_Size: 0.4151376
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -3675,9 +3675,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -4.5296, y: 300.9177}
-  m_SizeDelta: {x: 529.9, y: 361.8868}
-  m_Pivot: {x: 0.45, y: 0.5}
+  m_AnchoredPosition: {x: 6.3312645, y: 341.31555}
+  m_SizeDelta: {x: 505.95, y: 335.0285}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7460625822177070280
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3699,7 +3699,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0.4792453, g: 0.020797385, b: 0.020797385, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3811,7 +3811,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -7576168055607655788, guid: f798a7cfcd867e547a39730496a55ed5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4279,8 +4279,8 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 15201bf9b1b364e4da0c11c8ef4f5cdf, type: 2}
-  m_sharedMaterial: {fileID: -8555946764304407439, guid: 15201bf9b1b364e4da0c11c8ef4f5cdf, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4684,8 +4684,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -665.99, y: -5.8227}
-  m_SizeDelta: {x: 485.9731, y: 963.7158}
+  m_AnchoredPosition: {x: -686.9392, y: 0.34631348}
+  m_SizeDelta: {x: 546.12, y: 1080.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5775201610682668238
 CanvasRenderer:
@@ -4708,14 +4708,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3735848, g: 0.21583973, b: 0.18538263, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 3300596019201047825, guid: 1776880fee1c09543aaaa065d2c44e50, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5296,10 +5296,10 @@ RectTransform:
   - {fileID: 5697067387956420035}
   m_Father: {fileID: 7234291208550249681}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -16.160828, y: -300.9147}
-  m_SizeDelta: {x: 496.7408, y: 601.829}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 244.475, y: -236.0009}
+  m_SizeDelta: {x: 479.3197, y: 807.03}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &8263319202288417698
 CanvasRenderer:
@@ -5354,13 +5354,13 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: 0
+    m_Top: 2
     m_Bottom: 0
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 115, y: 115}
-  m_Spacing: {x: 7.5, y: 7.5}
+  m_CellSize: {x: 100, y: 100}
+  m_Spacing: {x: 15, y: 15}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!1 &8355337047677781033
