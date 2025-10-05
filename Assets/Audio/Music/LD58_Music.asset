@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b978f1f392df997418fec5385b5c9b51, type: 3}
+  m_Name: LD58_Music
+  m_EditorClassIdentifier: com.Marvin.AudioSystem::Marvin.AudioSystem.MusicListObj
+  songs:
+  - {fileID: 11400000, guid: b60f8c4ec81db214ca25e51c64c0772c, type: 2}
+  - {fileID: 11400000, guid: b60f8c4ec81db214ca25e51c64c0772c, type: 2}
