@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
@@ -19,6 +20,7 @@ namespace Tower
         [SerializeField] private float _baseRange;
         
         [SerializeField] private GameObject _projectilePrefab;
+        [SerializeField] private GameObject _rubyFirePrefab;
 
         private float _aoeRadius;
         private float _currentCooldown;
@@ -144,10 +146,11 @@ namespace Tower
                 case WeaponType.Club:
                 case WeaponType.Dagger:
                 case WeaponType.Sword:
+                case WeaponType.CrystalStaff:
                     HandleMeleeStandardAttack(damage, enemy);
                     break;
-                case WeaponType.CrystalStaff:
                 case WeaponType.RubyStaff:
+                    StartCoroutine(HandleRubyStaffAttack(damage, enemy));
                     break;
             }
 
@@ -204,7 +207,8 @@ namespace Tower
 
             var enemies = GetAoeEnemies(_transform);
             var direction = (targetEnemy.position - transform.position).normalized;
-            _animator.transform.forward = direction;
+            var angle = new Vector3(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
+            _animator.transform.rotation = Quaternion.Euler(angle);
             _animator.SetTrigger("Melee");
 
             AoeHit.Invoke(enemies, damage, _weaponType);
@@ -212,13 +216,16 @@ namespace Tower
 
         private void HandleRangedStandardAttack(int damage, Transform targetEnemy)
         {
-            // Instantiate Projectile
-            var projectile = Instantiate(_projectilePrefab);
+            var projectile = Instantiate(_projectilePrefab, _transform.position, Quaternion.identity);
             
-            projectile.GetComponent<SpriteRenderer>().sprite = _weapon.Sprite;
+            var direction = (targetEnemy.position - transform.position).normalized;
+            var angle = new Vector3(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
+            
+            projectile.transform.rotation = Quaternion.Euler(angle);
+            projectile.GetComponent<SpriteRenderer>().sprite = _weapon.ProjectileSprite;
             
             projectile.transform
-                .DOMove(targetEnemy.position, 0.1f)
+                .DOMove(targetEnemy.position, 0.15f)
                 .SetEase(Ease.OutExpo)
                 .OnComplete(() =>
                 {
@@ -226,18 +233,32 @@ namespace Tower
                     if (_aoeRadius == 0)
                     {
                         targetEnemy.GetComponent<Enemy>().TakeDamage(damage);
+                        Destroy(projectile);
                         return;
                     }
-
-                    // AOE hit
+                    
                     var enemies = GetAoeEnemies(targetEnemy);
-
-                    // Trigger animation in target enemy animator
                     targetEnemy.GetComponentInChildren<Animator>().SetTrigger(_weaponType.ToString());
-
-                    // Enemy Damage
                     AoeHit.Invoke(enemies, damage, _weaponType);
+                    
+                    Destroy(projectile);
                 });
         }
+
+        private IEnumerator HandleRubyStaffAttack(int damage, Transform targetEnemy)
+        {
+            var direction = (targetEnemy.position - transform.position).normalized;
+            var towerPos = _transform.position;
+
+            for (var i = 0; i < 9; i++)
+            {
+                var position = new Vector2(towerPos.x + direction.x * i/1.5f, towerPos.y + direction.y * i/1.5f);
+                var fire = Instantiate(_rubyFirePrefab, position, Quaternion.identity).GetComponent<RubyStaffFire>();
+                fire.Initialize(damage);
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
+        
+       
     }
 }
