@@ -11,12 +11,11 @@ namespace Tower
         public string Description { get; private set; }
 
         [field: SerializeField] public BodyPart Part { get; private set; }
+        [field: SerializeField] public BodyType Type { get; private set; } = BodyType.Default;
         [field: SerializeField] public float AttackSpeedModifier { get; private set; }
         [field: SerializeField] public float DamageModifier { get; private set; }
         [field: SerializeField] public float RangeModifier { get; private set; }
-
-
-
+        
         [field: SerializeField, Tooltip("The UI Sprite to use.")]
         public Sprite Sprite { get; private set; }
 
