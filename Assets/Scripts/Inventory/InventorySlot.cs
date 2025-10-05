@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour
 {
-    [SerializeField] private int slotAmount;
+    public int slotAmount;
     [SerializeField] private TextMeshProUGUI amountText;
     private Image inventoryImage;
 
