@@ -24,6 +24,10 @@ public class Enemy : MonoBehaviour, IPoolingList
     [SerializeField] private int maxHealth;
 
 
+    //Desi
+    private EnemyDrop itemDropper;
+
+
     public PoolingSystem.PoolObjectInfo poolingList { get; set; }
 
     public int Value
@@ -48,6 +52,10 @@ public class Enemy : MonoBehaviour, IPoolingList
     {
         levelManager = LevelManager.Instance;
         maxWayPoints = levelManager.enemyWayPoints.Length;
+
+        //Desi
+        itemDropper = GetComponent<EnemyDrop>();
+
     }
     private void OnEnable()
     {
@@ -108,7 +116,18 @@ public class Enemy : MonoBehaviour, IPoolingList
     }
     private void OnDeath()
     {
+        //Desi
+        Debug.Log("OnDeath wurde aufgerufen!");
+
+        if (itemDropper != null)
+        {
+            itemDropper.DropItems(transform.position);
+        }
+        //DesiDONE
+
         enemyHasDied?.Invoke();
         PoolingSystem.ReturnObjectToPool(gameObject, poolingList);
+
+
     }
 }
