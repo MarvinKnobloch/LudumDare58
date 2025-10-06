@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bc1c5ac6bdc4f0a9f145e7dd4ae5231, type: 3}
-  m_Name: "Kl\xF6cklerTower"
+  m_Name: "Kl\xF6pplerTower"
   m_EditorClassIdentifier: Assembly-CSharp::Tower.TowerRecipe
-  towerName: "Kl\xF6ckler Tower"
+  towerName: "Kl\xF6ppler Tower"
   towerIcon: {fileID: 3300596019201047825, guid: 1776880fee1c09543aaaa065d2c44e50, type: 3}
   Recipe:
   - {fileID: 11400000, guid: ffa98979471840948bdb9cde1e964717, type: 2}

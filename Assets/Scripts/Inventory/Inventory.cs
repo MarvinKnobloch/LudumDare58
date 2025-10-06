@@ -43,7 +43,6 @@ public class Inventory : MonoBehaviour
     {
         if (resources.ContainsKey(bodyObject) == false)
         {
-            int test = GetEmptySlot();
             resources.Add(bodyObject, new InventoryInfo()
             {
                 slotPosition = GetEmptySlot(),
@@ -65,7 +64,11 @@ public class Inventory : MonoBehaviour
     {
         for(int i = 0;i < slots.Count; i++)
         {
-            if (slots[i].slotAmount == 0) return i;
+            if (slots[i].slotIsFull == false)
+            {
+                slots[i].slotIsFull = true;
+                return i;
+            }
         }
         Debug.Log("No more empty slots");
         CreateNewSlot();

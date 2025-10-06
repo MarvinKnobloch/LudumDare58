@@ -8,6 +8,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 {
     [HideInInspector] public Inventory inventory;
     public int slotAmount;
+    public bool slotIsFull;
     public BodyObject bodyObject;
 
 
