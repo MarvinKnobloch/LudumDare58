@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour, IPoolingList
     private int currentWayPoint;
     private int maxWayPoints;
     private LevelManager levelManager;
+    private bool faceRight;
 
     [SerializeField] private float movementSpeed;
     [SerializeField] private int baseHealth;
@@ -87,6 +88,7 @@ public class Enemy : MonoBehaviour, IPoolingList
         if (currentWayPoint < maxWayPoints)
         {
             targetPosition = levelManager.GetWayPoint(currentWayPoint);
+            CheckRotation();
             currentWayPoint++;
         }
         else
@@ -94,6 +96,19 @@ public class Enemy : MonoBehaviour, IPoolingList
             Player.Instance.TakeDamage(damageToPlayer);
             Despawn();
         }
+    }
+    public void CheckRotation()
+    {
+        if (transform.position.x < levelManager.GetWayPoint(currentWayPoint).x && faceRight == true) flip();
+        if (transform.position.x > levelManager.GetWayPoint(currentWayPoint).x && faceRight == false) flip();
+    }
+    private void flip()
+    {
+        faceRight = !faceRight;
+        Vector3 localScale;
+        localScale = transform.localScale;
+        localScale.x *= -1;
+        transform.localScale = localScale;
     }
     public void SetMaxHealth(float scaling)
     {

@@ -54,6 +54,10 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   levels:
   - {fileID: 11400000, guid: aa014166a5f4ccd4085617cb86cedc10, type: 2}
   - {fileID: 11400000, guid: 6f651012539d3c74f9ec14900f415570, type: 2}
