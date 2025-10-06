@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth;
-        UpdateSouls(defaultTowerCosts);
+        UpdateSouls(currentSouls);
     }
 
     public void TakeDamage(int amount)
@@ -52,6 +52,7 @@ public class Player : MonoBehaviour
     {
         UpdateSouls(-defaultTowerCosts);
     }
+    public int GetCurrentSouls() => currentSouls;
     public int GetTowerCosts() => defaultTowerCosts;
 
     public int GetAccessoiresCosts() => accessoiresSlotCosts;

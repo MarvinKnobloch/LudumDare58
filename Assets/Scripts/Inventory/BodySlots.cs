@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class BodySlots : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public BodyPart bodyPart;
+    public GameObject unlockObj;
     [SerializeField] private Sprite noItemImage;
 
     [Space]

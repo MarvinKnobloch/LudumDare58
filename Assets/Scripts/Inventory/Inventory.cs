@@ -39,6 +39,13 @@ public class Inventory : MonoBehaviour
         bodySlotsUI.SetActive(false);
         successPercantageText.transform.parent.gameObject.SetActive(false);
     }
+    private void Start()
+    {
+        accessoiresSlot.unlockObj.GetComponentInChildren<TextMeshProUGUI>().text = Player.Instance.GetAccessoiresCosts().ToString();
+        headSlot.unlockObj.GetComponentInChildren<TextMeshProUGUI>().text = Player.Instance.GetHeadCosts().ToString();
+        armsSlot.unlockObj.GetComponentInChildren<TextMeshProUGUI>().text = Player.Instance.GetArmsCosts().ToString();
+        bodySlot.unlockObj.GetComponentInChildren<TextMeshProUGUI>().text = Player.Instance.GetBodyCosts().ToString();
+    }
 
     public void AddResource(BodyObject bodyObject, int amount)
     {
@@ -91,16 +98,23 @@ public class Inventory : MonoBehaviour
             SetSlots(headSlot, currentSelectedTower.head);
             SetSlots(armsSlot, currentSelectedTower.arms);
             SetSlots(bodySlot, currentSelectedTower.body);
+
             SetSlots(weaponSlot, currentSelectedTower.weapon);
+            weaponSlot.gameObject.SetActive(true);
         }
         else
         {
             if (currentSelectedTower.accessoiresSlotUnlocked) SetSlots(accessoiresSlot, currentSelectedTower.accessoires);
+            else SetLockedState(accessoiresSlot);
             if (currentSelectedTower.headSlotUnlocked) SetSlots(headSlot, currentSelectedTower.head);
+            else SetLockedState(headSlot);
             if (currentSelectedTower.armsSlotUnlocked) SetSlots(armsSlot, currentSelectedTower.arms);
+            else SetLockedState(armsSlot);
             if (currentSelectedTower.bodySlotUnlocked) SetSlots(bodySlot, currentSelectedTower.body);
+            else SetLockedState(bodySlot);
 
-            SetSlots(weaponSlot, null);
+            SetLockedState(weaponSlot);
+            weaponSlot.gameObject.SetActive(false);
         }
 
 
@@ -112,6 +126,9 @@ public class Inventory : MonoBehaviour
     }
     private void SetSlots(BodySlots bodySlots , BodyObject bodyObject)
     {
+        bodySlots.unlockObj.SetActive(false);
+        bodySlots.enabled = true;
+
         if (bodyObject != null)
         {
             bodySlots.UpdateSlot(bodyObject);
@@ -121,6 +138,48 @@ public class Inventory : MonoBehaviour
             bodySlots.ClearSlot();
         }
     }
+    private void SetLockedState(BodySlots bodySlots)
+    {
+        bodySlots.unlockObj.SetActive(true);
+        bodySlots.enabled = false;
+        bodySlots.ClearSlot();
+    }
+    public void UnlockSlot(BodySlots bodySlot)
+    {
+        int currentSouls = Player.Instance.GetCurrentSouls();
+        int costs = 0;
+
+        switch (bodySlot.bodyPart)
+        {
+            case BodyPart.Accessory:
+                costs = Player.Instance.GetAccessoiresCosts();
+                if (currentSouls < costs) return;
+                currentSelectedTower.accessoiresSlotUnlocked = true;
+                break;
+            case BodyPart.Head:
+                costs = Player.Instance.GetHeadCosts();
+                if (currentSouls < costs) return;
+                currentSelectedTower.headSlotUnlocked = true;
+                break;
+            case BodyPart.Arm:
+                costs = Player.Instance.GetArmsCosts();
+                if (currentSouls < costs) return;
+                currentSelectedTower.armsSlotUnlocked = true;
+                break;
+            case BodyPart.Torso:
+                costs = Player.Instance.GetBodyCosts();
+                if (currentSouls < costs) return;
+                currentSelectedTower.bodySlotUnlocked = true;
+                break;
+            case BodyPart.Weapon:
+                break;
+        }
+
+        bodySlot.unlockObj.SetActive(false);
+        bodySlot.enabled = true;
+        Player.Instance.UpdateSouls(-costs);
+    }
+
     public void SetRangeIndicator()
     {
         rangeIndicator.gameObject.transform.position = currentSelectedTower.gameObject.transform.position;
