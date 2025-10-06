@@ -8,7 +8,7 @@ public class TowerButton : MonoBehaviour
     private GameObject towerPreview;
     
 
-    private void Awake()
+    private void Start()
     {
         towerPreview = Instantiate(DefaultTowerPreview, transform.position, Quaternion.identity);
         towerPreview.SetActive(false);

@@ -9,6 +9,6 @@ public class WorldItem : MonoBehaviour
     private void OnDrawGizmos()
     {
         if (itemInformationen != null)
-            gameObject.name = "WorldItem_" + itemInformationen.Name;
+            gameObject.name = itemInformationen.Name + "_WorldItem";
     }
 }
