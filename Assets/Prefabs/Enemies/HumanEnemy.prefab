@@ -162,4 +162,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemDropper
   itemPrefabs:
   - {fileID: 1447422381575381651, guid: 857316b64c442494a809189ed34dd190, type: 3}
+  - {fileID: 8528078405184565660, guid: c75468285786f8743b77e20d1af40145, type: 3}
+  - {fileID: 9057325997660116790, guid: fc7c02c31d38fe441902eb2d1d199932, type: 3}
+  - {fileID: 7885124235534674744, guid: 06e26d8fcac0a5546b34bec2c72f9173, type: 3}
   dropAmounts: 01000000
+  scatterRadius: 8
+  addForce: 1

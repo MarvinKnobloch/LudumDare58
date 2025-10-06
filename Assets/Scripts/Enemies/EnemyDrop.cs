@@ -2,37 +2,48 @@ using UnityEngine;
 
 public class EnemyDrop : MonoBehaviour
 {
-    [SerializeField] private GameObject[] itemPrefabs;
-    [SerializeField] private int[] dropAmounts;
+    [SerializeField] private DropValues[] dropValues;
+    [SerializeField] private float scatterRadius = 8f;  
+    [SerializeField] private bool addForce = true;
 
     public void DropItems(Vector3 position)
     {
-        // Gehe durch alle möglichen Items in der Liste
-        for (int i = 0; i < itemPrefabs.Length; i++)
+        for (int i = 0; i < dropValues.Length; i++)
         {
-            if (itemPrefabs[i] == null)
-            {
+            if (dropValues[i].item == null)
                 continue;
-            }
 
-            int amountToDrop;
-
-            if (i < dropAmounts.Length)
-            {
-                amountToDrop = dropAmounts[i];
-            }
-            else
-            {
-                amountToDrop = 1;
-            }
+            int amountToDrop = (i < dropValues.Length) ? dropValues[i].amount : 1;
 
             for (int j = 0; j < amountToDrop; j++)
             {
-                GameObject item = Instantiate(itemPrefabs[i], position, Quaternion.identity);
+                Vector2 randomDirection = Random.insideUnitCircle.normalized * Random.Range(3f, scatterRadius);
+                Vector3 dropPosition = position + new Vector3(randomDirection.x, randomDirection.y, 0f);
 
-                // Sicherstellen, dass das Item vorne (Z= -1 oder -2) sichtbar ist
-                item.transform.position = new Vector3(position.x, position.y, -2f);
+                GameObject drop = Instantiate(dropValues[i].item, dropPosition, Quaternion.identity);
+
+                if (addForce)
+                {
+                    Rigidbody2D rb = drop.GetComponent<Rigidbody2D>();
+                    if (rb != null)
+                    {
+                        Vector2 randomForce = randomDirection * Random.Range(8f, 16f);
+                        rb.AddForce(randomForce, ForceMode2D.Impulse);
+                    }
+                }
             }
         }
     }
 }
+
+
+[System.Serializable]
+public class DropValues
+{
+    public GameObject item;   
+    
+    public float dropChance;  
+
+    public int amount;        
+}
+

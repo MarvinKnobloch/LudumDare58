@@ -5,6 +5,8 @@ public class EnemyClickHandler : MonoBehaviour
 {
     private Camera mainCam;
 
+
+
     private void Awake()
     {
         mainCam = Camera.main;
@@ -17,7 +19,7 @@ public class EnemyClickHandler : MonoBehaviour
             Vector2 mousePos = mainCam.ScreenToWorldPoint(Mouse.current.position.ReadValue());
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
 
-            if (hit.collider != null)
+            if (hit.collider != null && hit.collider.GetComponent<EnemyDrop>() != null)
             {
                 Enemy enemyScript = hit.collider.GetComponent<Enemy>();
                 if (enemyScript != null)

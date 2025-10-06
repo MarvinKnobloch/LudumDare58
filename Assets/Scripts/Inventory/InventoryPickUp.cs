@@ -21,9 +21,9 @@ public class InventoryPickUp : MonoBehaviour
             Vector2 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
             RaycastHit2D hit = Physics2D.Raycast(mousePos, Vector2.zero);
 
-            if (hit.collider != null)
+            if (hit.collider != null && hit.collider.GetComponent<InventoryPickUp>() != null)
             {
-                Debug.Log("Wirde angeklickt");
+                Debug.Log("Wurde angeklickt");
                 inventory.AddResource(ItemInformation, amount);
 
 
