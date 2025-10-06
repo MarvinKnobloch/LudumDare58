@@ -26,13 +26,9 @@ public class BodySlots : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     {
         IngameController.Instance.playerUI.inventory.currentBodySlots = null;
     }
-    public void TowerUpdate(TowerBase towerBase, BodyObject obj)
+    public void SlotUpdate(BodyObject obj)
     {
-        towerBase.OnBodyPartEquipped(towerBase, obj);
-
         UpdateSlot(obj);
-    
-        //reduce souls
     }
     public void UpdateSlot(BodyObject obj)
     {

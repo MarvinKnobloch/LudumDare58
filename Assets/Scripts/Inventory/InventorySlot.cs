@@ -14,6 +14,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     [SerializeField] private TextMeshProUGUI amountText;
     private Image inventoryImage;
 
+    private Image dragImage;
 
     private void Awake()
     {
@@ -44,14 +45,29 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         if (slotAmount == 0 || bodyObject == null) return;
 
         inventory.dragImage.SetActive(true);
-        inventory.dragImage.GetComponent<Image>().sprite = bodyObject.Sprite;
+
+        if (dragImage == null) dragImage = inventory.dragImage.GetComponent<Image>();
+        dragImage.sprite = bodyObject.Sprite;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         if (slotAmount == 0 || bodyObject == null) return;
 
-        inventory.dragImage.transform.position = eventData.position;
+        if (inventory.currentBodySlots == null) dragImage.color = Color.red;
+        else
+        {
+            if (inventory.currentBodySlots.bodyPart == bodyObject.Part)
+            {
+                dragImage.color = Color.green;
+            }
+            else
+            {
+                dragImage.color = Color.red;
+            }
+        }
+
+        dragImage.gameObject.transform.position = eventData.position;
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -62,9 +78,10 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         {
             if (inventory.currentBodySlots.bodyPart == bodyObject.Part)
             {
-                //SetValues(-1, bodyObject.Sprite);
                 inventory.AddResource(bodyObject, -1);
-                inventory.currentBodySlots.TowerUpdate(inventory.currentSelectedTower, bodyObject);
+                inventory.currentSelectedTower.OnBodyPartEquipped(inventory.currentSelectedTower, bodyObject);
+                inventory.currentBodySlots.SlotUpdate(bodyObject);
+                //reduce souls
                 inventory.rangeIndicator.DrawCircle(inventory.currentSelectedTower._currentRange);
             }
         }

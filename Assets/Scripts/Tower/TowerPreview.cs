@@ -39,11 +39,13 @@ public class TowerPreview : MonoBehaviour
         if (controls.Player.Confirm.WasPerformedThisFrame())
         {
             BuildCheck();
-            if (canBuild == true)
+            if (canBuild == true && Player.Instance.CheckForTowerCosts() == true)
             {
-                //CheckForResources
-                Debug.Log("Check for Souls");
                 Instantiate(towerToBuild,transform.root.position, Quaternion.identity);
+                Player.Instance.BuyTower();
+
+                //after BuildingTower
+                if(Player.Instance.CheckForTowerCosts() == false) transform.root.gameObject.SetActive(false);
                 BuildCheck();
             }
         }

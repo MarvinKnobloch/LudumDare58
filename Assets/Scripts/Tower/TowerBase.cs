@@ -164,7 +164,6 @@ namespace Tower
             switch (_weaponType)
             {
                 case WeaponType.None:
-                    Debug.Log("Attack");
                     HandleRangedStandardAttack(damage, enemy);
                     break;
                 case WeaponType.Boulder:

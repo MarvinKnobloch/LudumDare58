@@ -59,8 +59,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6f651012539d3c74f9ec14900f415570, type: 2}
   timeOnGameStart: 1
   timeBetweenLevels: 1
-  useButtonToStartRound: 0
-  startLevelButton: {fileID: 0}
+  useButtonToStartRound: 1
   enemiesAlive: 0
   activeSpawners: 0
   levelToDisplay: 0

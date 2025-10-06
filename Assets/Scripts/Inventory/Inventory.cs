@@ -56,8 +56,6 @@ public class Inventory : MonoBehaviour
 
             slots[resources[bodyObject].slotPosition].SetValues(amount, bodyObject.Sprite);
         }
-
-        Debug.Log($"Added {amount} {bodyObject} to inventory. Total: {resources[bodyObject]}");
     }
     private int GetEmptySlot()
     {

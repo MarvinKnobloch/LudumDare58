@@ -24,7 +24,11 @@ public class Enemy : MonoBehaviour, IPoolingList
     [SerializeField] private int maxHealth;
 
 
-    //Desi
+    [Header("Other")]
+    [SerializeField] private int damageToPlayer;
+    [SerializeField] private int soulsDrop;
+
+    [Header("Drops")]
     private EnemyDrop itemDropper;
 
 
@@ -87,6 +91,7 @@ public class Enemy : MonoBehaviour, IPoolingList
         }
         else
         {
+            Player.Instance.TakeDamage(damageToPlayer);
             Despawn();
         }
     }
@@ -124,6 +129,7 @@ public class Enemy : MonoBehaviour, IPoolingList
             itemDropper.DropItems(transform.position);
         }
         //DesiDONE
+        Player.Instance.UpdateSouls(soulsDrop);
         Despawn();
     }
     private void Despawn()

@@ -16,7 +16,7 @@ public class LevelManager : MonoBehaviour, IPoolingList
     [SerializeField] private float timeBetweenLevels;
     [Space]
     [SerializeField] private bool useButtonToStartRound;
-    [SerializeField] private GameObject startLevelButton;
+    private GameObject startLevelButton;
 
     [HideInInspector] public int currentLevel { get; private set; }
     private TextMeshProUGUI levelTimerText;
@@ -45,10 +45,13 @@ public class LevelManager : MonoBehaviour, IPoolingList
     }
     private void Start()
     {
+        startLevelButton = IngameController.Instance.playerUI.startNextLevelButton;
+
         if (IngameController.Instance.playerUI != null)
         {
             //levelTimerText = PlayerUI.Instance.levelTimer.GetComponentInChildren<TextMeshProUGUI>();
         }
+
         if (useButtonToStartRound)
         {
             startLevelButton.SetActive(true);
@@ -125,7 +128,11 @@ public class LevelManager : MonoBehaviour, IPoolingList
             levelToDisplay = currentLevel + 1;
             if (currentLevel < levels.Length)
             {
-                StartCoroutine(WaitForNextRound(timeBetweenLevels));
+                if (useButtonToStartRound && startLevelButton != null) startLevelButton.SetActive(true);
+                else
+                {
+                    StartCoroutine(WaitForNextRound(timeBetweenLevels));
+                }
             }
             else
             {
