@@ -99,12 +99,13 @@ public class LevelManager : MonoBehaviour, IPoolingList
             for (int i = 0; i < levels[currentLevel].levelEnemyValues.Length; i++)
             {
                 activeSpawners++;
-                StartCoroutine(StartEnemySpawn(levels[currentLevel].levelEnemyValues[i]));
+                StartCoroutine(StartEnemySpawn(levels[currentLevel].levelEnemyValues[i], levels[currentLevel].levelEnemyValues[i].waveStartDelay));
             }
         }
     }
-    private IEnumerator StartEnemySpawn(LevelEnemyValues enemyObj)
+    private IEnumerator StartEnemySpawn(LevelEnemyValues enemyObj, float waveStartDelay)
     {
+        yield return new WaitForSeconds(waveStartDelay);
         int amount = 0;
 
         while (amount < enemyObj.amount)

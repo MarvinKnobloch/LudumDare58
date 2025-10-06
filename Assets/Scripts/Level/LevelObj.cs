@@ -14,5 +14,6 @@ public struct LevelEnemyValues
     public GameObject enemy;
     public int amount;
     public float spawnRate;
+    public float waveStartDelay;
     public float healthScaling;
 }
