@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using TMPro;
 using Tower;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -84,11 +85,25 @@ public class Inventory : MonoBehaviour
     public void SetCurrentTower(TowerBase tower)
     {
         currentSelectedTower = tower;
-        SetSlots(accessoiresSlot, currentSelectedTower.accessoires);
-        SetSlots(headSlot, currentSelectedTower.head);
-        SetSlots(armsSlot, currentSelectedTower.arms);
-        SetSlots(bodySlot, currentSelectedTower.body);
-        SetSlots(weaponSlot, currentSelectedTower.weapon);
+        if (currentSelectedTower.isRecipeTower == false)
+        {
+            SetSlots(accessoiresSlot, currentSelectedTower.accessoires);
+            SetSlots(headSlot, currentSelectedTower.head);
+            SetSlots(armsSlot, currentSelectedTower.arms);
+            SetSlots(bodySlot, currentSelectedTower.body);
+            SetSlots(weaponSlot, currentSelectedTower.weapon);
+        }
+        else
+        {
+            if (currentSelectedTower.accessoiresSlotUnlocked) SetSlots(accessoiresSlot, currentSelectedTower.accessoires);
+            if (currentSelectedTower.headSlotUnlocked) SetSlots(headSlot, currentSelectedTower.head);
+            if (currentSelectedTower.armsSlotUnlocked) SetSlots(armsSlot, currentSelectedTower.arms);
+            if (currentSelectedTower.bodySlotUnlocked) SetSlots(bodySlot, currentSelectedTower.body);
+
+            SetSlots(weaponSlot, null);
+        }
+
+
 
         SetRangeIndicator();
         SetSuccessText();
@@ -114,8 +129,12 @@ public class Inventory : MonoBehaviour
     }
     public void SetSuccessText()
     {
-        successPercantageText.transform.parent.gameObject.SetActive(true);
-        successPercantageText.text = "<color=green>" + currentSelectedTower.recipeMatchPercent + "</color>%";
+        if (currentSelectedTower.isRecipeTower) successPercantageText.transform.parent.gameObject.SetActive(false);
+        else
+        {
+            successPercantageText.transform.parent.gameObject.SetActive(true);
+            successPercantageText.text = "<color=green>" + currentSelectedTower.recipeMatchPercent + "</color>%";
+        }
     }
 
     [Serializable]

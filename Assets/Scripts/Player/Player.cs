@@ -1,8 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Tower;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -14,6 +11,12 @@ public class Player : MonoBehaviour
     [SerializeField] private int currentSouls;
     [SerializeField] private int defaultTowerCosts;
     public TowerRecipe[] towerRecipes;
+
+    [Header("Slots")]
+    [SerializeField] private int accessoiresSlotCosts;
+    [SerializeField] private int headSlotCosts;
+    [SerializeField] private int armSlotCosts;
+    [SerializeField] private int bodySlotCosts;
 
     [NonSerialized] public Controls controls;
 
@@ -50,4 +53,9 @@ public class Player : MonoBehaviour
         UpdateSouls(-defaultTowerCosts);
     }
     public int GetTowerCosts() => defaultTowerCosts;
-}
+
+    public int GetAccessoiresCosts() => accessoiresSlotCosts;
+    public int GetArmsCosts() => armSlotCosts;
+    public int GetHeadCosts() => headSlotCosts;
+    public int GetBodyCosts() => bodySlotCosts;
+  }

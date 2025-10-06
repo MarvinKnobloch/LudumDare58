@@ -15,6 +15,7 @@ namespace Tower
         public static UnityEvent<TowerBase, BodyObject> BodyPartUnequipped { get; } = new();
         public static UnityEvent<List<Enemy>, int, WeaponType> AoeHit { get; } = new();
 
+
         [SerializeField] private TowerValues towerValues;
 
         [SerializeField] private GameObject _projectilePrefab;
@@ -34,6 +35,7 @@ namespace Tower
         private float attackTimer;
         private Animator _animator;
         private Transform currentTarget;
+        public bool isRecipeTower { get; private set; }
 
         [Space]
         public BodyObject accessoires;
@@ -41,6 +43,11 @@ namespace Tower
         public BodyObject arms;
         public BodyObject body;
         public BodyObject weapon;
+
+        public bool accessoiresSlotUnlocked;
+        public bool headSlotUnlocked;
+        public bool armsSlotUnlocked;
+        public bool bodySlotUnlocked;
 
         public List<BodyObject> EquippedBodyObjects = new();
 
@@ -137,6 +144,7 @@ namespace Tower
         }
         public void CheckForRecipe()
         {
+            if (isRecipeTower) return;
             // Find best recipe match
             int bestMatchPercent = 0;
             foreach (TowerRecipe recipe in Player.Instance.towerRecipes)
@@ -147,8 +155,9 @@ namespace Tower
                 Debug.Log(count);
                 if (count == recipe.Recipe.Count)
                 {
-                    GameObject obj = Instantiate(recipe.recipeTowerPrefab, transform.position, Quaternion.identity);
-                    IngameController.Instance.playerUI.inventory.SetCurrentTower(obj.GetComponentInChildren<TowerBase>());
+                    TowerBase newTower = Instantiate(recipe.recipeTowerPrefab, transform.position, Quaternion.identity).GetComponentInChildren<TowerBase>();
+                    newTower.isRecipeTower = true;
+                    IngameController.Instance.playerUI.inventory.SetCurrentTower(newTower);
                     Destroy(gameObject);
                 }
 
