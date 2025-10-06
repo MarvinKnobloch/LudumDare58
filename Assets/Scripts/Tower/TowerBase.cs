@@ -15,9 +15,7 @@ namespace Tower
         public static UnityEvent<TowerBase, BodyObject> BodyPartUnequipped { get; } = new();
         public static UnityEvent<List<Enemy>, int, WeaponType> AoeHit { get; } = new();
 
-        [SerializeField] private float baseAttackSpeed = 3;
-        [SerializeField] private float baseDamage = 1;
-        [SerializeField] private float baseRange = 1;
+        [SerializeField] private TowerValues towerValues;
 
         [SerializeField] private GameObject _projectilePrefab;
         [SerializeField] private GameObject _rubyFirePrefab;
@@ -25,13 +23,17 @@ namespace Tower
         [Space]
         [SerializeField] private LayerMask attackLayer;
         [SerializeField] private float _aoeRadius;
-        [SerializeField] private float _currentCooldown;
         [SerializeField] private float _currentDamage;
+        [SerializeField] private float _currentAttackSpeed;
         public float _currentRange;
+        private float attackSpeedCap = 0.1f;
+
         private Transform _transform;
         private WeaponType _weaponType = WeaponType.None;
         private float _timer;
+        private float attackTimer;
         private Animator _animator;
+        private Transform currentTarget;
 
         [Space]
         public BodyObject accessoires;
@@ -41,15 +43,15 @@ namespace Tower
         public BodyObject weapon;
 
         public List<BodyObject> EquippedBodyObjects = new();
-        public List<TowerRecipe> TowerRecipes = new();
-        
-        public float RecipeMatchPercent { get; private set; }
+
+        public int recipeMatchPercent { get; private set; } = 0;
 
         private void Awake()
         {
-            _currentRange = baseRange;
-            _currentDamage = baseDamage;
-            _currentCooldown = baseAttackSpeed;
+            _currentDamage = towerValues.baseDamage;
+            _currentAttackSpeed = towerValues.baseAttackSpeed;
+            CapAttackSpeed();
+            _currentRange = towerValues.baseAttackRange;
             _transform = transform;
             _animator = GetComponentInChildren<Animator>();
 
@@ -63,7 +65,9 @@ namespace Tower
         {
             _timer += Time.deltaTime;
 
-            if (_timer < _currentCooldown) return;
+            if (currentTarget != null) if(currentTarget.gameObject.activeSelf == false) currentTarget = null;
+
+            if (_timer < attackTimer) return;
 
             if (Attack()) _timer = 0;
         }
@@ -107,32 +111,14 @@ namespace Tower
         {
             // Equip Object and adjust stats
 
-            _currentCooldown -= bodyObject.BonusAttackSpeed;
+            _currentAttackSpeed -= bodyObject.BonusAttackSpeed;
             _currentDamage += bodyObject.BonusDamage;
             _currentRange += bodyObject.BonusRange;
             _aoeRadius += bodyObject.BonusAoeRadius;
 
+            CapAttackSpeed();
+
             EquippedBodyObjects.Add(bodyObject);
-
-            // Find best recipe match
-            float bestMatchPercent = 0;
-            foreach (var recipe in TowerRecipes)
-            {
-                var count = EquippedBodyObjects.Count(bo => recipe.Recipe.Contains(bo));
-                var matchPercent = count / (float)recipe.Recipe.Count;
-
-                if (count == recipe.Recipe.Count)
-                {
-                    // ToDo: Recipe Fullfilled - what now?
-                }
-
-                if (matchPercent > bestMatchPercent)
-                {
-                    bestMatchPercent = matchPercent;
-                }
-            }
-
-            RecipeMatchPercent = bestMatchPercent;
         }
 
         private void OnBodyPartUnequipped(TowerBase tower, BodyObject bodyObject)
@@ -141,22 +127,63 @@ namespace Tower
                 return;
 
             EquippedBodyObjects.Remove(bodyObject);
-            _currentCooldown += bodyObject.BonusAttackSpeed;
-            _currentDamage += bodyObject.BonusDamage;
-            _currentRange += bodyObject.BonusRange;
+            _currentAttackSpeed += bodyObject.BonusAttackSpeed;
+            _currentDamage -= bodyObject.BonusDamage;
+            _currentRange -= bodyObject.BonusRange;
 
             _aoeRadius -= bodyObject.BonusAoeRadius;
 
             EquippedBodyObjects.Remove(bodyObject);
         }
+        public void CheckForRecipe()
+        {
+            // Find best recipe match
+            int bestMatchPercent = 0;
+            foreach (TowerRecipe recipe in Player.Instance.towerRecipes)
+            {
+                int count = EquippedBodyObjects.Count(bo => recipe.Recipe.Contains(bo));
+                int matchPercent = Mathf.RoundToInt((count / (float)recipe.Recipe.Count) * 100);
+
+                Debug.Log(count);
+                if (count == recipe.Recipe.Count)
+                {
+                    GameObject obj = Instantiate(recipe.recipeTowerPrefab, transform.position, Quaternion.identity);
+                    IngameController.Instance.playerUI.inventory.SetCurrentTower(obj.GetComponentInChildren<TowerBase>());
+                    Destroy(gameObject);
+                }
+
+                if (matchPercent > bestMatchPercent)
+                {
+                    bestMatchPercent = matchPercent;
+                }
+            }
+            recipeMatchPercent = bestMatchPercent;
+        }
+        private void CapAttackSpeed()
+        {
+            attackTimer = _currentAttackSpeed;
+            if (attackTimer < attackSpeedCap) attackTimer = attackSpeedCap;
+        }
 
         private bool Attack()
         {
-            var enemy = GetClosestEnemy();
+            if(currentTarget == null)
+            {
+                //Check for near targets
+                currentTarget = GetClosestEnemy();
+            }
+            else
+            {
+                //Check if current target is out of range, if yes switch target
+                if (Vector2.Distance(_transform.position, currentTarget.position) > _currentRange)
+                {
+                    currentTarget = GetClosestEnemy();
+                }
+            }
 
-            if (enemy == null) return false;
+            if (currentTarget == null) return false;
 
-            if (Vector2.Distance(_transform.position, enemy.position) > _currentRange) return false;
+            if (Vector2.Distance(_transform.position, currentTarget.position) > _currentRange) return false;
 
             var damage = CalculateDamage();
 
@@ -164,23 +191,23 @@ namespace Tower
             switch (_weaponType)
             {
                 case WeaponType.None:
-                    HandleRangedStandardAttack(damage, enemy);
+                    HandleRangedStandardAttack(damage, currentTarget);
                     break;
                 case WeaponType.Boulder:
                 case WeaponType.Crossbow:
                 case WeaponType.IceStaff:
                 case WeaponType.Scroll:
                 case WeaponType.Stone:
-                    HandleRangedStandardAttack(damage, enemy);
+                    HandleRangedStandardAttack(damage, currentTarget);
                     break;
                 case WeaponType.Club:
                 case WeaponType.Dagger:
                 case WeaponType.Sword:
                 case WeaponType.CrystalStaff:
-                    HandleMeleeStandardAttack(damage, enemy);
+                    HandleMeleeStandardAttack(damage, currentTarget);
                     break;
                 case WeaponType.RubyStaff:
-                    StartCoroutine(HandleRubyStaffAttack(damage, enemy));
+                    StartCoroutine(HandleRubyStaffAttack(damage, currentTarget));
                     break;
             }
 

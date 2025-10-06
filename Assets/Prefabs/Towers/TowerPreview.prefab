@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa6717e3b0a54a14ca0fa42965553525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerCollider
-  towerToBuild: {fileID: 5852628107453491410, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
+  towerToBuild: {fileID: 2677866757682183673, guid: 431c03a080fc56d4abedda0c52c6bf46, type: 3}
   buildLayer:
     serializedVersion: 2
     m_Bits: 3072

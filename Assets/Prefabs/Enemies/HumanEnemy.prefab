@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   movementSpeed: 4
-  baseHealth: 1
+  baseHealth: 4
   armorType: 0
   currentHealth: 0
   maxHealth: 0

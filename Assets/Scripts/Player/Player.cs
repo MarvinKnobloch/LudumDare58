@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Tower;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -11,7 +13,7 @@ public class Player : MonoBehaviour
     [SerializeField] private int currentHealth;
     [SerializeField] private int currentSouls;
     [SerializeField] private int defaultTowerCosts;
-
+    public TowerRecipe[] towerRecipes;
 
     [NonSerialized] public Controls controls;
 

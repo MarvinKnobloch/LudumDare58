@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.060713895, g: 0.5943396, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -195,17 +195,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: abd87de5da7d12dcf962170f5aa0939a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Tower.TowerBase
-  baseAttackSpeed: 1
-  baseDamage: 1
-  baseRange: 3
+  towerValues: {fileID: 0}
   _projectilePrefab: {fileID: 4780432458198478164, guid: 23de8da67dce62a5daae89654ac2efa2, type: 3}
   _rubyFirePrefab: {fileID: 3206756834370009715, guid: 8d978a9ca37fc42daaaf91163405524e, type: 3}
   attackLayer:
     serializedVersion: 2
     m_Bits: 512
   _aoeRadius: 0
-  _currentCooldown: 0
   _currentDamage: 0
+  _currentAttackSpeed: 0
   _currentRange: 0
   accessoires: {fileID: 0}
   head: {fileID: 0}
@@ -213,7 +211,6 @@ MonoBehaviour:
   body: {fileID: 0}
   weapon: {fileID: 0}
   EquippedBodyObjects: []
-  TowerRecipes: []
 --- !u!114 &6012593460756343380
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -277,7 +274,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3588843796145617972}
   m_Layer: 0
-  m_Name: DefaultTowerPrefab
+  m_Name: TowerBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

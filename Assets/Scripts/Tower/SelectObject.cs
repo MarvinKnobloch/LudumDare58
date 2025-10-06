@@ -25,9 +25,6 @@ public class SelectObject : MonoBehaviour
                     }
                     else if (cols[i].TryGetComponent(out TowerBase towerBase))
                     {
-                        rangeIndicator.gameObject.transform.position = towerBase.gameObject.transform.position;
-                        rangeIndicator.gameObject.SetActive(true);
-                        rangeIndicator.DrawCircle(towerBase._currentRange);
                         IngameController.Instance.playerUI.inventory.SetCurrentTower(towerBase);
                         break;
                     }

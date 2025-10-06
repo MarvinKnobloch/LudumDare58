@@ -79,10 +79,11 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             if (inventory.currentBodySlots.bodyPart == bodyObject.Part)
             {
                 inventory.AddResource(bodyObject, -1);
-                inventory.currentSelectedTower.OnBodyPartEquipped(inventory.currentSelectedTower, bodyObject);
                 inventory.currentBodySlots.SlotUpdate(bodyObject);
-                //reduce souls
-                inventory.rangeIndicator.DrawCircle(inventory.currentSelectedTower._currentRange);
+                inventory.currentSelectedTower.OnBodyPartEquipped(inventory.currentSelectedTower, bodyObject);
+                inventory.SetRangeIndicator();
+                inventory.currentSelectedTower.CheckForRecipe();
+                inventory.SetSuccessText();
             }
         }
 

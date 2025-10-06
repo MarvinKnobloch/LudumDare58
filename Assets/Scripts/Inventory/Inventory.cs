@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using TMPro;
 using Tower;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,6 +24,7 @@ public class Inventory : MonoBehaviour
     [SerializeField] private BodySlots bodySlot;
     [SerializeField] private BodySlots weaponSlot;
     public RangeIndicator rangeIndicator;
+    [SerializeField] private TextMeshProUGUI successPercantageText;
 
     [HideInInspector] public BodySlots currentBodySlots;
     [HideInInspector] public TowerBase currentSelectedTower;
@@ -33,6 +35,8 @@ public class Inventory : MonoBehaviour
         {
             CreateNewSlot();
         }
+        bodySlotsUI.SetActive(false);
+        successPercantageText.transform.parent.gameObject.SetActive(false);
     }
 
     public void AddResource(BodyObject bodyObject, int amount)
@@ -83,6 +87,9 @@ public class Inventory : MonoBehaviour
         SetSlots(bodySlot, currentSelectedTower.body);
         SetSlots(weaponSlot, currentSelectedTower.weapon);
 
+        SetRangeIndicator();
+        SetSuccessText();
+
         bodySlotsUI.SetActive(true);
     }
     private void SetSlots(BodySlots bodySlots , BodyObject bodyObject)
@@ -95,6 +102,17 @@ public class Inventory : MonoBehaviour
         {
             bodySlots.ClearSlot();
         }
+    }
+    public void SetRangeIndicator()
+    {
+        rangeIndicator.gameObject.transform.position = currentSelectedTower.gameObject.transform.position;
+        rangeIndicator.gameObject.SetActive(true);
+        rangeIndicator.DrawCircle(currentSelectedTower._currentRange);
+    }
+    public void SetSuccessText()
+    {
+        successPercantageText.transform.parent.gameObject.SetActive(true);
+        successPercantageText.text = "<color=green>" + currentSelectedTower.recipeMatchPercent + "</color>%";
     }
 
     [Serializable]
