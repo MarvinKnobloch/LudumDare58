@@ -196,13 +196,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemDropper
   dropValues:
   - item: {fileID: 8528078405184565660, guid: c75468285786f8743b77e20d1af40145, type: 3}
-    dropChance: 0
+    dropChance: 0.1
     amount: 1
   - item: {fileID: 1447422381575381651, guid: 857316b64c442494a809189ed34dd190, type: 3}
-    dropChance: 0
+    dropChance: 0.05
     amount: 1
   - item: {fileID: 9057325997660116790, guid: fc7c02c31d38fe441902eb2d1d199932, type: 3}
-    dropChance: 0
+    dropChance: 0.1
     amount: 1
   scatterRadius: 8
   addForce: 1
