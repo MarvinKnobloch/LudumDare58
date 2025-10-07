@@ -24,6 +24,6 @@ namespace Tower
         
         [field: SerializeField, Header("Fill if part is weapon")] public WeaponType Weapon { get; private set; }
         [field: SerializeField] public GameObject ProjectilePrefab { get; private set; }
-    
+        [field: SerializeField] public TargetType TargetType { get; private set; }
     }
 }

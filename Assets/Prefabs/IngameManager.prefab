@@ -1254,6 +1254,7 @@ MonoBehaviour:
   towerRecipes:
   - {fileID: 11400000, guid: 5b61dc3a677809347ab07398b00d03b5, type: 2}
   - {fileID: 11400000, guid: 07e7243efcc9baf43976cbc32602df99, type: 2}
+  - {fileID: 11400000, guid: 02483ea9b07e5f8458c4363d05f5d67f, type: 2}
   accessoiresSlotCosts: 3
   headSlotCosts: 2
   armSlotCosts: 1
@@ -3513,8 +3514,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2173045041030124941}
   m_HandleRect: {fileID: 5155583813887768062}
   m_Direction: 2
-  m_Value: -0.00000012931136
-  m_Size: 0.4151376
+  m_Value: 0.00000012931136
+  m_Size: 0.41496402
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -6974,7 +6975,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 244.475, y: 236.00082}
+  m_AnchoredPosition: {x: 244.475, y: 236.00073}
   m_SizeDelta: {x: 479.3197, y: 807.03}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &8263319202288417698

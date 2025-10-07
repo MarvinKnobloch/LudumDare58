@@ -109,6 +109,9 @@ MonoBehaviour:
   hitLayer:
     serializedVersion: 2
     m_Bits: 512
+  disableTimeAfterHit: 0.05
+  sortingLayerOnEnable: 20
+  sortingLayerAfterHit: -99
 --- !u!58 &-6648705131659254440
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c77b3a024aa5ce44a8b8b6ab5bc5c03c, type: 3}
-  m_Name: ArcherTower
+  m_Name: StoneTower
   m_EditorClassIdentifier: Assembly-CSharp::TowerValues
-  baseDamage: 5
-  baseAttackSpeed: 1.5
+  baseDamage: 1
+  baseAttackSpeed: 0.2
   baseAttackRange: 10
-  aoeRadius: 0
-  projectilePrefab: {fileID: 7056902295061036921, guid: 4977d07f84a50aa42b0c547871180675, type: 3}
-  weaponType: 5
-  targetType: 0
+  aoeRadius: 2
+  projectilePrefab: {fileID: 5590153406019164460, guid: 65a0c14034170cd4487032b481c13b14, type: 3}
+  weaponType: 6
+  targetType: 1

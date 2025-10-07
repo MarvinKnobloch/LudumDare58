@@ -1,4 +1,5 @@
 using Marvin.PoolingSystem;
+using Tower;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour, IPoolingList
@@ -8,30 +9,60 @@ public class Projectile : MonoBehaviour, IPoolingList
     private Vector3 direction;
     private bool targetHasDied;
     private bool dealedDamage;
+    private TargetType targetType;
+    private Vector3 enemyPositionOnProjectileLaunch;
+    private SpriteRenderer spriteRenderer;
+
+    private int damage;
+    private float aoeRadius;
 
     [SerializeField] private float projectileSpeed;
     [SerializeField] private LayerMask hitLayer;
-    private int damage;
+    [SerializeField] private float disableTimeAfterHit = 0.05f;
 
-    //Area
-    private float aoeRadius;
-
+    [Space]
+    [SerializeField] private int sortingLayerOnEnable = 20;
+    [SerializeField] private int sortingLayerAfterHit = -99;
+ 
     public PoolingSystem.PoolObjectInfo poolingList { get; set; }
 
+    private void Awake()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
     void Update()
     {
-        SingleTarget();
+        switch (targetType)
+        {
+            case TargetType.FollowTarget:
+                ProjectileFollowTarget();
+                break;
+            case TargetType.AimOnGround:
+                AimOnCurrentTargetPosition();
+                break;
+        }
     }
-    public void SetValues(Transform target, int _damage, float _aoeRaduis)
+    public void SetValues(Transform target, int _damage, float _aoeRaduis, TargetType _targetType)
     {
+        dealedDamage = false;
+        CancelInvoke();
+        spriteRenderer.sortingOrder = sortingLayerOnEnable;
+
         currenttarget = target;
         bulletTarget = currenttarget.GetComponent<Enemy>().GetBulletTarget();
         damage = _damage;
         aoeRadius = _aoeRaduis;
-        dealedDamage = false;
-        CancelInvoke();
+        targetType = _targetType;
+
+        if(targetType == TargetType.AimOnGround)
+        {
+            enemyPositionOnProjectileLaunch = bulletTarget.transform.position;
+            transform.right = enemyPositionOnProjectileLaunch - transform.position;
+        }
+
+
     }
-    private void SingleTarget()
+    private void ProjectileFollowTarget()
     {
         if (currenttarget != null)
         {
@@ -46,6 +77,22 @@ public class Projectile : MonoBehaviour, IPoolingList
         else BulletNoTarget();
 
     }
+    private void AimOnCurrentTargetPosition()
+    {
+        if (dealedDamage) return;
+
+        direction = (enemyPositionOnProjectileLaunch - transform.position).normalized;
+        transform.position = Vector3.MoveTowards(transform.position, enemyPositionOnProjectileLaunch, projectileSpeed * Time.deltaTime);
+
+        if(Vector2.Distance(transform.position, enemyPositionOnProjectileLaunch) < 0.3f)
+        {
+            DealAoeDamage(enemyPositionOnProjectileLaunch, aoeRadius);
+            dealedDamage = true;
+            spriteRenderer.sortingOrder = sortingLayerAfterHit;
+            Invoke("DisableProjectile", disableTimeAfterHit);
+        }
+
+    }
     private void BulletNoTarget()
     {
         transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, projectileSpeed * Time.deltaTime);
@@ -55,7 +102,7 @@ public class Projectile : MonoBehaviour, IPoolingList
             Invoke("DisableProjectile", 0.5f);
         }
     }
-    private void DealDamageOnTargetPosition()
+    private void FollowTargetDamage()
     {
         if (aoeRadius <= 0)
         {
@@ -85,10 +132,9 @@ public class Projectile : MonoBehaviour, IPoolingList
         if (collision.gameObject == currenttarget.gameObject)
         {
 
-            Debug.Log("collide");
-            DealDamageOnTargetPosition();
+            FollowTargetDamage();
             dealedDamage = true;
-            Invoke("DisableProjectile", 0.05f);
+            Invoke("DisableProjectile", disableTimeAfterHit);
         }
     }
     private void DisableProjectile()

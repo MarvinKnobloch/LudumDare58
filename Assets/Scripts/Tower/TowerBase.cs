@@ -12,8 +12,6 @@ namespace Tower
     {
         public static UnityEvent<TowerBase, BodyObject> BodyPartEquipped { get; } = new();
         public static UnityEvent<TowerBase, BodyObject> BodyPartUnequipped { get; } = new();
-        public static UnityEvent<List<Enemy>, int, WeaponType> AoeHit { get; } = new();
-
 
         [SerializeField] private TowerValues towerValues;
 
@@ -21,15 +19,16 @@ namespace Tower
 
         [Space]
         [SerializeField] private LayerMask attackLayer;
-        [SerializeField] private float _aoeRadius;
         [SerializeField] private float _currentDamage;
         [SerializeField] private float _currentAttackSpeed;
+        [SerializeField] private float _currentRange;
+        [SerializeField] private float _currentAoeRadius;
         private GameObject _projectilePrefab;
-        public float _currentRange;
         private float attackSpeedCap = 0.1f;
 
         private Transform _transform;
         [SerializeField] private WeaponType _weaponType = WeaponType.None;
+        [SerializeField] private TargetType _targetType = TargetType.FollowTarget;
         private float _timer;
         private float attackTimer;
         private Animator _animator;
@@ -54,18 +53,22 @@ namespace Tower
 
         private void Awake()
         {
+            //SetValues
             _currentDamage = towerValues.baseDamage;
             _currentAttackSpeed = towerValues.baseAttackSpeed;
             CapAttackSpeed();
             _currentRange = towerValues.baseAttackRange;
             _projectilePrefab = towerValues.projectilePrefab;
+            _weaponType = towerValues.weaponType;
+            _targetType = towerValues.targetType;
+
             _transform = transform;
             _animator = GetComponentInChildren<Animator>();
 
             if (weapon == null) return;
 
             _weaponType = weapon.Weapon;
-            _aoeRadius = weapon.BonusAoeRadius;
+            _currentAoeRadius = weapon.BonusAoeRadius;
         }
 
         private void Update()
@@ -110,6 +113,7 @@ namespace Tower
                     if (weapon != null) OnBodyPartUnequipped(tower, weapon);
                     weapon = bodyObject;
                     _weaponType = bodyObject.Weapon;
+                    _targetType = bodyObject.TargetType;
                     _projectilePrefab = bodyObject.ProjectilePrefab;
                     AddTowerValues(bodyObject);
                     break;
@@ -122,7 +126,7 @@ namespace Tower
             _currentAttackSpeed -= bodyObject.BonusAttackSpeed;
             _currentDamage += bodyObject.BonusDamage;
             _currentRange += bodyObject.BonusRange;
-            _aoeRadius += bodyObject.BonusAoeRadius;
+            _currentAoeRadius += bodyObject.BonusAoeRadius;
 
             CapAttackSpeed();
 
@@ -139,7 +143,7 @@ namespace Tower
             _currentDamage -= bodyObject.BonusDamage;
             _currentRange -= bodyObject.BonusRange;
 
-            _aoeRadius -= bodyObject.BonusAoeRadius;
+            _currentAoeRadius -= bodyObject.BonusAoeRadius;
 
             EquippedBodyObjects.Remove(bodyObject);
         }
@@ -177,18 +181,21 @@ namespace Tower
 
         private bool Attack()
         {
-            if (currentTarget == null || currentTarget.gameObject.activeSelf == false)
+            switch (_targetType)
             {
-                //Check for near targets
-                currentTarget = GetClosestEnemy();
-            }
-            else
-            {
-                //Check if current target is out of range, if yes switch target
-                if (Vector2.Distance(_transform.position, currentTarget.position) > _currentRange)
-                {
+                case TargetType.FollowTarget:
+                    //If no target, get closest Target
+                    if (currentTarget == null || currentTarget.gameObject.activeSelf == false) currentTarget = GetClosestEnemy();
+                    else
+                    {
+                        //Check if current target is out of range, if yes switch target
+                        if (Vector2.Distance(_transform.position, currentTarget.position) > _currentRange) currentTarget = GetClosestEnemy();
+                    }
+                    break;
+                case TargetType.AimOnGround:
+                    //Always get closest traget
                     currentTarget = GetClosestEnemy();
-                }
+                    break;
             }
 
             if (currentTarget == null || currentTarget.gameObject.activeSelf == false) return false;
@@ -204,6 +211,8 @@ namespace Tower
                     HandleRangedStandardAttack(damage, currentTarget);
                     break;
                 case WeaponType.Boulder:
+                    HandleRangedStandardAttack(damage, currentTarget);
+                    break;
                 case WeaponType.Bow:
                     HandleRangedStandardAttack(damage, currentTarget);
                     break;
@@ -240,7 +249,7 @@ namespace Tower
             var minDistance = float.MaxValue;
 
             foreach (Collider2D col in cols)
-            {
+            {               
                 if (col.TryGetComponent(out Enemy enemy))
                 {
                     var distance = Vector2.Distance(_transform.position, enemy.transform.position);
@@ -258,7 +267,7 @@ namespace Tower
 
         private List<Enemy> GetAoeEnemies(Transform origin)
         {
-            var colliders = Physics2D.OverlapCircleAll(origin.position, _aoeRadius);
+            var colliders = Physics2D.OverlapCircleAll(origin.position, _currentAoeRadius);
 
             return colliders
                 .Select(c => c.TryGetComponent<Enemy>(out var enemy) ? enemy : null)
@@ -273,7 +282,7 @@ namespace Tower
 
         private void HandleMeleeStandardAttack(int damage, Transform targetEnemy)
         {
-            if (_aoeRadius == 0)
+            if (_currentAoeRadius == 0)
             {
                 targetEnemy.GetComponent<Enemy>().TakeDamage(damage);
                 return;
@@ -288,8 +297,6 @@ namespace Tower
                 _animator.transform.rotation = Quaternion.Euler(angle);
                 _animator.SetTrigger("Melee");
             }
-
-            AoeHit.Invoke(enemies, damage, _weaponType);
         }
 
         private void HandleRangedStandardAttack(int damage, Transform targetEnemy)
@@ -297,7 +304,7 @@ namespace Tower
             Projectile projectile = PoolingSystem.SpawnObject
                 (_projectilePrefab, _transform.position, Quaternion.identity, PoolingSystem.PoolingParentGameObject.Projectile).GetComponent<Projectile>();
 
-            projectile.SetValues(targetEnemy, damage, _aoeRadius);
+            projectile.SetValues(targetEnemy, damage, _currentAoeRadius, _targetType);
         }
 
         private IEnumerator HandleRubyStaffAttack(int damage, Transform targetEnemy)
@@ -312,6 +319,10 @@ namespace Tower
                 fire.Initialize(damage);
                 yield return new WaitForSeconds(0.1f);
             }
+        }
+        public float GetTowerRange()
+        {
+            return _currentRange;
         }
     }
 }

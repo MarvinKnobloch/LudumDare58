@@ -184,7 +184,7 @@ public class Inventory : MonoBehaviour
     {
         rangeIndicator.gameObject.transform.position = currentSelectedTower.gameObject.transform.position;
         rangeIndicator.gameObject.SetActive(true);
-        rangeIndicator.DrawCircle(currentSelectedTower._currentRange);
+        rangeIndicator.DrawCircle(currentSelectedTower.GetTowerRange());
     }
     public void SetSuccessText()
     {

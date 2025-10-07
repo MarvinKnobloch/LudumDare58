@@ -103,7 +103,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 912c8d252406eef48876b2214d461cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
-  projectileSpeed: 20
+  projectileSpeed: 15
   hitLayer:
     serializedVersion: 2
     m_Bits: 512
+  disableTimeAfterHit: 0.5
+  sortingLayerOnEnable: 20
+  sortingLayerAfterHit: -99
