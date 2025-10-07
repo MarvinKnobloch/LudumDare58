@@ -15,6 +15,7 @@ namespace Marvin.PoolingSystem
             Default,
             Player,
             Enemy,
+            Projectile,
         }
 
         private void Awake()

@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: "Kl\xF6pplerTower"
   m_EditorClassIdentifier: Assembly-CSharp::TowerValues
   baseDamage: 1
-  baseAttackSpeed: 0.3
-  baseAttackRange: 12
+  baseAttackSpeed: 0.5
+  baseAttackRange: 4
+  projectilePrefab: {fileID: 8614331895747358253, guid: bb60f1fc94dbf2043a78e88dc68ec03b, type: 3}

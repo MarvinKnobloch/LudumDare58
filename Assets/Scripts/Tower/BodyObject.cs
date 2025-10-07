@@ -15,18 +15,15 @@ namespace Tower
         [field: SerializeField] public float BonusAttackSpeed { get; private set; }
         [field: SerializeField] public float BonusDamage { get; private set; }
         [field: SerializeField] public float BonusRange { get; private set; }
-        
-        [field: SerializeField, Tooltip("The UI Sprite to use.")]
-        public Sprite Sprite { get; private set; }
 
-        [field: SerializeField] public Sprite ProjectileSprite { get; private set; }
-        
-        [field: SerializeField, Header("Fill if part is weapon")] public WeaponType Weapon { get; private set; }
-        [field: SerializeField] public float WeaponDamage { get; private set; }
-        [field: SerializeField] public float WeaponRange { get; private set; }
-        [field: SerializeField] public float WeaponSpeed { get; private set; }
         [field: SerializeField, Tooltip("Must be 0 for single target attacks.")]
         public float BonusAoeRadius { get; private set; }
+
+        [field: SerializeField, Tooltip("The UI Sprite to use.")]
+        public Sprite Sprite { get; private set; }
         
+        [field: SerializeField, Header("Fill if part is weapon")] public WeaponType Weapon { get; private set; }
+        [field: SerializeField] public GameObject ProjectilePrefab { get; private set; }
+    
     }
 }

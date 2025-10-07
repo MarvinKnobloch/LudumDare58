@@ -1253,6 +1253,7 @@ MonoBehaviour:
   defaultTowerCosts: 5
   towerRecipes:
   - {fileID: 11400000, guid: 5b61dc3a677809347ab07398b00d03b5, type: 2}
+  - {fileID: 11400000, guid: 07e7243efcc9baf43976cbc32602df99, type: 2}
   accessoiresSlotCosts: 3
   headSlotCosts: 2
   armSlotCosts: 1

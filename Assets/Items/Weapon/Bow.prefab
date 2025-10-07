@@ -10,47 +10,47 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2479923647592137073, guid: 9e8429d7025b33843a222d07c90de4c2, type: 3}
       propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0.5
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 2479923647592137073, guid: 9e8429d7025b33843a222d07c90de4c2, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 2.56
+      value: 2.2755556
       objectReference: {fileID: 0}
     - target: {fileID: 2479923647592137073, guid: 9e8429d7025b33843a222d07c90de4c2, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 2.56
+      value: 2.2755556
       objectReference: {fileID: 0}
     - target: {fileID: 2479923647592137073, guid: 9e8429d7025b33843a222d07c90de4c2, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.206
+      value: 2.56
       objectReference: {fileID: 0}
     - target: {fileID: 2479923647592137073, guid: 9e8429d7025b33843a222d07c90de4c2, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.226
+      value: 2.56
       objectReference: {fileID: 0}
     - target: {fileID: 2819417139433317347, guid: 9e8429d7025b33843a222d07c90de4c2, type: 3}
       propertyPath: itemInformationen
       value: 
-      objectReference: {fileID: 11400000, guid: f331c556ebf401a4ba373e51d335bb3b, type: 2}
+      objectReference: {fileID: 11400000, guid: ccf8b83ce5a312a45867b442d11482a0, type: 2}
     - target: {fileID: 5320115045231732281, guid: 9e8429d7025b33843a222d07c90de4c2, type: 3}
       propertyPath: m_Size.x
-      value: 2.56
+      value: 2.2755556
       objectReference: {fileID: 0}
     - target: {fileID: 5320115045231732281, guid: 9e8429d7025b33843a222d07c90de4c2, type: 3}
       propertyPath: m_Size.y
-      value: 2.56
+      value: 2.2755556
       objectReference: {fileID: 0}
     - target: {fileID: 5320115045231732281, guid: 9e8429d7025b33843a222d07c90de4c2, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2759038298730105318, guid: f6a2fd3d7f1809741a959e8a20751cbc, type: 3}
+      objectReference: {fileID: 21300000, guid: e4df832224a91fb46afd4611a977972f, type: 3}
     - target: {fileID: 5320115045231732281, guid: 9e8429d7025b33843a222d07c90de4c2, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5520698189845292783, guid: 9e8429d7025b33843a222d07c90de4c2, type: 3}
       propertyPath: m_Name
-      value: Schwert
+      value: Bow
       objectReference: {fileID: 0}
     - target: {fileID: 7777963284862370575, guid: 9e8429d7025b33843a222d07c90de4c2, type: 3}
       propertyPath: m_LocalPosition.x
