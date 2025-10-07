@@ -15,7 +15,7 @@ MonoBehaviour:
   baseDamage: 1
   baseAttackSpeed: 0.2
   baseAttackRange: 10
-  aoeRadius: 2
+  aoeRadius: 3
   projectilePrefab: {fileID: 5590153406019164460, guid: 65a0c14034170cd4487032b481c13b14, type: 3}
   weaponType: 6
   targetType: 1
