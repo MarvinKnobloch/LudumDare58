@@ -163,7 +163,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97e69ced1c7b08d4c9a655255d981f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemDropper
-  dropValues: []
+  dropValues:
+  - item: {fileID: 8528078405184565660, guid: 5b7d417b6f315f049a8901a3ac88dca1, type: 3}
+    dropChance: 0.1
+    amount: 1
+  - item: {fileID: 5892243160951536167, guid: 962446aa7e1ffa449855c24745b7cd12, type: 3}
+    dropChance: 0.05
+    amount: 1
+  - item: {fileID: 3848033517144133934, guid: 0d6fdc8a3876e3e489652f5557e2af40, type: 3}
+    dropChance: 0.1
+    amount: 1
   scatterRadius: 8
   addForce: 1
 --- !u!95 &-5989598834997940642
