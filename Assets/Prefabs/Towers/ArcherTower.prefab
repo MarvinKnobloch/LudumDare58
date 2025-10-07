@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 47459961506918954, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 0.008143486
       objectReference: {fileID: 0}
     - target: {fileID: 47459961506918954, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: m_Color.g
-      value: 0.021778123
+      value: 0.008194428
       objectReference: {fileID: 0}
     - target: {fileID: 47459961506918954, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: m_Color.r
-      value: 0.59607846
+      value: 0.009433985
       objectReference: {fileID: 0}
     - target: {fileID: 3588843796145617972, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5852628107453491410, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: m_Name
-      value: "Kl\xF6pplerTower"
+      value: ArcherTower
       objectReference: {fileID: 0}
     - target: {fileID: 7828311766438679498, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: baseRange
@@ -75,7 +75,7 @@ PrefabInstance:
     - target: {fileID: 7828311766438679498, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: towerValues
       value: 
-      objectReference: {fileID: 11400000, guid: 6b06aa5a635387d4c9800368a3e5dd31, type: 2}
+      objectReference: {fileID: 11400000, guid: 5a29e2c7e3ea8a34fbc1200a9aca41a2, type: 2}
     - target: {fileID: 7828311766438679498, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: baseAttackSpeed
       value: 0.2
@@ -83,7 +83,7 @@ PrefabInstance:
     - target: {fileID: 7828311766438679498, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: _projectilePrefab
       value: 
-      objectReference: {fileID: 8614331895747358253, guid: bb60f1fc94dbf2043a78e88dc68ec03b, type: 3}
+      objectReference: {fileID: 7056902295061036921, guid: 4977d07f84a50aa42b0c547871180675, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

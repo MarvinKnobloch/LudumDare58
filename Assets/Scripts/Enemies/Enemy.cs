@@ -29,6 +29,7 @@ public class Enemy : MonoBehaviour, IPoolingList
     [Header("Other")]
     [SerializeField] private int damageToPlayer;
     [SerializeField] private int soulsDrop;
+    [SerializeField] private Transform bulletTarget;
 
     [Header("Drops")]
     private EnemyDrop itemDropper;
@@ -155,5 +156,10 @@ public class Enemy : MonoBehaviour, IPoolingList
         enemyHasDied?.Invoke();
         SortEnemies.activeEnemiesSprites.Remove(spriteRenderer);
         PoolingSystem.ReturnObjectToPool(gameObject, poolingList);
+    }
+
+    public Transform GetBulletTarget()
+    {
+        return bulletTarget;
     }
 }

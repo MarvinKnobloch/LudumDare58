@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0fb730ab8f8b4d00984553cfe4f19369, type: 3}
-  m_Name: Schwert
+  m_Name: Bow
   m_EditorClassIdentifier: Assembly-CSharp::Tower.BodyObject
-  <Name>k__BackingField: Schwert
+  <Name>k__BackingField: Bow
   <Description>k__BackingField: 
   <Part>k__BackingField: 4
   <Type>k__BackingField: 2
-  <BonusAttackSpeed>k__BackingField: 0.3
-  <BonusDamage>k__BackingField: 2
-  <BonusRange>k__BackingField: -2
+  <BonusAttackSpeed>k__BackingField: -0.5
+  <BonusDamage>k__BackingField: 1
+  <BonusRange>k__BackingField: 4
   <BonusAoeRadius>k__BackingField: 0
-  <Sprite>k__BackingField: {fileID: -2759038298730105318, guid: f6a2fd3d7f1809741a959e8a20751cbc, type: 3}
-  <Weapon>k__BackingField: 1
-  <ProjectilePrefab>k__BackingField: {fileID: 8614331895747358253, guid: bb60f1fc94dbf2043a78e88dc68ec03b, type: 3}
+  <Sprite>k__BackingField: {fileID: 21300000, guid: e4df832224a91fb46afd4611a977972f, type: 3}
+  <Weapon>k__BackingField: 5
+  <ProjectilePrefab>k__BackingField: {fileID: 7056902295061036921, guid: 4977d07f84a50aa42b0c547871180675, type: 3}

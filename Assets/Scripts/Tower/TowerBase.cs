@@ -2,10 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using DG.Tweening;
+using Marvin.PoolingSystem;
 using UnityEngine;
 using UnityEngine.Events;
-using Vector2 = UnityEngine.Vector2;
 
 namespace Tower
 {
@@ -18,7 +17,6 @@ namespace Tower
 
         [SerializeField] private TowerValues towerValues;
 
-        [SerializeField] private GameObject _projectilePrefab;
         [SerializeField] private GameObject _rubyFirePrefab;
 
         [Space]
@@ -26,11 +24,12 @@ namespace Tower
         [SerializeField] private float _aoeRadius;
         [SerializeField] private float _currentDamage;
         [SerializeField] private float _currentAttackSpeed;
+        private GameObject _projectilePrefab;
         public float _currentRange;
         private float attackSpeedCap = 0.1f;
 
         private Transform _transform;
-        private WeaponType _weaponType = WeaponType.None;
+        [SerializeField] private WeaponType _weaponType = WeaponType.None;
         private float _timer;
         private float attackTimer;
         private Animator _animator;
@@ -59,6 +58,7 @@ namespace Tower
             _currentAttackSpeed = towerValues.baseAttackSpeed;
             CapAttackSpeed();
             _currentRange = towerValues.baseAttackRange;
+            _projectilePrefab = towerValues.projectilePrefab;
             _transform = transform;
             _animator = GetComponentInChildren<Animator>();
 
@@ -110,6 +110,7 @@ namespace Tower
                     if (weapon != null) OnBodyPartUnequipped(tower, weapon);
                     weapon = bodyObject;
                     _weaponType = bodyObject.Weapon;
+                    _projectilePrefab = bodyObject.ProjectilePrefab;
                     AddTowerValues(bodyObject);
                     break;
             }
@@ -176,7 +177,7 @@ namespace Tower
 
         private bool Attack()
         {
-            if(currentTarget == null)
+            if (currentTarget == null || currentTarget.gameObject.activeSelf == false)
             {
                 //Check for near targets
                 currentTarget = GetClosestEnemy();
@@ -190,7 +191,7 @@ namespace Tower
                 }
             }
 
-            if (currentTarget == null) return false;
+            if (currentTarget == null || currentTarget.gameObject.activeSelf == false) return false;
 
             if (Vector2.Distance(_transform.position, currentTarget.position) > _currentRange) return false;
 
@@ -203,6 +204,9 @@ namespace Tower
                     HandleRangedStandardAttack(damage, currentTarget);
                     break;
                 case WeaponType.Boulder:
+                case WeaponType.Bow:
+                    HandleRangedStandardAttack(damage, currentTarget);
+                    break;
                 case WeaponType.Crossbow:
                 case WeaponType.IceStaff:
                 case WeaponType.Scroll:
@@ -212,6 +216,8 @@ namespace Tower
                 case WeaponType.Club:
                 case WeaponType.Dagger:
                 case WeaponType.Sword:
+                    HandleRangedStandardAttack(damage, currentTarget);
+                    break;
                 case WeaponType.CrystalStaff:
                     HandleMeleeStandardAttack(damage, currentTarget);
                     break;
@@ -222,6 +228,7 @@ namespace Tower
 
             return true;
         }
+        
 
         private Transform GetClosestEnemy()
         {
@@ -287,33 +294,10 @@ namespace Tower
 
         private void HandleRangedStandardAttack(int damage, Transform targetEnemy)
         {
-            var projectile = Instantiate(_projectilePrefab, _transform.position, Quaternion.identity);
+            Projectile projectile = PoolingSystem.SpawnObject
+                (_projectilePrefab, _transform.position, Quaternion.identity, PoolingSystem.PoolingParentGameObject.Projectile).GetComponent<Projectile>();
 
-            var direction = (targetEnemy.position - transform.position).normalized;
-            var angle = new Vector3(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
-
-            projectile.transform.rotation = Quaternion.Euler(angle);
-            if(weapon!= null) projectile.GetComponent<SpriteRenderer>().sprite = weapon.ProjectileSprite;
-
-            projectile.transform
-                .DOMove(targetEnemy.position, 0.15f)
-                .SetEase(Ease.OutExpo)
-                .OnComplete(() =>
-                {
-                    // Single target hit
-                    if (_aoeRadius == 0)
-                    {
-                        targetEnemy.GetComponent<Enemy>().TakeDamage(damage);
-                        Destroy(projectile);
-                        return;
-                    }
-
-                    var enemies = GetAoeEnemies(targetEnemy);
-                    targetEnemy.GetComponentInChildren<Animator>().SetTrigger(_weaponType.ToString());
-                    AoeHit.Invoke(enemies, damage, _weaponType);
-
-                    Destroy(projectile);
-                });
+            projectile.SetValues(targetEnemy, damage, _aoeRadius);
         }
 
         private IEnumerator HandleRubyStaffAttack(int damage, Transform targetEnemy)
@@ -331,3 +315,30 @@ namespace Tower
         }
     }
 }
+
+
+//var direction = (targetEnemy.position - transform.position).normalized;
+//var angle = new Vector3(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
+
+//projectile.transform.rotation = Quaternion.Euler(angle);
+
+
+//projectile.transform
+//    .DOMove(targetEnemy.position, 0.15f)
+//    .SetEase(Ease.OutExpo)
+//    .OnComplete(() =>
+//    {
+//        // Single target hit
+//        if (_aoeRadius == 0)
+//        {
+//            targetEnemy.GetComponentInParent<Enemy>().TakeDamage(damage);
+//            Destroy(projectile);
+//            return;
+//        }
+
+//        var enemies = GetAoeEnemies(targetEnemy);
+//        //targetEnemy.GetComponentInChildren<Animator>().SetTrigger(_weaponType.ToString());
+//        AoeHit.Invoke(enemies, damage, _weaponType);
+
+//        Destroy(projectile);
+//    });
