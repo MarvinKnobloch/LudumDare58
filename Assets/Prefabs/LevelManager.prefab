@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1392791762851230440}
   - component: {fileID: 3603229808143785386}
+  - component: {fileID: 5199166517060203952}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -67,3 +68,16 @@ MonoBehaviour:
   enemiesAlive: 0
   activeSpawners: 0
   levelToDisplay: 0
+--- !u!114 &5199166517060203952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5664487082195856051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eac2d7dd1df8da4b8f02877a9602d2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SortEnemies
+  sortInterval: 0.2

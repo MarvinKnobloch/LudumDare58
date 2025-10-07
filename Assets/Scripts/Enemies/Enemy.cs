@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour, IPoolingList
     private int maxWayPoints;
     private LevelManager levelManager;
     private bool faceRight;
+    private SpriteRenderer spriteRenderer;
 
     [SerializeField] private float movementSpeed;
     [SerializeField] private int baseHealth;
@@ -57,6 +58,7 @@ public class Enemy : MonoBehaviour, IPoolingList
     {
         levelManager = LevelManager.Instance;
         maxWayPoints = levelManager.enemyWayPoints.Length;
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         //Desi
         itemDropper = GetComponent<EnemyDrop>();
@@ -66,6 +68,7 @@ public class Enemy : MonoBehaviour, IPoolingList
     {
         currentWayPoint = 1;
         WayPointUpdate();
+        SortEnemies.activeEnemiesSprites.Add(spriteRenderer);
     }
     private void Update()
     {
@@ -149,8 +152,8 @@ public class Enemy : MonoBehaviour, IPoolingList
     }
     private void Despawn()
     {
-
         enemyHasDied?.Invoke();
+        SortEnemies.activeEnemiesSprites.Remove(spriteRenderer);
         PoolingSystem.ReturnObjectToPool(gameObject, poolingList);
     }
 }

@@ -9,7 +9,7 @@ namespace Marvin.PoolingSystem
     {
         public static List<PoolObjectInfo> poolObjectInfos = new List<PoolObjectInfo>();
 
-        private static GameObject rootGameObject;
+        public static GameObject rootGameObject;
         public enum PoolingParentGameObject
         {
             Default,
