@@ -75,7 +75,7 @@ PrefabInstance:
     - target: {fileID: 7828311766438679498, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: towerValues
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: 6b06aa5a635387d4c9800368a3e5dd31, type: 2}
     - target: {fileID: 7828311766438679498, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: baseAttackSpeed
       value: 0.2

@@ -115,6 +115,8 @@ MonoBehaviour:
   damageToPlayer: 1
   soulsDrop: 1
   bulletTarget: {fileID: 4084337682187251020}
+  hitEffectAmount: 1
+  hitEffectDuration: 0.1
 --- !u!58 &2701071940875089523
 CircleCollider2D:
   m_ObjectHideFlags: 0

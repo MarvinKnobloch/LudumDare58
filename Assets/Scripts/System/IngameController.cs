@@ -10,6 +10,7 @@ public class IngameController : MonoBehaviour
     [Header("Menus")]
     public MenuController menuController;
     public PlayerUI playerUI;
+    public FloatingNumberController floatingNumberController;
 
     [Header("Other")]
     [SerializeField] private bool disableCursorIngame;

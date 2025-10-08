@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 79982efd8ad4cbf44aa5702702d94273
+guid: 5f5de4900b540434e9f8c73b9ec9e001
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4281873196864999059
-    second: Stein1_0
+      213: -2759038298730105318
+    second: "Zweith\xE4nder_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,8 +49,8 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
+  alignment: 9
+  spritePivot: {x: 0.11307675, y: 0.11307678}
   spritePixelsToUnits: 500
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Stein1_0
+      name: "Zweith\xE4nder_0"
       rect:
         serializedVersion: 2
-        x: 213
-        y: 339
-        width: 397
-        height: 249
+        x: 62
+        y: 65
+        width: 603
+        height: 613
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 39e87687cf44c6b30800000000000000
-      internalID: 4281873196864999059
+      spriteID: a167e7a094de5b9d0800000000000000
+      internalID: -2759038298730105318
       vertices: []
       indices: 
       edges: []
@@ -139,7 +139,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Stein1_0: 4281873196864999059
+      "Zweith\xE4nder_0": -2759038298730105318
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

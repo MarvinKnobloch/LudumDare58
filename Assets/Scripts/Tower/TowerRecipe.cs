@@ -10,5 +10,6 @@ namespace Tower
         public Sprite towerIcon;
         public List<BodyObject> Recipe = new();
         public GameObject recipeTowerPrefab;
+        public int shownPartsIfNotUnlocked;
     }
 }
