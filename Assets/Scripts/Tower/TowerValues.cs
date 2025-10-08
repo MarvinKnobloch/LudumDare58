@@ -11,4 +11,7 @@ public class TowerValues : ScriptableObject
     public GameObject projectilePrefab;
     public WeaponType weaponType;
     public TargetType targetType;
+    public bool slow;
+    public int slowPercentage;
+    public int slowDuration;
 }

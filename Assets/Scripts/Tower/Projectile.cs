@@ -10,18 +10,22 @@ public class Projectile : MonoBehaviour, IPoolingList
     private Vector3 direction;
     private bool targetHasDied;
     private bool dealedDamage;
-    private TargetType targetType;
     private Vector3 enemyPositionOnProjectileLaunch;
     private SpriteRenderer spriteRenderer;
     private float timer;
 
-    private int damage;
-    private float aoeRadius;
+    [HideInInspector] public int damage;
+    [HideInInspector] public float range;
+    [HideInInspector] public float aoeRadius;
+    [HideInInspector] public bool slow;
+    [HideInInspector] public float slowPercentage;
+    [HideInInspector] public float slowDuration;
+    [HideInInspector] public TargetType targetType;
 
     //Swing
-    [SerializeField] private float startRotation;
-    [SerializeField] private float endRotation;
-    private float percentage;
+    private float startRotation;
+    private float endRotation;
+    private float lerpPercentage;
 
     [SerializeField] private float projectileSpeed;
     [SerializeField] private LayerMask hitLayer;
@@ -53,20 +57,17 @@ public class Projectile : MonoBehaviour, IPoolingList
                 break;
         }
     }
-    public void SetValues(Transform target, int _damage, float _aoeRaduis, float _range, TargetType _targetType)
+    public void SetValues(Transform target)
     {
         dealedDamage = false;
         CancelInvoke();
         StopAllCoroutines();
         spriteRenderer.sortingOrder = sortingLayerOnEnable;
         timer = 0;
-        percentage = 0;
+        lerpPercentage = 0;
 
         currenttarget = target;
         bulletTarget = currenttarget.GetComponent<Enemy>().GetBulletTarget();
-        damage = _damage;
-        aoeRadius = _aoeRaduis;
-        targetType = _targetType;
 
         switch (targetType)
         {
@@ -75,14 +76,14 @@ public class Projectile : MonoBehaviour, IPoolingList
                 transform.right = enemyPositionOnProjectileLaunch - transform.position;
                 break;
             case TargetType.Swing:
-                transform.localScale = new Vector3(0.5f * _range, 0.5f * _range, 1);
+                transform.localScale = new Vector3(0.5f * range, 0.5f * range, 1);
 
                 Vector3 targ = bulletTarget.position;
                 Vector3 objectPos = transform.position;
                 targ.x = targ.x - objectPos.x;
                 targ.y = targ.y - objectPos.y;
 
-                float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg;
+                float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg - 45;     //45 = Png angle
                 startRotation = angle + (20 * aoeRadius);
                 endRotation = angle - (20 * aoeRadius);
                 transform.rotation = Quaternion.Euler(new Vector3(0, 0, startRotation));
@@ -124,9 +125,9 @@ public class Projectile : MonoBehaviour, IPoolingList
     private void Swing()
     {
         timer += Time.deltaTime;
-        percentage = timer / projectileSpeed;
+        lerpPercentage = timer / projectileSpeed;
 
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Lerp(startRotation, endRotation, percentage)));
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Lerp(startRotation, endRotation, lerpPercentage)));
 
         if (timer > projectileSpeed)
         {
@@ -146,7 +147,11 @@ public class Projectile : MonoBehaviour, IPoolingList
     {
         if (aoeRadius <= 0)
         {
-            currenttarget.GetComponent<Enemy>().TakeDamage(damage);
+            if (currenttarget.TryGetComponent(out Enemy enemy))
+            {
+                enemy.TakeDamage(damage);
+                if (slow == true) enemy.DoSlow(slowPercentage, slowDuration);
+            }          
         }
         else
         {
@@ -162,6 +167,8 @@ public class Projectile : MonoBehaviour, IPoolingList
             if (coll.TryGetComponent(out Enemy enemy))
             {
                 enemy.TakeDamage(damage);
+
+                if (slow == true && enemy.gameObject.activeSelf == true) enemy.DoSlow(slowPercentage, slowDuration);
             }
         }
     }

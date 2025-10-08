@@ -25,6 +25,9 @@ namespace Tower
         [SerializeField] private float _currentAttackSpeed;
         [SerializeField] private float _currentRange;
         [SerializeField] private float _currentAoeRadius;
+        public bool _slow;
+        private int _slowPercentage;
+        private float _slowDuration;
         private GameObject _projectilePrefab;
         private float attackSpeedCap = 0.1f;
 
@@ -63,6 +66,9 @@ namespace Tower
             _projectilePrefab = towerValues.projectilePrefab;
             _weaponType = towerValues.weaponType;
             _targetType = towerValues.targetType;
+            _slow = towerValues.slow;
+            _slowPercentage = towerValues.slowPercentage;
+            _slowDuration = towerValues.slowDuration;
 
             CapAttackSpeed();
 
@@ -114,6 +120,9 @@ namespace Tower
                     _weaponType = bodyObject.Weapon;
                     _targetType = bodyObject.TargetType;
                     _projectilePrefab = bodyObject.ProjectilePrefab;
+                    _slow = bodyObject.Slow;
+                    _slowPercentage = bodyObject.SlowPercentage;
+                    _slowDuration = bodyObject.SlowDuration;
                     AddTowerValues(bodyObject);
                     break;
             }
@@ -308,7 +317,15 @@ namespace Tower
             Projectile projectile = PoolingSystem.SpawnObject
                 (_projectilePrefab, _transform.position, Quaternion.identity, PoolingSystem.PoolingParentGameObject.Projectile).GetComponent<Projectile>();
 
-            projectile.SetValues(targetEnemy, damage, _currentAoeRadius, _currentRange, _targetType);
+            projectile.damage = damage;
+            projectile.aoeRadius = _currentAoeRadius;
+            projectile.range = _currentRange;
+            projectile.slow = _slow;
+            projectile.slowPercentage = _slowPercentage;
+            projectile.slowDuration = _slowDuration;
+            projectile.targetType = _targetType;
+
+            projectile.SetValues(targetEnemy);
         }
 
         private IEnumerator HandleRubyStaffAttack(int damage, Transform targetEnemy)

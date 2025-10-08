@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2327c55b77bada947ab9af9e2fcd0048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  movementSpeed: 2
+  baseMovementSpeed: 2
   baseHealth: 5
   armorType: 0
   currentHealth: 0
@@ -115,7 +115,7 @@ MonoBehaviour:
   damageToPlayer: 1
   soulsDrop: 1
   bulletTarget: {fileID: 4084337682187251020}
-  hitEffectAmount: 1
+  hitEffectAmount: 3
   hitEffectDuration: 0.1
 --- !u!58 &2701071940875089523
 CircleCollider2D:
