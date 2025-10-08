@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c77b3a024aa5ce44a8b8b6ab5bc5c03c, type: 3}
-  m_Name: "Kl\xF6pplerTower"
+  m_Name: SwordTower
   m_EditorClassIdentifier: Assembly-CSharp::TowerValues
   baseDamage: 1
   baseAttackSpeed: 0.5
   baseAttackRange: 4
-  aoeRadius: 0
-  projectilePrefab: {fileID: 8614331895747358253, guid: bb60f1fc94dbf2043a78e88dc68ec03b, type: 3}
+  aoeRadius: 1
+  projectilePrefab: {fileID: 8614331895747358253, guid: b7f3f501f971a964387aebb6d0da5105, type: 3}
   weaponType: 1
-  targetType: 0
+  targetType: 2

@@ -196,6 +196,10 @@ namespace Tower
                     //Always get closest traget
                     currentTarget = GetClosestEnemy();
                     break;
+                case TargetType.Swing:
+                    //Always get closest traget
+                    currentTarget = GetClosestEnemy();
+                    break;
             }
 
             if (currentTarget == null || currentTarget.gameObject.activeSelf == false) return false;
@@ -304,7 +308,7 @@ namespace Tower
             Projectile projectile = PoolingSystem.SpawnObject
                 (_projectilePrefab, _transform.position, Quaternion.identity, PoolingSystem.PoolingParentGameObject.Projectile).GetComponent<Projectile>();
 
-            projectile.SetValues(targetEnemy, damage, _currentAoeRadius, _targetType);
+            projectile.SetValues(targetEnemy, damage, _currentAoeRadius, _currentRange, _targetType);
         }
 
         private IEnumerator HandleRubyStaffAttack(int damage, Transform targetEnemy)

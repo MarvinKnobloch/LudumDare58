@@ -5,5 +5,6 @@ namespace Tower
     {
         FollowTarget,
         AimOnGround,
+        Swing,
     }
 }

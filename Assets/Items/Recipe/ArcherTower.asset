@@ -19,3 +19,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ffa98979471840948bdb9cde1e964717, type: 2}
   - {fileID: 11400000, guid: e31b133891cb33142955f13d91f5f084, type: 2}
   recipeTowerPrefab: {fileID: 5971555673173559965, guid: 9c1ebcefb6342214593e81531d4c75b1, type: 3}
+  shownPartsIfNotUnlocked: 3
