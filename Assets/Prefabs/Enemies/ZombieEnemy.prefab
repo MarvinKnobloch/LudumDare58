@@ -143,6 +143,7 @@ MonoBehaviour:
   armorType: 0
   currentHealth: 0
   maxHealth: 0
+  slowColor: {r: 0, g: 0.5299373, b: 0.9339623, a: 1}
   damageToPlayer: 1
   soulsDrop: 1
   bulletTarget: {fileID: 7764766482462737639}
@@ -199,6 +200,7 @@ MonoBehaviour:
   dropValues: []
   scatterRadius: 8
   addForce: 1
+  buildArea: {fileID: 0}
 --- !u!95 &-5989598834997940642
 Animator:
   serializedVersion: 7

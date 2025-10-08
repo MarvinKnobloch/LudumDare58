@@ -1,6 +1,7 @@
 using System.Collections;
 using Marvin.PoolingSystem;
 using Tower;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour, IPoolingList
@@ -11,7 +12,7 @@ public class Projectile : MonoBehaviour, IPoolingList
     private bool targetHasDied;
     private bool dealedDamage;
     private Vector3 enemyPositionOnProjectileLaunch;
-    private SpriteRenderer spriteRenderer;
+    [SerializeField] private SpriteRenderer spriteRenderer;
     private float timer;
 
     [HideInInspector] public int damage;
@@ -27,6 +28,7 @@ public class Projectile : MonoBehaviour, IPoolingList
     private float endRotation;
     private float lerpPercentage;
 
+    [Header("BasicValues")]
     [SerializeField] private float projectileSpeed;
     [SerializeField] private LayerMask hitLayer;
     [SerializeField] private float disableTimeAfterHit = 0.05f;
@@ -35,13 +37,15 @@ public class Projectile : MonoBehaviour, IPoolingList
     [SerializeField] private int sortingLayerOnEnable = 20;
     [SerializeField] private int sortingLayerAfterHit = -99;        //Used for AimOnGroundOnly
 
- 
+    [Header("ThrowValues")]
+    [SerializeField] private GameObject aoeVisualBullet;
+    private float startHeight;
+    [SerializeField] private float maxHeight;
+    private float bulletLifeTime;
+
+
     public PoolingSystem.PoolObjectInfo poolingList { get; set; }
 
-    private void Awake()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
     void Update()
     {
         switch (targetType)
@@ -54,6 +58,9 @@ public class Projectile : MonoBehaviour, IPoolingList
                 break;
             case TargetType.Swing:
                 Swing();
+                break;
+            case TargetType.Throw:
+                ThrowMovement();
                 break;
         }
     }
@@ -68,11 +75,11 @@ public class Projectile : MonoBehaviour, IPoolingList
 
         currenttarget = target;
         bulletTarget = currenttarget.GetComponent<Enemy>().GetBulletTarget();
+        enemyPositionOnProjectileLaunch = bulletTarget.transform.position;
 
         switch (targetType)
         {
             case TargetType.AimOnGround:
-                enemyPositionOnProjectileLaunch = bulletTarget.transform.position;
                 transform.right = enemyPositionOnProjectileLaunch - transform.position;
                 break;
             case TargetType.Swing:
@@ -89,6 +96,16 @@ public class Projectile : MonoBehaviour, IPoolingList
                 transform.rotation = Quaternion.Euler(new Vector3(0, 0, startRotation));
 
                 StartCoroutine(SwingDelay());
+                break;
+            case TargetType.Throw:
+                direction = ((Vector2)enemyPositionOnProjectileLaunch - (Vector2)transform.position).normalized;
+
+                float distance = Vector2.Distance(enemyPositionOnProjectileLaunch, transform.position);
+
+                startHeight = transform.position.z;
+                float currentSpeed = projectileSpeed;
+                bulletLifeTime = distance / currentSpeed;
+                timer = bulletLifeTime;
                 break;
         }
     }
@@ -132,6 +149,35 @@ public class Projectile : MonoBehaviour, IPoolingList
         if (timer > projectileSpeed)
         {
             DisableProjectile();
+        }
+    }
+    private void ThrowMovement()
+    {
+        if (dealedDamage) return;
+
+        timer -= Time.deltaTime;
+        if (timer <= 0)
+        {
+            dealedDamage = true;
+            DealAoeDamage(transform.position);
+
+            spriteRenderer.sortingOrder = sortingLayerAfterHit;
+            Invoke("DisableProjectile", disableTimeAfterHit);
+            if (aoeVisualBullet != null)
+            {
+                aoeVisualBullet.transform.position = transform.position;
+            }
+            return;
+        }
+        transform.Translate(direction * projectileSpeed * Time.deltaTime, Space.World);
+
+        if (aoeVisualBullet != null)
+        {
+            if (maxHeight > 0)
+            {
+                Vector3 deltaHeight = Vector3.zero * startHeight * (1 - timer / bulletLifeTime) + new Vector3(0,-maxHeight * Mathf.Sin((timer / bulletLifeTime) * Mathf.PI), 0);
+                aoeVisualBullet.transform.position = transform.position - deltaHeight;
+            }
         }
     }
     private void BulletNoTarget()

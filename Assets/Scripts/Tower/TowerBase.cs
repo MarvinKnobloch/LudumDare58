@@ -206,7 +206,9 @@ namespace Tower
                     currentTarget = GetClosestEnemy();
                     break;
                 case TargetType.Swing:
-                    //Always get closest traget
+                    currentTarget = GetClosestEnemy();
+                    break;
+                case TargetType.Throw:
                     currentTarget = GetClosestEnemy();
                     break;
             }

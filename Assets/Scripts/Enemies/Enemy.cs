@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour, IPoolingList
     private float slowPercentage;
     private float slowDuration;
     private Coroutine slowCoroutine;
+    [SerializeField] private Color slowColor;
 
     [Header("Other")]
     [SerializeField] private int damageToPlayer;
@@ -174,7 +175,7 @@ public class Enemy : MonoBehaviour, IPoolingList
             else
             {
                 if (slowCoroutine == null) spriteRenderer.color = Color.white;
-                else spriteRenderer.color = Color.blue;
+                else spriteRenderer.color = slowColor;
             }
 
             currentHitEffectAmount++;
@@ -182,7 +183,7 @@ public class Enemy : MonoBehaviour, IPoolingList
         }
 
         if (slowCoroutine == null) spriteRenderer.color = Color.white;
-        else spriteRenderer.color = Color.blue;
+        else spriteRenderer.color = slowColor;
         blinkEffect = null;
     }
     public void DoSlow(float _slowPercentage, float _slowDuration)
@@ -205,7 +206,7 @@ public class Enemy : MonoBehaviour, IPoolingList
     IEnumerator Slow()
     {
         currentMovementSpeed *= slowPercentage;
-        if(blinkEffect == null) spriteRenderer.color = Color.blue;
+        if (blinkEffect == null) spriteRenderer.color = slowColor;
         yield return new WaitForSeconds(slowDuration);
         if(blinkEffect == null) spriteRenderer.color = Color.white;
         currentMovementSpeed = baseMovementSpeed;
