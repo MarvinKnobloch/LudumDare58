@@ -1,5 +1,7 @@
 using System;
+using System.Collections;
 using Marvin.PoolingSystem;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,6 +35,12 @@ public class Enemy : MonoBehaviour, IPoolingList
 
     [Header("Drops")]
     private EnemyDrop itemDropper;
+
+    [Header("HitEffect")]
+    [SerializeField] private int hitEffectAmount = 5;
+    private Coroutine blinkEffect;
+    private int currentHitEffectAmount;
+    [SerializeField] private float hitEffectDuration = 0.1f;
 
 
     public PoolingSystem.PoolObjectInfo poolingList { get; set; }
@@ -69,6 +77,7 @@ public class Enemy : MonoBehaviour, IPoolingList
     {
         currentWayPoint = 1;
         WayPointUpdate();
+        spriteRenderer.color = Color.white;
         SortEnemies.activeEnemiesSprites.Add(spriteRenderer);
     }
     private void Update()
@@ -127,16 +136,38 @@ public class Enemy : MonoBehaviour, IPoolingList
 
         Value -= amount;
 
-        Onhit();
+        IngameController.Instance.floatingNumberController.displaynumber(transform.position, amount, Color.red);
+        BlinkEffect();
+
 
         if (currentHealth <= 0)
         {
             OnDeath();
         }
     }
-    private void Onhit()
+    private void BlinkEffect()
     {
-        //HitEffect
+        if (blinkEffect != null) return;
+        //StopCoroutine("StartBlinkEffect");
+
+        spriteRenderer.color = Color.white;
+        currentHitEffectAmount = 0;
+
+        blinkEffect = StartCoroutine("StartBlinkEffect");
+    }
+    IEnumerator StartBlinkEffect()
+    {
+        while (currentHitEffectAmount < hitEffectAmount)
+        {
+            if (currentHitEffectAmount % 2 == 0) spriteRenderer.color = Color.red;
+            else spriteRenderer.color = Color.white;
+
+            currentHitEffectAmount++;
+            yield return new WaitForSeconds(hitEffectDuration);
+        }
+
+        spriteRenderer.color = Color.white;
+        blinkEffect = null;
     }
     private void OnDeath()
     {

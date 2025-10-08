@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 533932514469777186}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.17, y: 0.83, z: 0}
+  m_LocalPosition: {x: -0.17, y: 0.72, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -146,6 +146,8 @@ MonoBehaviour:
   damageToPlayer: 1
   soulsDrop: 1
   bulletTarget: {fileID: 7410592534381183594}
+  hitEffectAmount: 1
+  hitEffectDuration: 0.1
 --- !u!58 &2701071940875089523
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -180,8 +182,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.16, y: 0.48}
-  m_Radius: 0.7
+  m_Offset: {x: -0.16, y: 0.71}
+  m_Radius: 0.75
 --- !u!114 &9063273166960193225
 MonoBehaviour:
   m_ObjectHideFlags: 0

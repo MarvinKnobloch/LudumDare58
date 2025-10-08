@@ -19,7 +19,7 @@ MonoBehaviour:
   <BonusAttackSpeed>k__BackingField: 0.3
   <BonusDamage>k__BackingField: 1
   <BonusRange>k__BackingField: 5
-  <BonusAoeRadius>k__BackingField: 2
+  <BonusAoeRadius>k__BackingField: 0.5
   <Sprite>k__BackingField: {fileID: 21300000, guid: 79982efd8ad4cbf44aa5702702d94273, type: 3}
   <Weapon>k__BackingField: 6
   <ProjectilePrefab>k__BackingField: {fileID: 5590153406019164460, guid: 65a0c14034170cd4487032b481c13b14, type: 3}

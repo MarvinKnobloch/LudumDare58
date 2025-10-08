@@ -19,10 +19,29 @@ public class TowerRecipeSlot : MonoBehaviour
         towerName.text = "<u>" + towerRecipe.towerName + "</u>";
         towerIcon.sprite = towerRecipe.towerIcon;
 
+        int towerUnlocked = PlayerPrefs.GetInt(towerRecipe.towerName);
+
         for (int i = 0;i < towerRecipe.Recipe.Count; i++)
         {
-            slots[i].SetActive(true);
-            slots[i].transform.GetChild(0).GetComponentInChildren<Image>().sprite = towerRecipe.Recipe[i].Sprite;
+            if(towerUnlocked == 1) ShowSlot(towerRecipe, i);
+            else
+            {
+                if(i < towerRecipe.shownPartsIfNotUnlocked)
+                {
+                    ShowSlot(towerRecipe, i);
+                }
+                else
+                {
+                    slots[i].SetActive(true);
+                    slots[i].transform.GetChild(1).gameObject.SetActive(true);
+                }
+            }
         }
+    }
+    private void ShowSlot(TowerRecipe towerRecipe, int i)
+    {
+        slots[i].SetActive(true);
+        slots[i].transform.GetChild(0).GetComponentInChildren<Image>().sprite = towerRecipe.Recipe[i].Sprite;
+        slots[i].transform.GetChild(1).gameObject.SetActive(false);
     }
 }

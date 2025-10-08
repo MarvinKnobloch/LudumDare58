@@ -13,6 +13,8 @@ namespace Tower
         public static UnityEvent<TowerBase, BodyObject> BodyPartEquipped { get; } = new();
         public static UnityEvent<TowerBase, BodyObject> BodyPartUnequipped { get; } = new();
 
+        public static event Action UpdateRecipesUI;
+
         [SerializeField] private TowerValues towerValues;
 
         [SerializeField] private GameObject _rubyFirePrefab;
@@ -56,19 +58,16 @@ namespace Tower
             //SetValues
             _currentDamage = towerValues.baseDamage;
             _currentAttackSpeed = towerValues.baseAttackSpeed;
-            CapAttackSpeed();
             _currentRange = towerValues.baseAttackRange;
+            _currentAoeRadius = towerValues.aoeRadius;
             _projectilePrefab = towerValues.projectilePrefab;
             _weaponType = towerValues.weaponType;
             _targetType = towerValues.targetType;
 
+            CapAttackSpeed();
+
             _transform = transform;
             _animator = GetComponentInChildren<Animator>();
-
-            if (weapon == null) return;
-
-            _weaponType = weapon.Weapon;
-            _currentAoeRadius = weapon.BonusAoeRadius;
         }
 
         private void Update()
@@ -157,13 +156,14 @@ namespace Tower
                 int count = EquippedBodyObjects.Count(bo => recipe.Recipe.Contains(bo));
                 int matchPercent = Mathf.RoundToInt((count / (float)recipe.Recipe.Count) * 100);
 
-                Debug.Log(count);
                 if (count == recipe.Recipe.Count)
                 {
                     TowerBase newTower = Instantiate(recipe.recipeTowerPrefab, transform.position, Quaternion.identity).GetComponentInChildren<TowerBase>();
                     newTower.isRecipeTower = true;
+                    PlayerPrefs.SetInt(recipe.towerName, 1);
+                    UpdateRecipesUI?.Invoke();
                     IngameController.Instance.playerUI.inventory.SetCurrentTower(newTower);
-                    Destroy(gameObject);
+                    Destroy(transform.parent.gameObject);
                 }
 
                 if (matchPercent > bestMatchPercent)
