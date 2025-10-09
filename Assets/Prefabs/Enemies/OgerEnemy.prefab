@@ -167,16 +167,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemDropper
   dropValues:
   - item: {fileID: 8528078405184565660, guid: 5b7d417b6f315f049a8901a3ac88dca1, type: 3}
-    dropChance: 0.1
+    dropChance: 0.3
     amount: 1
   - item: {fileID: 5892243160951536167, guid: 962446aa7e1ffa449855c24745b7cd12, type: 3}
-    dropChance: 0.05
+    dropChance: 0.3
     amount: 1
   - item: {fileID: 3848033517144133934, guid: 0d6fdc8a3876e3e489652f5557e2af40, type: 3}
-    dropChance: 0.1
+    dropChance: 0.3
     amount: 1
   scatterRadius: 8
   addForce: 1
+  buildArea: {fileID: 0}
 --- !u!95 &-5989598834997940642
 Animator:
   serializedVersion: 7
