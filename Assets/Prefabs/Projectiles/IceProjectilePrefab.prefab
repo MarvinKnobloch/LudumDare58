@@ -113,6 +113,7 @@ MonoBehaviour:
   slowPercentage: 0
   slowDuration: 0
   targetType: 0
+  objectToSpawn: {fileID: 0}
   projectileSpeed: 18
   hitLayer:
     serializedVersion: 2
@@ -120,6 +121,8 @@ MonoBehaviour:
   disableTimeAfterHit: 0.05
   sortingLayerOnEnable: 20
   sortingLayerAfterHit: -99
+  meleeWeaponOffset: 0.5
+  meleeWeaponScale: 1
   aoeVisualBullet: {fileID: 0}
   maxHeight: 0
 --- !u!58 &3678556042877228813

@@ -8,6 +8,7 @@ using UnityEngine.Events;
 using static UnityEditor.PlayerSettings;
 using UnityEngine.UI;
 using static UnityEngine.EventSystems.EventTrigger;
+using Unity.VisualScripting;
 
 namespace Tower
 {
@@ -20,8 +21,6 @@ namespace Tower
 
         [SerializeField] private TowerValues towerValues;
 
-        [SerializeField] private GameObject _rubyFirePrefab;
-
         [Space]
         [SerializeField] private LayerMask attackLayer;
         [SerializeField] private int _currentDamage;
@@ -31,8 +30,9 @@ namespace Tower
         private bool _slow;
         private int _slowPercentage;
         private float _slowDuration;
-        private int _additionalTargets;
+        private int _additionalProjectiles;
         private GameObject _projectilePrefab;
+        private GameObject _objectToSpawn;
         private float attackSpeedCap = 0.1f;
 
         private Transform _transform;
@@ -75,7 +75,8 @@ namespace Tower
             _slow = towerValues.slow;
             _slowPercentage = towerValues.slowPercentage;
             _slowDuration = towerValues.slowDuration;
-            _additionalTargets = towerValues.additionalTargets;
+            _additionalProjectiles = towerValues.additionalProjectiles;
+            _objectToSpawn = towerValues.objectToSpawn;
 
             CapAttackSpeed();
 
@@ -134,7 +135,8 @@ namespace Tower
                     _slow = bodyObject.Slow;
                     _slowPercentage = bodyObject.SlowPercentage;
                     _slowDuration = bodyObject.SlowDuration;
-                    _additionalTargets = bodyObject.AdditionalTargets;
+                    _additionalProjectiles = bodyObject.AdditionalProjectiles;
+                    _objectToSpawn = bodyObject.ObjectToSpawn;
                     AddTowerValues(bodyObject);
                     break;
             }
@@ -272,7 +274,7 @@ namespace Tower
         {
             CreateProjectile(targetEnemy);
 
-            if (_additionalTargets > 0)
+            if (_additionalProjectiles > 0)
             {
                 GameObject[] enemies = Physics2D.OverlapCircleAll(transform.position, _currentRange, attackLayer)
                     .OrderBy(x => (x.transform.position - transform.position).sqrMagnitude)  //Vector2.Distance(x.transform.position, transform.position))
@@ -281,7 +283,7 @@ namespace Tower
                 int projectilesFired = 0;
                 for (int i = 0; i < enemies.Length; i++)
                 {
-                    if (projectilesFired >= _additionalTargets) break;
+                    if (projectilesFired >= _additionalProjectiles) break;
 
                     if (enemies[i].gameObject == targetEnemy.gameObject || enemies[i].gameObject.activeSelf == false) continue;
 
@@ -306,22 +308,9 @@ namespace Tower
             projectile.slowPercentage = _slowPercentage;
             projectile.slowDuration = _slowDuration;
             projectile.targetType = _targetType;
+            projectile.objectToSpawn = _objectToSpawn;
 
             projectile.SetValues(targetEnemy);
-        }
-
-        private IEnumerator HandleRubyStaffAttack(Transform targetEnemy)
-        {
-            var direction = (targetEnemy.position - transform.position).normalized;
-            var towerPos = _transform.position;
-
-            for (var i = 0; i < 9; i++)
-            {
-                var position = new Vector2(towerPos.x + direction.x * i / 1.5f, towerPos.y + direction.y * i / 1.5f);
-                var fire = Instantiate(_rubyFirePrefab, position, Quaternion.identity).GetComponent<RubyStaffFire>();
-                fire.Initialize(Mathf.RoundToInt(_currentDamage));
-                yield return new WaitForSeconds(0.1f);
-            }
         }
         public float GetTowerRange()
         {

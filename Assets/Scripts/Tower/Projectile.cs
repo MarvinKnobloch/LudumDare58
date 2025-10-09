@@ -13,6 +13,7 @@ public class Projectile : MonoBehaviour, IPoolingList
     private bool dealedDamage;
     private Vector3 enemyPositionOnProjectileLaunch;
     [SerializeField] private SpriteRenderer spriteRenderer;
+    private Vector3 objectToSpawnRotation;
     private float timer;
 
     [HideInInspector] public int damage;
@@ -22,6 +23,7 @@ public class Projectile : MonoBehaviour, IPoolingList
     [HideInInspector] public float slowPercentage;
     [HideInInspector] public float slowDuration;
     [HideInInspector] public TargetType targetType;
+    [HideInInspector] public GameObject objectToSpawn;
 
 
     [Header("BasicValues")]
@@ -82,6 +84,9 @@ public class Projectile : MonoBehaviour, IPoolingList
         currenttarget = target;
         bulletTarget = currenttarget.GetComponent<Enemy>().GetBulletTarget();
         enemyPositionOnProjectileLaunch = bulletTarget.transform.position;
+        direction = (bulletTarget.transform.position - transform.position).normalized;
+        if(objectToSpawn != null) objectToSpawnRotation = bulletTarget.position - transform.position;
+
 
         switch (targetType)
         {
@@ -191,6 +196,7 @@ public class Projectile : MonoBehaviour, IPoolingList
         if (timer <= 0)
         {
             dealedDamage = true;
+
             DealAoeDamage(transform.position);
 
             spriteRenderer.sortingOrder = sortingLayerAfterHit;
@@ -225,6 +231,12 @@ public class Projectile : MonoBehaviour, IPoolingList
     {
         if (aoeRadius <= 0)
         {
+            if (objectToSpawn)
+            {
+                SpawnObject();
+                return;
+            }
+
             if (currenttarget.TryGetComponent(out Enemy enemy))
             {
                 if (enemy.gameObject.activeSelf == false) return;
@@ -240,6 +252,12 @@ public class Projectile : MonoBehaviour, IPoolingList
     }
     private void DealAoeDamage(Vector3 position)
     {
+        if (objectToSpawn)
+        { 
+            SpawnObject();
+            return;
+        }
+
         Collider2D[] colls = Physics2D.OverlapCircleAll(position, aoeRadius, hitLayer);
 
         foreach (Collider2D coll in colls)
@@ -273,6 +291,29 @@ public class Projectile : MonoBehaviour, IPoolingList
                     Invoke("DisableProjectile", disableTimeAfterHit);
                 }
                 break;
+        }
+    }
+    private void SpawnObject()
+    {
+        GameObject spawnedObject = PoolingSystem.SpawnObject
+             (objectToSpawn, transform.position, Quaternion.identity, PoolingSystem.PoolingParentGameObject.Projectile);
+
+        if(spawnedObject.TryGetComponent(out DealDmgOnEnter dealDmgOnEnter))
+        {
+            spawnedObject.transform.right = objectToSpawnRotation;
+
+            dealDmgOnEnter.damage = damage;
+            if(dealDmgOnEnter.baseScalingSaved == false)
+            {
+                dealDmgOnEnter.baseScalingSaved = true;
+                dealDmgOnEnter.baseScaling = objectToSpawn.transform.localScale;
+            }
+
+            float xScale = objectToSpawn.transform.localScale.x * (aoeRadius + 1);
+            if (xScale < 0.1f) xScale = 0.1f;
+            float yScale = objectToSpawn.transform.localScale.y * (aoeRadius + 1);
+            if (yScale < 0.1f) yScale = 0.1f;
+            dealDmgOnEnter.transform.localScale = new Vector3(xScale, yScale, 1);
         }
     }
     private void DisableProjectile()

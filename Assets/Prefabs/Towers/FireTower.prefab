@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 47459961506918954, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: m_Color.b
-      value: 0.04263801
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 47459961506918954, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: m_Color.g
-      value: 0.1981132
+      value: 0.021778123
       objectReference: {fileID: 0}
     - target: {fileID: 47459961506918954, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: m_Color.r
-      value: 0
+      value: 0.59607846
       objectReference: {fileID: 0}
     - target: {fileID: 3588843796145617972, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5852628107453491410, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: m_Name
-      value: SwordTower
+      value: FireTower
       objectReference: {fileID: 0}
     - target: {fileID: 7828311766438679498, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: baseRange
@@ -75,7 +75,7 @@ PrefabInstance:
     - target: {fileID: 7828311766438679498, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: towerValues
       value: 
-      objectReference: {fileID: 11400000, guid: 6b06aa5a635387d4c9800368a3e5dd31, type: 2}
+      objectReference: {fileID: 11400000, guid: af9351e28f47edf43b247deb5538507d, type: 2}
     - target: {fileID: 7828311766438679498, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: baseAttackSpeed
       value: 0.2

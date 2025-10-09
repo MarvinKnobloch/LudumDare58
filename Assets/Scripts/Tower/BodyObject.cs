@@ -28,6 +28,7 @@ namespace Tower
         [field: SerializeField] public bool Slow { get; private set; }
         [field: SerializeField] public int SlowPercentage { get; private set; }
         [field: SerializeField] public int SlowDuration { get; private set; }
-        [field: SerializeField] public int AdditionalTargets { get; private set; }
+        [field: SerializeField] public int AdditionalProjectiles { get; private set; }
+        [field: SerializeField] public GameObject ObjectToSpawn { get; private set; }
     }
 }
