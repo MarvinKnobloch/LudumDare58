@@ -168,17 +168,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemDropper
   dropValues:
   - item: {fileID: 8528078405184565660, guid: 5b7d417b6f315f049a8901a3ac88dca1, type: 3}
-    dropChance: 0.3
+    dropChance: 0.2
     amount: 1
   - item: {fileID: 5892243160951536167, guid: 962446aa7e1ffa449855c24745b7cd12, type: 3}
-    dropChance: 0.3
+    dropChance: 0.1
     amount: 1
   - item: {fileID: 3848033517144133934, guid: 0d6fdc8a3876e3e489652f5557e2af40, type: 3}
-    dropChance: 0.3
+    dropChance: 0.2
     amount: 1
-  scatterRadius: 8
-  addForce: 1
-  buildArea: {fileID: 0}
+  scatterRadius: 2
+  useAnimation: 1
+  popDuration: 0.8
+  heightY: 3
+  animCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1.0246027
+      value: -0.07735352
+      inSlope: -1.7807934
+      outSlope: -1.7807934
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.03999994
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!95 &-5989598834997940642
 Animator:
   serializedVersion: 7

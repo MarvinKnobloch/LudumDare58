@@ -1,12 +1,16 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class EnemyDrop : MonoBehaviour
 {
     [SerializeField] private DropValues[] dropValues;
-    [SerializeField] private float scatterRadius = 0.15f; 
-    [SerializeField] private bool addForce = true;
+    [SerializeField] private float scatterRadius = 0.15f;
+    [SerializeField] private bool useAnimation = true;
 
-    [SerializeField] private Collider2D buildArea;
+    [Header("Animation Settings")]
+    [SerializeField] private float popDuration = 0.4f;
+    [SerializeField] private float heightY = 0.5f;
+    [SerializeField] private AnimationCurve animCurve = AnimationCurve.EaseInOut(0, 0, 1, 1);
 
     public void DropItems(Vector3 position)
     {
@@ -24,25 +28,15 @@ public class EnemyDrop : MonoBehaviour
                 if (DropAreaConfiner.Instance != null)
                     dropPosition = DropAreaConfiner.Instance.ClampToArea(dropPosition);
 
+                GameObject newDrop = Instantiate(drop.item, position, Quaternion.identity);
 
-                GameObject newDrop = Instantiate(drop.item, dropPosition, Quaternion.identity);
-
-                if (addForce)
+                if (useAnimation)
                 {
-                    Rigidbody2D rb = newDrop.GetComponent<Rigidbody2D>();
-                    if (rb != null)
-                    {
-                        Vector2 randomForce = Random.insideUnitCircle * 0.02f;
-                        rb.AddForce(randomForce, ForceMode2D.Force); 
+                    LootPop pop = newDrop.GetComponent<LootPop>();
+                    if (pop == null)
+                        pop = newDrop.AddComponent<LootPop>();
 
-                        float randomTorque = Random.Range(-0.05f, 0.05f);
-                        rb.AddTorque(randomTorque, ForceMode2D.Force);
-
-                        rb.linearDamping = 10f;
-                        rb.angularDamping = 10f;
-                        rb.gravityScale = 0f;
-                        rb.mass = 1f; 
-                    }
+                    pop.StartPop(dropPosition, popDuration, heightY, animCurve);
                 }
             }
         }
@@ -54,5 +48,36 @@ public class EnemyDrop : MonoBehaviour
         public GameObject item;
         [Range(0f, 1f)] public float dropChance = 1f;
         public int amount = 1;
+    }
+}
+
+public class LootPop : MonoBehaviour
+{
+    public void StartPop(Vector2 endPosition, float popDuration, float heightY, AnimationCurve animCurve)
+    {
+        StartCoroutine(AnimCurveSpawnRoutine(endPosition, popDuration, heightY, animCurve));
+    }
+
+    private IEnumerator AnimCurveSpawnRoutine(Vector2 endPoint, float popDuration, float heightY, AnimationCurve animCurve)
+    {
+        Vector2 startPoint = transform.position;
+        float timePassed = 0f;
+        float heightVariation = Random.Range(heightY * 0.8f, heightY * 1.2f);
+
+        while (timePassed < popDuration)
+        {
+            timePassed += Time.deltaTime;
+            float linearT = timePassed / popDuration;
+            float heightT = animCurve.Evaluate(linearT);
+            float height = heightY * animCurve.Evaluate(linearT);
+
+            transform.position =
+                Vector2.Lerp(startPoint, endPoint, linearT)
+                + new Vector2(0f, height);
+
+            yield return null;
+        }
+
+        transform.position = endPoint;
     }
 }
