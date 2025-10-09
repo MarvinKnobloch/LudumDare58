@@ -120,6 +120,8 @@ MonoBehaviour:
   disableTimeAfterHit: 0.25
   sortingLayerOnEnable: 20
   sortingLayerAfterHit: 0
+  meleeWeaponOffset: 0.5
+  meleeWeaponScale: 1
   aoeVisualBullet: {fileID: 0}
   maxHeight: 0
 --- !u!58 &-5663957369430903067

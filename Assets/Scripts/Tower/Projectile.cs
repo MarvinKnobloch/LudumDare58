@@ -23,11 +23,6 @@ public class Projectile : MonoBehaviour, IPoolingList
     [HideInInspector] public float slowDuration;
     [HideInInspector] public TargetType targetType;
 
-    //Swing
-    private float startRotation;
-    private float endRotation;
-    private float lerpPercentage;
-    private float meleeWeaponOffset = 0.5f;
 
     [Header("BasicValues")]
     [SerializeField] private float projectileSpeed;
@@ -37,6 +32,14 @@ public class Projectile : MonoBehaviour, IPoolingList
     [Space]
     [SerializeField] private int sortingLayerOnEnable = 20;
     [SerializeField] private int sortingLayerAfterHit = -99;        //Used for AimOnGroundOnly
+
+    //Swing
+    [Header("Melee")]
+    [SerializeField] private float meleeWeaponOffset = 0.5f;
+    [SerializeField] private float meleeWeaponScale = 1;
+    private float startRotation;
+    private float endRotation;
+    private float lerpPercentage;
 
     [Header("ThrowValues")]
     [SerializeField] private GameObject aoeVisualBullet;
@@ -98,7 +101,7 @@ public class Projectile : MonoBehaviour, IPoolingList
     }
     private void SetSwing()
     {
-        transform.localScale = new Vector3(0.5f * range, 0.5f * range, 1);
+        transform.localScale = new Vector3(meleeWeaponScale * range, meleeWeaponScale * range, 1);
 
         direction = (bulletTarget.transform.position - transform.position).normalized;
         transform.position = transform.position + (direction * meleeWeaponOffset);
@@ -108,12 +111,12 @@ public class Projectile : MonoBehaviour, IPoolingList
         targ.x = targ.x - objectPos.x;
         targ.y = targ.y - objectPos.y;
 
-        float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg - 45;     //45 = Png angle
+        float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg - 55;     //45 = Png angle
         startRotation = angle + (20 * aoeRadius);
         endRotation = angle - (20 * aoeRadius);
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, startRotation));
 
-        StartCoroutine(SwingDelay());
+        StartCoroutine(SwingDamageDelay());
     }
     private void SetThrow()
     {
@@ -128,7 +131,7 @@ public class Projectile : MonoBehaviour, IPoolingList
     }
     private void SetMelee()
     {
-        transform.localScale = new Vector3(1f * range, 1f * range, 1);
+        transform.localScale = new Vector3(meleeWeaponScale * range, meleeWeaponScale * range, 1);
 
         direction = (bulletTarget.transform.position - transform.position).normalized;
         transform.position = transform.position + (direction * meleeWeaponOffset);
@@ -251,9 +254,9 @@ public class Projectile : MonoBehaviour, IPoolingList
             }
         }
     }
-    IEnumerator SwingDelay()
+    IEnumerator SwingDamageDelay()
     {
-        yield return new WaitForSeconds(projectileSpeed * 0.5f);
+        yield return new WaitForSeconds(projectileSpeed * 0.2f);
         DealAoeDamage(currenttarget.position);
     }
     private void OnTriggerEnter2D(Collider2D collision)

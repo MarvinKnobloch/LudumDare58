@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5f5de4900b540434e9f8c73b9ec9e001
+guid: 381994f5cf298f54ea73bd0cbe38d468
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2759038298730105318
-    second: "Zweith\xE4nder_0"
+      213: -7472107021573867463
+    second: Holzkeule_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -50,7 +50,7 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 9
-  spritePivot: {x: 0.11, y: 0.115}
+  spritePivot: {x: 0.23, y: 0.2}
   spritePixelsToUnits: 500
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "Zweith\xE4nder_0"
+      name: Holzkeule_0
       rect:
         serializedVersion: 2
-        x: 62
-        y: 65
-        width: 603
-        height: 613
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 0
+        width: 800
+        height: 800
+      alignment: 9
+      pivot: {x: 0.23, y: 0.2}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a167e7a094de5b9d0800000000000000
-      internalID: -2759038298730105318
+      spriteID: 9383367b04ebd4890800000000000000
+      internalID: -7472107021573867463
       vertices: []
       indices: 
       edges: []
@@ -138,8 +138,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    spriteID: 1a730412a0180ca4b88fc3fd8d5d89ed
+    internalID: -119293592
     vertices: []
     indices: 
     edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      "Zweith\xE4nder_0": -2759038298730105318
+      Holzkeule_0: -7472107021573867463
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
