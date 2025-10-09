@@ -15,7 +15,9 @@ public class Enemy : MonoBehaviour, IPoolingList
     private bool faceRight;
     private SpriteRenderer spriteRenderer;
 
-    [SerializeField] private float movementSpeed;
+
+    [SerializeField] private float baseMovementSpeed = 4;
+    private float currentMovementSpeed;
     [SerializeField] private int baseHealth;
     [SerializeField] private ArmorType armorType;
 
@@ -27,6 +29,11 @@ public class Enemy : MonoBehaviour, IPoolingList
     [SerializeField] private int currentHealth;
     [SerializeField] private int maxHealth;
 
+    //Slow
+    private float slowPercentage;
+    private float slowDuration;
+    private Coroutine slowCoroutine;
+    [SerializeField] private Color slowColor;
 
     [Header("Other")]
     [SerializeField] private int damageToPlayer;
@@ -75,6 +82,11 @@ public class Enemy : MonoBehaviour, IPoolingList
     }
     private void OnEnable()
     {
+        StopAllCoroutines();
+        blinkEffect = null;
+        slowCoroutine = null;
+
+        currentMovementSpeed = baseMovementSpeed;
         currentWayPoint = 1;
         WayPointUpdate();
         spriteRenderer.color = Color.white;
@@ -83,7 +95,7 @@ public class Enemy : MonoBehaviour, IPoolingList
     private void Update()
     {
         checkTimer += Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, movementSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, currentMovementSpeed * Time.deltaTime);
 
         if (checkTimer >= wayPointCheckInterval)
         {
@@ -137,10 +149,12 @@ public class Enemy : MonoBehaviour, IPoolingList
         Value -= amount;
 
         IngameController.Instance.floatingNumberController.displaynumber(transform.position, amount, Color.red);
-        BlinkEffect();
 
-
-        if (currentHealth <= 0)
+        if (currentHealth > 0) 
+        { 
+            BlinkEffect();
+        }
+        else
         {
             OnDeath();
         }
@@ -160,14 +174,45 @@ public class Enemy : MonoBehaviour, IPoolingList
         while (currentHitEffectAmount < hitEffectAmount)
         {
             if (currentHitEffectAmount % 2 == 0) spriteRenderer.color = Color.red;
-            else spriteRenderer.color = Color.white;
+            else
+            {
+                if (slowCoroutine == null) spriteRenderer.color = Color.white;
+                else spriteRenderer.color = slowColor;
+            }
 
             currentHitEffectAmount++;
             yield return new WaitForSeconds(hitEffectDuration);
         }
 
-        spriteRenderer.color = Color.white;
+        if (slowCoroutine == null) spriteRenderer.color = Color.white;
+        else spriteRenderer.color = slowColor;
         blinkEffect = null;
+    }
+    public void DoSlow(float _slowPercentage, float _slowDuration)
+    {
+        float finalSlow = _slowPercentage * 0.01f;
+
+        if (currentMovementSpeed >= (baseMovementSpeed * finalSlow))          //if new Slow is worse do nothing
+        {
+            StopCoroutine("Slow");
+            slowCoroutine = null;
+
+            currentMovementSpeed = baseMovementSpeed;
+            slowPercentage = finalSlow;
+            slowDuration = _slowDuration;
+
+            slowCoroutine = StartCoroutine("Slow");
+        }
+    }
+
+    IEnumerator Slow()
+    {
+        currentMovementSpeed *= slowPercentage;
+        if (blinkEffect == null) spriteRenderer.color = slowColor;
+        yield return new WaitForSeconds(slowDuration);
+        if(blinkEffect == null) spriteRenderer.color = Color.white;
+        currentMovementSpeed = baseMovementSpeed;
+        slowCoroutine = null;
     }
     private void OnDeath()
     {
@@ -184,6 +229,10 @@ public class Enemy : MonoBehaviour, IPoolingList
     }
     private void Despawn()
     {
+        StopAllCoroutines();
+        slowCoroutine = null;
+        blinkEffect = null;
+
         enemyHasDied?.Invoke();
         SortEnemies.activeEnemiesSprites.Remove(spriteRenderer);
         PoolingSystem.ReturnObjectToPool(gameObject, poolingList);

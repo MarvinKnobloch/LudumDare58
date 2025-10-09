@@ -1,6 +1,7 @@
 using System.Collections;
 using Marvin.PoolingSystem;
 using Tower;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour, IPoolingList
@@ -10,19 +11,22 @@ public class Projectile : MonoBehaviour, IPoolingList
     private Vector3 direction;
     private bool targetHasDied;
     private bool dealedDamage;
-    private TargetType targetType;
     private Vector3 enemyPositionOnProjectileLaunch;
-    private SpriteRenderer spriteRenderer;
+    [SerializeField] private SpriteRenderer spriteRenderer;
+    private Vector3 objectToSpawnRotation;
     private float timer;
 
-    private int damage;
-    private float aoeRadius;
+    [HideInInspector] public int damage;
+    [HideInInspector] public float range;
+    [HideInInspector] public float aoeRadius;
+    [HideInInspector] public bool slow;
+    [HideInInspector] public float slowPercentage;
+    [HideInInspector] public float slowDuration;
+    [HideInInspector] public TargetType targetType;
+    [HideInInspector] public GameObject objectToSpawn;
 
-    //Swing
-    [SerializeField] private float startRotation;
-    [SerializeField] private float endRotation;
-    private float percentage;
 
+    [Header("BasicValues")]
     [SerializeField] private float projectileSpeed;
     [SerializeField] private LayerMask hitLayer;
     [SerializeField] private float disableTimeAfterHit = 0.05f;
@@ -31,13 +35,23 @@ public class Projectile : MonoBehaviour, IPoolingList
     [SerializeField] private int sortingLayerOnEnable = 20;
     [SerializeField] private int sortingLayerAfterHit = -99;        //Used for AimOnGroundOnly
 
- 
+    //Swing
+    [Header("Melee")]
+    [SerializeField] private float meleeWeaponOffset = 0.5f;
+    [SerializeField] private float meleeWeaponScale = 1;
+    private float startRotation;
+    private float endRotation;
+    private float lerpPercentage;
+
+    [Header("ThrowValues")]
+    [SerializeField] private GameObject aoeVisualBullet;
+    private float startHeight;
+    [SerializeField] private float maxHeight;
+    private float bulletLifeTime;
+
+
     public PoolingSystem.PoolObjectInfo poolingList { get; set; }
 
-    private void Awake()
-    {
-        spriteRenderer = GetComponent<SpriteRenderer>();
-    }
     void Update()
     {
         switch (targetType)
@@ -51,45 +65,86 @@ public class Projectile : MonoBehaviour, IPoolingList
             case TargetType.Swing:
                 Swing();
                 break;
+            case TargetType.Throw:
+                ThrowMovement();
+                break;
+            case TargetType.Melee:
+                break;
         }
     }
-    public void SetValues(Transform target, int _damage, float _aoeRaduis, float _range, TargetType _targetType)
+    public void SetValues(Transform target)
     {
         dealedDamage = false;
         CancelInvoke();
         StopAllCoroutines();
         spriteRenderer.sortingOrder = sortingLayerOnEnable;
         timer = 0;
-        percentage = 0;
+        lerpPercentage = 0;
 
         currenttarget = target;
         bulletTarget = currenttarget.GetComponent<Enemy>().GetBulletTarget();
-        damage = _damage;
-        aoeRadius = _aoeRaduis;
-        targetType = _targetType;
+        enemyPositionOnProjectileLaunch = bulletTarget.transform.position;
+        direction = (bulletTarget.transform.position - transform.position).normalized;
+        if(objectToSpawn != null) objectToSpawnRotation = bulletTarget.position - transform.position;
+
 
         switch (targetType)
         {
             case TargetType.AimOnGround:
-                enemyPositionOnProjectileLaunch = bulletTarget.transform.position;
                 transform.right = enemyPositionOnProjectileLaunch - transform.position;
                 break;
             case TargetType.Swing:
-                transform.localScale = new Vector3(0.5f * _range, 0.5f * _range, 1);
-
-                Vector3 targ = bulletTarget.position;
-                Vector3 objectPos = transform.position;
-                targ.x = targ.x - objectPos.x;
-                targ.y = targ.y - objectPos.y;
-
-                float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg;
-                startRotation = angle + (20 * aoeRadius);
-                endRotation = angle - (20 * aoeRadius);
-                transform.rotation = Quaternion.Euler(new Vector3(0, 0, startRotation));
-
-                StartCoroutine(SwingDelay());
+                SetSwing();
+                break;
+            case TargetType.Throw:
+                SetThrow();
+                break;
+            case TargetType.Melee:
+                SetMelee();
                 break;
         }
+    }
+    private void SetSwing()
+    {
+        transform.localScale = new Vector3(meleeWeaponScale * range, meleeWeaponScale * range, 1);
+
+        direction = (bulletTarget.transform.position - transform.position).normalized;
+        transform.position = transform.position + (direction * meleeWeaponOffset);
+
+        Vector3 targ = bulletTarget.position;
+        Vector3 objectPos = transform.position;
+        targ.x = targ.x - objectPos.x;
+        targ.y = targ.y - objectPos.y;
+
+        float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg - 55;     //45 = Png angle
+        startRotation = angle + (20 * aoeRadius);
+        endRotation = angle - (20 * aoeRadius);
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, startRotation));
+
+        StartCoroutine(SwingDamageDelay());
+    }
+    private void SetThrow()
+    {
+        direction = ((Vector2)enemyPositionOnProjectileLaunch - (Vector2)transform.position).normalized;
+
+        float distance = Vector2.Distance(enemyPositionOnProjectileLaunch, transform.position);
+
+        startHeight = transform.position.z;
+        float currentSpeed = projectileSpeed;
+        bulletLifeTime = distance / currentSpeed;
+        timer = bulletLifeTime;
+    }
+    private void SetMelee()
+    {
+        transform.localScale = new Vector3(meleeWeaponScale * range, meleeWeaponScale * range, 1);
+
+        direction = (bulletTarget.transform.position - transform.position).normalized;
+        transform.position = transform.position + (direction * meleeWeaponOffset);
+        transform.right = enemyPositionOnProjectileLaunch - transform.position;
+
+        DealAoeDamage(bulletTarget.transform.position);
+
+        Invoke("DisableProjectile", disableTimeAfterHit);
     }
     private void ProjectileFollowTarget()
     {
@@ -124,13 +179,43 @@ public class Projectile : MonoBehaviour, IPoolingList
     private void Swing()
     {
         timer += Time.deltaTime;
-        percentage = timer / projectileSpeed;
+        lerpPercentage = timer / projectileSpeed;
 
-        transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Lerp(startRotation, endRotation, percentage)));
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, Mathf.Lerp(startRotation, endRotation, lerpPercentage)));
 
         if (timer > projectileSpeed)
         {
             DisableProjectile();
+        }
+    }
+    private void ThrowMovement()
+    {
+        if (dealedDamage) return;
+
+        timer -= Time.deltaTime;
+        if (timer <= 0)
+        {
+            dealedDamage = true;
+
+            DealAoeDamage(transform.position);
+
+            spriteRenderer.sortingOrder = sortingLayerAfterHit;
+            Invoke("DisableProjectile", disableTimeAfterHit);
+            if (aoeVisualBullet != null)
+            {
+                aoeVisualBullet.transform.position = transform.position;
+            }
+            return;
+        }
+        transform.Translate(direction * projectileSpeed * Time.deltaTime, Space.World);
+
+        if (aoeVisualBullet != null)
+        {
+            if (maxHeight > 0)
+            {
+                Vector3 deltaHeight = Vector3.zero * startHeight * (1 - timer / bulletLifeTime) + new Vector3(0,-maxHeight * Mathf.Sin((timer / bulletLifeTime) * Mathf.PI), 0);
+                aoeVisualBullet.transform.position = transform.position - deltaHeight;
+            }
         }
     }
     private void BulletNoTarget()
@@ -146,7 +231,19 @@ public class Projectile : MonoBehaviour, IPoolingList
     {
         if (aoeRadius <= 0)
         {
-            currenttarget.GetComponent<Enemy>().TakeDamage(damage);
+            if (objectToSpawn)
+            {
+                SpawnObject();
+                return;
+            }
+
+            if (currenttarget.TryGetComponent(out Enemy enemy))
+            {
+                if (enemy.gameObject.activeSelf == false) return;
+
+                enemy.TakeDamage(damage);
+                if (slow == true && enemy.gameObject.activeSelf == true) enemy.DoSlow(slowPercentage, slowDuration);
+            }          
         }
         else
         {
@@ -155,19 +252,29 @@ public class Projectile : MonoBehaviour, IPoolingList
     }
     private void DealAoeDamage(Vector3 position)
     {
+        if (objectToSpawn)
+        { 
+            SpawnObject();
+            return;
+        }
+
         Collider2D[] colls = Physics2D.OverlapCircleAll(position, aoeRadius, hitLayer);
 
         foreach (Collider2D coll in colls)
         {
+            if (coll.gameObject.activeSelf == false) continue;
+
             if (coll.TryGetComponent(out Enemy enemy))
             {
                 enemy.TakeDamage(damage);
+
+                if (slow == true && enemy.gameObject.activeSelf == true) enemy.DoSlow(slowPercentage, slowDuration);
             }
         }
     }
-    IEnumerator SwingDelay()
+    IEnumerator SwingDamageDelay()
     {
-        yield return new WaitForSeconds(projectileSpeed * 0.5f);
+        yield return new WaitForSeconds(projectileSpeed * 0.2f);
         DealAoeDamage(currenttarget.position);
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -179,11 +286,34 @@ public class Projectile : MonoBehaviour, IPoolingList
             case TargetType.FollowTarget:
                 if (collision.gameObject == currenttarget.gameObject)
                 {
-                    FollowTargetDamage();
                     dealedDamage = true;
+                    FollowTargetDamage();
                     Invoke("DisableProjectile", disableTimeAfterHit);
                 }
                 break;
+        }
+    }
+    private void SpawnObject()
+    {
+        GameObject spawnedObject = PoolingSystem.SpawnObject
+             (objectToSpawn, transform.position, Quaternion.identity, PoolingSystem.PoolingParentGameObject.Projectile);
+
+        if(spawnedObject.TryGetComponent(out DealDmgOnEnter dealDmgOnEnter))
+        {
+            spawnedObject.transform.right = objectToSpawnRotation;
+
+            dealDmgOnEnter.damage = damage;
+            if(dealDmgOnEnter.baseScalingSaved == false)
+            {
+                dealDmgOnEnter.baseScalingSaved = true;
+                dealDmgOnEnter.baseScaling = objectToSpawn.transform.localScale;
+            }
+
+            float xScale = objectToSpawn.transform.localScale.x * (aoeRadius + 1);
+            if (xScale < 0.1f) xScale = 0.1f;
+            float yScale = objectToSpawn.transform.localScale.y * (aoeRadius + 1);
+            if (yScale < 0.1f) yScale = 0.1f;
+            dealDmgOnEnter.transform.localScale = new Vector3(xScale, yScale, 1);
         }
     }
     private void DisableProjectile()

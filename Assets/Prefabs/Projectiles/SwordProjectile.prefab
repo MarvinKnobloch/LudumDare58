@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7942157806999034462}
   - component: {fileID: -5471980464642280200}
   m_Layer: 0
-  m_Name: SwordSwing
+  m_Name: SwordProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,13 +103,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 912c8d252406eef48876b2214d461cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
-  startRotation: {x: 0, y: 0, z: 0}
-  test: {x: 0, y: 0, z: 0}
-  endRotation: {x: 0, y: 0, z: 0}
-  projectileSpeed: 0.2
+  spriteRenderer: {fileID: 7942157806999034462}
+  damage: 0
+  range: 0
+  aoeRadius: 0
+  slow: 0
+  slowPercentage: 0
+  slowDuration: 0
+  targetType: 0
+  projectileSpeed: 0.3
   hitLayer:
     serializedVersion: 2
     m_Bits: 512
   disableTimeAfterHit: 0
   sortingLayerOnEnable: 20
   sortingLayerAfterHit: -99
+  meleeWeaponOffset: 1
+  meleeWeaponScale: 0.6
+  aoeVisualBullet: {fileID: 0}
+  maxHeight: 0

@@ -10,7 +10,7 @@ namespace Tower
         Bow,
         Stone,
         Boulder,
-        RubyStaff,
+        FireStaff,
         CrystalStaff,
         IceStaff,
         Scroll,

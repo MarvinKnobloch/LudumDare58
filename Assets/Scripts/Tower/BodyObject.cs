@@ -13,7 +13,7 @@ namespace Tower
         [field: SerializeField] public BodyPart Part { get; private set; }
         [field: SerializeField] public BodyType Type { get; private set; } = BodyType.Default;
         [field: SerializeField] public float BonusAttackSpeed { get; private set; }
-        [field: SerializeField] public float BonusDamage { get; private set; }
+        [field: SerializeField] public int BonusDamage { get; private set; }
         [field: SerializeField] public float BonusRange { get; private set; }
 
         [field: SerializeField, Tooltip("Must be 0 for single target attacks.")]
@@ -25,5 +25,10 @@ namespace Tower
         [field: SerializeField, Header("Fill if part is weapon")] public WeaponType Weapon { get; private set; }
         [field: SerializeField] public GameObject ProjectilePrefab { get; private set; }
         [field: SerializeField] public TargetType TargetType { get; private set; }
+        [field: SerializeField] public bool Slow { get; private set; }
+        [field: SerializeField] public int SlowPercentage { get; private set; }
+        [field: SerializeField] public int SlowDuration { get; private set; }
+        [field: SerializeField] public int AdditionalProjectiles { get; private set; }
+        [field: SerializeField] public GameObject ObjectToSpawn { get; private set; }
     }
 }

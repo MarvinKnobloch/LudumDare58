@@ -5,6 +5,10 @@ using System.Linq;
 using Marvin.PoolingSystem;
 using UnityEngine;
 using UnityEngine.Events;
+using static UnityEditor.PlayerSettings;
+using UnityEngine.UI;
+using static UnityEngine.EventSystems.EventTrigger;
+using Unity.VisualScripting;
 
 namespace Tower
 {
@@ -17,22 +21,27 @@ namespace Tower
 
         [SerializeField] private TowerValues towerValues;
 
-        [SerializeField] private GameObject _rubyFirePrefab;
-
         [Space]
         [SerializeField] private LayerMask attackLayer;
-        [SerializeField] private float _currentDamage;
+        [SerializeField] private int _currentDamage;
         [SerializeField] private float _currentAttackSpeed;
         [SerializeField] private float _currentRange;
         [SerializeField] private float _currentAoeRadius;
+        private bool _slow;
+        private int _slowPercentage;
+        private float _slowDuration;
+        private int _additionalProjectiles;
         private GameObject _projectilePrefab;
+        private GameObject _objectToSpawn;
         private float attackSpeedCap = 0.1f;
 
         private Transform _transform;
         [SerializeField] private WeaponType _weaponType = WeaponType.None;
         [SerializeField] private TargetType _targetType = TargetType.FollowTarget;
-        private float _timer;
+        private float timer;
         private float attackTimer;
+        private float checkForEnemiesTimer;
+        private float checkForEnemiesInterval = 0.05f;
         private Animator _animator;
         private Transform currentTarget;
         public bool isRecipeTower { get; private set; }
@@ -63,6 +72,11 @@ namespace Tower
             _projectilePrefab = towerValues.projectilePrefab;
             _weaponType = towerValues.weaponType;
             _targetType = towerValues.targetType;
+            _slow = towerValues.slow;
+            _slowPercentage = towerValues.slowPercentage;
+            _slowDuration = towerValues.slowDuration;
+            _additionalProjectiles = towerValues.additionalProjectiles;
+            _objectToSpawn = towerValues.objectToSpawn;
 
             CapAttackSpeed();
 
@@ -72,13 +86,17 @@ namespace Tower
 
         private void Update()
         {
-            _timer += Time.deltaTime;
+            timer += Time.deltaTime;
+            checkForEnemiesTimer += Time.deltaTime;
 
-            if (currentTarget != null) if(currentTarget.gameObject.activeSelf == false) currentTarget = null;
-
-            if (_timer < attackTimer) return;
-
-            if (Attack()) _timer = 0;
+            if (timer > attackTimer)
+            {
+                if(checkForEnemiesTimer > checkForEnemiesInterval)
+                {
+                    checkForEnemiesTimer = 0;
+                    if (Attack()) timer = 0;
+                }
+            }
         }
 
         public void OnBodyPartEquipped(TowerBase tower, BodyObject bodyObject)
@@ -114,6 +132,11 @@ namespace Tower
                     _weaponType = bodyObject.Weapon;
                     _targetType = bodyObject.TargetType;
                     _projectilePrefab = bodyObject.ProjectilePrefab;
+                    _slow = bodyObject.Slow;
+                    _slowPercentage = bodyObject.SlowPercentage;
+                    _slowDuration = bodyObject.SlowDuration;
+                    _additionalProjectiles = bodyObject.AdditionalProjectiles;
+                    _objectToSpawn = bodyObject.ObjectToSpawn;
                     AddTowerValues(bodyObject);
                     break;
             }
@@ -181,68 +204,45 @@ namespace Tower
 
         private bool Attack()
         {
+            //because of pooling
+            if (currentTarget != null) if (currentTarget.gameObject.activeSelf == false) currentTarget = null;
+
             switch (_targetType)
             {
                 case TargetType.FollowTarget:
-                    //If no target, get closest Target
-                    if (currentTarget == null || currentTarget.gameObject.activeSelf == false) currentTarget = GetClosestEnemy();
-                    else
-                    {
-                        //Check if current target is out of range, if yes switch target
-                        if (Vector2.Distance(_transform.position, currentTarget.position) > _currentRange) currentTarget = GetClosestEnemy();
-                    }
+                    StayOnTarget();
                     break;
                 case TargetType.AimOnGround:
-                    //Always get closest traget
                     currentTarget = GetClosestEnemy();
                     break;
                 case TargetType.Swing:
-                    //Always get closest traget
                     currentTarget = GetClosestEnemy();
+                    break;
+                case TargetType.Throw:
+                    currentTarget = GetClosestEnemy();
+                    break;
+                case TargetType.Melee:
+                    StayOnTarget();
                     break;
             }
 
             if (currentTarget == null || currentTarget.gameObject.activeSelf == false) return false;
 
-            if (Vector2.Distance(_transform.position, currentTarget.position) > _currentRange) return false;
-
-            var damage = CalculateDamage();
-
-            // ReSharper disable once SwitchStatementMissingSomeEnumCasesNoDefault
-            switch (_weaponType)
-            {
-                case WeaponType.None:
-                    HandleRangedStandardAttack(damage, currentTarget);
-                    break;
-                case WeaponType.Boulder:
-                    HandleRangedStandardAttack(damage, currentTarget);
-                    break;
-                case WeaponType.Bow:
-                    HandleRangedStandardAttack(damage, currentTarget);
-                    break;
-                case WeaponType.Crossbow:
-                case WeaponType.IceStaff:
-                case WeaponType.Scroll:
-                case WeaponType.Stone:
-                    HandleRangedStandardAttack(damage, currentTarget);
-                    break;
-                case WeaponType.Club:
-                case WeaponType.Dagger:
-                case WeaponType.Sword:
-                    HandleRangedStandardAttack(damage, currentTarget);
-                    break;
-                case WeaponType.CrystalStaff:
-                    HandleMeleeStandardAttack(damage, currentTarget);
-                    break;
-                case WeaponType.RubyStaff:
-                    StartCoroutine(HandleRubyStaffAttack(damage, currentTarget));
-                    break;
-            }
+            HandleRangedStandardAttack(currentTarget);
 
             return true;
         }
         
-
+        private void StayOnTarget()
+        {
+            //If no target, get closest Target
+            if (currentTarget == null || currentTarget.gameObject.activeSelf == false) currentTarget = GetClosestEnemy();
+            else
+            {
+                //Check if current target is out of range, if yes switch target
+                if (Vector2.Distance(_transform.position, currentTarget.position) > _currentRange) currentTarget = GetClosestEnemy();
+            }
+        }
         private Transform GetClosestEnemy()
         {
             Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, _currentRange, attackLayer);
@@ -250,13 +250,15 @@ namespace Tower
             if(cols.Length == 0) return null;
             
             Transform closestEnemy = null;
-            var minDistance = float.MaxValue;
+            float minDistance = float.MaxValue;
 
             foreach (Collider2D col in cols)
-            {               
+            {
+                if (col.gameObject.activeSelf == false) continue;
+
                 if (col.TryGetComponent(out Enemy enemy))
                 {
-                    var distance = Vector2.Distance(_transform.position, enemy.transform.position);
+                    float distance = (_transform.position - enemy.transform.position).sqrMagnitude;   //Vector2.Distance(_transform.position, enemy.transform.position);
 
                     if (!(distance < minDistance)) continue;
 
@@ -268,61 +270,47 @@ namespace Tower
 
             return closestEnemy;
         }
-
-        private List<Enemy> GetAoeEnemies(Transform origin)
+        private void HandleRangedStandardAttack(Transform targetEnemy)
         {
-            var colliders = Physics2D.OverlapCircleAll(origin.position, _currentAoeRadius);
+            CreateProjectile(targetEnemy);
 
-            return colliders
-                .Select(c => c.TryGetComponent<Enemy>(out var enemy) ? enemy : null)
-                .Where(e => e != null)
-                .ToList();
-        }
-
-        private int CalculateDamage()
-        {
-            return (int)_currentDamage;
-        }
-
-        private void HandleMeleeStandardAttack(int damage, Transform targetEnemy)
-        {
-            if (_currentAoeRadius == 0)
+            if (_additionalProjectiles > 0)
             {
-                targetEnemy.GetComponent<Enemy>().TakeDamage(damage);
-                return;
-            }
+                GameObject[] enemies = Physics2D.OverlapCircleAll(transform.position, _currentRange, attackLayer)
+                    .OrderBy(x => (x.transform.position - transform.position).sqrMagnitude)  //Vector2.Distance(x.transform.position, transform.position))
+                    .Select(x => x.gameObject).ToArray();
 
-            var enemies = GetAoeEnemies(_transform);
-            var direction = (targetEnemy.position - transform.position).normalized;
-            var angle = new Vector3(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
+                int projectilesFired = 0;
+                for (int i = 0; i < enemies.Length; i++)
+                {
+                    if (projectilesFired >= _additionalProjectiles) break;
 
-            if (_animator != null)
-            {
-                _animator.transform.rotation = Quaternion.Euler(angle);
-                _animator.SetTrigger("Melee");
+                    if (enemies[i].gameObject == targetEnemy.gameObject || enemies[i].gameObject.activeSelf == false) continue;
+
+                    if (enemies[i].TryGetComponent(out Enemy enemy))
+                    {
+                        CreateProjectile(enemy.transform);
+                        projectilesFired++;
+                    }
+                }
             }
         }
-
-        private void HandleRangedStandardAttack(int damage, Transform targetEnemy)
+        
+        private void CreateProjectile(Transform targetEnemy)
         {
             Projectile projectile = PoolingSystem.SpawnObject
                 (_projectilePrefab, _transform.position, Quaternion.identity, PoolingSystem.PoolingParentGameObject.Projectile).GetComponent<Projectile>();
 
-            projectile.SetValues(targetEnemy, damage, _currentAoeRadius, _currentRange, _targetType);
-        }
+            projectile.damage = _currentDamage;
+            projectile.aoeRadius = _currentAoeRadius;
+            projectile.range = _currentRange;
+            projectile.slow = _slow;
+            projectile.slowPercentage = _slowPercentage;
+            projectile.slowDuration = _slowDuration;
+            projectile.targetType = _targetType;
+            projectile.objectToSpawn = _objectToSpawn;
 
-        private IEnumerator HandleRubyStaffAttack(int damage, Transform targetEnemy)
-        {
-            var direction = (targetEnemy.position - transform.position).normalized;
-            var towerPos = _transform.position;
-
-            for (var i = 0; i < 9; i++)
-            {
-                var position = new Vector2(towerPos.x + direction.x * i / 1.5f, towerPos.y + direction.y * i / 1.5f);
-                var fire = Instantiate(_rubyFirePrefab, position, Quaternion.identity).GetComponent<RubyStaffFire>();
-                fire.Initialize(damage);
-                yield return new WaitForSeconds(0.1f);
-            }
+            projectile.SetValues(targetEnemy);
         }
         public float GetTowerRange()
         {
@@ -330,30 +318,3 @@ namespace Tower
         }
     }
 }
-
-
-//var direction = (targetEnemy.position - transform.position).normalized;
-//var angle = new Vector3(0, 0, Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg);
-
-//projectile.transform.rotation = Quaternion.Euler(angle);
-
-
-//projectile.transform
-//    .DOMove(targetEnemy.position, 0.15f)
-//    .SetEase(Ease.OutExpo)
-//    .OnComplete(() =>
-//    {
-//        // Single target hit
-//        if (_aoeRadius == 0)
-//        {
-//            targetEnemy.GetComponentInParent<Enemy>().TakeDamage(damage);
-//            Destroy(projectile);
-//            return;
-//        }
-
-//        var enemies = GetAoeEnemies(targetEnemy);
-//        //targetEnemy.GetComponentInChildren<Animator>().SetTrigger(_weaponType.ToString());
-//        AoeHit.Invoke(enemies, damage, _weaponType);
-
-//        Destroy(projectile);
-//    });

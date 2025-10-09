@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: SwordTower
   m_EditorClassIdentifier: Assembly-CSharp::TowerValues
   baseDamage: 1
-  baseAttackSpeed: 0.5
-  baseAttackRange: 4
-  aoeRadius: 1
+  baseAttackSpeed: 1
+  baseAttackRange: 3
+  aoeRadius: 2
   projectilePrefab: {fileID: 8614331895747358253, guid: b7f3f501f971a964387aebb6d0da5105, type: 3}
   weaponType: 1
   targetType: 2
+  slow: 0
+  slowPercentage: 0
+  slowDuration: 0
