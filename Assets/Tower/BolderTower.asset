@@ -22,3 +22,5 @@ MonoBehaviour:
   slow: 0
   slowPercentage: 0
   slowDuration: 0
+  additionalProjectiles: 1
+  objectToSpawn: {fileID: 0}

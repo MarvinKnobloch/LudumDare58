@@ -13,6 +13,6 @@ namespace Tower
         FireStaff,
         CrystalStaff,
         IceStaff,
-        Scroll,
+        Exodia,
     }
 }

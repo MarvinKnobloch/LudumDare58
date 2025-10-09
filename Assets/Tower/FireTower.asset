@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: FireTower
   m_EditorClassIdentifier: Assembly-CSharp::TowerValues
   baseDamage: 2
-  baseAttackSpeed: 1
+  baseAttackSpeed: 1.5
   baseAttackRange: 11
-  aoeRadius: 0
+  aoeRadius: 3
   projectilePrefab: {fileID: 4780432458198478164, guid: 069887b6933d0c342910655f63e65ff9, type: 3}
   weaponType: 8
   targetType: 1

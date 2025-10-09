@@ -1072,6 +1072,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireTower
       objectReference: {fileID: 0}
+    - target: {fileID: 5971555673173559965, guid: a8a6fee65da4afe4ea00dff09897aed7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1153,11 +1157,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3614611579739201147, guid: 7d15f0b7cea70b04fa025cbff47086f1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.334372
+      value: 11.45
       objectReference: {fileID: 0}
     - target: {fileID: 3614611579739201147, guid: 7d15f0b7cea70b04fa025cbff47086f1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.769265
+      value: 5.22
       objectReference: {fileID: 0}
     - target: {fileID: 3614611579739201147, guid: 7d15f0b7cea70b04fa025cbff47086f1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1218,7 +1222,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2677866757682183673, guid: bbc4456aa75845346af026e02e5bab1e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5034784185674230047, guid: bbc4456aa75845346af026e02e5bab1e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1469,7 +1473,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 784841727011037784, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -236.00162
+      value: -236.00078
       objectReference: {fileID: 0}
     - target: {fileID: 864389745890475447, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_Name

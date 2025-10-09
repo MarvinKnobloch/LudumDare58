@@ -22,7 +22,7 @@ MonoBehaviour:
   <BonusAoeRadius>k__BackingField: 1
   <Sprite>k__BackingField: {fileID: 6832325591080635152, guid: ca5af93234a4b014394a68607276dbde, type: 3}
   <Weapon>k__BackingField: 2
-  <ProjectilePrefab>k__BackingField: {fileID: 7056902295061036921, guid: 6ad9e16af081f064c878475c47eda5a5, type: 3}
+  <ProjectilePrefab>k__BackingField: {fileID: 9078845085941661987, guid: 5f1581ce7987799419e09d652d7747cf, type: 3}
   <TargetType>k__BackingField: 4
   <Slow>k__BackingField: 0
   <SlowPercentage>k__BackingField: 0

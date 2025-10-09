@@ -16,10 +16,11 @@ MonoBehaviour:
   baseAttackSpeed: 0.4
   baseAttackRange: 3
   aoeRadius: 1
-  projectilePrefab: {fileID: 7056902295061036921, guid: 6ad9e16af081f064c878475c47eda5a5, type: 3}
+  projectilePrefab: {fileID: 9078845085941661987, guid: 5f1581ce7987799419e09d652d7747cf, type: 3}
   weaponType: 2
   targetType: 4
   slow: 0
   slowPercentage: 0
   slowDuration: 0
-  additionalTargets: 0
+  additionalProjectiles: 0
+  objectToSpawn: {fileID: 0}
