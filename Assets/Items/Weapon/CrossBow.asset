@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0fb730ab8f8b4d00984553cfe4f19369, type: 3}
-  m_Name: Bow
+  m_Name: CrossBow
   m_EditorClassIdentifier: Assembly-CSharp::Tower.BodyObject
-  <Name>k__BackingField: Bow
+  <Name>k__BackingField: Cross Bow
   <Description>k__BackingField: 
   <Part>k__BackingField: 4
   <Type>k__BackingField: 2
@@ -21,10 +21,10 @@ MonoBehaviour:
   <BonusRange>k__BackingField: 4
   <BonusAoeRadius>k__BackingField: 0
   <Sprite>k__BackingField: {fileID: 21300000, guid: e4df832224a91fb46afd4611a977972f, type: 3}
-  <Weapon>k__BackingField: 5
-  <ProjectilePrefab>k__BackingField: {fileID: 7056902295061036921, guid: 7dfeee20943242444ab17ac45f3084ab, type: 3}
+  <Weapon>k__BackingField: 4
+  <ProjectilePrefab>k__BackingField: {fileID: 7056902295061036921, guid: 4977d07f84a50aa42b0c547871180675, type: 3}
   <TargetType>k__BackingField: 0
   <Slow>k__BackingField: 0
   <SlowPercentage>k__BackingField: 0
   <SlowDuration>k__BackingField: 0
-  <AdditionalTargets>k__BackingField: 2
+  <AdditionalTargets>k__BackingField: 0

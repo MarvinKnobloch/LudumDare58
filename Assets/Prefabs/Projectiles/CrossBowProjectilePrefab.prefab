@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -5663957369430903067}
   - component: {fileID: -969661777201276555}
   m_Layer: 0
-  m_Name: ArrowProjectilePrefab
+  m_Name: CrossBowProjectilePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -113,7 +113,7 @@ MonoBehaviour:
   slowPercentage: 0
   slowDuration: 0
   targetType: 0
-  projectileSpeed: 13
+  projectileSpeed: 18
   hitLayer:
     serializedVersion: 2
     m_Bits: 512

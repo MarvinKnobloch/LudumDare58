@@ -14,4 +14,5 @@ public class TowerValues : ScriptableObject
     public bool slow;
     public int slowPercentage;
     public int slowDuration;
+    public int additionalTargets;
 }

@@ -149,10 +149,12 @@ public class Enemy : MonoBehaviour, IPoolingList
         Value -= amount;
 
         IngameController.Instance.floatingNumberController.displaynumber(transform.position, amount, Color.red);
-        BlinkEffect();
 
-
-        if (currentHealth <= 0)
+        if (currentHealth > 0) 
+        { 
+            BlinkEffect();
+        }
+        else
         {
             OnDeath();
         }

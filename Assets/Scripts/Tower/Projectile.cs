@@ -27,6 +27,7 @@ public class Projectile : MonoBehaviour, IPoolingList
     private float startRotation;
     private float endRotation;
     private float lerpPercentage;
+    private float meleeWeaponOffset = 0.5f;
 
     [Header("BasicValues")]
     [SerializeField] private float projectileSpeed;
@@ -62,6 +63,8 @@ public class Projectile : MonoBehaviour, IPoolingList
             case TargetType.Throw:
                 ThrowMovement();
                 break;
+            case TargetType.Melee:
+                break;
         }
     }
     public void SetValues(Transform target)
@@ -83,31 +86,57 @@ public class Projectile : MonoBehaviour, IPoolingList
                 transform.right = enemyPositionOnProjectileLaunch - transform.position;
                 break;
             case TargetType.Swing:
-                transform.localScale = new Vector3(0.5f * range, 0.5f * range, 1);
-
-                Vector3 targ = bulletTarget.position;
-                Vector3 objectPos = transform.position;
-                targ.x = targ.x - objectPos.x;
-                targ.y = targ.y - objectPos.y;
-
-                float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg - 45;     //45 = Png angle
-                startRotation = angle + (20 * aoeRadius);
-                endRotation = angle - (20 * aoeRadius);
-                transform.rotation = Quaternion.Euler(new Vector3(0, 0, startRotation));
-
-                StartCoroutine(SwingDelay());
+                SetSwing();
                 break;
             case TargetType.Throw:
-                direction = ((Vector2)enemyPositionOnProjectileLaunch - (Vector2)transform.position).normalized;
-
-                float distance = Vector2.Distance(enemyPositionOnProjectileLaunch, transform.position);
-
-                startHeight = transform.position.z;
-                float currentSpeed = projectileSpeed;
-                bulletLifeTime = distance / currentSpeed;
-                timer = bulletLifeTime;
+                SetThrow();
+                break;
+            case TargetType.Melee:
+                SetMelee();
                 break;
         }
+    }
+    private void SetSwing()
+    {
+        transform.localScale = new Vector3(0.5f * range, 0.5f * range, 1);
+
+        direction = (bulletTarget.transform.position - transform.position).normalized;
+        transform.position = transform.position + (direction * meleeWeaponOffset);
+
+        Vector3 targ = bulletTarget.position;
+        Vector3 objectPos = transform.position;
+        targ.x = targ.x - objectPos.x;
+        targ.y = targ.y - objectPos.y;
+
+        float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg - 45;     //45 = Png angle
+        startRotation = angle + (20 * aoeRadius);
+        endRotation = angle - (20 * aoeRadius);
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, startRotation));
+
+        StartCoroutine(SwingDelay());
+    }
+    private void SetThrow()
+    {
+        direction = ((Vector2)enemyPositionOnProjectileLaunch - (Vector2)transform.position).normalized;
+
+        float distance = Vector2.Distance(enemyPositionOnProjectileLaunch, transform.position);
+
+        startHeight = transform.position.z;
+        float currentSpeed = projectileSpeed;
+        bulletLifeTime = distance / currentSpeed;
+        timer = bulletLifeTime;
+    }
+    private void SetMelee()
+    {
+        transform.localScale = new Vector3(1f * range, 1f * range, 1);
+
+        direction = (bulletTarget.transform.position - transform.position).normalized;
+        transform.position = transform.position + (direction * meleeWeaponOffset);
+        transform.right = enemyPositionOnProjectileLaunch - transform.position;
+
+        DealAoeDamage(bulletTarget.transform.position);
+
+        Invoke("DisableProjectile", disableTimeAfterHit);
     }
     private void ProjectileFollowTarget()
     {
@@ -195,8 +224,10 @@ public class Projectile : MonoBehaviour, IPoolingList
         {
             if (currenttarget.TryGetComponent(out Enemy enemy))
             {
+                if (enemy.gameObject.activeSelf == false) return;
+
                 enemy.TakeDamage(damage);
-                if (slow == true) enemy.DoSlow(slowPercentage, slowDuration);
+                if (slow == true && enemy.gameObject.activeSelf == true) enemy.DoSlow(slowPercentage, slowDuration);
             }          
         }
         else
@@ -210,6 +241,8 @@ public class Projectile : MonoBehaviour, IPoolingList
 
         foreach (Collider2D coll in colls)
         {
+            if (coll.gameObject.activeSelf == false) continue;
+
             if (coll.TryGetComponent(out Enemy enemy))
             {
                 enemy.TakeDamage(damage);
@@ -232,8 +265,8 @@ public class Projectile : MonoBehaviour, IPoolingList
             case TargetType.FollowTarget:
                 if (collision.gameObject == currenttarget.gameObject)
                 {
-                    FollowTargetDamage();
                     dealedDamage = true;
+                    FollowTargetDamage();
                     Invoke("DisableProjectile", disableTimeAfterHit);
                 }
                 break;

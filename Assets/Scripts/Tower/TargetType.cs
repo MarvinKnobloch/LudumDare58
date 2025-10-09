@@ -7,5 +7,6 @@ namespace Tower
         AimOnGround,
         Swing,
         Throw,
+        Melee,
     }
 }
