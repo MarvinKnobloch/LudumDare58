@@ -96,7 +96,7 @@ public class Projectile : MonoBehaviour, IPoolingList
         direction = (bulletTarget.transform.position - transform.position).normalized;
         enemyPositionOnProjectileLaunch = bulletTarget.transform.position;
 
-        if(objectToSpawn != null) objectToSpawnRotation = bulletTarget.position - transform.position;
+        if (objectToSpawn != null) objectToSpawnRotation = bulletTarget.position - transform.position;
 
 
         switch (targetType)
@@ -184,7 +184,7 @@ public class Projectile : MonoBehaviour, IPoolingList
 
         transform.position = Vector3.MoveTowards(transform.position, enemyPositionOnProjectileLaunch, projectileSpeed * Time.deltaTime);
 
-        if(Vector2.Distance(transform.position, enemyPositionOnProjectileLaunch) < 0.3f)
+        if (Vector2.Distance(transform.position, enemyPositionOnProjectileLaunch) < 0.3f)
         {
             DealAoeDamage(enemyPositionOnProjectileLaunch);
             dealedDamage = true;
@@ -229,7 +229,7 @@ public class Projectile : MonoBehaviour, IPoolingList
         {
             if (maxHeight > 0)
             {
-                Vector3 deltaHeight = Vector3.zero * startHeight * (1 - timer / bulletLifeTime) + new Vector3(0,-maxHeight * Mathf.Sin((timer / bulletLifeTime) * Mathf.PI), 0);
+                Vector3 deltaHeight = Vector3.zero * startHeight * (1 - timer / bulletLifeTime) + new Vector3(0, -maxHeight * Mathf.Sin((timer / bulletLifeTime) * Mathf.PI), 0);
                 aoeVisualBullet.transform.position = transform.position - deltaHeight;
             }
         }
@@ -268,7 +268,7 @@ public class Projectile : MonoBehaviour, IPoolingList
 
                 enemy.TakeDamage(damage);
                 if (slowPercentage > 0 && enemy.gameObject.activeSelf == true) enemy.DoSlow(slowPercentage, slowDuration);
-            }          
+            }
         }
         else
         {
@@ -278,7 +278,7 @@ public class Projectile : MonoBehaviour, IPoolingList
     private void DealAoeDamage(Vector3 position)
     {
         if (objectToSpawn)
-        { 
+        {
             SpawnObject();
             return;
         }
@@ -317,7 +317,7 @@ public class Projectile : MonoBehaviour, IPoolingList
                 }
                 break;
             case TargetType.Pierce:
-                if(collision.gameObject.TryGetComponent(out Enemy enemy))
+                if (collision.gameObject.TryGetComponent(out Enemy enemy))
                 {
 
                     int finalDamage = Mathf.RoundToInt(damage * (1 - damageReductionEachHit * targetsHit));
@@ -327,7 +327,7 @@ public class Projectile : MonoBehaviour, IPoolingList
                     targetsHit++;
 
                     float newScale = transform.localScale.x - shrinkEachHit;
-                    if(newScale <= shrinkMinSize)
+                    if (newScale <= shrinkMinSize)
                     {
                         dealedDamage = true;
                         Invoke("DisableProjectile", disableTimeAfterHit);
@@ -345,12 +345,15 @@ public class Projectile : MonoBehaviour, IPoolingList
         GameObject spawnedObject = PoolingSystem.SpawnObject
              (objectToSpawn, transform.position, Quaternion.identity, PoolingSystem.PoolingParentGameObject.Projectile);
 
-        if(spawnedObject.TryGetComponent(out DealDmgOnEnter dealDmgOnEnter))
+        if (spawnedObject.TryGetComponent(out DealDmgOnEnter dealDmgOnEnter))
         {
-            spawnedObject.transform.right = objectToSpawnRotation;
+            if (!dealDmgOnEnter.ResetRotation)
+            {
+                spawnedObject.transform.right = objectToSpawnRotation;
+            }
 
             dealDmgOnEnter.damage = damage;
-            if(dealDmgOnEnter.baseScalingSaved == false)
+            if (dealDmgOnEnter.baseScalingSaved == false)
             {
                 dealDmgOnEnter.baseScalingSaved = true;
                 dealDmgOnEnter.baseScaling = objectToSpawn.transform.localScale;

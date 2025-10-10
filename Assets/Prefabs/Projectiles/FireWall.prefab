@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7913631677460533210}
   - component: {fileID: -1703407970058486565}
   - component: {fileID: -3877935866246968266}
+  - component: {fileID: 1341846210140217998}
   m_Layer: 0
   m_Name: FireWall
   m_TagString: Untagged
@@ -82,12 +83,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.8301887, g: 0.22995174, b: 0.027411906, a: 1}
+  m_Sprite: {fileID: 8787291131096080919, guid: 3e310c073bca6264cac0f4c1adb33f44, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3.16, y: 3.91}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -112,6 +113,7 @@ MonoBehaviour:
   damage: 2
   baseScalingSaved: 1
   baseScaling: {x: 0.2, y: 1, z: 1}
+  ResetRotation: 1
 --- !u!61 &-1703407970058486565
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -150,8 +152,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 3.16, y: 3.91}
+    newSize: {x: 3.16, y: 3.91}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -185,3 +187,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1341846210140217998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8377245484257408953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c3f106a78e1aa142b294d8d1a41114b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GifForUnity::GifImporter.GifPlayer
+  Gif: {fileID: 11400000, guid: 12822b3df5993e04eadd2fde30fdef32, type: 2}
