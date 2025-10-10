@@ -39,12 +39,12 @@ public class Player : MonoBehaviour
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
-        //Update Health UI
+        IngameController.Instance.playerUI.HealthUIUpdate(currentHealth, maxHealth);
     }
     public void Heal(int amount)
     {
         currentHealth += amount;
-        //Update UI
+        IngameController.Instance.playerUI.HealthUIUpdate(currentHealth, maxHealth);
     }
     public void UpdateSouls(int amount)
     {

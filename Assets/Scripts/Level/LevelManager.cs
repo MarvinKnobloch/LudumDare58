@@ -33,7 +33,7 @@ public class LevelManager : MonoBehaviour, IPoolingList
             Instance = this;
         }
         else
-        {
+        {                                                                                                   
             Destroy(gameObject);
         }
         levelToDisplay = currentLevel + 1;
@@ -42,7 +42,7 @@ public class LevelManager : MonoBehaviour, IPoolingList
     {
         startLevelButton = IngameController.Instance.playerUI.startNextLevelButton;
 
-        if(PlayerPrefs.GetInt("Tutorial") == 0) startLevelButton.SetActive(true);
+        startLevelButton.SetActive(true);
     }
     private void OnEnable()
     {

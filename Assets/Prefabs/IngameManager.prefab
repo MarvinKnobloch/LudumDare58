@@ -5656,8 +5656,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2173045041030124941}
   m_HandleRect: {fileID: 5155583813887768062}
   m_Direction: 2
-  m_Value: -0.00000012931136
-  m_Size: 0.415123
+  m_Value: 1.0000002
+  m_Size: 0.4151293
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7744,9 +7744,9 @@ RectTransform:
   m_Children:
   - {fileID: 6330242276108643202}
   - {fileID: 6839167326116970695}
-  - {fileID: 600353220078735401}
   - {fileID: 1098479969375060092}
   - {fileID: 6270525900736160655}
+  - {fileID: 600353220078735401}
   - {fileID: 4930520986873836705}
   - {fileID: 1522600499517351476}
   - {fileID: 3841633890991695751}
@@ -8518,7 +8518,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &600353220078735401
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8535,8 +8535,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5323704}
-  m_AnchoredPosition: {x: 689.99146, y: 393.54}
-  m_SizeDelta: {x: 294.6629, y: 65}
+  m_AnchoredPosition: {x: -364, y: -68.26312}
+  m_SizeDelta: {x: 128.0012, y: 241.6093}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7075108177401795853
 CanvasRenderer:
@@ -8566,7 +8566,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: dc5233f6f08742145969da90068c00ad, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10005,7 +10005,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 244.475, y: 236.00081}
+  m_AnchoredPosition: {x: 244.475, y: -236.00095}
   m_SizeDelta: {x: 479.3197, y: 807.03}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &8263319202288417698
@@ -11087,8 +11087,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9b28f071414dc045a82e405761d8e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthbar: {fileID: 0}
-  healthText: {fileID: 0}
+  healthbar: {fileID: 8256779006717501921}
   soulsText: {fileID: 6804844530650702710}
   dialogBox: {fileID: 9108948567383507396}
   towerInfoMenu: {fileID: 3963454387783645095}
