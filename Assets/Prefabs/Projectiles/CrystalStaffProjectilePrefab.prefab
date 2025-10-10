@@ -109,12 +109,12 @@ MonoBehaviour:
   damage: 0
   range: 0
   aoeRadius: 0
-  slow: 0
   slowPercentage: 0
   slowDuration: 0
   targetType: 0
   objectToSpawn: {fileID: 0}
-  projectileSpeed: 10
+  lifeSteal: 0
+  projectileSpeed: 5
   hitLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -125,7 +125,7 @@ MonoBehaviour:
   meleeWeaponScale: 1
   aoeVisualBullet: {fileID: 0}
   maxHeight: 0
-  shrinkEachHit: 0.2
+  shrinkEachHit: 1
   damageReductionEachHit: 0.1
 --- !u!58 &3678556042877228813
 CircleCollider2D:

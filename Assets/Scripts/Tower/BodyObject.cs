@@ -35,5 +35,6 @@ namespace Tower
         [field: SerializeField , Space] public int AdditionalProjectiles { get; private set; }
         [field: SerializeField, Space] public GameObject ObjectToSpawn { get; private set; }
         [field: SerializeField, Space] public bool ChanceForDoubleDamage { get; private set; }
+        [field: SerializeField, Space] public bool LifeSteal { get; private set; }
     }
 }

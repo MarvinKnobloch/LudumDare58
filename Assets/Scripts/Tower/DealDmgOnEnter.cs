@@ -33,7 +33,7 @@ public class DealDmgOnEnter : MonoBehaviour, IPoolingList
         {
             if (collision.gameObject.TryGetComponent(out Enemy enemy))
             {
-                enemy.TakeDamage(damage);
+                enemy.TakeDamage(damage, false);
             }
         }
     }
