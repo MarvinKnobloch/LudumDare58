@@ -94,23 +94,23 @@ public class Inventory : MonoBehaviour
         currentSelectedTower = tower;
         if (currentSelectedTower.isRecipeTower == false)
         {
-            SetSlots(accessoiresSlot, currentSelectedTower.accessoires);
-            SetSlots(headSlot, currentSelectedTower.head);
-            SetSlots(armsSlot, currentSelectedTower.arms);
-            SetSlots(bodySlot, currentSelectedTower.body);
+            SetSlots(accessoiresSlot, currentSelectedTower.currentAccessoires);
+            SetSlots(headSlot, currentSelectedTower.currentHead);
+            SetSlots(armsSlot, currentSelectedTower.currentArms);
+            SetSlots(bodySlot, currentSelectedTower.currentBody);
 
-            SetSlots(weaponSlot, currentSelectedTower.weapon);
+            SetSlots(weaponSlot, currentSelectedTower.currentWeapon);
             weaponSlot.gameObject.SetActive(true);
         }
         else
         {
-            if (currentSelectedTower.accessoiresSlotUnlocked) SetSlots(accessoiresSlot, currentSelectedTower.accessoires);
+            if (currentSelectedTower.accessoiresSlotUnlocked) SetSlots(accessoiresSlot, currentSelectedTower.currentAccessoires);
             else SetLockedState(accessoiresSlot);
-            if (currentSelectedTower.headSlotUnlocked) SetSlots(headSlot, currentSelectedTower.head);
+            if (currentSelectedTower.headSlotUnlocked) SetSlots(headSlot, currentSelectedTower.currentHead);
             else SetLockedState(headSlot);
-            if (currentSelectedTower.armsSlotUnlocked) SetSlots(armsSlot, currentSelectedTower.arms);
+            if (currentSelectedTower.armsSlotUnlocked) SetSlots(armsSlot, currentSelectedTower.currentArms);
             else SetLockedState(armsSlot);
-            if (currentSelectedTower.bodySlotUnlocked) SetSlots(bodySlot, currentSelectedTower.body);
+            if (currentSelectedTower.bodySlotUnlocked) SetSlots(bodySlot, currentSelectedTower.currentBody);
             else SetLockedState(bodySlot);
 
             SetLockedState(weaponSlot);

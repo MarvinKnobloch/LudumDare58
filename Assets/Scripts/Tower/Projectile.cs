@@ -20,7 +20,7 @@ public class Projectile : MonoBehaviour, IPoolingList
     [HideInInspector] public int damage;
     [HideInInspector] public float range;
     [HideInInspector] public float aoeRadius;
-    [HideInInspector] public float slowPercentage;
+    [HideInInspector] public int slowPercentage;
     [HideInInspector] public float slowDuration;
     [HideInInspector] public TargetType targetType;
     [HideInInspector] public GameObject objectToSpawn;

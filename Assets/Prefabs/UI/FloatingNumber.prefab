@@ -53,7 +53,7 @@ MonoBehaviour:
   moveSpeed: 1
   uptime: 1
   heightOffset: 2
-  randomOffset: 0.1
+  randomOffset: 0.3
   numberText: {fileID: 4224992406703788572}
 --- !u!23 &8559683264364324256
 MeshRenderer:

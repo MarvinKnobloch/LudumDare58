@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fb730ab8f8b4d00984553cfe4f19369, type: 3}
+  m_Name: SkeletonRing
+  m_EditorClassIdentifier: Assembly-CSharp::Tower.BodyObject
+  <Name>k__BackingField: Skeleton Ring
+  <Description>k__BackingField: 
+  <Part>k__BackingField: 0
+  <Type>k__BackingField: 0
+  <BonusDamage>k__BackingField: 0
+  <BonusAttackSpeed>k__BackingField: 0
+  <BonusRange>k__BackingField: 0
+  <BonusAoeRadius>k__BackingField: 0
+  <Sprite>k__BackingField: {fileID: -3127434769994213858, guid: d7b56e5d613142b4199069a73ee277e9, type: 3}
+  <ProjectilePrefab>k__BackingField: {fileID: 0}
+  <TargetType>k__BackingField: 0
+  <DamageScaling>k__BackingField: 0
+  <BaseAttackSpeed>k__BackingField: 0
+  <BaseRange>k__BackingField: 0
+  <SlowPercentage>k__BackingField: 0
+  <SlowDuration>k__BackingField: 0
+  <AdditionalProjectiles>k__BackingField: 1
+  <ObjectToSpawn>k__BackingField: {fileID: 0}

@@ -13,9 +13,11 @@ public class TowerValues : ScriptableObject
     public TargetType targetType;
     [Space]
     public int slowPercentage;
-    public int slowDuration;
+    public float slowDuration;
     [Space]
     public int additionalProjectiles;
     [Space]
     public GameObject objectToSpawn;
+    [Space]
+    public bool chanceForDoubleDamage;
 }

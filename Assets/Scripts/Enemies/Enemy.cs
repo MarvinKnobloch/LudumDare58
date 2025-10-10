@@ -49,6 +49,14 @@ public class Enemy : MonoBehaviour, IPoolingList
     private int currentHitEffectAmount;
     [SerializeField] private float hitEffectDuration = 0.1f;
 
+    [Space]
+    [SerializeField] private bool testEnemy;
+    [SerializeField] private int testHealth;
+
+    //animator
+    private Animator animator;
+    private float normalAnimationSpeed;
+
 
     public PoolingSystem.PoolObjectInfo poolingList { get; set; }
 
@@ -72,13 +80,15 @@ public class Enemy : MonoBehaviour, IPoolingList
     }
     private void Awake()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        itemDropper = GetComponent<EnemyDrop>();
+        animator = GetComponent<Animator>();
+        normalAnimationSpeed = animator.speed;
+
+        if (testEnemy) return;
+
         levelManager = LevelManager.Instance;
         maxWayPoints = levelManager.enemyWayPoints.Length;
-        spriteRenderer = GetComponent<SpriteRenderer>();
-
-        //Desi
-        itemDropper = GetComponent<EnemyDrop>();
-
     }
     private void OnEnable()
     {
@@ -86,14 +96,25 @@ public class Enemy : MonoBehaviour, IPoolingList
         blinkEffect = null;
         slowCoroutine = null;
 
+        animator.speed = normalAnimationSpeed;
+
         currentMovementSpeed = baseMovementSpeed;
-        currentWayPoint = 1;
-        WayPointUpdate();
         spriteRenderer.color = Color.white;
+
+        if (testEnemy)
+        {
+            SetMaxHealth(testHealth);
+            return;
+        }
+
         SortEnemies.activeEnemiesSprites.Add(spriteRenderer);
+        WayPointUpdate();
+        currentWayPoint = 1;
     }
     private void Update()
     {
+        if (testEnemy) return;
+
         checkTimer += Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, currentMovementSpeed * Time.deltaTime);
 
@@ -190,7 +211,7 @@ public class Enemy : MonoBehaviour, IPoolingList
     }
     public void DoSlow(float _slowPercentage, float _slowDuration)
     {
-        float finalSlow = _slowPercentage * 0.01f;
+        float finalSlow = 1 - _slowPercentage * 0.01f;
 
         if (currentMovementSpeed >= (baseMovementSpeed * finalSlow))          //if new Slow is worse do nothing
         {
@@ -207,11 +228,16 @@ public class Enemy : MonoBehaviour, IPoolingList
 
     IEnumerator Slow()
     {
+        animator.speed *= slowPercentage;
         currentMovementSpeed *= slowPercentage;
         if (blinkEffect == null) spriteRenderer.color = slowColor;
+
         yield return new WaitForSeconds(slowDuration);
+
+        animator.speed = normalAnimationSpeed;
         if(blinkEffect == null) spriteRenderer.color = Color.white;
         currentMovementSpeed = baseMovementSpeed;
+
         slowCoroutine = null;
     }
     private void OnDeath()

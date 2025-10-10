@@ -20,6 +20,7 @@ namespace Tower
         [Space]
         [SerializeField] private LayerMask attackLayer;
         private int damageScaling;
+        private int baseDamage;   
         private int bonusDamage;
         [SerializeField] private int finalDamage;
 
@@ -38,6 +39,9 @@ namespace Tower
         private GameObject _projectilePrefab;
         private GameObject _objectToSpawn;
 
+        [SerializeField] private bool chanceForDoubleDamage;
+        private float doubleDamageChance = 25;
+
         private Transform _transform;
         [SerializeField] private TargetType _targetType = TargetType.FollowTarget;
         private float timer;
@@ -48,11 +52,11 @@ namespace Tower
         public bool isRecipeTower { get; private set; }
 
         [Space]
-        public BodyObject accessoires;
-        public BodyObject head;
-        public BodyObject arms;
-        public BodyObject body;
-        public BodyObject weapon;
+        public BodyObject currentAccessoires;
+        public BodyObject currentHead;
+        public BodyObject currentArms;
+        public BodyObject currentBody;
+        public BodyObject currentWeapon;
 
         public bool accessoiresSlotUnlocked;
         public bool headSlotUnlocked;
@@ -67,6 +71,7 @@ namespace Tower
         {
             //SetValues
             damageScaling = towerValues.damageScaling;
+            baseDamage = towerValues.baseDamage;
             baseAttackSpeed = towerValues.baseAttackSpeed;
             baseRange = towerValues.baseAttackRange;
             _currentAoeRadius = towerValues.aoeRadius;
@@ -76,6 +81,7 @@ namespace Tower
             _slowDuration = towerValues.slowDuration;
             _additionalProjectiles = towerValues.additionalProjectiles;
             _objectToSpawn = towerValues.objectToSpawn;
+            chanceForDoubleDamage = towerValues.chanceForDoubleDamage;
 
             finalDamage = CalculateDamage();
             finalAttackSpeed = CalculateAttackSpeed();
@@ -108,46 +114,52 @@ namespace Tower
             switch (bodyObject.Part)
             {
                 case BodyPart.Accessory:
-                    if (accessoires != null)
+                    if (currentAccessoires != null)
                     {
-                        _slowPercentage -= bodyObject.SlowPercentage;
-                        _slowDuration -= bodyObject.SlowDuration;
-                        _additionalProjectiles -= bodyObject.AdditionalProjectiles;
-                        damageScaling -= bodyObject.DamageScaling;
-                        baseAttackSpeed -= bodyObject.BaseAttackSpeed;
-                        baseRange -= bodyObject.BaseRange;
-                        OnBodyPartUnequipped(tower, accessoires); 
+                        _slowPercentage -= currentAccessoires.SlowPercentage;
+                        _slowDuration -= currentAccessoires.SlowDuration;
+                        _additionalProjectiles -= currentAccessoires.AdditionalProjectiles;
+
+                        OnBodyPartUnequipped(tower, currentAccessoires); 
                     }
-                    accessoires = bodyObject;
+                    currentAccessoires = bodyObject;
                     _slowPercentage += bodyObject.SlowPercentage;
                     _slowDuration += bodyObject.SlowDuration;
                     _additionalProjectiles += bodyObject.AdditionalProjectiles;
-                    damageScaling += bodyObject.DamageScaling;
-                    baseAttackSpeed += bodyObject.BaseAttackSpeed;
-                    baseRange += bodyObject.BaseRange;
-                    break;
-                case BodyPart.Head:
-                    if (head != null) OnBodyPartUnequipped(tower, head);
-                    head = bodyObject;
-                    break;
-                case BodyPart.Arm:
-                    if (arms != null) OnBodyPartUnequipped(tower, arms);
-                    arms = bodyObject;
-                    break;
-                case BodyPart.Torso:
-                    if (body != null) OnBodyPartUnequipped(tower, body);
-                    body = bodyObject;
-                    break;
-                case BodyPart.Weapon:
-                    if (weapon != null)
+
+                    if(towerValues.chanceForDoubleDamage == false)
                     {
-                        _slowPercentage -= bodyObject.SlowPercentage;
-                        _slowDuration -= bodyObject.SlowDuration;
-                        _additionalProjectiles -= bodyObject.AdditionalProjectiles;
-                        OnBodyPartUnequipped(tower, weapon); 
+                        if (currentWeapon != null)
+                        {
+                            //check if the weapon has crit
+                            if (currentWeapon.ChanceForDoubleDamage == false) chanceForDoubleDamage = bodyObject.ChanceForDoubleDamage;
+                        }
+                        else chanceForDoubleDamage = bodyObject.ChanceForDoubleDamage;
                     }
 
-                    weapon = bodyObject;
+                    break;
+                case BodyPart.Head:
+                    if (currentHead != null) OnBodyPartUnequipped(tower, currentHead);
+                    currentHead = bodyObject;
+                    break;
+                case BodyPart.Arm:
+                    if (currentArms != null) OnBodyPartUnequipped(tower, currentArms);
+                    currentArms = bodyObject;
+                    break;
+                case BodyPart.Torso:
+                    if (currentBody != null) OnBodyPartUnequipped(tower, currentBody);
+                    currentBody = bodyObject;
+                    break;
+                case BodyPart.Weapon:
+                    if (currentWeapon != null)
+                    {
+                        _slowPercentage -= currentWeapon.SlowPercentage;
+                        _slowDuration -= currentWeapon.SlowDuration;
+                        _additionalProjectiles -= currentWeapon.AdditionalProjectiles;
+                        OnBodyPartUnequipped(tower, currentWeapon); 
+                    }
+
+                    currentWeapon = bodyObject;
 
                     _targetType = bodyObject.TargetType;
                     _projectilePrefab = bodyObject.ProjectilePrefab;
@@ -155,7 +167,9 @@ namespace Tower
                     _slowDuration += bodyObject.SlowDuration;
                     _additionalProjectiles += bodyObject.AdditionalProjectiles;
                     _objectToSpawn = bodyObject.ObjectToSpawn;
+
                     damageScaling = bodyObject.DamageScaling;
+                    baseDamage = bodyObject.BaseDamage;
                     baseAttackSpeed = bodyObject.BaseAttackSpeed;
                     baseRange = bodyObject.BaseRange;
                     break;
@@ -221,10 +235,10 @@ namespace Tower
         }
         private int CalculateDamage()
         {
-            return Mathf.RoundToInt(bonusDamage * (damageScaling * 0.01f));
+            return baseDamage + Mathf.RoundToInt(bonusDamage * (damageScaling * 0.01f));
         }
         private float CalculateAttackSpeed()
-        {
+        { 
             return baseAttackSpeed / (bonusAttackSpeed * 0.01f + 1);
         }
         private float CalculateRange()
@@ -336,6 +350,13 @@ namespace Tower
                 (_projectilePrefab, _transform.position, Quaternion.identity, PoolingSystem.PoolingParentGameObject.Projectile).GetComponent<Projectile>();
 
             projectile.damage = finalDamage;
+            if (chanceForDoubleDamage)
+            {
+                if(UnityEngine.Random.Range(0 , 100) < doubleDamageChance)
+                {
+                    projectile.damage = finalDamage * 2;
+                }
+            }
             projectile.aoeRadius = _currentAoeRadius;
             projectile.range = finalRange;
             projectile.slowPercentage = _slowPercentage;

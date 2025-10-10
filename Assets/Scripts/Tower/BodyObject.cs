@@ -23,15 +23,17 @@ namespace Tower
         public Sprite Sprite { get; private set; }
         
 
-        [field: SerializeField, Header("Fill if part is weapon")] public GameObject ProjectilePrefab { get; private set; }
+        [field: SerializeField, Header("Fill if part is currentWeapon")] public GameObject ProjectilePrefab { get; private set; }
         [field: SerializeField] public TargetType TargetType { get; private set; }
         [field: SerializeField] public int DamageScaling { get; private set; }
+        [field: SerializeField] public int BaseDamage { get; private set; }
         [field: SerializeField] public int BaseAttackSpeed { get; private set; }
         [field: SerializeField] public int BaseRange { get; private set; }
 
         [field: SerializeField, Header("Additional Values")] public int SlowPercentage { get; private set; }
-        [field: SerializeField] public int SlowDuration { get; private set; }
+        [field: SerializeField] public float SlowDuration { get; private set; }
         [field: SerializeField , Space] public int AdditionalProjectiles { get; private set; }
         [field: SerializeField, Space] public GameObject ObjectToSpawn { get; private set; }
+        [field: SerializeField, Space] public bool ChanceForDoubleDamage { get; private set; }
     }
 }

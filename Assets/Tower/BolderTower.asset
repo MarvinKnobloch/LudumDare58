@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TowerValues
   damageScaling: 100
   baseDamage: 1
-  baseAttackSpeed: 0.8
+  baseAttackSpeed: 2
   baseAttackRange: 13
   aoeRadius: 2
   projectilePrefab: {fileID: 4780432458198478164, guid: 427b4d8c0b4f7724ca492c19bece37af, type: 3}
   targetType: 3
   slowPercentage: 0
   slowDuration: 0
-  additionalProjectiles: 1
+  additionalProjectiles: 0
   objectToSpawn: {fileID: 0}
