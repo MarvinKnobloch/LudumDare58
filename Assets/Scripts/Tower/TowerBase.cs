@@ -5,10 +5,6 @@ using System.Linq;
 using Marvin.PoolingSystem;
 using UnityEngine;
 using UnityEngine.Events;
-using static UnityEditor.PlayerSettings;
-using UnityEngine.UI;
-using static UnityEngine.EventSystems.EventTrigger;
-using Unity.VisualScripting;
 
 namespace Tower
 {
@@ -23,23 +19,28 @@ namespace Tower
 
         [Space]
         [SerializeField] private LayerMask attackLayer;
-        [SerializeField] private int _currentDamage;
-        [SerializeField] private float _currentAttackSpeed;
-        [SerializeField] private float _currentRange;
+        private int damageScaling;
+        private int bonusDamage;
+        [SerializeField] private int finalDamage;
+
+        private float baseAttackSpeed;
+        private float bonusAttackSpeed;
+        [SerializeField] private float finalAttackSpeed;
+
+        private float baseRange;
+        private float bonusRange;
+        [SerializeField] private float finalRange;
+
         [SerializeField] private float _currentAoeRadius;
-        private bool _slow;
         private int _slowPercentage;
         private float _slowDuration;
         private int _additionalProjectiles;
         private GameObject _projectilePrefab;
         private GameObject _objectToSpawn;
-        private float attackSpeedCap = 0.1f;
 
         private Transform _transform;
-        [SerializeField] private WeaponType _weaponType = WeaponType.None;
         [SerializeField] private TargetType _targetType = TargetType.FollowTarget;
         private float timer;
-        private float attackTimer;
         private float checkForEnemiesTimer;
         private float checkForEnemiesInterval = 0.05f;
         private Animator _animator;
@@ -65,20 +66,20 @@ namespace Tower
         private void Awake()
         {
             //SetValues
-            _currentDamage = towerValues.baseDamage;
-            _currentAttackSpeed = towerValues.baseAttackSpeed;
-            _currentRange = towerValues.baseAttackRange;
+            damageScaling = towerValues.damageScaling;
+            baseAttackSpeed = towerValues.baseAttackSpeed;
+            baseRange = towerValues.baseAttackRange;
             _currentAoeRadius = towerValues.aoeRadius;
             _projectilePrefab = towerValues.projectilePrefab;
-            _weaponType = towerValues.weaponType;
             _targetType = towerValues.targetType;
-            _slow = towerValues.slow;
             _slowPercentage = towerValues.slowPercentage;
             _slowDuration = towerValues.slowDuration;
             _additionalProjectiles = towerValues.additionalProjectiles;
             _objectToSpawn = towerValues.objectToSpawn;
 
-            CapAttackSpeed();
+            finalDamage = CalculateDamage();
+            finalAttackSpeed = CalculateAttackSpeed();
+            finalRange = CalculateRange();
 
             _transform = transform;
             _animator = GetComponentInChildren<Animator>();
@@ -89,7 +90,7 @@ namespace Tower
             timer += Time.deltaTime;
             checkForEnemiesTimer += Time.deltaTime;
 
-            if (timer > attackTimer)
+            if (timer > finalAttackSpeed)
             {
                 if(checkForEnemiesTimer > checkForEnemiesInterval)
                 {
@@ -107,50 +108,72 @@ namespace Tower
             switch (bodyObject.Part)
             {
                 case BodyPart.Accessory:
-                    if (accessoires != null) OnBodyPartUnequipped(tower, accessoires);
+                    if (accessoires != null)
+                    {
+                        _slowPercentage -= bodyObject.SlowPercentage;
+                        _slowDuration -= bodyObject.SlowDuration;
+                        _additionalProjectiles -= bodyObject.AdditionalProjectiles;
+                        damageScaling -= bodyObject.DamageScaling;
+                        baseAttackSpeed -= bodyObject.BaseAttackSpeed;
+                        baseRange -= bodyObject.BaseRange;
+                        OnBodyPartUnequipped(tower, accessoires); 
+                    }
                     accessoires = bodyObject;
-                    AddTowerValues(bodyObject);
+                    _slowPercentage += bodyObject.SlowPercentage;
+                    _slowDuration += bodyObject.SlowDuration;
+                    _additionalProjectiles += bodyObject.AdditionalProjectiles;
+                    damageScaling += bodyObject.DamageScaling;
+                    baseAttackSpeed += bodyObject.BaseAttackSpeed;
+                    baseRange += bodyObject.BaseRange;
                     break;
                 case BodyPart.Head:
                     if (head != null) OnBodyPartUnequipped(tower, head);
                     head = bodyObject;
-                    AddTowerValues(bodyObject);
                     break;
                 case BodyPart.Arm:
                     if (arms != null) OnBodyPartUnequipped(tower, arms);
                     arms = bodyObject;
-                    AddTowerValues(bodyObject);
                     break;
                 case BodyPart.Torso:
                     if (body != null) OnBodyPartUnequipped(tower, body);
                     body = bodyObject;
-                    AddTowerValues(bodyObject);
                     break;
                 case BodyPart.Weapon:
-                    if (weapon != null) OnBodyPartUnequipped(tower, weapon);
+                    if (weapon != null)
+                    {
+                        _slowPercentage -= bodyObject.SlowPercentage;
+                        _slowDuration -= bodyObject.SlowDuration;
+                        _additionalProjectiles -= bodyObject.AdditionalProjectiles;
+                        OnBodyPartUnequipped(tower, weapon); 
+                    }
+
                     weapon = bodyObject;
-                    _weaponType = bodyObject.Weapon;
+
                     _targetType = bodyObject.TargetType;
                     _projectilePrefab = bodyObject.ProjectilePrefab;
-                    _slow = bodyObject.Slow;
-                    _slowPercentage = bodyObject.SlowPercentage;
-                    _slowDuration = bodyObject.SlowDuration;
-                    _additionalProjectiles = bodyObject.AdditionalProjectiles;
+                    _slowPercentage += bodyObject.SlowPercentage;
+                    _slowDuration += bodyObject.SlowDuration;
+                    _additionalProjectiles += bodyObject.AdditionalProjectiles;
                     _objectToSpawn = bodyObject.ObjectToSpawn;
-                    AddTowerValues(bodyObject);
+                    damageScaling = bodyObject.DamageScaling;
+                    baseAttackSpeed = bodyObject.BaseAttackSpeed;
+                    baseRange = bodyObject.BaseRange;
                     break;
             }
+            AddTowerValues(bodyObject);
         }
         private void AddTowerValues(BodyObject bodyObject)
         {
             // Equip Object and adjust stats
 
-            _currentAttackSpeed -= bodyObject.BonusAttackSpeed;
-            _currentDamage += bodyObject.BonusDamage;
-            _currentRange += bodyObject.BonusRange;
+            bonusAttackSpeed += bodyObject.BonusAttackSpeed;
+            bonusDamage += bodyObject.BonusDamage;
+            bonusRange += bodyObject.BonusRange;
             _currentAoeRadius += bodyObject.BonusAoeRadius;
 
-            CapAttackSpeed();
+            finalDamage = CalculateDamage();
+            finalAttackSpeed = CalculateAttackSpeed();
+            finalRange = CalculateRange();
 
             EquippedBodyObjects.Add(bodyObject);
         }
@@ -161,9 +184,9 @@ namespace Tower
                 return;
 
             EquippedBodyObjects.Remove(bodyObject);
-            _currentAttackSpeed += bodyObject.BonusAttackSpeed;
-            _currentDamage -= bodyObject.BonusDamage;
-            _currentRange -= bodyObject.BonusRange;
+            bonusAttackSpeed -= bodyObject.BonusAttackSpeed;
+            bonusDamage -= bodyObject.BonusDamage;
+            bonusRange -= bodyObject.BonusRange;
 
             _currentAoeRadius -= bodyObject.BonusAoeRadius;
 
@@ -196,10 +219,17 @@ namespace Tower
             }
             recipeMatchPercent = bestMatchPercent;
         }
-        private void CapAttackSpeed()
+        private int CalculateDamage()
         {
-            attackTimer = _currentAttackSpeed;
-            if (attackTimer < attackSpeedCap) attackTimer = attackSpeedCap;
+            return Mathf.RoundToInt(bonusDamage * (damageScaling * 0.01f));
+        }
+        private float CalculateAttackSpeed()
+        {
+            return baseAttackSpeed / (bonusAttackSpeed * 0.01f + 1);
+        }
+        private float CalculateRange()
+        {
+            return baseRange * (bonusRange * 0.01f + 1); 
         }
 
         private bool Attack()
@@ -224,6 +254,10 @@ namespace Tower
                 case TargetType.Melee:
                     StayOnTarget();
                     break;
+                case TargetType.Pierce:
+                    currentTarget = GetClosestEnemy();
+                    break;
+
             }
 
             if (currentTarget == null || currentTarget.gameObject.activeSelf == false) return false;
@@ -240,12 +274,12 @@ namespace Tower
             else
             {
                 //Check if current target is out of range, if yes switch target
-                if (Vector2.Distance(_transform.position, currentTarget.position) > _currentRange) currentTarget = GetClosestEnemy();
+                if (Vector2.Distance(_transform.position, currentTarget.position) > finalRange) currentTarget = GetClosestEnemy();
             }
         }
         private Transform GetClosestEnemy()
         {
-            Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, _currentRange, attackLayer);
+            Collider2D[] cols = Physics2D.OverlapCircleAll(transform.position, finalRange, attackLayer);
             
             if(cols.Length == 0) return null;
             
@@ -276,7 +310,7 @@ namespace Tower
 
             if (_additionalProjectiles > 0)
             {
-                GameObject[] enemies = Physics2D.OverlapCircleAll(transform.position, _currentRange, attackLayer)
+                GameObject[] enemies = Physics2D.OverlapCircleAll(transform.position, finalRange , attackLayer)
                     .OrderBy(x => (x.transform.position - transform.position).sqrMagnitude)  //Vector2.Distance(x.transform.position, transform.position))
                     .Select(x => x.gameObject).ToArray();
 
@@ -301,10 +335,9 @@ namespace Tower
             Projectile projectile = PoolingSystem.SpawnObject
                 (_projectilePrefab, _transform.position, Quaternion.identity, PoolingSystem.PoolingParentGameObject.Projectile).GetComponent<Projectile>();
 
-            projectile.damage = _currentDamage;
+            projectile.damage = finalDamage;
             projectile.aoeRadius = _currentAoeRadius;
-            projectile.range = _currentRange;
-            projectile.slow = _slow;
+            projectile.range = finalRange;
             projectile.slowPercentage = _slowPercentage;
             projectile.slowDuration = _slowDuration;
             projectile.targetType = _targetType;
@@ -314,7 +347,7 @@ namespace Tower
         }
         public float GetTowerRange()
         {
-            return _currentRange;
+            return finalRange;
         }
     }
 }

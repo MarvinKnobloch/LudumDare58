@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c77b3a024aa5ce44a8b8b6ab5bc5c03c, type: 3}
-  m_Name: ClubTower
+  m_Name: CrystalTower
   m_EditorClassIdentifier: Assembly-CSharp::TowerValues
   damageScaling: 100
   baseDamage: 1
-  baseAttackSpeed: 1
-  baseAttackRange: 4
-  aoeRadius: 3
-  projectilePrefab: {fileID: 8614331895747358253, guid: 54f395334482dd845bfaf345dda02e16, type: 3}
-  targetType: 2
+  baseAttackSpeed: 2
+  baseAttackRange: 13
+  aoeRadius: 5
+  projectilePrefab: {fileID: 4780432458198478164, guid: f06a95e9dba9f2f478089e8d393f79c0, type: 3}
+  targetType: 5
   slowPercentage: 0
   slowDuration: 0
   additionalProjectiles: 0

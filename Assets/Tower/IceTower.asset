@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77b3a024aa5ce44a8b8b6ab5bc5c03c, type: 3}
   m_Name: IceTower
   m_EditorClassIdentifier: Assembly-CSharp::TowerValues
+  damageScaling: 100
   baseDamage: 1
   baseAttackSpeed: 1
   baseAttackRange: 8
   aoeRadius: 2
   projectilePrefab: {fileID: 4780432458198478164, guid: 3dd6f4fcfa64611469ca5f985b213f9e, type: 3}
-  weaponType: 10
   targetType: 1
-  slow: 1
   slowPercentage: 50
   slowDuration: 2
+  additionalProjectiles: 0
+  objectToSpawn: {fileID: 0}

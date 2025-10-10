@@ -8,5 +8,6 @@ namespace Tower
         Swing,
         Throw,
         Melee,
+        Pierce,
     }
 }

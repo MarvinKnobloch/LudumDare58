@@ -14,12 +14,12 @@ public class Projectile : MonoBehaviour, IPoolingList
     private Vector3 enemyPositionOnProjectileLaunch;
     [SerializeField] private SpriteRenderer spriteRenderer;
     private Vector3 objectToSpawnRotation;
+    private Vector3 endPosition;
     private float timer;
 
     [HideInInspector] public int damage;
     [HideInInspector] public float range;
     [HideInInspector] public float aoeRadius;
-    [HideInInspector] public bool slow;
     [HideInInspector] public float slowPercentage;
     [HideInInspector] public float slowDuration;
     [HideInInspector] public TargetType targetType;
@@ -49,6 +49,13 @@ public class Projectile : MonoBehaviour, IPoolingList
     [SerializeField] private float maxHeight;
     private float bulletLifeTime;
 
+    [Header("Pierce")]
+    [SerializeField] private float shrinkEachHit = 0.2f;
+    [SerializeField] private float damageReductionEachHit = 0.1f;
+    private float shrinkMinSize = 0.3f;
+    private int targetsHit;
+
+
 
     public PoolingSystem.PoolObjectInfo poolingList { get; set; }
 
@@ -70,6 +77,9 @@ public class Projectile : MonoBehaviour, IPoolingList
                 break;
             case TargetType.Melee:
                 break;
+            case TargetType.Pierce:
+                PierceMovement();
+                break;
         }
     }
     public void SetValues(Transform target)
@@ -83,8 +93,9 @@ public class Projectile : MonoBehaviour, IPoolingList
 
         currenttarget = target;
         bulletTarget = currenttarget.GetComponent<Enemy>().GetBulletTarget();
-        enemyPositionOnProjectileLaunch = bulletTarget.transform.position;
         direction = (bulletTarget.transform.position - transform.position).normalized;
+        enemyPositionOnProjectileLaunch = bulletTarget.transform.position;
+
         if(objectToSpawn != null) objectToSpawnRotation = bulletTarget.position - transform.position;
 
 
@@ -101,6 +112,12 @@ public class Projectile : MonoBehaviour, IPoolingList
                 break;
             case TargetType.Melee:
                 SetMelee();
+                break;
+            case TargetType.Pierce:
+                targetsHit = 0;
+                transform.localScale = new Vector3(aoeRadius, aoeRadius, 1);
+                endPosition = transform.position + direction * range;      //final position in enemy direction
+                transform.right = enemyPositionOnProjectileLaunch - transform.position;
                 break;
         }
     }
@@ -165,7 +182,6 @@ public class Projectile : MonoBehaviour, IPoolingList
     {
         if (dealedDamage) return;
 
-        direction = (enemyPositionOnProjectileLaunch - transform.position).normalized;
         transform.position = Vector3.MoveTowards(transform.position, enemyPositionOnProjectileLaunch, projectileSpeed * Time.deltaTime);
 
         if(Vector2.Distance(transform.position, enemyPositionOnProjectileLaunch) < 0.3f)
@@ -218,6 +234,15 @@ public class Projectile : MonoBehaviour, IPoolingList
             }
         }
     }
+    private void PierceMovement()
+    {
+        transform.position = Vector3.MoveTowards(transform.position, endPosition, projectileSpeed * Time.deltaTime);
+
+        if (Vector2.Distance(transform.position, endPosition) < 0.3f)
+        {
+            Invoke("DisableProjectile", disableTimeAfterHit);
+        }
+    }
     private void BulletNoTarget()
     {
         transform.position = Vector3.MoveTowards(transform.position, transform.position + direction, projectileSpeed * Time.deltaTime);
@@ -242,7 +267,7 @@ public class Projectile : MonoBehaviour, IPoolingList
                 if (enemy.gameObject.activeSelf == false) return;
 
                 enemy.TakeDamage(damage);
-                if (slow == true && enemy.gameObject.activeSelf == true) enemy.DoSlow(slowPercentage, slowDuration);
+                if (slowPercentage > 0 && enemy.gameObject.activeSelf == true) enemy.DoSlow(slowPercentage, slowDuration);
             }          
         }
         else
@@ -268,7 +293,7 @@ public class Projectile : MonoBehaviour, IPoolingList
             {
                 enemy.TakeDamage(damage);
 
-                if (slow == true && enemy.gameObject.activeSelf == true) enemy.DoSlow(slowPercentage, slowDuration);
+                if (slowPercentage > 0 && enemy.gameObject.activeSelf == true) enemy.DoSlow(slowPercentage, slowDuration);
             }
         }
     }
@@ -289,6 +314,28 @@ public class Projectile : MonoBehaviour, IPoolingList
                     dealedDamage = true;
                     FollowTargetDamage();
                     Invoke("DisableProjectile", disableTimeAfterHit);
+                }
+                break;
+            case TargetType.Pierce:
+                if(collision.gameObject.TryGetComponent(out Enemy enemy))
+                {
+
+                    int finalDamage = Mathf.RoundToInt(damage * (1 - damageReductionEachHit * targetsHit));
+                    if (finalDamage < 1) finalDamage = 1;
+                    enemy.TakeDamage(finalDamage);
+
+                    targetsHit++;
+
+                    float newScale = transform.localScale.x - shrinkEachHit;
+                    if(newScale <= shrinkMinSize)
+                    {
+                        dealedDamage = true;
+                        Invoke("DisableProjectile", disableTimeAfterHit);
+                    }
+                    else
+                    {
+                        transform.localScale = new Vector3(newScale, newScale, 1);
+                    }
                 }
                 break;
         }

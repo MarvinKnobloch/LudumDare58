@@ -12,9 +12,9 @@ namespace Tower
 
         [field: SerializeField] public BodyPart Part { get; private set; }
         [field: SerializeField] public BodyType Type { get; private set; } = BodyType.Default;
-        [field: SerializeField] public float BonusAttackSpeed { get; private set; }
         [field: SerializeField] public int BonusDamage { get; private set; }
-        [field: SerializeField] public float BonusRange { get; private set; }
+        [field: SerializeField] public int BonusAttackSpeed { get; private set; }
+        [field: SerializeField] public int BonusRange { get; private set; }
 
         [field: SerializeField, Tooltip("Must be 0 for single target attacks.")]
         public float BonusAoeRadius { get; private set; }
@@ -22,13 +22,16 @@ namespace Tower
         [field: SerializeField, Tooltip("The UI Sprite to use.")]
         public Sprite Sprite { get; private set; }
         
-        [field: SerializeField, Header("Fill if part is weapon")] public WeaponType Weapon { get; private set; }
-        [field: SerializeField] public GameObject ProjectilePrefab { get; private set; }
+
+        [field: SerializeField, Header("Fill if part is weapon")] public GameObject ProjectilePrefab { get; private set; }
         [field: SerializeField] public TargetType TargetType { get; private set; }
-        [field: SerializeField] public bool Slow { get; private set; }
-        [field: SerializeField] public int SlowPercentage { get; private set; }
+        [field: SerializeField] public int DamageScaling { get; private set; }
+        [field: SerializeField] public int BaseAttackSpeed { get; private set; }
+        [field: SerializeField] public int BaseRange { get; private set; }
+
+        [field: SerializeField, Header("Additional Values")] public int SlowPercentage { get; private set; }
         [field: SerializeField] public int SlowDuration { get; private set; }
-        [field: SerializeField] public int AdditionalProjectiles { get; private set; }
-        [field: SerializeField] public GameObject ObjectToSpawn { get; private set; }
+        [field: SerializeField , Space] public int AdditionalProjectiles { get; private set; }
+        [field: SerializeField, Space] public GameObject ObjectToSpawn { get; private set; }
     }
 }
