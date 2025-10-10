@@ -11,7 +11,7 @@ public class PlayerUI : MonoBehaviour
 
     [Header("Value")]
     [SerializeField] private Image healthbar;
-    [SerializeField] private TextMeshProUGUI healthText;
+    //[SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private TextMeshProUGUI soulsText;
 
     [Header("DialogBox")]
@@ -33,7 +33,7 @@ public class PlayerUI : MonoBehaviour
     public void HealthUIUpdate(int current, int max)
     {
         healthbar.fillAmount = (float)current / max;
-        healthText.text = current + "/" + max;
+       // healthText.text = current + "/" + max;
     }
     public void SoulsUpdate(int amount)
     {

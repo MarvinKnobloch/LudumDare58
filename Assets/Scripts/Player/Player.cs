@@ -1,3 +1,4 @@
+using Microsoft.Unity.VisualStudio.Editor;
 using System;
 using Tower;
 using UnityEngine;
@@ -18,6 +19,7 @@ public class Player : MonoBehaviour
     [SerializeField] private int armSlotCosts;
     [SerializeField] private int bodySlotCosts;
 
+
     [NonSerialized] public Controls controls;
 
     private void Awake()
@@ -31,17 +33,19 @@ public class Player : MonoBehaviour
     {
         currentHealth = maxHealth;
         UpdateSouls(currentSouls);
+        IngameController.Instance.playerUI.HealthUIUpdate(currentHealth, maxHealth);
+
     }
 
     public void TakeDamage(int amount)
     {
         currentHealth -= amount;
-        //Update Health UI
+        IngameController.Instance.playerUI.HealthUIUpdate(currentHealth, maxHealth);
     }
     public void Heal(int amount)
     {
         currentHealth += amount;
-        //Update UI
+        IngameController.Instance.playerUI.HealthUIUpdate(currentHealth, maxHealth);
     }
     public void UpdateSouls(int amount)
     {
@@ -64,4 +68,17 @@ public class Player : MonoBehaviour
     public int GetArmsCosts() => armSlotCosts;
     public int GetHeadCosts() => headSlotCosts;
     public int GetBodyCosts() => bodySlotCosts;
-  }
+
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            TakeDamage(3);
+        }
+
+
+    }
+
+
+}

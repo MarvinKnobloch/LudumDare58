@@ -113,13 +113,11 @@ MonoBehaviour:
   currentHealth: 0
   maxHealth: 0
   slowColor: {r: 0, g: 0.5299373, b: 0.9339623, a: 1}
-  damageToPlayer: 1
+  damageToPlayer: 10
   soulsDrop: 1
   bulletTarget: {fileID: 4084337682187251020}
   hitEffectAmount: 3
   hitEffectDuration: 0.08
-  testEnemy: 0
-  testHealth: 0
 --- !u!58 &2701071940875089523
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -170,13 +168,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemDropper
   dropValues:
   - item: {fileID: 8528078405184565660, guid: 5b7d417b6f315f049a8901a3ac88dca1, type: 3}
-    dropChance: 0.2
+    dropChance: 0.15
     amount: 1
   - item: {fileID: 5892243160951536167, guid: 962446aa7e1ffa449855c24745b7cd12, type: 3}
-    dropChance: 0.1
+    dropChance: 0.07
     amount: 1
   - item: {fileID: 3848033517144133934, guid: 0d6fdc8a3876e3e489652f5557e2af40, type: 3}
-    dropChance: 0.2
+    dropChance: 0.15
+    amount: 1
+  - item: {fileID: 7860965236372227262, guid: 212241474f07fe84289793f23d3bccdd, type: 3}
+    dropChance: 0.03
     amount: 1
   scatterRadius: 2
   useAnimation: 1
