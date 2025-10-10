@@ -172,7 +172,7 @@ public class Enemy : MonoBehaviour, IPoolingList
             }
             if(lifeSteal == true)
             {
-                if(UnityEngine.Random.Range(0, 100) < 5)
+                if(UnityEngine.Random.Range(0, 100) < Player.Instance.GetLifeStealChance())
                 {
                     Player.Instance.Heal(1);
                 }

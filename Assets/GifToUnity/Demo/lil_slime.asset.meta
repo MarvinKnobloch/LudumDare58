@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 2a515b181f6d3a74a89201797654f548
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 11400000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 291167
+  packageName: Gif For Unity
+  packageVersion: 1.1
+  assetPath: Assets/GifToUnity/Demo/lil_slime.asset
+  uploadId: 729741

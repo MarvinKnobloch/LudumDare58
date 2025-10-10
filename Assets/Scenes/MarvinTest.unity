@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &153140031
 Transform:
   m_ObjectHideFlags: 0
@@ -347,6 +347,10 @@ PrefabInstance:
     - target: {fileID: 7885124235534674744, guid: 06e26d8fcac0a5546b34bec2c72f9173, type: 3}
       propertyPath: m_Name
       value: Sword_WorldItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 7885124235534674744, guid: 06e26d8fcac0a5546b34bec2c72f9173, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -702,6 +706,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Stone_WorldItem
       objectReference: {fileID: 0}
+    - target: {fileID: 7885124235534674744, guid: 89793a0455be2af4193bdbfdc56cac54, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -914,6 +922,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cross Bow_WorldItem
       objectReference: {fileID: 0}
+    - target: {fileID: 7885124235534674744, guid: 2de2608a09f09f44f943cf62b550c6ee, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1048,6 +1060,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goblin Arm_WorldItem
       objectReference: {fileID: 0}
+    - target: {fileID: 8528078405184565660, guid: 5b7d417b6f315f049a8901a3ac88dca1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1104,6 +1120,10 @@ PrefabInstance:
     - target: {fileID: 3339317642567587124, guid: bf8eb64cc5a775946a028a70dd472d31, type: 3}
       propertyPath: m_Name
       value: Skeleton Ring_WorldItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 3339317642567587124, guid: bf8eb64cc5a775946a028a70dd472d31, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1285,6 +1305,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skeleton Necklace_WorldItem
       objectReference: {fileID: 0}
+    - target: {fileID: 3339317642567587124, guid: 69e2421f3313ba7468529e551f32f61b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1309,11 +1333,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9165927861958533830, guid: a7f774580100c6d438df0275678041f7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.7002416
+      value: -2.2
       objectReference: {fileID: 0}
     - target: {fileID: 9165927861958533830, guid: a7f774580100c6d438df0275678041f7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.0682743
+      value: 2.3
       objectReference: {fileID: 0}
     - target: {fileID: 9165927861958533830, guid: a7f774580100c6d438df0275678041f7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1411,7 +1435,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5971555673173559965, guid: c2ad4cd700f295b469215d562e019933, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1592,6 +1616,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Elfen Head_WorldItem
       objectReference: {fileID: 0}
+    - target: {fileID: 9057325997660116790, guid: fc7c02c31d38fe441902eb2d1d199932, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1668,11 +1696,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9165927861958533830, guid: a7f774580100c6d438df0275678041f7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.9766855
+      value: -4.1
       objectReference: {fileID: 0}
     - target: {fileID: 9165927861958533830, guid: a7f774580100c6d438df0275678041f7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8043306
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9165927861958533830, guid: a7f774580100c6d438df0275678041f7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1806,7 +1834,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 784841727011037784, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -236.00177
+      value: -236.00082
       objectReference: {fileID: 0}
     - target: {fileID: 864389745890475447, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_Name
@@ -2096,6 +2124,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5096035439758205997, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
+      propertyPath: maxHealth
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5096035439758205997, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
+      propertyPath: lifeStealChance
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 5155583813887768062, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2338,6 +2374,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Orc Body_WorldItem
       objectReference: {fileID: 0}
+    - target: {fileID: 5892243160951536167, guid: 962446aa7e1ffa449855c24745b7cd12, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8550337100768337863, guid: 962446aa7e1ffa449855c24745b7cd12, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.67
@@ -2461,6 +2501,10 @@ PrefabInstance:
     - target: {fileID: 1447422381575381651, guid: 857316b64c442494a809189ed34dd190, type: 3}
       propertyPath: m_Name
       value: Elfen Body_WorldItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 1447422381575381651, guid: 857316b64c442494a809189ed34dd190, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3709791100066482035, guid: 857316b64c442494a809189ed34dd190, type: 3}
       propertyPath: m_LocalPosition.x

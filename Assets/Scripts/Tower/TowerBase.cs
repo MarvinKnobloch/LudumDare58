@@ -42,6 +42,8 @@ namespace Tower
         [SerializeField] private bool chanceForDoubleDamage;
         private float doubleDamageChance = 25;
 
+        [SerializeField] private bool lifeSteal;
+
         private Transform _transform;
         [SerializeField] private TargetType _targetType = TargetType.FollowTarget;
         private float timer;
@@ -122,10 +124,12 @@ namespace Tower
 
                         OnBodyPartUnequipped(tower, currentAccessoires); 
                     }
+
                     currentAccessoires = bodyObject;
                     _slowPercentage += bodyObject.SlowPercentage;
                     _slowDuration += bodyObject.SlowDuration;
                     _additionalProjectiles += bodyObject.AdditionalProjectiles;
+                    lifeSteal = bodyObject.LifeSteal;
 
                     if(towerValues.chanceForDoubleDamage == false)
                     {
@@ -363,6 +367,7 @@ namespace Tower
             projectile.slowDuration = _slowDuration;
             projectile.targetType = _targetType;
             projectile.objectToSpawn = _objectToSpawn;
+            projectile.lifeSteal = lifeSteal;
 
             projectile.SetValues(targetEnemy);
         }

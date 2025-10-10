@@ -13,6 +13,4 @@ MonoBehaviour:
   m_Name: LD58_MusicTitle
   m_EditorClassIdentifier: com.Marvin.AudioSystem::Marvin.AudioSystem.MusicListObj
   songs:
-  - {fileID: 11400000, guid: b60f8c4ec81db214ca25e51c64c0772c, type: 2}
-  - {fileID: 11400000, guid: 19e1ad3d1912d6240947147a61884f53, type: 2}
-  - {fileID: 11400000, guid: 28c20f8cafc68ab4cb7d6a2b126ede9f, type: 2}
+  - {fileID: 11400000, guid: ea60284270b77494fb15324be244e8cd, type: 2}

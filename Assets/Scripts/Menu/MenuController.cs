@@ -18,7 +18,6 @@ public class MenuController : MonoBehaviour
     [SerializeField] private Button confirmButton;
     [SerializeField] private TextMeshProUGUI confirmText;
 
-    [SerializeField] private GameObject loadGameButton;
     private float normalFixedDeltaTime;
 
     [Space] public SceneType sceneType;
@@ -36,21 +35,6 @@ public class MenuController : MonoBehaviour
     private void Start()
     {
         if(IngameController.Instance != null)  IngameController.Instance.DeactivateCursor();
-
-        //LoadGameOption
-        if (loadGameButton != null)
-        {
-            if (PlayerPrefs.GetInt("NewGame") == 0)
-            {
-                loadGameButton.GetComponent<Button>().enabled = false;
-                loadGameButton.transform.GetChild(1).gameObject.SetActive(true);
-            }
-            else
-            {
-                loadGameButton.GetComponent<Button>().enabled = true;
-                loadGameButton.transform.GetChild(1).gameObject.SetActive(false);
-            }
-        }
     }
 
     void Update()
@@ -116,44 +100,20 @@ public class MenuController : MonoBehaviour
         menu.SetActive(false);
         EndPause();
     }
-    public void SetNewGame()
-    {
-        OpenConfirmController(NewGame, "Start new game?");
-    }
+
     public void SetBackToMainMenuConfirm()
     {
         OpenConfirmController(BackToMainMenu, "Back to main menu?");
     }
-    private void NewGame()
+    public void NewGame()
     {
-        PlayerPrefs.SetInt("NewGame", 0);
-
-        PlayerPrefs.SetFloat("PlayerXSpawn", 6);
-        PlayerPrefs.SetFloat("PlayerYSpawn", 2.5f);
-        PlayerPrefs.SetInt("CurrentLevel", 1);
+        PlayerPrefs.SetInt("Tutorial", 1);
 
         PlayMenuSound();
         gameIsPaused = false;
         Time.timeScale = 1;
         Time.fixedDeltaTime = normalFixedDeltaTime;
-        SceneManager.LoadScene(PlayerPrefs.GetInt("CurrentLevel"));
-    }
-    public void LoadGame()
-    {
-        PlayMenuSound();
-        gameIsPaused = false;
-        Time.timeScale = 1;
-        Time.fixedDeltaTime = normalFixedDeltaTime;
-        SceneManager.LoadScene(PlayerPrefs.GetInt("CurrentLevel"));
-    }
-    public void ResetPlayer(bool playSound = false)
-    {
-        if(playSound) PlayMenuSound();
-        gameIsPaused = false;
-        Time.timeScale = 1;
-        Time.fixedDeltaTime = normalFixedDeltaTime;
-
-        SceneManager.LoadScene(PlayerPrefs.GetInt("CurrentLevel"));
+        SceneManager.LoadScene(1);
     }
     private void BackToMainMenu()
     {

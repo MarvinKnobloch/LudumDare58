@@ -303,7 +303,6 @@ MonoBehaviour:
   confirmController: {fileID: 1639923193}
   confirmButton: {fileID: 1639923192}
   confirmText: {fileID: 1639923190}
-  loadGameButton: {fileID: 8747083936158757476}
   sceneType: 0
 --- !u!224 &839683734
 RectTransform:
@@ -1906,10 +1905,10 @@ RectTransform:
   - {fileID: 4286927625873153030}
   m_Father: {fileID: 2530125975480706121}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 500, y: -462}
+  m_SizeDelta: {x: 625, y: 66}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &5718194730059599672
 PrefabInstance:
@@ -2038,7 +2037,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 839683733}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: SetNewGame
+        m_MethodName: NewGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2359,7 +2358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &8780003779212824924
 RectTransform:
   m_ObjectHideFlags: 0

@@ -42,7 +42,7 @@ public class LevelManager : MonoBehaviour, IPoolingList
     {
         startLevelButton = IngameController.Instance.playerUI.startNextLevelButton;
 
-        startLevelButton.SetActive(true);
+        if(PlayerPrefs.GetInt("Tutorial") == 0) startLevelButton.SetActive(true);
     }
     private void OnEnable()
     {
