@@ -254,7 +254,7 @@ public class Projectile : MonoBehaviour, IPoolingList
         if (targetHasDied == false)
         {
             targetHasDied = true;
-            Invoke("DisableProjectile", 0.5f);
+            Invoke("DisableProjectile", 0.3f);
         }
     }
     private void FollowTargetDamage()

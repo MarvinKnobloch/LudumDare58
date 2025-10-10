@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 47459961506918954, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: m_Color.b
-      value: 0.008143486
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 47459961506918954, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: m_Color.g
-      value: 0.008194428
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 47459961506918954, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: m_Color.r
-      value: 0.009433985
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3588843796145617972, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -62,7 +62,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5852628107453491410, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: m_Name
-      value: ArcherTower
+      value: CrossBowTower
       objectReference: {fileID: 0}
     - target: {fileID: 7828311766438679498, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: baseRange
