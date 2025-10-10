@@ -20,6 +20,9 @@ public class Player : MonoBehaviour
 
     [NonSerialized] public Controls controls;
 
+    [Header("TowerStuff")]
+    [SerializeField] private int lifeStealChance = 5;
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -64,4 +67,5 @@ public class Player : MonoBehaviour
     public int GetArmsCosts() => armSlotCosts;
     public int GetHeadCosts() => headSlotCosts;
     public int GetBodyCosts() => bodySlotCosts;
+    public int GetLifeStealChance() => lifeStealChance;
   }

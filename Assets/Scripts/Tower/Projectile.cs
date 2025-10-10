@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using Marvin.PoolingSystem;
 using Tower;
 using Unity.VisualScripting;
@@ -55,7 +57,7 @@ public class Projectile : MonoBehaviour, IPoolingList
     [SerializeField] private float damageReductionEachHit = 0.1f;
     private float shrinkMinSize = 0.3f;
     private int targetsHit;
-
+    private List<Collider2D> pierceList;
 
     public PoolingSystem.PoolObjectInfo poolingList { get; set; }
 
@@ -114,6 +116,9 @@ public class Projectile : MonoBehaviour, IPoolingList
                 SetMelee();
                 break;
             case TargetType.Pierce:
+                if (pierceList == null) pierceList = new List<Collider2D>();
+                pierceList.Clear();
+
                 targetsHit = 0;
                 transform.localScale = new Vector3(aoeRadius, aoeRadius, 1);
                 endPosition = transform.position + direction * range;      //final position in enemy direction
@@ -317,24 +322,27 @@ public class Projectile : MonoBehaviour, IPoolingList
                 }
                 break;
             case TargetType.Pierce:
-                if(collision.gameObject.TryGetComponent(out Enemy enemy))
+                if (collision.gameObject.TryGetComponent(out Enemy enemy))
                 {
-
-                    int finalDamage = Mathf.RoundToInt(damage * (1 - damageReductionEachHit * targetsHit));
-                    if (finalDamage < 1) finalDamage = 1;
-                    enemy.TakeDamage(finalDamage, lifeSteal);
-
-                    targetsHit++;
-
-                    float newScale = transform.localScale.x - shrinkEachHit;
-                    if(newScale <= shrinkMinSize)
+                    if (pierceList.Contains(collision) == false)
                     {
-                        dealedDamage = true;
-                        Invoke("DisableProjectile", disableTimeAfterHit);
-                    }
-                    else
-                    {
-                        transform.localScale = new Vector3(newScale, newScale, 1);
+                        pierceList.Add(collision);
+                        int finalDamage = Mathf.RoundToInt(damage * (1 - damageReductionEachHit * targetsHit));
+                        if (finalDamage < 1) finalDamage = 1;
+                        enemy.TakeDamage(finalDamage, lifeSteal);
+
+                        targetsHit++;
+
+                        float newScale = transform.localScale.x - shrinkEachHit;
+                        if (newScale <= shrinkMinSize)
+                        {
+                            dealedDamage = true;
+                            Invoke("DisableProjectile", disableTimeAfterHit);
+                        }
+                        else
+                        {
+                            transform.localScale = new Vector3(newScale, newScale, 1);
+                        }
                     }
                 }
                 break;

@@ -114,7 +114,7 @@ MonoBehaviour:
   targetType: 0
   objectToSpawn: {fileID: 0}
   lifeSteal: 0
-  projectileSpeed: 10
+  projectileSpeed: 5
   hitLayer:
     serializedVersion: 2
     m_Bits: 512
