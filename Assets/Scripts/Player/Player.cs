@@ -38,6 +38,11 @@ public class Player : MonoBehaviour
         currentHealth -= amount;
         //Update Health UI
     }
+    public void Heal(int amount)
+    {
+        currentHealth += amount;
+        //Update UI
+    }
     public void UpdateSouls(int amount)
     {
         currentSouls += amount;

@@ -25,7 +25,7 @@ public class EnemyClickHandler : MonoBehaviour
                 if (enemyScript != null)
                 {
                     Debug.Log("Enemy wurde angeklickt!");
-                    enemyScript.TakeDamage(enemyScript.MaxValue);
+                    enemyScript.TakeDamage(enemyScript.MaxValue, false);
 
                 }
             }

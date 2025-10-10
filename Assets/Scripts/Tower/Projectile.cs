@@ -24,6 +24,7 @@ public class Projectile : MonoBehaviour, IPoolingList
     [HideInInspector] public float slowDuration;
     [HideInInspector] public TargetType targetType;
     [HideInInspector] public GameObject objectToSpawn;
+    [HideInInspector] public bool lifeSteal;
 
 
     [Header("BasicValues")]
@@ -54,7 +55,6 @@ public class Projectile : MonoBehaviour, IPoolingList
     [SerializeField] private float damageReductionEachHit = 0.1f;
     private float shrinkMinSize = 0.3f;
     private int targetsHit;
-
 
 
     public PoolingSystem.PoolObjectInfo poolingList { get; set; }
@@ -266,7 +266,7 @@ public class Projectile : MonoBehaviour, IPoolingList
             {
                 if (enemy.gameObject.activeSelf == false) return;
 
-                enemy.TakeDamage(damage);
+                enemy.TakeDamage(damage, lifeSteal);
                 if (slowPercentage > 0 && enemy.gameObject.activeSelf == true) enemy.DoSlow(slowPercentage, slowDuration);
             }          
         }
@@ -291,7 +291,7 @@ public class Projectile : MonoBehaviour, IPoolingList
 
             if (coll.TryGetComponent(out Enemy enemy))
             {
-                enemy.TakeDamage(damage);
+                enemy.TakeDamage(damage, lifeSteal);
 
                 if (slowPercentage > 0 && enemy.gameObject.activeSelf == true) enemy.DoSlow(slowPercentage, slowDuration);
             }
@@ -322,7 +322,7 @@ public class Projectile : MonoBehaviour, IPoolingList
 
                     int finalDamage = Mathf.RoundToInt(damage * (1 - damageReductionEachHit * targetsHit));
                     if (finalDamage < 1) finalDamage = 1;
-                    enemy.TakeDamage(finalDamage);
+                    enemy.TakeDamage(finalDamage, lifeSteal);
 
                     targetsHit++;
 

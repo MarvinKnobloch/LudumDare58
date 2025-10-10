@@ -12,15 +12,10 @@ public class LevelManager : MonoBehaviour, IPoolingList
 
     [Space]
     [SerializeField] public LevelObj[] levels;
-    [SerializeField] private float timeOnGameStart;
-    [SerializeField] private float timeBetweenLevels;
-    [Space]
-    [SerializeField] private bool useButtonToStartRound;
+
     private GameObject startLevelButton;
 
     [HideInInspector] public int currentLevel { get; private set; }
-    private TextMeshProUGUI levelTimerText;
-    private float betweenLevelsTime;
 
     [Space]
     [SerializeField] private int enemiesAlive;
@@ -47,19 +42,7 @@ public class LevelManager : MonoBehaviour, IPoolingList
     {
         startLevelButton = IngameController.Instance.playerUI.startNextLevelButton;
 
-        if (IngameController.Instance.playerUI != null)
-        {
-            //levelTimerText = PlayerUI.Instance.levelTimer.GetComponentInChildren<TextMeshProUGUI>();
-        }
-
-        if (useButtonToStartRound)
-        {
-            startLevelButton.SetActive(true);
-        }
-        else
-        {
-            StartCoroutine(WaitForNextRound(timeOnGameStart));
-        }
+        startLevelButton.SetActive(true);
     }
     private void OnEnable()
     {
@@ -73,26 +56,9 @@ public class LevelManager : MonoBehaviour, IPoolingList
     {
         return enemyWayPoints[number].position;
     }
-    private IEnumerator WaitForNextRound(float time)
-    {
-        betweenLevelsTime = time;
-        if (IngameController.Instance.playerUI != null)
-        {
-            //PlayerUI.Instance.levelTimer.SetActive(true);
-            //levelTimerText.text = betweenLevelesTime.ToString("0");
-        }
-        while (betweenLevelsTime >= 0)
-        {
-            betweenLevelsTime -= Time.deltaTime;
-            //levelTimerText.text = betweenLevelesTime.ToString("0");
-            yield return null;
-        }
-        StartNextLevel();
-    }
     public void StartNextLevel()
     {
         if (startLevelButton != null) startLevelButton.SetActive(false);
-        //PlayerUI.Instance.levelTimer.SetActive(false);
 
         if (currentLevel < levels.Length)
         {
@@ -129,11 +95,7 @@ public class LevelManager : MonoBehaviour, IPoolingList
             levelToDisplay = currentLevel + 1;
             if (currentLevel < levels.Length)
             {
-                if (useButtonToStartRound && startLevelButton != null) startLevelButton.SetActive(true);
-                else
-                {
-                    StartCoroutine(WaitForNextRound(timeBetweenLevels));
-                }
+                startLevelButton.SetActive(true);
             }
             else
             {

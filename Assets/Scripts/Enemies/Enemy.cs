@@ -49,10 +49,6 @@ public class Enemy : MonoBehaviour, IPoolingList
     private int currentHitEffectAmount;
     [SerializeField] private float hitEffectDuration = 0.1f;
 
-    [Space]
-    [SerializeField] private bool testEnemy;
-    [SerializeField] private int testHealth;
-
     //animator
     private Animator animator;
     private float normalAnimationSpeed;
@@ -85,10 +81,11 @@ public class Enemy : MonoBehaviour, IPoolingList
         animator = GetComponent<Animator>();
         normalAnimationSpeed = animator.speed;
 
-        if (testEnemy) return;
-
-        levelManager = LevelManager.Instance;
-        maxWayPoints = levelManager.enemyWayPoints.Length;
+        if(LevelManager.Instance != null)
+        {
+            levelManager = LevelManager.Instance;
+            maxWayPoints = levelManager.enemyWayPoints.Length;
+        }
     }
     private void OnEnable()
     {
@@ -96,25 +93,16 @@ public class Enemy : MonoBehaviour, IPoolingList
         blinkEffect = null;
         slowCoroutine = null;
 
-        animator.speed = normalAnimationSpeed;
-
         currentMovementSpeed = baseMovementSpeed;
         spriteRenderer.color = Color.white;
 
-        if (testEnemy)
-        {
-            SetMaxHealth(testHealth);
-            return;
-        }
-
         SortEnemies.activeEnemiesSprites.Add(spriteRenderer);
-        WayPointUpdate();
+
         currentWayPoint = 1;
+        if (LevelManager.Instance != null) WayPointUpdate();
     }
     private void Update()
     {
-        if (testEnemy) return;
-
         checkTimer += Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, currentMovementSpeed * Time.deltaTime);
 
@@ -163,7 +151,7 @@ public class Enemy : MonoBehaviour, IPoolingList
         MaxValue = Mathf.RoundToInt(baseHealth * scaling);
         Value = MaxValue;
     }
-    public void TakeDamage(int amount)
+    public void TakeDamage(int amount, bool lifeSteal)
     {
         if (amount == 0) return;
 
@@ -177,7 +165,23 @@ public class Enemy : MonoBehaviour, IPoolingList
         }
         else
         {
-            OnDeath();
+            //Desi
+            Debug.Log("OnDeath wurde aufgerufen!");
+
+            if (itemDropper != null)
+            {
+                itemDropper.DropItems(transform.position);
+            }
+            if(lifeSteal == true)
+            {
+                if(UnityEngine.Random.Range(0, 100) < 5)
+                {
+                    Player.Instance.Heal(1);
+                }
+            }
+            //DesiDONE
+            Player.Instance.UpdateSouls(soulsDrop);
+            Despawn();
         }
     }
     private void BlinkEffect()
@@ -240,28 +244,21 @@ public class Enemy : MonoBehaviour, IPoolingList
 
         slowCoroutine = null;
     }
-    private void OnDeath()
-    {
-        //Desi
-        Debug.Log("OnDeath wurde aufgerufen!");
-
-        if (itemDropper != null)
-        {
-            itemDropper.DropItems(transform.position);
-        }
-        //DesiDONE
-        Player.Instance.UpdateSouls(soulsDrop);
-        Despawn();
-    }
     private void Despawn()
     {
         StopAllCoroutines();
         slowCoroutine = null;
         blinkEffect = null;
 
-        enemyHasDied?.Invoke();
+        //animator.speed = normalAnimationSpeed;
+
         SortEnemies.activeEnemiesSprites.Remove(spriteRenderer);
-        PoolingSystem.ReturnObjectToPool(gameObject, poolingList);
+
+        if (LevelManager.Instance != null)
+        {
+            enemyHasDied?.Invoke();
+            PoolingSystem.ReturnObjectToPool(gameObject, poolingList);
+        }
     }
 
     public Transform GetBulletTarget()

@@ -138,19 +138,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2327c55b77bada947ab9af9e2fcd0048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  baseMovementSpeed: 5
+  baseMovementSpeed: 0
   baseHealth: 2
   armorType: 0
-  currentHealth: 0
-  maxHealth: 0
+  currentHealth: 10000
+  maxHealth: 10000
   slowColor: {r: 0, g: 0.5299373, b: 0.9339623, a: 1}
   damageToPlayer: 1
   soulsDrop: 1
   bulletTarget: {fileID: 1104739869835612077}
   hitEffectAmount: 3
   hitEffectDuration: 0.08
-  testEnemy: 1
-  testHealth: 10000
 --- !u!58 &2701071940875089523
 CircleCollider2D:
   m_ObjectHideFlags: 0
