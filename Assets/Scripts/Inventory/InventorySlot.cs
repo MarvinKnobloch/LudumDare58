@@ -4,8 +4,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
+    private PlayerUI playerUI;
+
     [HideInInspector] public Inventory inventory;
     public int slotAmount;
     public bool slotIsFull;
@@ -20,6 +22,10 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     private void Awake()
     {
         inventoryImage = GetComponent<Image>();
+    }
+    private void Start()
+    {
+        playerUI = IngameController.Instance.playerUI;
     }
 
     public void SetValues(int amount, Sprite icon)
@@ -49,6 +55,8 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
         if (dragImage == null) dragImage = inventory.dragImage.GetComponent<Image>();
         dragImage.sprite = bodyObject.Sprite;
+
+        playerUI.ToggleTooltipWindow(false, Vector3.zero, playerUI.itmeTooltipWindow);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -84,11 +92,24 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 inventory.currentSelectedTower.OnBodyPartEquipped(inventory.currentSelectedTower, bodyObject);
                 inventory.SetRangeIndicator();
                 inventory.currentSelectedTower.CheckForRecipe();
-                inventory.SetSuccessText();
+                inventory.SetUpgradeTowerButton();
             }
         }
 
         inventory.currentBodySlots = null;
         inventory.dragImage.SetActive(false);
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (bodyObject == null) return;
+
+        playerUI.statsTooltipText.text = "Hallo";
+        playerUI.ToggleTooltipWindow(true, Utility.MousePostion(), playerUI.itmeTooltipWindow);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        playerUI.ToggleTooltipWindow(false, Vector3.zero, playerUI.itmeTooltipWindow);
     }
 }

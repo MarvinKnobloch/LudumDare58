@@ -4,10 +4,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "TowerValues", menuName = "ScriptableObject/TowerValues")]
 public class TowerValues : ScriptableObject
 {
-    public int damageScaling = 100;
-    public int baseDamage = 1;
+    public int damageScalingPercantage = 100;
+    public int startBonusAttack;
     public float baseAttackSpeed = 1;
-    public float baseAttackRange = 3;
+    public float rangeScalingPercantage = 100;
+    public float startBonusRange;
     public float aoeRadius = 0;
     public GameObject projectilePrefab;
     public TargetType targetType;

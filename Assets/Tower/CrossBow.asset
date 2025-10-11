@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77b3a024aa5ce44a8b8b6ab5bc5c03c, type: 3}
   m_Name: CrossBow
   m_EditorClassIdentifier: Assembly-CSharp::TowerValues
-  damageScaling: 100
-  baseDamage: 5
+  damageScalingPercantage: 100
+  startBonusAttack: 4
   baseAttackSpeed: 1.5
-  baseAttackRange: 10
+  rangeScalingPercantage: 100
+  startBonusRange: 6
   aoeRadius: 0
   projectilePrefab: {fileID: 7056902295061036921, guid: 4977d07f84a50aa42b0c547871180675, type: 3}
   targetType: 0
@@ -23,3 +24,4 @@ MonoBehaviour:
   slowDuration: 0
   additionalProjectiles: 0
   objectToSpawn: {fileID: 0}
+  chanceForDoubleDamage: 0

@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
 
     [Header("TowerStuff")]
     [SerializeField] private int lifeStealChance = 5;
+    [SerializeField] private int doubleDamageChance = 25;
 
     private void Awake()
     {
@@ -71,4 +72,5 @@ public class Player : MonoBehaviour
     public int GetHeadCosts() => headSlotCosts;
     public int GetBodyCosts() => bodySlotCosts;
     public int GetLifeStealChance() => lifeStealChance;
+    public int GetDoubleDamageChance() => doubleDamageChance;
   }

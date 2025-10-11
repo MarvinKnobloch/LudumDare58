@@ -25,10 +25,12 @@ public class Inventory : MonoBehaviour
     [SerializeField] private BodySlots bodySlot;
     [SerializeField] private BodySlots weaponSlot;
     public RangeIndicator rangeIndicator;
-    [SerializeField] private TextMeshProUGUI successPercantageText;
 
     [HideInInspector] public BodySlots currentBodySlots;
     [HideInInspector] public TowerBase currentSelectedTower;
+
+    [Space]
+    [SerializeField] private UpgradeTowerButton upgradeTowerButton;
 
     private void Awake()
     {
@@ -37,7 +39,6 @@ public class Inventory : MonoBehaviour
             CreateNewSlot();
         }
         bodySlotsUI.SetActive(false);
-        successPercantageText.transform.parent.gameObject.SetActive(false);
     }
     private void Start()
     {
@@ -117,10 +118,8 @@ public class Inventory : MonoBehaviour
             weaponSlot.gameObject.SetActive(false);
         }
 
-
-
+        SetUpgradeTowerButton();
         SetRangeIndicator();
-        SetSuccessText();
 
         bodySlotsUI.SetActive(true);
     }
@@ -186,13 +185,19 @@ public class Inventory : MonoBehaviour
         rangeIndicator.gameObject.SetActive(true);
         rangeIndicator.DrawCircle(currentSelectedTower.GetTowerRange());
     }
-    public void SetSuccessText()
+
+    public void SetUpgradeTowerButton()
     {
-        if (currentSelectedTower.isRecipeTower) successPercantageText.transform.parent.gameObject.SetActive(false);
+        if (currentSelectedTower.isRecipeTower)
+        {
+            upgradeTowerButton.gameObject.SetActive(false);
+        }
         else
         {
-            successPercantageText.transform.parent.gameObject.SetActive(true);
-            successPercantageText.text = "<color=green>" + currentSelectedTower.recipeMatchPercent + "</color>%";
+            upgradeTowerButton.gameObject.SetActive(true);
+
+            if (currentSelectedTower.currentRecipe == null) upgradeTowerButton.UpdateUpgradeTowerInfo(false, currentSelectedTower.recipeMatchPercent);
+            else upgradeTowerButton.UpdateUpgradeTowerInfo(true, currentSelectedTower.recipeMatchPercent);
         }
     }
 

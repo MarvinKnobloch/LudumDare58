@@ -20,7 +20,6 @@ namespace Tower
         [Space]
         [SerializeField] private LayerMask attackLayer;
         private int damageScaling;
-        private int baseDamage;   
         private int bonusDamage;
         [SerializeField] private int finalDamage;
 
@@ -28,7 +27,7 @@ namespace Tower
         private float bonusAttackSpeed;
         [SerializeField] private float finalAttackSpeed;
 
-        private float baseRange;
+        private float rangeScaling;
         private float bonusRange;
         [SerializeField] private float finalRange;
 
@@ -40,18 +39,24 @@ namespace Tower
         private GameObject _objectToSpawn;
 
         [SerializeField] private bool chanceForDoubleDamage;
-        private float doubleDamageChance = 25;
+        private float doubleDamageChance;
 
         [SerializeField] private bool lifeSteal;
 
-        private Transform _transform;
+        //Targeting
         [SerializeField] private TargetType _targetType = TargetType.FollowTarget;
         private float timer;
         private float checkForEnemiesTimer;
         private float checkForEnemiesInterval = 0.05f;
-        private Animator _animator;
         private Transform currentTarget;
+
+        //Recipe
         public bool isRecipeTower { get; private set; }
+        public TowerRecipe currentRecipe { get; private set; }
+        public int recipeMatchPercent { get; private set; } = 0;
+
+        //Animation
+        private Animator _animator;
 
         [Space]
         public BodyObject currentAccessoires;
@@ -67,15 +72,15 @@ namespace Tower
 
         public List<BodyObject> EquippedBodyObjects = new();
 
-        public int recipeMatchPercent { get; private set; } = 0;
 
         private void Awake()
         {
             //SetValues
-            damageScaling = towerValues.damageScaling;
-            baseDamage = towerValues.baseDamage;
+            damageScaling = towerValues.damageScalingPercantage;
+            bonusDamage = towerValues.startBonusAttack;
             baseAttackSpeed = towerValues.baseAttackSpeed;
-            baseRange = towerValues.baseAttackRange;
+            rangeScaling = towerValues.rangeScalingPercantage;
+            bonusRange = towerValues.startBonusRange;
             _currentAoeRadius = towerValues.aoeRadius;
             _projectilePrefab = towerValues.projectilePrefab;
             _targetType = towerValues.targetType;
@@ -89,8 +94,12 @@ namespace Tower
             finalAttackSpeed = CalculateAttackSpeed();
             finalRange = CalculateRange();
 
-            _transform = transform;
             _animator = GetComponentInChildren<Animator>();
+        }
+        private void Start()
+        {
+            if (Player.Instance != null) doubleDamageChance = Player.Instance.GetDoubleDamageChance();
+            else doubleDamageChance = 25;
         }
 
         private void Update()
@@ -172,10 +181,9 @@ namespace Tower
                     _additionalProjectiles += bodyObject.AdditionalProjectiles;
                     _objectToSpawn = bodyObject.ObjectToSpawn;
 
-                    damageScaling = bodyObject.DamageScaling;
-                    baseDamage = bodyObject.BaseDamage;
+                    damageScaling = bodyObject.DamageScalingPercantage;
                     baseAttackSpeed = bodyObject.BaseAttackSpeed;
-                    baseRange = bodyObject.BaseRange;
+                    rangeScaling = bodyObject.RangeScalingPercantage;
                     break;
             }
             AddTowerValues(bodyObject);
@@ -220,26 +228,42 @@ namespace Tower
                 int count = EquippedBodyObjects.Count(bo => recipe.Recipe.Contains(bo));
                 int matchPercent = Mathf.RoundToInt((count / (float)recipe.Recipe.Count) * 100);
 
-                if (count == recipe.Recipe.Count)
-                {
-                    TowerBase newTower = Instantiate(recipe.recipeTowerPrefab, transform.position, Quaternion.identity).GetComponentInChildren<TowerBase>();
-                    newTower.isRecipeTower = true;
-                    PlayerPrefs.SetInt(recipe.towerName, 1);
-                    UpdateRecipesUI?.Invoke();
-                    IngameController.Instance.playerUI.inventory.SetCurrentTower(newTower);
-                    Destroy(transform.parent.gameObject);
-                }
-
                 if (matchPercent > bestMatchPercent)
                 {
                     bestMatchPercent = matchPercent;
                 }
+
+
+                if (count == recipe.Recipe.Count)
+                {
+                    currentRecipe = recipe;
+                    PlayerPrefs.SetInt(recipe.towerName, 1);
+                    UpdateRecipesUI?.Invoke();
+                    break;
+                }
+                else
+                {
+                    currentRecipe = null;
+                }
             }
             recipeMatchPercent = bestMatchPercent;
         }
+        public void UpgradeTower()
+        {
+            if(currentRecipe == null)
+            {
+                Debug.Log("no recipe found");
+                return;
+            }
+
+            TowerBase newTower = Instantiate(currentRecipe.recipeTowerPrefab, transform.position, Quaternion.identity).GetComponentInChildren<TowerBase>();
+            newTower.isRecipeTower = true;
+            IngameController.Instance.playerUI.inventory.SetCurrentTower(newTower);
+            Destroy(transform.parent.gameObject);
+        }
         private int CalculateDamage()
         {
-            return baseDamage + Mathf.RoundToInt(bonusDamage * (damageScaling * 0.01f));
+            return Mathf.RoundToInt(bonusDamage * (damageScaling * 0.01f));
         }
         private float CalculateAttackSpeed()
         { 
@@ -247,7 +271,7 @@ namespace Tower
         }
         private float CalculateRange()
         {
-            return baseRange * (bonusRange * 0.01f + 1); 
+            return rangeScaling * (bonusRange * 0.01f); 
         }
 
         private bool Attack()
@@ -292,7 +316,7 @@ namespace Tower
             else
             {
                 //Check if current target is out of range, if yes switch target
-                if (Vector2.Distance(_transform.position, currentTarget.position) > finalRange) currentTarget = GetClosestEnemy();
+                if (Vector2.Distance(transform.position, currentTarget.position) > finalRange) currentTarget = GetClosestEnemy();
             }
         }
         private Transform GetClosestEnemy()
@@ -310,7 +334,7 @@ namespace Tower
 
                 if (col.TryGetComponent(out Enemy enemy))
                 {
-                    float distance = (_transform.position - enemy.transform.position).sqrMagnitude;   //Vector2.Distance(_transform.position, enemy.transform.position);
+                    float distance = (transform.position - enemy.transform.position).sqrMagnitude;   //Vector2.Distance(_transform.position, enemy.transform.position);
 
                     if (!(distance < minDistance)) continue;
 
@@ -351,7 +375,7 @@ namespace Tower
         private void CreateProjectile(Transform targetEnemy)
         {
             Projectile projectile = PoolingSystem.SpawnObject
-                (_projectilePrefab, _transform.position, Quaternion.identity, PoolingSystem.PoolingParentGameObject.Projectile).GetComponent<Projectile>();
+                (_projectilePrefab, transform.position, Quaternion.identity, PoolingSystem.PoolingParentGameObject.Projectile).GetComponent<Projectile>();
 
             projectile.damage = finalDamage;
             if (chanceForDoubleDamage)
