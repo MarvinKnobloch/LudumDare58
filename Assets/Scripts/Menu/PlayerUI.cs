@@ -17,13 +17,17 @@ public class PlayerUI : MonoBehaviour
     [Header("DialogBox")]
     public GameObject dialogBox;
 
-    [Header("TowerInfoMenu")]
-    public TowerInfo towerInfoMenu;
-
     [Header("Inventory")]
     public Inventory inventory;
 
-    [Header("Ohter")]
+    [Header("ToolTip")]
+    [field: SerializeField] public GameObject itmeTooltipWindow { get; private set; }
+    [field: SerializeField] public TextMeshProUGUI itmeTooltipText { get; private set; }
+    [field: SerializeField] public GameObject statsTooltipWindow { get; private set; }
+    [field: SerializeField] public TextMeshProUGUI statsTooltipText { get; private set; }
+
+
+    [Header("Other")]
     public GameObject startNextLevelButton;
 
     private void Awake()
@@ -39,10 +43,14 @@ public class PlayerUI : MonoBehaviour
     {
         soulsText.text = amount.ToString();
     }
-    public void ToggleTowerInfoMenu()
+    public void ToggleTooltipWindow(bool toggle, Vector3 position, GameObject window)
     {
-        if (towerInfoMenu.gameObject.activeSelf == false) towerInfoMenu.gameObject.SetActive(true);
-        else towerInfoMenu.gameObject.SetActive(false);
+        if (toggle) 
+        { 
+            window.transform.position = position;
+            window.SetActive(true); 
+        }
+        else window.SetActive(false);
     }
     public void StartNextLevel()
     {

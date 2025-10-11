@@ -499,10 +499,10 @@ RectTransform:
   - {fileID: 8398321052680266460}
   m_Father: {fileID: 8370257335169451957}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -445}
+  m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4626838121376164132
 CanvasRenderer:
@@ -3540,10 +3540,10 @@ RectTransform:
   - {fileID: 5458426436698954233}
   m_Father: {fileID: 8370257335169451957}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -555}
+  m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1867229028484005794
 CanvasRenderer:
@@ -6272,7 +6272,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 5155583813887768062}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.41509962
+  m_Size: 0.41511083
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7346,10 +7346,10 @@ RectTransform:
   - {fileID: 2930102442729249290}
   m_Father: {fileID: 8370257335169451957}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -665}
+  m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3418744605361290054
 CanvasRenderer:
@@ -8181,9 +8181,8 @@ GameObject:
   - component: {fileID: 1047967090288960530}
   - component: {fileID: 9101622272791157644}
   - component: {fileID: 6450010147337662188}
-  - component: {fileID: 3963454387783645095}
   m_Layer: 5
-  m_Name: InfoMenu
+  m_Name: ToolTipWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8247,24 +8246,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3963454387783645095
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6089910044471663833}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bce888d00dde11c44afa9e6cb41f7ace, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TowerInfo
-  scrollClosed: {fileID: 0}
-  scrollOpened: {fileID: 0}
-  upgradeText: {fileID: 0}
-  numberText: {fileID: 0}
-  targetText: {fileID: 0}
-  specialText: {fileID: 0}
 --- !u!1 &6657000448898714427
 GameObject:
   m_ObjectHideFlags: 0
@@ -8819,10 +8800,10 @@ RectTransform:
   - {fileID: 1612485863861781950}
   m_Father: {fileID: 8370257335169451957}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 50, y: -335}
+  m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2658687404631925817
 CanvasRenderer:
@@ -10486,7 +10467,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 244.475, y: -236.00075}
+  m_AnchoredPosition: {x: 244.475, y: -236.00076}
   m_SizeDelta: {x: 479.3197, y: 807.03}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &8263319202288417698
@@ -11649,8 +11630,11 @@ MonoBehaviour:
   healthbar: {fileID: 8256779006717501921}
   soulsText: {fileID: 6804844530650702710}
   dialogBox: {fileID: 9108948567383507396}
-  towerInfoMenu: {fileID: 3963454387783645095}
   inventory: {fileID: 1062560286086154118}
+  <itmeTooltipWindow>k__BackingField: {fileID: 0}
+  <itmeTooltipText>k__BackingField: {fileID: 0}
+  <statsTooltipWindow>k__BackingField: {fileID: 0}
+  <statsTooltipText>k__BackingField: {fileID: 0}
   startNextLevelButton: {fileID: 4942244454231556579}
 --- !u!1 &8968512003953693068
 GameObject:
