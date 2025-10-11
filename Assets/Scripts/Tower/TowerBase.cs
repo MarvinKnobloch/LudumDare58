@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Marvin.PoolingSystem;
 using UnityEngine;
 using UnityEngine.Events;
@@ -21,17 +22,17 @@ namespace Tower
         [SerializeField] private LayerMask attackLayer;
         private int damageScaling;
         private int bonusDamage;
-        [SerializeField] private int finalDamage;
+        [field : SerializeField] public int finalDamage { get; private set; }
 
         private float baseAttackSpeed;
         private float bonusAttackSpeed;
-        [SerializeField] private float finalAttackSpeed;
+        [field: SerializeField] public float finalAttackSpeed { get; private set; }
 
-        private float rangeScaling;
+        private int rangeScaling;
         private float bonusRange;
-        [SerializeField] private float finalRange;
+        [field: SerializeField] public float finalRange { get; private set; }
 
-        [SerializeField] private float _currentAoeRadius;
+        [field: SerializeField] public float _currentAoeRadius { get; private set; }
         private int _slowPercentage;
         private float _slowDuration;
         private int _additionalProjectiles;
@@ -398,6 +399,14 @@ namespace Tower
         public float GetTowerRange()
         {
             return finalRange;
+        }
+        public int GetDamageScaling()
+        {
+            return damageScaling;
+        }
+        public int GetRangeScaling()
+        {
+            return rangeScaling;
         }
     }
 }

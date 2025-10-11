@@ -32,6 +32,9 @@ public class Inventory : MonoBehaviour
     [Space]
     [SerializeField] private UpgradeTowerButton upgradeTowerButton;
 
+    [Space]
+    [SerializeField] private TowerInfo towerInfo;
+
     private void Awake()
     {
         for (int i = 0; i < slotAmount; i++)
@@ -120,6 +123,7 @@ public class Inventory : MonoBehaviour
 
         SetUpgradeTowerButton();
         SetRangeIndicator();
+        SetTowerInfo();
 
         bodySlotsUI.SetActive(true);
     }
@@ -199,6 +203,10 @@ public class Inventory : MonoBehaviour
             if (currentSelectedTower.currentRecipe == null) upgradeTowerButton.UpdateUpgradeTowerInfo(false, currentSelectedTower.recipeMatchPercent);
             else upgradeTowerButton.UpdateUpgradeTowerInfo(true, currentSelectedTower.recipeMatchPercent);
         }
+    }
+    public void SetTowerInfo()
+    {
+        towerInfo.TowerInfoUpdate();
     }
 
     [Serializable]
