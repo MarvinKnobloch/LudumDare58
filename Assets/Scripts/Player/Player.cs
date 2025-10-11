@@ -31,7 +31,7 @@ public class Player : MonoBehaviour
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
 
-        controls = Keybindinputmanager.Controls;
+        controls = new Controls();
     }
     private void Start()
     {

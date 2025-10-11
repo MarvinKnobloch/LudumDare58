@@ -18,6 +18,8 @@ public class MenuController : MonoBehaviour
     [SerializeField] private Button confirmButton;
     [SerializeField] private TextMeshProUGUI confirmText;
 
+    [SerializeField] private BuildTowerButton towerPreview;
+
     private float normalFixedDeltaTime;
 
     [Space] public SceneType sceneType;
@@ -29,7 +31,7 @@ public class MenuController : MonoBehaviour
 
     private void Awake()
     {
-        controls = Keybindinputmanager.Controls;
+        controls = new Controls();
         normalFixedDeltaTime = Time.fixedDeltaTime;
     }
     private void Start()
@@ -63,6 +65,7 @@ public class MenuController : MonoBehaviour
         else if (sceneType == SceneType.Ingame)
         {
             //if (Player.Instance == null) return;
+            if (towerPreview.TowerPreviewActive() == true) return;
             if (IngameController.Instance.playerUI.dialogBox.activeSelf == true) return;
             if (confirmController.activeSelf == true) confirmController.SetActive(false);
             else if (menu.activeSelf == false)

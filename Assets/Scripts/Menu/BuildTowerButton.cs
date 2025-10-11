@@ -1,9 +1,12 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class BuildTowerButton : MonoBehaviour
 {
+    private Controls controls;
+
     [SerializeField] private Image buttonImage;
     [SerializeField] private GameObject DefaultTowerPreview;
     [SerializeField] private Sprite buttonReleasedSprite;
@@ -11,15 +14,24 @@ public class BuildTowerButton : MonoBehaviour
     [SerializeField] private GameObject greenLight;
     [SerializeField] private GameObject redLight;
     private GameObject towerPreview;
+    private bool towerPreviewActive;
 
-
+    private void Awake()
+    {
+        controls = new Controls();
+    }
     private void OnEnable()
     {
+        controls.Enable();
+        controls.Player.BuildButton.performed += BuildButtonHotkey;
+
         TowerPreview.buildCanceled += ButtonReleased;
         Player.soulsChanged += CheckLights;
     }
     private void OnDisable()
     {
+        controls.Player.BuildButton.performed -= BuildButtonHotkey;
+
         TowerPreview.buildCanceled -= ButtonReleased;
         Player.soulsChanged -= CheckLights;
     }
@@ -34,6 +46,7 @@ public class BuildTowerButton : MonoBehaviour
     {
         if(towerPreview.activeSelf == false && Player.Instance.CheckForTowerCosts() == true)
         {
+            towerPreviewActive = true;
             buttonImage.sprite = buttonPressedSprite;
             towerPreview.transform.position = Utility.MousePostion();
             towerPreview.SetActive(true);
@@ -42,6 +55,7 @@ public class BuildTowerButton : MonoBehaviour
     private void ButtonReleased()
     {
         buttonImage.sprite = buttonReleasedSprite;
+        towerPreviewActive = false;
     }
     private void CheckLights(int amount)
     {
@@ -59,5 +73,16 @@ public class BuildTowerButton : MonoBehaviour
             greenLight.SetActive(true);
             redLight.SetActive(false);
         }
+    }
+
+    private void BuildButtonHotkey(InputAction.CallbackContext context)
+    {
+        if (IngameController.Instance.menuController.gameIsPaused) return;
+
+        SelectTowerButton();
+    }
+    public bool TowerPreviewActive()
+    {
+        return towerPreviewActive;
     }
 }

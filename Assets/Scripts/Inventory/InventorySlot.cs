@@ -56,7 +56,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         if (dragImage == null) dragImage = inventory.dragImage.GetComponent<Image>();
         dragImage.sprite = bodyObject.Sprite;
 
-        playerUI.ToggleTooltipWindow(false, Vector3.zero, playerUI.itmeTooltipWindow);
+        playerUI.ToggleTooltipWindow(false, playerUI.itmeTooltipWindow);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -105,11 +105,11 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         if (bodyObject == null) return;
 
         playerUI.statsTooltipText.text = "Hallo";
-        playerUI.ToggleTooltipWindow(true, Utility.MousePostion(), playerUI.itmeTooltipWindow);
+        playerUI.ToggleTooltipWindow(true, playerUI.itmeTooltipWindow);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        playerUI.ToggleTooltipWindow(false, Vector3.zero, playerUI.itmeTooltipWindow);
+        playerUI.ToggleTooltipWindow(false, playerUI.itmeTooltipWindow);
     }
 }
