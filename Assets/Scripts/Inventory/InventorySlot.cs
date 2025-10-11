@@ -84,7 +84,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 inventory.currentSelectedTower.OnBodyPartEquipped(inventory.currentSelectedTower, bodyObject);
                 inventory.SetRangeIndicator();
                 inventory.currentSelectedTower.CheckForRecipe();
-                inventory.SetSuccessText();
+                inventory.SetUpgradeTowerButton();
             }
         }
 
