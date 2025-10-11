@@ -1,4 +1,4 @@
-using NUnit.Framework;
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -14,6 +14,8 @@ public class TowerPreview : MonoBehaviour
     private bool canBuild;
     private SpriteRenderer spriteRenderer;
     private CircleCollider2D circleCollider;
+
+    public static event Action buildCanceled;
 
     private Controls controls;
 
@@ -45,12 +47,17 @@ public class TowerPreview : MonoBehaviour
                 Player.Instance.BuyTower();
 
                 //after BuildingTower
-                if(Player.Instance.CheckForTowerCosts() == false) transform.root.gameObject.SetActive(false);
+                if (Player.Instance.CheckForTowerCosts() == false) 
+                {
+                    buildCanceled?.Invoke();
+                    transform.root.gameObject.SetActive(false); 
+                }
                 BuildCheck();
             }
         }
         if (controls.Player.Cancel.WasPerformedThisFrame())
         {
+            buildCanceled?.Invoke();
             transform.root.gameObject.SetActive(false);
         }
     }

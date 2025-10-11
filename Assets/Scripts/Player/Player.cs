@@ -5,10 +5,12 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public static Player Instance;
+    public static event Action<int> soulsChanged;
 
     [SerializeField] private int maxHealth;
     [SerializeField] private int currentHealth;
-    [SerializeField] private int currentSouls;
+    [SerializeField] private int soulsStartAmount;
+    private int currentSouls;
     [SerializeField] private int defaultTowerCosts;
     public TowerRecipe[] towerRecipes;
 
@@ -33,7 +35,7 @@ public class Player : MonoBehaviour
     private void Start()
     {
         currentHealth = maxHealth;
-        UpdateSouls(currentSouls);
+        UpdateSouls(soulsStartAmount);
     }
 
     public void TakeDamage(int amount)
@@ -50,6 +52,7 @@ public class Player : MonoBehaviour
     {
         currentSouls += amount;
         IngameController.Instance.playerUI.SoulsUpdate(currentSouls);
+        soulsChanged?.Invoke(currentSouls);
     }
     public bool CheckForTowerCosts()
     {

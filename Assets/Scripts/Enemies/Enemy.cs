@@ -37,7 +37,7 @@ public class Enemy : MonoBehaviour, IPoolingList
 
     [Header("Other")]
     [SerializeField] private int damageToPlayer;
-    [SerializeField] private int soulsDrop;
+    [SerializeField] private int soulsDropAmount;
     [SerializeField] private Transform bulletTarget;
 
     [Header("Drops")]
@@ -178,7 +178,7 @@ public class Enemy : MonoBehaviour, IPoolingList
                 }
             }
             //DesiDONE
-            Player.Instance.UpdateSouls(soulsDrop);
+            Player.Instance.UpdateSouls(soulsDropAmount);
             Despawn();
         }
     }

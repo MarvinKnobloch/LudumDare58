@@ -1834,7 +1834,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 784841727011037784, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -236.00076
+      value: -236.00563
       objectReference: {fileID: 0}
     - target: {fileID: 864389745890475447, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_Name
@@ -2129,8 +2129,8 @@ PrefabInstance:
       value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5096035439758205997, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
-      propertyPath: lifeStealChance
-      value: 100
+      propertyPath: currentSouls
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5155583813887768062, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_AnchorMax.x
