@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77b3a024aa5ce44a8b8b6ab5bc5c03c, type: 3}
   m_Name: FireTower
   m_EditorClassIdentifier: Assembly-CSharp::TowerValues
-  damageScaling: 100
-  baseDamage: 2
+  damageScalingPercantage: 80
+  startBonusAttack: 2
   baseAttackSpeed: 1.5
-  baseAttackRange: 11
-  aoeRadius: 3
+  rangeScalingPercantage: 100
+  startBonusRange: 5
+  aoeRadius: 2
   projectilePrefab: {fileID: 4780432458198478164, guid: 069887b6933d0c342910655f63e65ff9, type: 3}
   targetType: 1
   slowPercentage: 0

@@ -20,7 +20,6 @@ namespace Tower
         [Space]
         [SerializeField] private LayerMask attackLayer;
         private int damageScaling;
-        private int baseDamage;   
         private int bonusDamage;
         [SerializeField] private int finalDamage;
 
@@ -28,7 +27,7 @@ namespace Tower
         private float bonusAttackSpeed;
         [SerializeField] private float finalAttackSpeed;
 
-        private float baseRange;
+        private float rangeScaling;
         private float bonusRange;
         [SerializeField] private float finalRange;
 
@@ -77,10 +76,11 @@ namespace Tower
         private void Awake()
         {
             //SetValues
-            damageScaling = towerValues.damageScaling;
-            baseDamage = towerValues.baseDamage;
+            damageScaling = towerValues.damageScalingPercantage;
+            bonusDamage = towerValues.startBonusAttack;
             baseAttackSpeed = towerValues.baseAttackSpeed;
-            baseRange = towerValues.baseAttackRange;
+            rangeScaling = towerValues.rangeScalingPercantage;
+            bonusRange = towerValues.startBonusRange;
             _currentAoeRadius = towerValues.aoeRadius;
             _projectilePrefab = towerValues.projectilePrefab;
             _targetType = towerValues.targetType;
@@ -181,10 +181,9 @@ namespace Tower
                     _additionalProjectiles += bodyObject.AdditionalProjectiles;
                     _objectToSpawn = bodyObject.ObjectToSpawn;
 
-                    damageScaling = bodyObject.DamageScaling;
-                    baseDamage = bodyObject.BaseDamage;
+                    damageScaling = bodyObject.DamageScalingPercantage;
                     baseAttackSpeed = bodyObject.BaseAttackSpeed;
-                    baseRange = bodyObject.BaseRange;
+                    rangeScaling = bodyObject.RangeScalingPercantage;
                     break;
             }
             AddTowerValues(bodyObject);
@@ -264,7 +263,7 @@ namespace Tower
         }
         private int CalculateDamage()
         {
-            return baseDamage + Mathf.RoundToInt(bonusDamage * (damageScaling * 0.01f));
+            return Mathf.RoundToInt(bonusDamage * (damageScaling * 0.01f));
         }
         private float CalculateAttackSpeed()
         { 
@@ -272,7 +271,7 @@ namespace Tower
         }
         private float CalculateRange()
         {
-            return baseRange * (bonusRange * 0.01f + 1); 
+            return rangeScaling * (bonusRange * 0.01f); 
         }
 
         private bool Attack()
