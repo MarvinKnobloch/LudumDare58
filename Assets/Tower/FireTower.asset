@@ -23,3 +23,4 @@ MonoBehaviour:
   slowDuration: 0
   additionalProjectiles: 0
   objectToSpawn: {fileID: 8377245484257408953, guid: c96148c343070434fab33474f9f8a494, type: 3}
+  chanceForDoubleDamage: 0
