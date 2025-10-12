@@ -4,6 +4,7 @@ using System;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class MenuController : MonoBehaviour
 {
@@ -49,10 +50,16 @@ public class MenuController : MonoBehaviour
     private void OnEnable()
     {
         controls.Enable();
+        controls.Menu.MenuEsc.performed += MenuHotkey;
     }
     private void OnDisable()
     {
+        controls.Menu.MenuEsc.performed -= MenuHotkey;
         controls.Disable();
+    }
+    private void MenuHotkey(InputAction.CallbackContext context)
+    {
+        HandleMenu();
     }
     public void HandleMenu()
     {
@@ -64,7 +71,7 @@ public class MenuController : MonoBehaviour
         }
         else if (sceneType == SceneType.Ingame)
         {
-            //if (Player.Instance == null) return;
+            if (IngameController.Instance.gameOver == true) return;
             if (towerPreview.TowerPreviewActive() == true) return;
             if (IngameController.Instance.playerUI.dialogBox.activeSelf == true) return;
             if (confirmController.activeSelf == true) confirmController.SetActive(false);
@@ -122,7 +129,7 @@ public class MenuController : MonoBehaviour
         Time.fixedDeltaTime = normalFixedDeltaTime;
         SceneManager.LoadScene(1);
     }
-    private void RestartGame()
+    public void RestartGame()
     {
         GameManager.Instance.showIntro = false;
         GameManager.Instance.showTutorial = false;

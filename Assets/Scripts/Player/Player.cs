@@ -39,6 +39,11 @@ public class Player : MonoBehaviour
     {
         currentHealth -= amount;
         IngameController.Instance.playerUI.HealthUIUpdate(currentHealth, maxHealth);
+
+        if(currentHealth <= 0)
+        {
+            IngameController.Instance.playerUI.gameOverScreen.SetActive(true);
+        }
     }
     public void Heal(int amount)
     {

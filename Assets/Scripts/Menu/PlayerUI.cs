@@ -24,10 +24,12 @@ public class PlayerUI : MonoBehaviour
     [field: SerializeField] public GameObject statsTooltipWindow { get; private set; }
     [field: SerializeField] public TextMeshProUGUI statsTooltipText { get; private set; }
 
+    [Header("GameOver")]
+    [field: SerializeField] public GameObject gameOverScreen { get; private set; }
 
     [Header("Other")]
-    public GameObject startNextLevelButton;
- 
+    [field: SerializeField] public GameObject startNextLevelButton { get; private set; }
+
     public void HealthUIUpdate(int current, int max)
     {
         healthbar.fillAmount = (float)current / max;
