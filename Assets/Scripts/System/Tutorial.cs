@@ -10,9 +10,9 @@ public class Tutorial : MonoBehaviour
 
     private void Start()
     {
-        if (PlayerPrefs.GetInt("Tutorial") == 1)
+        if (GameManager.Instance.showTutorial == true)
         {
-            PlayerPrefs.SetInt("Tutorial", 0);
+            GameManager.Instance.showTutorial = false;
             StartTutorial();
         }
     }

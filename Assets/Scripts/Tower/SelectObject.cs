@@ -13,6 +13,10 @@ public class SelectObject : MonoBehaviour
     {
         controls.Enable();
     }
+    private void OnDisable()
+    {
+        controls.Disable();
+    }
     private void Update()
     {
         if (controls.Player.Confirm.WasPerformedThisFrame())

@@ -20,8 +20,6 @@ public class Player : MonoBehaviour
     [SerializeField] private int armSlotCosts;
     [SerializeField] private int bodySlotCosts;
 
-    [NonSerialized] public Controls controls;
-
     [Header("TowerStuff")]
     [SerializeField] private int lifeStealChance = 5;
     [SerializeField] private int doubleDamageChance = 25;
@@ -30,8 +28,6 @@ public class Player : MonoBehaviour
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
-
-        controls = new Controls();
     }
     private void Start()
     {

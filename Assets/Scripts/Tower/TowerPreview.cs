@@ -30,6 +30,10 @@ public class TowerPreview : MonoBehaviour
     {
         controls.Enable();
     }
+    private void OnDisable()
+    {
+        controls.Disable();
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         BuildCheck();

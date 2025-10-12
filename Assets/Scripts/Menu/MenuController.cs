@@ -103,6 +103,10 @@ public class MenuController : MonoBehaviour
         menu.SetActive(false);
         EndPause();
     }
+    public void SetRestartGameConfirm()
+    {
+        OpenConfirmController(RestartGame, "Restart Game");
+    }
 
     public void SetBackToMainMenuConfirm()
     {
@@ -117,6 +121,13 @@ public class MenuController : MonoBehaviour
         Time.timeScale = 1;
         Time.fixedDeltaTime = normalFixedDeltaTime;
         SceneManager.LoadScene(1);
+    }
+    private void RestartGame()
+    {
+        GameManager.Instance.showIntro = false;
+        GameManager.Instance.showTutorial = false;
+        EndPause();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     private void BackToMainMenu()
     {

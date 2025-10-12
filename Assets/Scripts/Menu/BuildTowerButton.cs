@@ -8,7 +8,8 @@ public class BuildTowerButton : MonoBehaviour
     private Controls controls;
 
     [SerializeField] private Image buttonImage;
-    [SerializeField] private GameObject DefaultTowerPreview;
+    [SerializeField] private GameObject defaultTowerPreview;
+    [SerializeField] private GameObject towerUIPreview;
     [SerializeField] private Sprite buttonReleasedSprite;
     [SerializeField] private Sprite buttonPressedSprite;
     [SerializeField] private GameObject greenLight;
@@ -34,10 +35,12 @@ public class BuildTowerButton : MonoBehaviour
 
         TowerPreview.buildCanceled -= ButtonReleased;
         Player.soulsChanged -= CheckLights;
+
+        controls.Disable();
     }
     private void Start()
     {
-        towerPreview = Instantiate(DefaultTowerPreview, transform.position, Quaternion.identity);
+        towerPreview = Instantiate(defaultTowerPreview, transform.position, Quaternion.identity);
         towerPreview.SetActive(false);
         //TextMeshProUGUI buttonText = GetComponent<Button>().GetComponentInChildren<TextMeshProUGUI>();
         //buttonText.text = "Build (" + Player.Instance.GetTowerCosts().ToString() +")";
@@ -50,10 +53,12 @@ public class BuildTowerButton : MonoBehaviour
             buttonImage.sprite = buttonPressedSprite;
             towerPreview.transform.position = Utility.MousePostion();
             towerPreview.SetActive(true);
+            towerUIPreview.SetActive(true);
         }
     }
     private void ButtonReleased()
     {
+        towerUIPreview.SetActive(false);
         buttonImage.sprite = buttonReleasedSprite;
         towerPreviewActive = false;
     }

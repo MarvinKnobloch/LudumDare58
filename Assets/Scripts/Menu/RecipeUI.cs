@@ -24,6 +24,7 @@ public class RecipeUI : MonoBehaviour
     private void OnEnable()
     {
         controls.Enable();
+
         TowerBase.UpdateRecipesUI += UpdateRecipeUI;
         controls.Player.RecipeMenu.performed += ToggleHotkey;
     }
@@ -31,6 +32,8 @@ public class RecipeUI : MonoBehaviour
     {
         controls.Player.RecipeMenu.performed -= ToggleHotkey;
         TowerBase.UpdateRecipesUI -= UpdateRecipeUI;
+
+        controls.Disable();
     }
     private void Start()
     {
