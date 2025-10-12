@@ -1,11 +1,23 @@
 using Tower;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UIElements;
 
 public class WorldItem : MonoBehaviour
 {
     public BodyObject itemInformationen;
     public int dropAmount = 1;
     [SerializeField] private SpriteRenderer spriteRenderer;
+
+    private Vector3 baseScale;
+    private Vector3 scaledUp;
+    private float scaledUpMultiplier = 1.4f;
+
+    private void Awake()
+    {
+        baseScale = transform.localScale;
+        scaledUp = new Vector3(baseScale.x * scaledUpMultiplier, baseScale.y * scaledUpMultiplier, 1);
+    }
 
     private void OnDrawGizmos()
     {
@@ -19,5 +31,14 @@ public class WorldItem : MonoBehaviour
         {
             spriteRenderer.sprite = itemInformationen.Sprite;
         }
+    }
+
+    public void ScaleItemUp()
+    {
+        transform.localScale = scaledUp;
+    }
+    public void ScaleItemDown()
+    {
+        transform.localScale = baseScale;
     }
 }
