@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using Tower;
+using UnityEditor.PackageManager.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -123,30 +124,30 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         itemText.text = string.Empty;
         itemText.text += "<u><b>" + bodyObject.Name + "</u></b>\n\n";
 
-        if (bodyObject.BonusDamage > 0) itemText.text += "<color=green>+" + bodyObject.BonusDamage + "</color> damage\n";
-        else if (bodyObject.BonusDamage < 0) itemText.text += "<color=red>+" + bodyObject.BonusDamage + "</color> damage\n";
+        if (bodyObject.BonusDamage > 0) itemText.text += "<color=green>+" + bodyObject.BonusDamage + "</color> Damage\n";
+        else if (bodyObject.BonusDamage < 0) itemText.text += "<color=red>+" + bodyObject.BonusDamage + "</color> Damage\n";
 
-        if (bodyObject.BonusAttackSpeed > 0) itemText.text += "<color=green>+" + bodyObject.BonusAttackSpeed + "%</color> attack speed\n";
-        else if (bodyObject.BonusAttackSpeed < 0) itemText.text += "<color=red>+" + bodyObject.BonusAttackSpeed + "%</color> attack speed\n";
+        if (bodyObject.BonusAttackSpeed > 0) itemText.text += "<color=green>+" + bodyObject.BonusAttackSpeed + "%</color> Attack Speed\n";
+        else if (bodyObject.BonusAttackSpeed < 0) itemText.text += "<color=red>+" + bodyObject.BonusAttackSpeed + "%</color> Attack Speed\n";
 
-        if (bodyObject.BonusRange > 0) itemText.text += "<color=green>+" + bodyObject.BonusRange + "</color> range\n";
-        else if (bodyObject.BonusRange > 0) itemText.text += "<color=red>+" + bodyObject.BonusRange + "</color> range\n";
+        if (bodyObject.BonusRange > 0) itemText.text += "<color=green>+" + bodyObject.BonusRange + "</color> Range\n";
+        else if (bodyObject.BonusRange > 0) itemText.text += "<color=red>+" + bodyObject.BonusRange + "</color> Range\n";
 
-        if (bodyObject.BonusAoeRadius > 0) itemText.text += "<color=green>+" + bodyObject.BonusAoeRadius + "</color> range\n";
-        else if (bodyObject.BonusAoeRadius > 0) itemText.text += "<color=red>+" + bodyObject.BonusAoeRadius + "</color> range\n";
+        if (bodyObject.BonusAoeRadius > 0) itemText.text += "<color=green>+" + bodyObject.BonusAoeRadius + "</color> Area Size\n";
+        else if (bodyObject.BonusAoeRadius > 0) itemText.text += "<color=red>+" + bodyObject.BonusAoeRadius + "</color> Area Size\n";
 
-        if (bodyObject.DamageScalingPercentage > 0) itemText.text += "<color=green>" + bodyObject.DamageScalingPercentage + "%</color> damage scaling\n";
+        if (bodyObject.DamageScalingPercentage > 0) itemText.text += "<color=green>" + bodyObject.DamageScalingPercentage + "%</color> Damage Scaling\n";
 
-        if (bodyObject.BaseAttackSpeed > 0) itemText.text += "<color=green>" + bodyObject.BaseAttackSpeed + "</color> base attack speed\n";
+        if (bodyObject.BaseAttackSpeed > 0) itemText.text += "<color=green>" + bodyObject.BaseAttackSpeed + "</color> Base Attack Speed\n";
 
-        if (bodyObject.RangeScalingPercentage > 0) itemText.text += "<color=green>" + bodyObject.RangeScalingPercentage + "%</color> range scaling\n";
+        if (bodyObject.RangeScalingPercentage > 0) itemText.text += "<color=green>" + bodyObject.RangeScalingPercentage + "%</color> Range Scaling\n";
 
-        if (bodyObject.SlowPercentage > 0) itemText.text += "<color=green>+" + bodyObject.SlowPercentage + "%</color> slow\n";
-        if (bodyObject.SlowDuration > 0) itemText.text += "<color=green>+" + bodyObject.SlowDuration + "</color> slow duration\n";
+        if (bodyObject.SlowPercentage > 0) itemText.text += "<color=green>+" + bodyObject.SlowPercentage + "%</color> Slow\n";
+        if (bodyObject.SlowDuration > 0) itemText.text += "<color=green>+" + bodyObject.SlowDuration + "</color> Slow Duration\n";
 
         if (bodyObject.LifeSteal == true) itemText.text += "Lifesteal on kill (<color=green>" + Player.Instance.GetLifeStealChance() + "%</color> chance)\n";
 
-        if (bodyObject.ChanceForDoubleDamage == true) itemText.text += "Double damage (<color=green>" + Player.Instance.GetDoubleDamageChance() + "%</color> chance)\n";
+        if (bodyObject.ChanceForDoubleDamage == true) itemText.text += "Double Damage (<color=green>" + Player.Instance.GetDoubleDamageChance() + "%</color> chance)\n";
 
         if(bodyObject.AdditionalProjectiles == 1) itemText.text += "<color=green>+" + bodyObject.AdditionalProjectiles + "</color> Projectile";
         else if (bodyObject.AdditionalProjectiles > 1) itemText.text += "<color=green>+" + bodyObject.AdditionalProjectiles + "</color> Projectiles";
@@ -154,14 +155,17 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     private void SetWindowPosition()
     {
+        GameObject window = playerUI.itemTooltipWindow;
+        playerUI.ToggleTooltipWindow(true, window);
         //Braucht ein Frame um die Height vom ContenSizeFitter zu setzen. Scale wird für den einen Frame auf 0 gesetzt damit dann das FEnster nicht springen sieht
-        StartCoroutine(SetWindowPostionAfterResize());
+        //StartCoroutine(SetWindowPostionAfterResize());
     }
     IEnumerator SetWindowPostionAfterResize()
     {
         yield return null;
         GameObject window = playerUI.itemTooltipWindow;
         playerUI.ToggleTooltipWindow(true, window);
+
         ////window.transform.localScale = new Vector3(1, 1, 1);
         ////Ist keine Formel, einfach ein bisschen ausprobiert was passt
         float widthOffset = Screen.width / 9.5f;  //7
