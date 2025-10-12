@@ -1,4 +1,5 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -8,6 +9,7 @@ public class GameOver : MonoBehaviour
     [SerializeField] private Image gameOverScreen;
     [SerializeField] private float fadeInTime;
     [SerializeField] private Button[] gameOverButtons;
+    [SerializeField] private TextMeshProUGUI gameOverText;
     private float timer;
     private bool gameOverStarted;
     private float targetAlpha = 0.8f;
