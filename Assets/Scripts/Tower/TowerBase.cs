@@ -35,11 +35,11 @@ namespace Tower
         [field: SerializeField] public float _currentAoeRadius { get; private set; }
         private int _slowPercentage;
         private float _slowDuration;
-        private int _additionalProjectiles;
+        private int additionalProjectiles;
         private GameObject _projectilePrefab;
         private GameObject _objectToSpawn;
 
-        [SerializeField] private bool chanceForDoubleDamage;
+        [SerializeField] private bool canDoDoubleDamage;
         private float doubleDamageChance;
 
         [SerializeField] private bool lifeSteal;
@@ -87,9 +87,9 @@ namespace Tower
             _targetType = towerValues.targetType;
             _slowPercentage = towerValues.slowPercentage;
             _slowDuration = towerValues.slowDuration;
-            _additionalProjectiles = towerValues.additionalProjectiles;
+            additionalProjectiles = towerValues.additionalProjectiles;
             _objectToSpawn = towerValues.objectToSpawn;
-            chanceForDoubleDamage = towerValues.chanceForDoubleDamage;
+            canDoDoubleDamage = towerValues.chanceForDoubleDamage;
 
             finalDamage = CalculateDamage();
             finalAttackSpeed = CalculateAttackSpeed();
@@ -130,7 +130,7 @@ namespace Tower
                     {
                         _slowPercentage -= currentAccessoires.SlowPercentage;
                         _slowDuration -= currentAccessoires.SlowDuration;
-                        _additionalProjectiles -= currentAccessoires.AdditionalProjectiles;
+                        additionalProjectiles -= currentAccessoires.AdditionalProjectiles;
 
                         OnBodyPartUnequipped(tower, currentAccessoires); 
                     }
@@ -138,7 +138,7 @@ namespace Tower
                     currentAccessoires = bodyObject;
                     _slowPercentage += bodyObject.SlowPercentage;
                     _slowDuration += bodyObject.SlowDuration;
-                    _additionalProjectiles += bodyObject.AdditionalProjectiles;
+                    additionalProjectiles += bodyObject.AdditionalProjectiles;
                     lifeSteal = bodyObject.LifeSteal;
 
                     if(towerValues.chanceForDoubleDamage == false)
@@ -146,9 +146,9 @@ namespace Tower
                         if (currentWeapon != null)
                         {
                             //check if the weapon has crit
-                            if (currentWeapon.ChanceForDoubleDamage == false) chanceForDoubleDamage = bodyObject.ChanceForDoubleDamage;
+                            if (currentWeapon.ChanceForDoubleDamage == false) canDoDoubleDamage = bodyObject.ChanceForDoubleDamage;
                         }
-                        else chanceForDoubleDamage = bodyObject.ChanceForDoubleDamage;
+                        else canDoDoubleDamage = bodyObject.ChanceForDoubleDamage;
                     }
 
                     break;
@@ -169,7 +169,7 @@ namespace Tower
                     {
                         _slowPercentage -= currentWeapon.SlowPercentage;
                         _slowDuration -= currentWeapon.SlowDuration;
-                        _additionalProjectiles -= currentWeapon.AdditionalProjectiles;
+                        additionalProjectiles -= currentWeapon.AdditionalProjectiles;
                         OnBodyPartUnequipped(tower, currentWeapon); 
                     }
 
@@ -179,7 +179,7 @@ namespace Tower
                     _projectilePrefab = bodyObject.ProjectilePrefab;
                     _slowPercentage += bodyObject.SlowPercentage;
                     _slowDuration += bodyObject.SlowDuration;
-                    _additionalProjectiles += bodyObject.AdditionalProjectiles;
+                    additionalProjectiles += bodyObject.AdditionalProjectiles;
                     _objectToSpawn = bodyObject.ObjectToSpawn;
 
                     damageScaling = bodyObject.DamageScalingPercantage;
@@ -351,7 +351,7 @@ namespace Tower
         {
             CreateProjectile(targetEnemy);
 
-            if (_additionalProjectiles > 0)
+            if (additionalProjectiles > 0)
             {
                 GameObject[] enemies = Physics2D.OverlapCircleAll(transform.position, finalRange , attackLayer)
                     .OrderBy(x => (x.transform.position - transform.position).sqrMagnitude)  //Vector2.Distance(x.transform.position, transform.position))
@@ -360,7 +360,7 @@ namespace Tower
                 int projectilesFired = 0;
                 for (int i = 0; i < enemies.Length; i++)
                 {
-                    if (projectilesFired >= _additionalProjectiles) break;
+                    if (projectilesFired >= additionalProjectiles) break;
 
                     if (enemies[i].gameObject == targetEnemy.gameObject || enemies[i].gameObject.activeSelf == false) continue;
 
@@ -379,7 +379,7 @@ namespace Tower
                 (_projectilePrefab, transform.position, Quaternion.identity, PoolingSystem.PoolingParentGameObject.Projectile).GetComponent<Projectile>();
 
             projectile.damage = finalDamage;
-            if (chanceForDoubleDamage)
+            if (canDoDoubleDamage)
             {
                 if(UnityEngine.Random.Range(0 , 100) < doubleDamageChance)
                 {
@@ -407,6 +407,22 @@ namespace Tower
         public int GetRangeScaling()
         {
             return rangeScaling;
+        }
+        public int GetSlow()
+        {
+            return _slowPercentage;
+        }
+        public bool GetLifesteal()
+        {
+            return lifeSteal;
+        }
+        public bool GetDoubleDamage()
+        {
+            return canDoDoubleDamage;
+        }
+        public int GetAdditionalProjectiles()
+        {
+            return additionalProjectiles;
         }
     }
 }
