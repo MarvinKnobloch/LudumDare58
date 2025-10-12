@@ -22,7 +22,7 @@ public class StatsTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        SetWindowPosition();
+        playerUI.ToggleTooltipWindow(true, playerUI.statsTooltipWindow);
         string scalingText = "???";
         switch (statTypes)
         {
@@ -46,30 +46,5 @@ public class StatsTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     public void OnPointerExit(PointerEventData eventData)
     {
         playerUI.ToggleTooltipWindow(false, playerUI.statsTooltipWindow);
-    }
-
-    public void SetWindowPosition()
-    {
-        playerUI.ToggleTooltipWindow(true, playerUI.statsTooltipWindow);
-        //Braucht ein Frame um die Height vom ContenSizeFitter zu setzen. Scale wird für den einen Frame auf 0 gesetzt damit dann das FEnster nicht springen sieht
-        //StartCoroutine(SetWindowPostionAfterResize());
-    }
-    IEnumerator SetWindowPostionAfterResize()
-    {
-        yield return null;
-        GameObject window = playerUI.statsTooltipWindow;
-        playerUI.ToggleTooltipWindow(true, window);
-        ////window.transform.localScale = new Vector3(1, 1, 1);
-        ////Ist keine Formel, einfach ein bisschen ausprobiert was passt
-        //float widthOffset = Screen.width / 9.5f;  //7
-
-        //float heigthoffset = ((Screen.height * 0.5f) - Input.mousePosition.y) / 70;              //Bestimmt ob das Fenster nach unten oder oben geht.
-
-        ////if (heigthoffset > 0) heigthoffset += tooltipRect.rect.height * rectHeightMultiplier;    //Wie weit das Fenster nach unten/oben geht basierend auf der Größe
-        ////else heigthoffset -= tooltipRect.rect.height * rectHeightMultiplier;
-
-        ////links oder rechts von mousePosition          1.35f = 35% vom rechten Bildschirmrand
-        //if (Screen.width / Input.mousePosition.x > 1.43f) window.transform.position = Input.mousePosition + new Vector3(widthOffset, heigthoffset, 0);
-        //else window.transform.position = Input.mousePosition + new Vector3(widthOffset * -1, heigthoffset, 0);
     }
 }

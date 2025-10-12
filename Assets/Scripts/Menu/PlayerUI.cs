@@ -19,7 +19,7 @@ public class PlayerUI : MonoBehaviour
     public Inventory inventory;
 
 
-    [field: SerializeField, Header("ToolTip")] public GameObject itmeTooltipWindow { get; private set; }
+    [field: SerializeField, Header("ToolTip")] public GameObject itemTooltipWindow { get; private set; }
     [field: SerializeField] public TextMeshProUGUI itmeTooltipText { get; private set; }
     [field: SerializeField] public GameObject statsTooltipWindow { get; private set; }
     [field: SerializeField] public TextMeshProUGUI statsTooltipText { get; private set; }

@@ -182,9 +182,9 @@ namespace Tower
                     additionalProjectiles += bodyObject.AdditionalProjectiles;
                     _objectToSpawn = bodyObject.ObjectToSpawn;
 
-                    damageScaling = bodyObject.DamageScalingPercantage;
+                    damageScaling = bodyObject.DamageScalingPercentage;
                     baseAttackSpeed = bodyObject.BaseAttackSpeed;
-                    rangeScaling = bodyObject.RangeScalingPercantage;
+                    rangeScaling = bodyObject.RangeScalingPercentage;
                     break;
             }
             AddTowerValues(bodyObject);
