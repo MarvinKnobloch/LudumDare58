@@ -24,10 +24,10 @@ namespace Tower
             _bodySprites = new Dictionary<BodyType, Sprite>
             {
                 { BodyType.Default, _defaultSprite },
-                { BodyType.Frankenstein, _frankensteinSprite },
+                { BodyType.DarkElf, _frankensteinSprite },
                 { BodyType.Orc, _orcSprite },
                 { BodyType.Skeleton, _skeletonSprite },
-                { BodyType.Goblin, _goblinSprite },
+                { BodyType.Zombie, _goblinSprite },
             };
         }
 

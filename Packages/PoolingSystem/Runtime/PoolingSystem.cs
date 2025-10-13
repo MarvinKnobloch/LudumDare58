@@ -16,6 +16,7 @@ namespace Marvin.PoolingSystem
             Player,
             Enemy,
             Projectile,
+            Item,
         }
 
         private void Awake()
@@ -66,6 +67,13 @@ namespace Marvin.PoolingSystem
         }
         public static void ReturnObjectToPool(GameObject obj, PoolObjectInfo poolObjectInfo)
         {
+            if(poolObjectInfo == null)
+            {
+                Debug.Log("non pooled object");
+                Destroy(obj);
+                return;
+            }
+
             if (poolObjectInfo.inactiveObjects.Contains(obj))
             {
                 //Debug.Log("Object is multiple times in the list");

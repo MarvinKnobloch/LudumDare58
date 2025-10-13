@@ -13,6 +13,9 @@ public class WorldItem : MonoBehaviour
     private Vector3 scaledUp;
     private float scaledUpMultiplier = 1.4f;
 
+    [Header("Other")]
+    public bool testItem;
+
     private void Awake()
     {
         baseScale = transform.localScale;

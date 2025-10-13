@@ -105,6 +105,6 @@ public class LevelManager : MonoBehaviour, IPoolingList
     }
     private void EndGame()
     {
-        //PlayerUI.Instance.ActivateGameOverScreen();
+        IngameController.Instance.playerUI.victoryScreen.SetActive(true);
     }
 }

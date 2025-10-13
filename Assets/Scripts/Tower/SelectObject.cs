@@ -1,10 +1,14 @@
+using Marvin.PoolingSystem;
 using Tower;
 using UnityEngine;
 
-public class SelectObject : MonoBehaviour
+public class SelectObject : MonoBehaviour, IPoolingList
 {
     private Controls controls;
     [SerializeField] private RangeIndicator rangeIndicator;
+
+    public PoolingSystem.PoolObjectInfo poolingList { get; set; }
+
     private void Awake()
     {
         controls = new Controls();
@@ -30,6 +34,7 @@ public class SelectObject : MonoBehaviour
                     if (cols[i].TryGetComponent(out WorldItem worldItem))
                     {
                         IngameController.Instance.playerUI.inventory.AddResource(worldItem.itemInformationen, worldItem.dropAmount);
+                        if(worldItem.testItem == false) PoolingSystem.ReturnObjectToPool(worldItem.gameObject, poolingList);
                     }
                     else if (cols[i].TryGetComponent(out TowerBase towerBase))
                     {

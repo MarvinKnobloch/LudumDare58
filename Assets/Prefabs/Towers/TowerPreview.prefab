@@ -265,6 +265,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerCollider
   towerToBuild: {fileID: 2677866757682183673, guid: 431c03a080fc56d4abedda0c52c6bf46, type: 3}
+  rangeIndicator: {fileID: 0}
+  defaultTower: {fileID: 11400000, guid: 078391d49e49aa54b8fe51e5d8fe2964, type: 2}
   buildLayer:
     serializedVersion: 2
     m_Bits: 3072

@@ -127,8 +127,27 @@ public class Inventory : MonoBehaviour
 
         bodySlotsUI.SetActive(true);
     }
+    public void DeselectTower()
+    {
+        DisableSlot(accessoiresSlot);
+        DisableSlot(headSlot);
+        DisableSlot(armsSlot);
+        DisableSlot(bodySlot);
+        DisableSlot(weaponSlot);
+
+        DisableRangeIndicator();
+        currentSelectedTower = null;
+        towerInfo.TowerInfoUpdate();
+    }
+    private void DisableSlot(BodySlots bodySlots)
+    {
+        bodySlots.gameObject.SetActive(false);
+        bodySlots.enabled = false;
+        bodySlots.ClearSlot();
+    }
     private void SetSlots(BodySlots bodySlots , BodyObject bodyObject)
     {
+        bodySlots.gameObject.SetActive(true);
         bodySlots.unlockObj.SetActive(false);
         bodySlots.enabled = true;
 
@@ -188,6 +207,10 @@ public class Inventory : MonoBehaviour
         rangeIndicator.gameObject.transform.position = currentSelectedTower.gameObject.transform.position;
         rangeIndicator.gameObject.SetActive(true);
         rangeIndicator.DrawCircle(currentSelectedTower.GetTowerRange());
+    }
+    public void DisableRangeIndicator()
+    {
+        rangeIndicator.gameObject.SetActive(false);
     }
 
     public void SetUpgradeTowerButton()

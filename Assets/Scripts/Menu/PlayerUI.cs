@@ -24,11 +24,10 @@ public class PlayerUI : MonoBehaviour
     [field: SerializeField] public GameObject statsTooltipWindow { get; private set; }
     [field: SerializeField] public TextMeshProUGUI statsTooltipText { get; private set; }
 
-    [Header("GameOver")]
-    [field: SerializeField] public GameObject gameOverScreen { get; private set; }
 
-    [Header("Other")]
-    [field: SerializeField] public GameObject startNextLevelButton { get; private set; }
+    [field: SerializeField,Header("Other")] public GameObject startNextLevelButton { get; private set; }
+    [field: SerializeField] public GameObject gameOverScreen { get; private set; }
+    [field: SerializeField] public GameObject victoryScreen { get; private set; }
 
     public void HealthUIUpdate(int current, int max)
     {

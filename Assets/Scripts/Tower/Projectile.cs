@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour, IPoolingList
 {
-    private Transform currenttarget;
+    [SerializeField] private Transform currenttarget;
     private Transform bulletTarget;
     private Vector3 direction;
     private bool targetHasDied;
@@ -86,6 +86,7 @@ public class Projectile : MonoBehaviour, IPoolingList
     }
     public void SetValues(Transform target)
     {
+        targetHasDied = false;
         dealedDamage = false;
         CancelInvoke();
         StopAllCoroutines();
@@ -178,7 +179,11 @@ public class Projectile : MonoBehaviour, IPoolingList
                 transform.position = Vector3.MoveTowards(transform.position, bulletTarget.position, projectileSpeed * Time.deltaTime);
                 transform.right = bulletTarget.position - transform.position;
             }
-            else BulletNoTarget();
+            else
+            {
+                Debug.Log("no target");
+                BulletNoTarget(); 
+            }
         }
         else BulletNoTarget();
 
@@ -254,7 +259,7 @@ public class Projectile : MonoBehaviour, IPoolingList
         if (targetHasDied == false)
         {
             targetHasDied = true;
-            Invoke("DisableProjectile", 0.3f);
+            Invoke("DisableProjectile", 0.5f);
         }
     }
     private void FollowTargetDamage()

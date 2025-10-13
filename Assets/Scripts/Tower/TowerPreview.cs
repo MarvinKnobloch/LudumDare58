@@ -1,10 +1,13 @@
 using System;
+using Tower;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class TowerPreview : MonoBehaviour
 {
     [SerializeField] private GameObject towerToBuild;
+    [SerializeField] private RangeIndicator rangeIndicator;
+    [SerializeField] private TowerValues defaultTower;
 
     [Space]
     [SerializeField] private LayerMask buildLayer;
@@ -46,6 +49,7 @@ public class TowerPreview : MonoBehaviour
     private void Update()
     {
         transform.root.position = Utility.MousePostion();
+        rangeIndicator.gameObject.transform.position = Utility.MousePostion();
         if (controls.Player.Confirm.WasPerformedThisFrame())
         {
             BuildCheck();
@@ -57,16 +61,14 @@ public class TowerPreview : MonoBehaviour
                 //after BuildingTower
                 if (Player.Instance.CheckForTowerCosts() == false) 
                 {
-                    buildCanceled?.Invoke();
-                    transform.root.gameObject.SetActive(false); 
+                    CancelBuildMode();
                 }
                 BuildCheck();
             }
         }
         if (controls.Player.Cancel.WasPerformedThisFrame() || controls.Menu.MenuEsc.WasPerformedThisFrame())
         {
-            buildCanceled?.Invoke();
-            transform.root.gameObject.SetActive(false);
+            CancelBuildMode();
         }
     }
     private void BuildCheck()
@@ -92,5 +94,19 @@ public class TowerPreview : MonoBehaviour
                 spriteRenderer.color = cantBuildColor;
             }
         }
+    }
+    private void CancelBuildMode()
+    {
+        rangeIndicator.gameObject.SetActive(false);
+        buildCanceled?.Invoke();
+        transform.root.gameObject.SetActive(false);
+    }
+    public void SetRangeIndicator()
+    {
+        if (rangeIndicator == null) rangeIndicator = IngameController.Instance.playerUI.inventory.rangeIndicator;
+
+        rangeIndicator.gameObject.transform.position = Utility.MousePostion();
+        rangeIndicator.gameObject.SetActive(true);
+        rangeIndicator.DrawCircle(defaultTower.rangeScalingPercantage * (defaultTower.startBonusRange * 0.01f));
     }
 }

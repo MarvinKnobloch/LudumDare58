@@ -7,11 +7,11 @@ public class Player : MonoBehaviour
     public static Player Instance;
     public static event Action<int> soulsChanged;
 
-    [SerializeField] private int maxHealth;
+    [SerializeField] private int maxHealth = 30;
     [SerializeField] private int currentHealth;
-    [SerializeField] private int soulsStartAmount;
+    [SerializeField] private int soulsStartAmount = 90;
     private int currentSouls;
-    [SerializeField] private int defaultTowerCosts;
+    [SerializeField] private int defaultTowerCosts = 50;
     public TowerRecipe[] towerRecipes;
 
     [Header("Slots")]
