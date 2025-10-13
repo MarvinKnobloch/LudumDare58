@@ -507,6 +507,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1274865333498098403, guid: 1ede538d9eaa93445a753cded39c8854, type: 3}
+      propertyPath: showIntro
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1274865333498098403, guid: 1ede538d9eaa93445a753cded39c8854, type: 3}
       propertyPath: capFrameRate
       value: 1
       objectReference: {fileID: 0}
@@ -1093,11 +1097,61 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 784841727011037784, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -236.02437
+      value: 111.60176
       objectReference: {fileID: 0}
     - target: {fileID: 864389745890475447, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_Name
       value: IngameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2195213065425760718, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
+      propertyPath: dialog.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2195213065425760718, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
+      propertyPath: dialog.Array.data[0].dialogText
+      value: 'Deep within a forest, far from civilization, lives an alchemist.
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2195213065425760718, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
+      propertyPath: dialog.Array.data[1].dialogText
+      value: Once shunned by his peers, he never lost sight of his dream.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2195213065425760718, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
+      propertyPath: dialog.Array.data[2].dialogText
+      value: "As a child, he roamed the wilds. Collecting leaves, insects, and even
+        the remains of small animals. \n\nHe could feel the hidden energy within
+        them. \nOver time, he learned to harness these essences, crafting strange
+        contraptions to push the limits of possibility."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2195213065425760718, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
+      propertyPath: dialog.Array.data[3].dialogText
+      value: 'Now, years later, the woods have changed.
+
+        Monsters grow stronger,
+        their presence heavier with each passing night.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2195213065425760718, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
+      propertyPath: dialog.Array.data[4].dialogText
+      value: 'As darkness closes in and distant footsteps echo through the woods...
+
+        ...
+        The forest holds its breath. Then, from the shadows... the first creatures
+        emerge.
+
+'
+      objectReference: {fileID: 0}
+    - target: {fileID: 2195213065425760718, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
+      propertyPath: dialog.Array.data[5].dialogText
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2195213065425760718, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
+      propertyPath: dialog.Array.data[4].characterName
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2195213065425760718, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
+      propertyPath: dialog.Array.data[5].characterName
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5155583813887768062, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_AnchorMax.x

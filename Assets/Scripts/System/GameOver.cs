@@ -59,8 +59,6 @@ public class GameOver : MonoBehaviour
         }
 
         Time.timeScale = 0;
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
     }
 
     public void Retry()

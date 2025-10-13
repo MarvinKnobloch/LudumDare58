@@ -49,10 +49,16 @@ public class BuildTowerButton : MonoBehaviour
     {
         if(towerPreview.activeSelf == false && Player.Instance.CheckForTowerCosts() == true)
         {
+            IngameController.Instance.playerUI.inventory.DeselectTower();
+
             towerPreviewActive = true;
             buttonImage.sprite = buttonPressedSprite;
+
             towerPreview.transform.position = Utility.MousePostion();
+            towerPreview.GetComponentInChildren<TowerPreview>().SetRangeIndicator();
             towerPreview.SetActive(true);
+
+            towerUIPreview.transform.position = Input.mousePosition;
             towerUIPreview.SetActive(true);
         }
     }

@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0fb730ab8f8b4d00984553cfe4f19369, type: 3}
-  m_Name: Oger Arm
+  m_Name: Zombie_Head
   m_EditorClassIdentifier: Assembly-CSharp::Tower.BodyObject
-  <Name>k__BackingField: Goblin Arm
-  <Description>k__BackingField: "Das ist ein K\xF6rperteil"
-  <Part>k__BackingField: 1
+  <Name>k__BackingField: Zombie Head
+  <Description>k__BackingField: "Das ist ein k\xF6rperteil"
+  <Part>k__BackingField: 2
   <Type>k__BackingField: 1
-  <BonusDamage>k__BackingField: 3
-  <BonusAttackSpeed>k__BackingField: -20
-  <BonusRange>k__BackingField: 0
-  <BonusAoeRadius>k__BackingField: 1
-  <Sprite>k__BackingField: {fileID: -3527012761232140360, guid: 8cbae4deb72e07d41871c8f6d1eae846, type: 3}
+  <BonusDamage>k__BackingField: 1
+  <BonusAttackSpeed>k__BackingField: 0
+  <BonusRange>k__BackingField: 2
+  <BonusAoeRadius>k__BackingField: 0
+  <Sprite>k__BackingField: {fileID: -2447753097424933429, guid: cc0030d866cc26f4ca42a39669bca0fd, type: 3}
   <ProjectilePrefab>k__BackingField: {fileID: 0}
   <TargetType>k__BackingField: 0
   <DamageScalingPercentage>k__BackingField: 0

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using Marvin.PoolingSystem;
 using UnityEngine;
 
 public class EnemyDrop : MonoBehaviour
@@ -28,8 +29,8 @@ public class EnemyDrop : MonoBehaviour
                 if (DropAreaConfiner.Instance != null)
                     dropPosition = DropAreaConfiner.Instance.ClampToArea(dropPosition);
 
-                GameObject newDrop = Instantiate(drop.item, position, Quaternion.identity);
-
+                GameObject newDrop = PoolingSystem.SpawnObject(drop.item, position, Quaternion.identity, PoolingSystem.PoolingParentGameObject.Item);
+                
                 if (useAnimation)
                 {
                     LootPop pop = newDrop.GetComponent<LootPop>();
@@ -53,6 +54,15 @@ public class EnemyDrop : MonoBehaviour
 
 public class LootPop : MonoBehaviour
 {
+    private void OnEnable()
+    {
+        StopAllCoroutines();
+    }
+    private void OnDisable()
+    {
+        Debug.Log("itemDisable");
+        StopAllCoroutines();
+    }
     public void StartPop(Vector2 endPosition, float popDuration, float heightY, AnimationCurve animCurve)
     {
         StartCoroutine(AnimCurveSpawnRoutine(endPosition, popDuration, heightY, animCurve));

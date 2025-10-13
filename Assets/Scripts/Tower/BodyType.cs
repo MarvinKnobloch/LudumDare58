@@ -3,8 +3,8 @@ namespace Tower
     public enum BodyType
     {
         Default,
-        Goblin,
-        Frankenstein,
+        Zombie,
+        DarkElf,
         Skeleton,
         Orc,
     }

@@ -2,8 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
 using Marvin.PoolingSystem;
+using Unity.Mathematics.Geometry;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -267,12 +267,12 @@ namespace Tower
             return Mathf.RoundToInt(bonusDamage * (damageScaling * 0.01f));
         }
         private float CalculateAttackSpeed()
-        { 
-            return baseAttackSpeed / (bonusAttackSpeed * 0.01f + 1);
+        {
+            return (float)System.Math.Round(baseAttackSpeed / (bonusAttackSpeed * 0.01f + 1), 2);
         }
         private float CalculateRange()
         {
-            return rangeScaling * (bonusRange * 0.01f); 
+            return (float)System.Math.Round(rangeScaling * (bonusRange * 0.01f),2); 
         }
 
         private bool Attack()

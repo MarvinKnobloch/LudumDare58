@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &2445704702080372183
+--- !u!1001 &8228620270265701764
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,48 +9,44 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2479923647592137073, guid: 9e8429d7025b33843a222d07c90de4c2, type: 3}
-      propertyPath: m_SpriteTilingProperty.pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2479923647592137073, guid: 9e8429d7025b33843a222d07c90de4c2, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 2.2755556
+      value: 0.682
       objectReference: {fileID: 0}
     - target: {fileID: 2479923647592137073, guid: 9e8429d7025b33843a222d07c90de4c2, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 2.2755556
+      value: 0.792
       objectReference: {fileID: 0}
     - target: {fileID: 2479923647592137073, guid: 9e8429d7025b33843a222d07c90de4c2, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 8.01
+      value: 1.0027027
       objectReference: {fileID: 0}
     - target: {fileID: 2479923647592137073, guid: 9e8429d7025b33843a222d07c90de4c2, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 8.03
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2819417139433317347, guid: 9e8429d7025b33843a222d07c90de4c2, type: 3}
       propertyPath: itemInformationen
       value: 
-      objectReference: {fileID: 11400000, guid: f1263f239d3eea8408f9f4d597af85ef, type: 2}
+      objectReference: {fileID: 11400000, guid: a0e3c4178678e20488da511a42515cdb, type: 2}
     - target: {fileID: 5320115045231732281, guid: 9e8429d7025b33843a222d07c90de4c2, type: 3}
       propertyPath: m_Size.x
-      value: 2.2755556
+      value: 0.682
       objectReference: {fileID: 0}
     - target: {fileID: 5320115045231732281, guid: 9e8429d7025b33843a222d07c90de4c2, type: 3}
       propertyPath: m_Size.y
-      value: 2.2755556
+      value: 0.792
       objectReference: {fileID: 0}
     - target: {fileID: 5320115045231732281, guid: 9e8429d7025b33843a222d07c90de4c2, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -7997439479626426851, guid: 579b83395f427dc438cfd17295ccd5c9, type: 3}
+      objectReference: {fileID: -2447753097424933429, guid: cc0030d866cc26f4ca42a39669bca0fd, type: 3}
     - target: {fileID: 5320115045231732281, guid: 9e8429d7025b33843a222d07c90de4c2, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5520698189845292783, guid: 9e8429d7025b33843a222d07c90de4c2, type: 3}
       propertyPath: m_Name
-      value: Bow
+      value: Zombie_Head
       objectReference: {fileID: 0}
     - target: {fileID: 7777963284862370575, guid: 9e8429d7025b33843a222d07c90de4c2, type: 3}
       propertyPath: m_LocalPosition.x
