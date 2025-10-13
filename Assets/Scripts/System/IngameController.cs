@@ -14,6 +14,7 @@ public class IngameController : MonoBehaviour
 
     [Header("Other")]
     [SerializeField] private bool disableCursorIngame;
+    public bool gameOver { get; private set; }
 
     private void Awake()
     {
@@ -39,5 +40,9 @@ public class IngameController : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
+    }
+    public void SetGameOver()
+    {
+        gameOver = true;
     }
 }

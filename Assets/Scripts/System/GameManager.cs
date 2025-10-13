@@ -8,6 +8,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private bool capFrameRate;
     [SerializeField] private int targetFrameRate;
 
+    [Header("GameSettings")]
+    public bool showIntro;
+    public bool showTutorial;
+
     private void Awake()
     {
         if (Instance == null)

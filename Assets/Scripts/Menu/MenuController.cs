@@ -4,6 +4,7 @@ using System;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
+using UnityEngine.InputSystem;
 
 public class MenuController : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class MenuController : MonoBehaviour
     [SerializeField] private Button confirmButton;
     [SerializeField] private TextMeshProUGUI confirmText;
 
+    [SerializeField] private BuildTowerButton towerPreview;
+
     private float normalFixedDeltaTime;
 
     [Space] public SceneType sceneType;
@@ -29,7 +32,7 @@ public class MenuController : MonoBehaviour
 
     private void Awake()
     {
-        controls = Keybindinputmanager.Controls;
+        controls = new Controls();
         normalFixedDeltaTime = Time.fixedDeltaTime;
     }
     private void Start()
@@ -47,10 +50,16 @@ public class MenuController : MonoBehaviour
     private void OnEnable()
     {
         controls.Enable();
+        controls.Menu.MenuEsc.performed += MenuHotkey;
     }
     private void OnDisable()
     {
+        controls.Menu.MenuEsc.performed -= MenuHotkey;
         controls.Disable();
+    }
+    private void MenuHotkey(InputAction.CallbackContext context)
+    {
+        HandleMenu();
     }
     public void HandleMenu()
     {
@@ -62,7 +71,8 @@ public class MenuController : MonoBehaviour
         }
         else if (sceneType == SceneType.Ingame)
         {
-            //if (Player.Instance == null) return;
+            if (IngameController.Instance.gameOver == true) return;
+            if (towerPreview.TowerPreviewActive() == true) return;
             if (IngameController.Instance.playerUI.dialogBox.activeSelf == true) return;
             if (confirmController.activeSelf == true) confirmController.SetActive(false);
             else if (menu.activeSelf == false)
@@ -100,6 +110,10 @@ public class MenuController : MonoBehaviour
         menu.SetActive(false);
         EndPause();
     }
+    public void SetRestartGameConfirm()
+    {
+        OpenConfirmController(RestartGame, "Restart Game");
+    }
 
     public void SetBackToMainMenuConfirm()
     {
@@ -114,6 +128,13 @@ public class MenuController : MonoBehaviour
         Time.timeScale = 1;
         Time.fixedDeltaTime = normalFixedDeltaTime;
         SceneManager.LoadScene(1);
+    }
+    public void RestartGame()
+    {
+        GameManager.Instance.showIntro = false;
+        GameManager.Instance.showTutorial = false;
+        EndPause();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     private void BackToMainMenu()
     {

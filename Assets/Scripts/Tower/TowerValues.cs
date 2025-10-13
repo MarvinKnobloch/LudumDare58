@@ -7,7 +7,7 @@ public class TowerValues : ScriptableObject
     public int damageScalingPercantage = 100;
     public int startBonusAttack;
     public float baseAttackSpeed = 1;
-    public float rangeScalingPercantage = 100;
+    public int rangeScalingPercantage = 100;
     public float startBonusRange;
     public float aoeRadius = 0;
     public GameObject projectilePrefab;

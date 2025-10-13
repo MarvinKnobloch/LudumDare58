@@ -7,7 +7,15 @@ public class SelectObject : MonoBehaviour
     [SerializeField] private RangeIndicator rangeIndicator;
     private void Awake()
     {
-        controls = Keybindinputmanager.Controls;
+        controls = new Controls();
+    }
+    private void OnEnable()
+    {
+        controls.Enable();
+    }
+    private void OnDisable()
+    {
+        controls.Disable();
     }
     private void Update()
     {

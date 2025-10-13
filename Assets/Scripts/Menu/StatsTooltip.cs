@@ -1,3 +1,6 @@
+using System.Collections;
+using TMPro;
+using UnityEditor.PackageManager.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -19,26 +22,29 @@ public class StatsTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        playerUI.ToggleTooltipWindow(true, Utility.MousePostion(), playerUI.statsTooltipWindow);
+        playerUI.ToggleTooltipWindow(true, playerUI.statsTooltipWindow);
+        string scalingText = "???";
         switch (statTypes)
         {
             case StatTypes.Attack:
-                playerUI.statsTooltipText.text = "Attack";
+                if (playerUI.inventory.currentSelectedTower != null) scalingText = playerUI.inventory.currentSelectedTower.GetDamageScaling().ToString();
+                playerUI.statsTooltipText.text = "Items Attack + tower attack scaling(<color=green>" + scalingText + "</color>)\n = overall damage";
                 break;
             case StatTypes.Speed:
-                playerUI.statsTooltipText.text = "Speed";
+                playerUI.statsTooltipText.text = "Tower attack speed";
                 break;
             case StatTypes.Range:
-                playerUI.statsTooltipText.text = "Range";
+                if (playerUI.inventory.currentSelectedTower != null) scalingText = playerUI.inventory.currentSelectedTower.GetRangeScaling().ToString();
+                playerUI.statsTooltipText.text = "Items Range + tower range scaling(<color=green>" + scalingText + "</color>)\n = overall range";
                 break;
             case StatTypes.Aoe:
-                playerUI.statsTooltipText.text = "Area size";
+                playerUI.statsTooltipText.text = "Area size, if negative the tower will damage only one enemy.";
                 break;
         }
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        playerUI.ToggleTooltipWindow(false, Vector3.zero, playerUI.statsTooltipWindow);
+        playerUI.ToggleTooltipWindow(false, playerUI.statsTooltipWindow);
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -10,17 +11,24 @@ public class Tutorial : MonoBehaviour
 
     private void Start()
     {
-        if (PlayerPrefs.GetInt("Tutorial") == 1)
+        if (GameManager.Instance.showTutorial == true)
         {
-            PlayerPrefs.SetInt("Tutorial", 0);
-            StartTutorial();
+            GameManager.Instance.showTutorial = false;
+            StartTutorial();          
         }
     }
     private void StartTutorial()
     {
-        startRoundButton.SetActive(false);
         skipTutorialButton.SetActive(true);
         tutorialHints[currrentHint].SetActive(true);
+        StartCoroutine(HideNextRoundButton());
+    }
+
+    IEnumerator HideNextRoundButton()
+    {
+        //Call after LevelManager
+        yield return null;
+        startRoundButton.SetActive(false);
     }
     public void NextHint()
     {

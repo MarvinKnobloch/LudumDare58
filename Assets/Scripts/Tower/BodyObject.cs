@@ -25,9 +25,9 @@ namespace Tower
 
         [field: SerializeField, Header("Fill if part is currentWeapon")] public GameObject ProjectilePrefab { get; private set; }
         [field: SerializeField] public TargetType TargetType { get; private set; }
-        [field: SerializeField] public int DamageScalingPercantage { get; private set; } = 100;
-        [field: SerializeField] public float BaseAttackSpeed { get; private set; } = 1;
-        [field: SerializeField] public int RangeScalingPercantage { get; private set; } = 100;
+        [field: SerializeField] public int DamageScalingPercentage { get; private set; }
+        [field: SerializeField] public float BaseAttackSpeed { get; private set; }
+        [field: SerializeField] public int RangeScalingPercentage { get; private set; }
 
         [field: SerializeField, Header("Additional Values")] public int SlowPercentage { get; private set; }
         [field: SerializeField] public float SlowDuration { get; private set; }

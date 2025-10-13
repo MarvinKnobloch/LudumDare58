@@ -7,8 +7,6 @@ using System.Collections;
 
 public class PlayerUI : MonoBehaviour
 {
-    private Controls controls;
-
     [Header("Value")]
     [SerializeField] private Image healthbar;
     //[SerializeField] private TextMeshProUGUI healthText;
@@ -20,20 +18,18 @@ public class PlayerUI : MonoBehaviour
     [Header("Inventory")]
     public Inventory inventory;
 
-    [Header("ToolTip")]
-    [field: SerializeField] public GameObject itmeTooltipWindow { get; private set; }
+
+    [field: SerializeField, Header("ToolTip")] public GameObject itemTooltipWindow { get; private set; }
     [field: SerializeField] public TextMeshProUGUI itmeTooltipText { get; private set; }
     [field: SerializeField] public GameObject statsTooltipWindow { get; private set; }
     [field: SerializeField] public TextMeshProUGUI statsTooltipText { get; private set; }
 
+    [Header("GameOver")]
+    [field: SerializeField] public GameObject gameOverScreen { get; private set; }
 
     [Header("Other")]
-    public GameObject startNextLevelButton;
+    [field: SerializeField] public GameObject startNextLevelButton { get; private set; }
 
-    private void Awake()
-    {
-        controls = Keybindinputmanager.Controls;
-    }
     public void HealthUIUpdate(int current, int max)
     {
         healthbar.fillAmount = (float)current / max;
@@ -43,11 +39,10 @@ public class PlayerUI : MonoBehaviour
     {
         soulsText.text = amount.ToString();
     }
-    public void ToggleTooltipWindow(bool toggle, Vector3 position, GameObject window)
+    public void ToggleTooltipWindow(bool toggle, GameObject window)
     {
         if (toggle) 
         { 
-            window.transform.position = position;
             window.SetActive(true); 
         }
         else window.SetActive(false);

@@ -21,10 +21,18 @@ public class TowerPreview : MonoBehaviour
 
     private void Awake()
     {
-        controls = Keybindinputmanager.Controls;
+        controls = new Controls();
         spriteRenderer = GetComponent<SpriteRenderer>();
         circleCollider = GetComponent<CircleCollider2D>();
         BuildCheck();
+    }
+    private void OnEnable()
+    {
+        controls.Enable();
+    }
+    private void OnDisable()
+    {
+        controls.Disable();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -55,7 +63,7 @@ public class TowerPreview : MonoBehaviour
                 BuildCheck();
             }
         }
-        if (controls.Player.Cancel.WasPerformedThisFrame())
+        if (controls.Player.Cancel.WasPerformedThisFrame() || controls.Menu.MenuEsc.WasPerformedThisFrame())
         {
             buildCanceled?.Invoke();
             transform.root.gameObject.SetActive(false);
