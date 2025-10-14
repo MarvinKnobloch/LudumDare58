@@ -1,9 +1,11 @@
+using Marvin.PoolingSystem;
+using NUnit.Framework.Internal.Execution;
 using Tower;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UIElements;
 
-public class WorldItem : MonoBehaviour
+public class WorldItem : MonoBehaviour, IPoolingList
 {
     public BodyObject itemInformationen;
     public int dropAmount = 1;
@@ -15,6 +17,8 @@ public class WorldItem : MonoBehaviour
 
     [Header("Other")]
     public bool testItem;
+
+    public PoolingSystem.PoolObjectInfo poolingList { get; set; }
 
     private void Awake()
     {
@@ -43,5 +47,9 @@ public class WorldItem : MonoBehaviour
     public void ScaleItemDown()
     {
         transform.localScale = baseScale;
+    }
+    public void ReturnToItemPool()
+    {
+        PoolingSystem.ReturnObjectToPool(gameObject, poolingList);
     }
 }

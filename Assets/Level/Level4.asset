@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08984dabde20b7a4f9e94643892d4709, type: 3}
-  m_Name: Level1
+  m_Name: Level4
   m_EditorClassIdentifier: Assembly-CSharp::LevelObj
   levelEnemyValues:
-  - enemy: {fileID: 6034090055483278207, guid: 30351186e338cd44fb3487c0a78a20b9, type: 3}
+  - enemy: {fileID: 6034090055483278207, guid: 5623b230b1f25a34cb30880c28aa9732, type: 3}
     amount: 10
-    spawnRate: 1
+    spawnRate: 1.2
     waveStartDelay: 0
-    healthScaling: 1
+    healthScaling: 1.8
   description: 
