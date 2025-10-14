@@ -16,8 +16,8 @@ MonoBehaviour:
   startBonusAttack: 2
   baseAttackSpeed: 2
   rangeScalingPercantage: 100
-  startBonusRange: 4
-  aoeRadius: 2
+  startBonusRange: 7
+  aoeRadius: 0.1
   projectilePrefab: {fileID: 4780432458198478164, guid: 427b4d8c0b4f7724ca492c19bece37af, type: 3}
   targetType: 3
   slowPercentage: 0

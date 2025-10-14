@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bc1c5ac6bdc4f0a9f145e7dd4ae5231, type: 3}
+  m_Name: DaggerTower
+  m_EditorClassIdentifier: Assembly-CSharp::Tower.TowerRecipe
+  towerName: Dagger Tower
+  towerIcon: {fileID: 3300596019201047825, guid: 1776880fee1c09543aaaa065d2c44e50, type: 3}
+  Recipe:
+  - {fileID: 11400000, guid: 20b252fbca2f6a14595a0f819092b5fa, type: 2}
+  - {fileID: 11400000, guid: 21b7ea92042eac54782bdf785cfa943b, type: 2}
+  - {fileID: 11400000, guid: 94fe4b825fd11bc4e91e1d92d3ef22a5, type: 2}
+  recipeTowerPrefab: {fileID: 2677866757682183673, guid: bbc4456aa75845346af026e02e5bab1e, type: 3}
+  shownPartsIfNotUnlocked: 2

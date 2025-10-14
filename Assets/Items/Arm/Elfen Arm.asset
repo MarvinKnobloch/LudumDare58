@@ -17,7 +17,7 @@ MonoBehaviour:
   <Part>k__BackingField: 1
   <Type>k__BackingField: 2
   <BonusDamage>k__BackingField: 1
-  <BonusAttackSpeed>k__BackingField: 1
+  <BonusAttackSpeed>k__BackingField: 5
   <BonusRange>k__BackingField: 1
   <BonusAoeRadius>k__BackingField: 0
   <Sprite>k__BackingField: {fileID: -866528331843743303, guid: 868ecb999eb6c1f4a9761d5e01da2335, type: 3}

@@ -139,13 +139,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   baseMovementSpeed: 4
-  baseHealth: 3
+  baseHealth: 4
   armorType: 0
   currentHealth: 0
   maxHealth: 0
   slowColor: {r: 0, g: 0.5299373, b: 0.9339623, a: 1}
   damageToPlayer: 1
-  soulsDropAmount: 0
+  soulsDropAmount: 1
   bulletTarget: {fileID: 7764766482462737639}
   hitEffectAmount: 3
   hitEffectDuration: 0.08
@@ -198,9 +198,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemDropper
   dropValues:
-  - item: {fileID: 0}
-    dropChance: 0
-    amount: 0
+  - item: {fileID: 8528078405184565660, guid: fd6eb892b8b03164aaeb5f432a756970, type: 3}
+    dropChance: 0.12
+    amount: 1
+  - item: {fileID: 7741480010125886748, guid: d6fc300c09d04f64c9ad22514b764de4, type: 3}
+    dropChance: 0.05
+    amount: 1
+  - item: {fileID: 4516155264668988267, guid: 5e5c014a036d10b47af9a13a505201f9, type: 3}
+    dropChance: 0.03
+    amount: 1
+  - item: {fileID: 6470082067476660639, guid: 70d4a570e1df89647bc3d75335d3cf22, type: 3}
+    dropChance: 0.03
+    amount: 1
+  - item: {fileID: 7885124235534674744, guid: 89793a0455be2af4193bdbfdc56cac54, type: 3}
+    dropChance: 0.03
+    amount: 1
   scatterRadius: 2
   useAnimation: 1
   popDuration: 0.8

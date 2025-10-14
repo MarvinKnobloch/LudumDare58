@@ -119,8 +119,9 @@ public class Projectile : MonoBehaviour, IPoolingList
             case TargetType.Pierce:
                 if (pierceList == null) pierceList = new List<Collider2D>();
                 pierceList.Clear();
-
                 targetsHit = 0;
+
+                if (aoeRadius < 0.2f) aoeRadius = 0.2f;
                 transform.localScale = new Vector3(aoeRadius, aoeRadius, 1);
                 endPosition = transform.position + direction * range;      //final position in enemy direction
                 transform.right = enemyPositionOnProjectileLaunch - transform.position;
@@ -140,8 +141,10 @@ public class Projectile : MonoBehaviour, IPoolingList
         targ.y = targ.y - objectPos.y;
 
         float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg - 55;     //45 = Png angle
-        startRotation = angle + (20 * aoeRadius);
-        endRotation = angle - (20 * aoeRadius);
+        float size = aoeRadius;
+        if (size < 0.1f) size = 0.1f;
+        startRotation = angle + (20 * size);
+        endRotation = angle - (20 * size);
         transform.rotation = Quaternion.Euler(new Vector3(0, 0, startRotation));
 
         StartCoroutine(SwingDamageDelay());
@@ -181,7 +184,6 @@ public class Projectile : MonoBehaviour, IPoolingList
             }
             else
             {
-                Debug.Log("no target");
                 BulletNoTarget(); 
             }
         }
@@ -293,6 +295,13 @@ public class Projectile : MonoBehaviour, IPoolingList
             return;
         }
 
+        bool singleTarget = false;
+        if (aoeRadius <= 0) 
+        {
+            singleTarget = true;
+            aoeRadius = 0.1f;
+        }
+
         Collider2D[] colls = Physics2D.OverlapCircleAll(position, aoeRadius, hitLayer);
 
         foreach (Collider2D coll in colls)
@@ -304,6 +313,8 @@ public class Projectile : MonoBehaviour, IPoolingList
                 enemy.TakeDamage(damage, lifeSteal);
 
                 if (slowPercentage > 0 && enemy.gameObject.activeSelf == true) enemy.DoSlow(slowPercentage, slowDuration);
+
+                if (singleTarget) break;
             }
         }
     }

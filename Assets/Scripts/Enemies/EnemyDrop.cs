@@ -60,7 +60,6 @@ public class LootPop : MonoBehaviour
     }
     private void OnDisable()
     {
-        Debug.Log("itemDisable");
         StopAllCoroutines();
     }
     public void StartPop(Vector2 endPosition, float popDuration, float heightY, AnimationCurve animCurve)
