@@ -272,7 +272,7 @@ namespace Tower
         }
         private float CalculateRange()
         {
-            return (float)System.Math.Round(rangeScaling * (bonusRange * 0.01f),2); 
+            return (float)System.Math.Round(rangeScaling * (bonusRange * 0.01f),1); 
         }
 
         private bool Attack()
