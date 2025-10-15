@@ -50,6 +50,10 @@ public class BuildTowerButton : MonoBehaviour
         if(towerPreview.activeSelf == false && Player.Instance.CheckForTowerCosts() == true)
         {
             IngameController.Instance.playerUI.inventory.DeselectTower();
+            Debug.Log("towerPreview: " + towerPreview);
+            Debug.Log("towerUIPreview: " + towerUIPreview);
+            Debug.Log("Player.Instance: " + Player.Instance);
+            Debug.Log("IngameController.Instance: " + IngameController.Instance);
 
             towerPreviewActive = true;
             buttonImage.sprite = buttonPressedSprite;
