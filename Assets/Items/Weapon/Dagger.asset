@@ -17,15 +17,15 @@ MonoBehaviour:
   <Part>k__BackingField: 4
   <Type>k__BackingField: 2
   <BonusDamage>k__BackingField: 1
-  <BonusAttackSpeed>k__BackingField: 0
+  <BonusAttackSpeed>k__BackingField: 20
   <BonusRange>k__BackingField: -1
-  <BonusAoeRadius>k__BackingField: 1
+  <BonusAoeRadius>k__BackingField: 0
   <Sprite>k__BackingField: {fileID: 6832325591080635152, guid: ca5af93234a4b014394a68607276dbde, type: 3}
   <ProjectilePrefab>k__BackingField: {fileID: 9078845085941661987, guid: 5f1581ce7987799419e09d652d7747cf, type: 3}
   <TargetType>k__BackingField: 4
-  <DamageScalingPercantage>k__BackingField: 50
-  <BaseAttackSpeed>k__BackingField: 1
-  <RangeScalingPercantage>k__BackingField: 50
+  <DamageScalingPercentage>k__BackingField: 50
+  <BaseAttackSpeed>k__BackingField: 0.4
+  <RangeScalingPercentage>k__BackingField: 50
   <SlowPercentage>k__BackingField: 0
   <SlowDuration>k__BackingField: 0
   <AdditionalProjectiles>k__BackingField: 0

@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TowerValues
   damageScalingPercantage: 80
   startBonusAttack: 1
-  baseAttackSpeed: 0.2
+  baseAttackSpeed: 0.3
   rangeScalingPercantage: 80
-  startBonusRange: 4
+  startBonusRange: 10
   aoeRadius: 1
   projectilePrefab: {fileID: 5590153406019164460, guid: 65a0c14034170cd4487032b481c13b14, type: 3}
   targetType: 1

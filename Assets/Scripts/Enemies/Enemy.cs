@@ -96,7 +96,7 @@ public class Enemy : MonoBehaviour, IPoolingList
         currentMovementSpeed = baseMovementSpeed;
         spriteRenderer.color = Color.white;
 
-        SortEnemies.activeEnemiesSprites.Add(spriteRenderer);
+        SortObjects.activeEnemiesSprites.Add(spriteRenderer);
 
         currentWayPoint = 1;
         if (LevelManager.Instance != null) WayPointUpdate();
@@ -250,7 +250,7 @@ public class Enemy : MonoBehaviour, IPoolingList
 
         //animator.speed = normalAnimationSpeed;
 
-        SortEnemies.activeEnemiesSprites.Remove(spriteRenderer);
+        SortObjects.activeEnemiesSprites.Remove(spriteRenderer);
 
         if (LevelManager.Instance != null)
         {

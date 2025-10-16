@@ -28,6 +28,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 965493226869343324, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
+      propertyPath: m_Radius
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 965493226869343324, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
+      propertyPath: m_Offset.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3588843796145617972, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

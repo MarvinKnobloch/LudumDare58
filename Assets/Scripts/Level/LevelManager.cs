@@ -22,8 +22,8 @@ public class LevelManager : MonoBehaviour, IPoolingList
     [SerializeField] private int activeSpawners;
     [SerializeField] private int levelToDisplay;
 
-    //[Space]
-    //[SerializeField] private GameObject endingScreen;
+    [Space]
+    [SerializeField] private SortObjects sortObjects;
 
     public PoolingSystem.PoolObjectInfo poolingList { get; set; }
     private void Awake()
@@ -58,6 +58,7 @@ public class LevelManager : MonoBehaviour, IPoolingList
     }
     public void StartNextLevel()
     {
+        sortObjects.enabled = true;
         if (startLevelButton != null) startLevelButton.SetActive(false);
 
         if (currentLevel < levels.Length)
@@ -93,6 +94,8 @@ public class LevelManager : MonoBehaviour, IPoolingList
         {
             currentLevel++;
             levelToDisplay = currentLevel + 1;
+            sortObjects.enabled = false;
+
             if (currentLevel < levels.Length)
             {
                 startLevelButton.SetActive(true);

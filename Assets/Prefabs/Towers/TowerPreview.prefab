@@ -49,7 +49,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5410294059524524108
 Transform:
   m_ObjectHideFlags: 0
@@ -152,8 +152,8 @@ Transform:
   m_GameObject: {fileID: 7072708735225341183}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.53, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8541068012965371889}
@@ -251,7 +251,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.0001
+  m_Radius: 0.5
 --- !u!114 &5412194519662266056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,7 +275,7 @@ MonoBehaviour:
     m_Bits: 4096
   canBuildColor: {r: 0, g: 0.509434, b: 0.055200957, a: 0.3137255}
   cantBuildColor: {r: 0.5377358, g: 0, b: 0.02714382, a: 0.3137255}
-  offset: {x: 0, y: -0.25, z: 0}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!50 &4652260026523848089
 Rigidbody2D:
   serializedVersion: 5

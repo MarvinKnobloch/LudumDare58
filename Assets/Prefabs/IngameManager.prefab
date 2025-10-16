@@ -7366,8 +7366,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2173045041030124941}
   m_HandleRect: {fileID: 5155583813887768062}
   m_Direction: 2
-  m_Value: 1.0000002
-  m_Size: 0.41512293
+  m_Value: 1
+  m_Size: 0.4147153
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -7762,7 +7762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45f914d3e310dba4fa4a96901e2a9fed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UIFollowMouse
-  offset: {x: 3, y: 13, z: 0}
+  offset: {x: 3, y: 30.5, z: 0}
 --- !u!1 &5246518673597054266
 GameObject:
   m_ObjectHideFlags: 0
@@ -12326,7 +12326,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 244.475, y: -236.00085}
+  m_AnchoredPosition: {x: 244.475, y: -236.00075}
   m_SizeDelta: {x: 479.3197, y: 807.03}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &8263319202288417698

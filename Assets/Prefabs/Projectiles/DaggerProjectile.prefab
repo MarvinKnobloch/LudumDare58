@@ -105,14 +105,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 912c8d252406eef48876b2214d461cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
+  currenttarget: {fileID: 0}
   spriteRenderer: {fileID: 8352894642548437976}
   damage: 0
   range: 0
   aoeRadius: 0
-  slow: 0
   slowPercentage: 0
   slowDuration: 0
   targetType: 0
+  objectToSpawn: {fileID: 0}
+  lifeSteal: 0
   projectileSpeed: 0
   hitLayer:
     serializedVersion: 2
@@ -124,6 +126,8 @@ MonoBehaviour:
   meleeWeaponScale: 1
   aoeVisualBullet: {fileID: 0}
   maxHeight: 0
+  shrinkEachHit: 0.2
+  damageReductionEachHit: 0.1
 --- !u!58 &-5663957369430903067
 CircleCollider2D:
   m_ObjectHideFlags: 0

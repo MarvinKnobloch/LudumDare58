@@ -15,6 +15,7 @@ namespace Tower
         public static UnityEvent<TowerBase, BodyObject> BodyPartUnequipped { get; } = new();
 
         public static event Action UpdateRecipesUI;
+        [SerializeField] private SpriteRenderer spriteRenderer;
 
         [SerializeField] private TowerValues towerValues;
 
@@ -57,7 +58,7 @@ namespace Tower
         public int recipeMatchPercent { get; private set; } = 0;
 
         //Animation
-        private Animator _animator;
+        private Animator animator;
 
         [Space]
         public BodyObject currentAccessoires;
@@ -95,12 +96,14 @@ namespace Tower
             finalAttackSpeed = CalculateAttackSpeed();
             finalRange = CalculateRange();
 
-            _animator = GetComponentInChildren<Animator>();
+            animator = GetComponentInChildren<Animator>();
         }
         private void Start()
         {
             if (Player.Instance != null) doubleDamageChance = Player.Instance.GetDoubleDamageChance();
             else doubleDamageChance = 25;
+
+            SortObjects.activeEnemiesSprites.Add(spriteRenderer);
         }
 
         private void Update()
@@ -259,7 +262,13 @@ namespace Tower
 
             TowerBase newTower = Instantiate(currentRecipe.recipeTowerPrefab, transform.position, Quaternion.identity).GetComponentInChildren<TowerBase>();
             newTower.isRecipeTower = true;
+
             IngameController.Instance.playerUI.inventory.SetCurrentTower(newTower);
+            if (SortObjects.activeEnemiesSprites.Contains(spriteRenderer))
+            {
+                Debug.Log("tower in list");
+                SortObjects.activeEnemiesSprites.Remove(spriteRenderer);
+            }
             Destroy(transform.parent.gameObject);
         }
         private int CalculateDamage()

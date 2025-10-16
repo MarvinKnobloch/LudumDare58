@@ -2,16 +2,21 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class SortEnemies : MonoBehaviour
+public class SortObjects : MonoBehaviour
 {
     [SerializeField] private float sortInterval;
     private float timer;
-    private int maxSprites = 99;
+    private int maxSprites = 199;
 
     public static List<SpriteRenderer> activeEnemiesSprites = new List<SpriteRenderer>();
     private void Awake()
     {
         activeEnemiesSprites.Clear();
+    }
+
+    private void Start()
+    {
+        enabled = false;
     }
     void Update()
     {
