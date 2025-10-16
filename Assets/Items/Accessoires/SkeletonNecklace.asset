@@ -26,9 +26,9 @@ MonoBehaviour:
   <DamageScalingPercentage>k__BackingField: 0
   <BaseAttackSpeed>k__BackingField: 0
   <RangeScalingPercentage>k__BackingField: 0
-  <SlowPercentage>k__BackingField: 0
+  <SlowPercentage>k__BackingField: 30
   <SlowDuration>k__BackingField: 0
-  <AdditionalProjectiles>k__BackingField: 0
+  <AdditionalProjectiles>k__BackingField: 1
   <ObjectToSpawn>k__BackingField: {fileID: 0}
   <ChanceForDoubleDamage>k__BackingField: 1
   <LifeSteal>k__BackingField: 1

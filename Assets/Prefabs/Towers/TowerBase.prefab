@@ -199,11 +199,11 @@ MonoBehaviour:
   attackLayer:
     serializedVersion: 2
     m_Bits: 512
-  finalDamage: 0
-  finalAttackSpeed: 0
-  finalRange: 0
-  _currentAoeRadius: 0
-  chanceForDoubleDamage: 0
+  <finalDamage>k__BackingField: 0
+  <finalAttackSpeed>k__BackingField: 0
+  <finalRange>k__BackingField: 0
+  <_currentAoeRadius>k__BackingField: 0
+  canDoDoubleDamage: 0
   lifeSteal: 0
   _targetType: 0
   currentAccessoires: {fileID: 0}
@@ -267,8 +267,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Offset: {x: 0, y: -0.25}
+  m_Radius: 0.3
 --- !u!1 &5852628107453491410
 GameObject:
   m_ObjectHideFlags: 0
