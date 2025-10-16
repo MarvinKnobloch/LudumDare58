@@ -14,6 +14,7 @@ public class TowerPreview : MonoBehaviour
     [SerializeField] private LayerMask buildArea;
     [SerializeField] private Color canBuildColor;
     [SerializeField] private Color cantBuildColor;
+    [SerializeField] private Vector3 offset;
     private bool canBuild;
     private SpriteRenderer spriteRenderer;
     private CircleCollider2D circleCollider;
@@ -73,7 +74,7 @@ public class TowerPreview : MonoBehaviour
     }
     private void BuildCheck()
     {
-        Collider2D[] colls = Physics2D.OverlapCircleAll(transform.position, circleCollider.radius * transform.localScale.x, buildLayer);
+        Collider2D[] colls = Physics2D.OverlapCircleAll(transform.position + offset, circleCollider.radius * transform.localScale.x, buildLayer);
 
         if (colls.Length > 0)
         {
@@ -82,7 +83,7 @@ public class TowerPreview : MonoBehaviour
         }
         else
         {
-            Collider2D[] area = Physics2D.OverlapCircleAll(transform.position, circleCollider.radius * transform.localScale.x, buildArea);
+            Collider2D[] area = Physics2D.OverlapCircleAll(transform.position + offset, circleCollider.radius * transform.localScale.x, buildArea);
             if(area.Length > 0)
             {
                 canBuild = true;

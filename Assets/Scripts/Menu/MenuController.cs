@@ -40,13 +40,6 @@ public class MenuController : MonoBehaviour
         if(IngameController.Instance != null)  IngameController.Instance.DeactivateCursor();
     }
 
-    void Update()
-    {
-        if (controls.Menu.MenuEsc.WasPerformedThisFrame())
-        {
-            HandleMenu();
-        }
-    }
     private void OnEnable()
     {
         controls.Enable();
