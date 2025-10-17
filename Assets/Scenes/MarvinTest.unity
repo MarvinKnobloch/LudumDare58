@@ -1460,7 +1460,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3339317642567587124, guid: 69e2421f3313ba7468529e551f32f61b, type: 3}
       propertyPath: m_Name
-      value: Skeleton Necklace_WorldItem
+      value: Slow Acc._WorldItem
       objectReference: {fileID: 0}
     - target: {fileID: 3339317642567587124, guid: 69e2421f3313ba7468529e551f32f61b, type: 3}
       propertyPath: m_IsActive
@@ -2099,7 +2099,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 784841727011037784, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -236.00114
+      value: -62.199463
       objectReference: {fileID: 0}
     - target: {fileID: 864389745890475447, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_Name
@@ -2715,6 +2715,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5155583813887768062, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5287573034633626664, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5761745089377817023, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
