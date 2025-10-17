@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using Tower;
 using UnityEngine;
@@ -10,6 +11,15 @@ public class RecipeUI : MonoBehaviour
     [SerializeField] private GameObject recipeBackground;
 
     [Space]
+    [SerializeField] private Transform openPositionTransform;
+    [SerializeField] private float moveTime;
+    private Transform uiOpenPosition;
+    private Vector3 uiClosedPosition;
+    private Vector3 endPosition;
+    private bool isOpen;
+    private float timer;
+
+    [Space]
     [SerializeField] private GameObject towerRepicePrefab;
     [SerializeField] private GameObject towerSlotsGrid;
 
@@ -18,6 +28,8 @@ public class RecipeUI : MonoBehaviour
     private void Awake()
     {
         controls = new Controls();
+        uiClosedPosition = transform.position;
+        uiOpenPosition = openPositionTransform;
     }
 
     private void OnEnable()
@@ -56,16 +68,33 @@ public class RecipeUI : MonoBehaviour
             recipes[i].SetSlot(Player.Instance.towerRecipes[i]);
         }
     }
-    public void ToggleRepiceUI()
-    {
-        if(recipeBackground.activeSelf) recipeBackground.SetActive(false);
-        else recipeBackground.SetActive(true);
-    }
-
     public void ToggleHotkey(InputAction.CallbackContext context)
     {
         if (IngameController.Instance.menuController.gameIsPaused) return;
 
         ToggleRepiceUI();
     }
+    public void ToggleRepiceUI()
+    {
+        StopAllCoroutines();
+        timer = 0;
+
+        if (isOpen == false) endPosition = uiOpenPosition.position;
+        else endPosition = uiClosedPosition;
+
+        isOpen = !isOpen;
+        StartCoroutine(MoveUI());
+
+    }
+    IEnumerator MoveUI()
+    {
+        while (timer < moveTime)
+        {
+            timer += Time.deltaTime;
+            transform.position = Vector3.Lerp(transform.position, endPosition, timer / moveTime);
+            yield return null;
+        }
+
+    }
+
 }
