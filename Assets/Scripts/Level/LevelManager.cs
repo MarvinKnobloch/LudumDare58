@@ -8,6 +8,7 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour, IPoolingList
 {
     public static LevelManager Instance;
+    public GameObject LootGooberPrefab;
     public Transform[] enemyWayPoints;
 
     [Space]
@@ -33,7 +34,7 @@ public class LevelManager : MonoBehaviour, IPoolingList
             Instance = this;
         }
         else
-        {                                                                                                   
+        {
             Destroy(gameObject);
         }
         levelToDisplay = currentLevel + 1;
@@ -81,6 +82,12 @@ public class LevelManager : MonoBehaviour, IPoolingList
             Enemy enemy = PoolingSystem.SpawnObject(enemyObj.enemy, enemyWayPoints[0].position, Quaternion.identity, PoolingSystem.PoolingParentGameObject.Enemy).GetComponent<Enemy>();
             enemy.SetMaxHealth(enemyObj.healthScaling);
             amount++;
+
+            var gooberChance = UnityEngine.Random.Range(0f, 100f);
+            if (gooberChance > 0.0 && gooberChance < 10.0f)
+            {
+                PoolingSystem.SpawnObject(LootGooberPrefab, enemyWayPoints[0].position, Quaternion.identity, PoolingSystem.PoolingParentGameObject.Enemy);
+            }
 
             if (amount >= enemyObj.amount) activeSpawners--;
 

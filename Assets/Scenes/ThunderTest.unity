@@ -2119,7 +2119,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 784841727011037784, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -236.00125
+      value: -236.0007
       objectReference: {fileID: 0}
     - target: {fileID: 864389745890475447, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_Name
@@ -3006,6 +3006,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3603229808143785386, guid: bd77d823d29509a448bb8d4eb1352845, type: 3}
+      propertyPath: LootGooberPrefab
+      value: 
+      objectReference: {fileID: 7094063083417003790, guid: 2ea103c2b04c48143983a0c2ec071e55, type: 3}
     - target: {fileID: 3603229808143785386, guid: bd77d823d29509a448bb8d4eb1352845, type: 3}
       propertyPath: 'enemyWayPoints.Array.data[0]'
       value: 

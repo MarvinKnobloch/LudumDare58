@@ -107,6 +107,7 @@ MonoBehaviour:
   itemInformationen: {fileID: 0}
   dropAmount: 1
   spriteRenderer: {fileID: 5320115045231732281}
+  testItem: 0
 --- !u!61 &2479923647592137073
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -120,7 +121,7 @@ BoxCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8192
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0

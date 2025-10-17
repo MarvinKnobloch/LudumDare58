@@ -34,7 +34,7 @@ public class WorldItem : MonoBehaviour, IPoolingList
 
     private void OnValidate()
     {
-        if(itemInformationen != null && spriteRenderer != null)
+        if (itemInformationen != null && spriteRenderer != null)
         {
             spriteRenderer.sprite = itemInformationen.Sprite;
         }
