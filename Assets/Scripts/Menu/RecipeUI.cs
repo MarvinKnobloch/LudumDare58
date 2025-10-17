@@ -36,11 +36,11 @@ public class RecipeUI : MonoBehaviour
     }
     private void Start()
     {
-        RectTransform rectTransform = recipeBackground.GetComponent<RectTransform>();
-        float bonusHeight = 
-            (towerRepicePrefab.GetComponent<RectTransform>().sizeDelta.y + towerSlotsGrid.GetComponent<GridLayoutGroup>().spacing.y) * Player.Instance.towerRecipes.Length;
+        //RectTransform rectTransform = recipeBackground.GetComponent<RectTransform>();
+        //float bonusHeight = 
+        //    (towerRepicePrefab.GetComponent<RectTransform>().sizeDelta.y + towerSlotsGrid.GetComponent<GridLayoutGroup>().spacing.y) * Player.Instance.towerRecipes.Length;
 
-        rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, rectTransform.sizeDelta.y + bonusHeight);
+        //rectTransform.sizeDelta = new Vector2(rectTransform.sizeDelta.x, rectTransform.sizeDelta.y + bonusHeight);
 
         for (int i = 0; i < Player.Instance.towerRecipes.Length; i++)
         {
