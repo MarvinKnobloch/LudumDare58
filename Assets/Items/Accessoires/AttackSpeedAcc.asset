@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fb730ab8f8b4d00984553cfe4f19369, type: 3}
+  m_Name: AttackSpeedAcc
+  m_EditorClassIdentifier: Assembly-CSharp::Tower.BodyObject
+  <Name>k__BackingField: Attack Speed Acc.
+  <Description>k__BackingField: 
+  <Part>k__BackingField: 0
+  <Type>k__BackingField: 0
+  <BonusDamage>k__BackingField: 0
+  <BonusAttackSpeed>k__BackingField: 20
+  <BonusRange>k__BackingField: 0
+  <BonusAoeRadius>k__BackingField: 0
+  <Sprite>k__BackingField: {fileID: 5521052388153740199, guid: d2c08ef13f0945a41afdf9f0030e3213, type: 3}
+  <ProjectilePrefab>k__BackingField: {fileID: 0}
+  <TargetType>k__BackingField: 0
+  <DamageScalingPercentage>k__BackingField: 0
+  <BaseAttackSpeed>k__BackingField: 0
+  <RangeScalingPercentage>k__BackingField: 0
+  <SlowPercentage>k__BackingField: 0
+  <SlowDuration>k__BackingField: 0
+  <AdditionalProjectiles>k__BackingField: 0
+  <ObjectToSpawn>k__BackingField: {fileID: 0}
+  <ChanceForDoubleDamage>k__BackingField: 0
+  <LifeSteal>k__BackingField: 0

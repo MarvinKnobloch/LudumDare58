@@ -14,7 +14,7 @@ namespace Tower
         [field: SerializeField] public BodyType Type { get; private set; } = BodyType.Default;
         [field: SerializeField] public int BonusDamage { get; private set; }
         [field: SerializeField] public int BonusAttackSpeed { get; private set; }
-        [field: SerializeField] public int BonusRange { get; private set; }
+        [field: SerializeField] public float BonusRange { get; private set; }
 
         [field: SerializeField, Tooltip("Must be 0 for single target attacks.")]
         public float BonusAoeRadius { get; private set; }

@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c77b3a024aa5ce44a8b8b6ab5bc5c03c, type: 3}
-  m_Name: DaggerTower
+  m_Name: ArcherTower
   m_EditorClassIdentifier: Assembly-CSharp::TowerValues
-  damageScalingPercantage: 50
+  damageScalingPercantage: 100
   startBonusAttack: 2
-  baseAttackSpeed: 0.4
-  rangeScalingPercantage: 50
+  baseAttackSpeed: 1.5
+  rangeScalingPercantage: 100
   startBonusRange: 5
-  aoeRadius: 0.2
-  projectilePrefab: {fileID: 9078845085941661987, guid: 5f1581ce7987799419e09d652d7747cf, type: 3}
-  targetType: 4
+  aoeRadius: 0
+  projectilePrefab: {fileID: 7056902295061036921, guid: 4977d07f84a50aa42b0c547871180675, type: 3}
+  targetType: 0
   slowPercentage: 0
   slowDuration: 0
-  additionalProjectiles: 0
+  additionalProjectiles: 3
   objectToSpawn: {fileID: 0}
   chanceForDoubleDamage: 0

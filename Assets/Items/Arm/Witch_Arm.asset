@@ -10,25 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0fb730ab8f8b4d00984553cfe4f19369, type: 3}
-  m_Name: SkeletonNecklace
+  m_Name: Witch_Arm
   m_EditorClassIdentifier: Assembly-CSharp::Tower.BodyObject
-  <Name>k__BackingField: Skeleton Necklace
-  <Description>k__BackingField: 
-  <Part>k__BackingField: 0
-  <Type>k__BackingField: 0
-  <BonusDamage>k__BackingField: 1
-  <BonusAttackSpeed>k__BackingField: 1
-  <BonusRange>k__BackingField: 1
-  <BonusAoeRadius>k__BackingField: 0
-  <Sprite>k__BackingField: {fileID: 5521052388153740199, guid: d2c08ef13f0945a41afdf9f0030e3213, type: 3}
+  <Name>k__BackingField: Zombie Arm
+  <Description>k__BackingField: "Das ist ein K\xF6rperteil"
+  <Part>k__BackingField: 1
+  <Type>k__BackingField: 5
+  <BonusDamage>k__BackingField: 0
+  <BonusAttackSpeed>k__BackingField: 0
+  <BonusRange>k__BackingField: 0.5
+  <BonusAoeRadius>k__BackingField: 1
+  <Sprite>k__BackingField: {fileID: 8537505610655266202, guid: 3240de5a60ea8144db51f9418b638040, type: 3}
   <ProjectilePrefab>k__BackingField: {fileID: 0}
   <TargetType>k__BackingField: 0
   <DamageScalingPercentage>k__BackingField: 0
   <BaseAttackSpeed>k__BackingField: 0
   <RangeScalingPercentage>k__BackingField: 0
-  <SlowPercentage>k__BackingField: 30
+  <SlowPercentage>k__BackingField: 0
   <SlowDuration>k__BackingField: 0
-  <AdditionalProjectiles>k__BackingField: 1
+  <AdditionalProjectiles>k__BackingField: 0
   <ObjectToSpawn>k__BackingField: {fileID: 0}
-  <ChanceForDoubleDamage>k__BackingField: 1
-  <LifeSteal>k__BackingField: 1
+  <ChanceForDoubleDamage>k__BackingField: 0
+  <LifeSteal>k__BackingField: 0

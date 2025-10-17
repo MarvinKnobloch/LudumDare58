@@ -7,5 +7,6 @@ namespace Tower
         DarkElf,
         Skeleton,
         Orc,
+        Witch,
     }
 }

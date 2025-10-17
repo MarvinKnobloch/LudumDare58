@@ -2278,7 +2278,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 50401b40fd75378429ba64553700b6af, type: 2}
   - {fileID: 11400000, guid: 0f51461a634d53a49aeca85542e73bbe, type: 2}
   - {fileID: 11400000, guid: 342b55b225d27334fb275d95e95991a8, type: 2}
-  - {fileID: 11400000, guid: 2b61d51d567e163489eb8eed8c76d74d, type: 2}
   accessoiresSlotCosts: 3
   headSlotCosts: 2
   armSlotCosts: 1

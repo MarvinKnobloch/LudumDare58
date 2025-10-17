@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08984dabde20b7a4f9e94643892d4709, type: 3}
+  m_Name: Level5
+  m_EditorClassIdentifier: Assembly-CSharp::LevelObj
+  levelEnemyValues:
+  - enemy: {fileID: 6034090055483278207, guid: c123dc819530e264283e71b9d2645fd6, type: 3}
+    amount: 10
+    spawnRate: 1.2
+    waveStartDelay: 0
+    healthScaling: 1.8
+  description: 

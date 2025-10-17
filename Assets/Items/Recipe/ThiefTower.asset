@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bc1c5ac6bdc4f0a9f145e7dd4ae5231, type: 3}
-  m_Name: SwordTower
+  m_Name: ThiefTower
   m_EditorClassIdentifier: Assembly-CSharp::Tower.TowerRecipe
-  towerName: Sword Tower
+  towerName: Dagger Tower
   towerIcon: {fileID: 3300596019201047825, guid: 1776880fee1c09543aaaa065d2c44e50, type: 3}
   Recipe:
-  - {fileID: 11400000, guid: f331c556ebf401a4ba373e51d335bb3b, type: 2}
-  - {fileID: 11400000, guid: 21b7ea92042eac54782bdf785cfa943b, type: 2}
-  - {fileID: 11400000, guid: 94fe4b825fd11bc4e91e1d92d3ef22a5, type: 2}
-  recipeTowerPrefab: {fileID: 5971555673173559965, guid: e375b89b68a17614782997132038acf9, type: 3}
-  shownPartsIfNotUnlocked: 2
+  - {fileID: 11400000, guid: 20b252fbca2f6a14595a0f819092b5fa, type: 2}
+  - {fileID: 11400000, guid: bd0228951a2ee1c46b54b32adebbd35f, type: 2}
+  - {fileID: 11400000, guid: f37c7b0ea5f05744bb6c7c21eb1c4c69, type: 2}
+  - {fileID: 11400000, guid: 6d2072e003314b743a8712338a8b35d3, type: 2}
+  recipeTowerPrefab: {fileID: 2677866757682183673, guid: bbc4456aa75845346af026e02e5bab1e, type: 3}
+  shownPartsIfNotUnlocked: 1

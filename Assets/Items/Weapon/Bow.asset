@@ -16,19 +16,19 @@ MonoBehaviour:
   <Description>k__BackingField: 
   <Part>k__BackingField: 4
   <Type>k__BackingField: 2
-  <BonusDamage>k__BackingField: 0
+  <BonusDamage>k__BackingField: 1
   <BonusAttackSpeed>k__BackingField: 0
-  <BonusRange>k__BackingField: 0
+  <BonusRange>k__BackingField: 1
   <BonusAoeRadius>k__BackingField: 0
   <Sprite>k__BackingField: {fileID: -7997439479626426851, guid: 579b83395f427dc438cfd17295ccd5c9, type: 3}
   <ProjectilePrefab>k__BackingField: {fileID: 7056902295061036921, guid: 7dfeee20943242444ab17ac45f3084ab, type: 3}
   <TargetType>k__BackingField: 0
-  <DamageScalingPercentage>k__BackingField: 0
+  <DamageScalingPercentage>k__BackingField: 70
   <BaseAttackSpeed>k__BackingField: 1.5
-  <RangeScalingPercentage>k__BackingField: 0
+  <RangeScalingPercentage>k__BackingField: 100
   <SlowPercentage>k__BackingField: 0
   <SlowDuration>k__BackingField: 0
-  <AdditionalProjectiles>k__BackingField: 2
+  <AdditionalProjectiles>k__BackingField: 1
   <ObjectToSpawn>k__BackingField: {fileID: 0}
   <ChanceForDoubleDamage>k__BackingField: 0
   <LifeSteal>k__BackingField: 0

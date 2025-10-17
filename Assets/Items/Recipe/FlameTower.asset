@@ -16,7 +16,8 @@ MonoBehaviour:
   towerIcon: {fileID: 3300596019201047825, guid: 1776880fee1c09543aaaa065d2c44e50, type: 3}
   Recipe:
   - {fileID: 11400000, guid: f63afb2904d5f1f4093ef86fb34ad371, type: 2}
-  - {fileID: 11400000, guid: 21b7ea92042eac54782bdf785cfa943b, type: 2}
-  - {fileID: 11400000, guid: 94fe4b825fd11bc4e91e1d92d3ef22a5, type: 2}
+  - {fileID: 11400000, guid: d0c4ac64fe0645745bbcf1e91630bf83, type: 2}
+  - {fileID: 11400000, guid: 54dfd845158db72418d36084eeaf4236, type: 2}
+  - {fileID: 11400000, guid: 49882684399521941b52cc0eb3e572ae, type: 2}
   recipeTowerPrefab: {fileID: 5971555673173559965, guid: a8a6fee65da4afe4ea00dff09897aed7, type: 3}
-  shownPartsIfNotUnlocked: 2
+  shownPartsIfNotUnlocked: 1
