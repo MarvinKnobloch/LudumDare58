@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6013857695988276186, guid: 08f3ffbf5ad3b7d4196a57671b0914bd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a5d54fcb515bd044dad407ba973f097d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 912c8d252406eef48876b2214d461cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
+  currenttarget: {fileID: 0}
   spriteRenderer: {fileID: 888987461910187505}
   damage: 0
   range: 0
