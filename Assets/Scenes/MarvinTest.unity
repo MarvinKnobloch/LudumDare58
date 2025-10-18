@@ -175,11 +175,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3614611579739201147, guid: 24dd503daac691a4a82f492a5a8486c0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.84
+      value: 5.8
       objectReference: {fileID: 0}
     - target: {fileID: 3614611579739201147, guid: 24dd503daac691a4a82f492a5a8486c0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.96
+      value: 3.2
       objectReference: {fileID: 0}
     - target: {fileID: 3614611579739201147, guid: 24dd503daac691a4a82f492a5a8486c0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -219,7 +219,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5971555673173559965, guid: 24dd503daac691a4a82f492a5a8486c0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -968,7 +968,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2677866757682183673, guid: 0de7fc8f928fb554aa691a8a028116de, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5034784185674230047, guid: 0de7fc8f928fb554aa691a8a028116de, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2099,7 +2099,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 784841727011037784, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -62.199463
+      value: -236.00081
       objectReference: {fileID: 0}
     - target: {fileID: 864389745890475447, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_Name
@@ -2692,10 +2692,6 @@ PrefabInstance:
     - target: {fileID: 5040574776509848237, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5096035439758205997, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
-      propertyPath: maxHealth
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5096035439758205997, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: currentSouls
@@ -3504,6 +3500,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3603229808143785386, guid: bd77d823d29509a448bb8d4eb1352845, type: 3}
+      propertyPath: LootGooberPrefab
+      value: 
+      objectReference: {fileID: 7094063083417003790, guid: 2ea103c2b04c48143983a0c2ec071e55, type: 3}
     - target: {fileID: 3603229808143785386, guid: bd77d823d29509a448bb8d4eb1352845, type: 3}
       propertyPath: 'enemyWayPoints.Array.data[0]'
       value: 

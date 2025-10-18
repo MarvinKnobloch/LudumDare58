@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: ea48f7ca795e85a468a1b57934065d13
+guid: 465199925be322a459007d1f74dd8576
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4057961966551709447
-    second: ScrollRegler_0
+      213: 5905211899881441267
+    second: InventoryWholeV2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -73,9 +73,9 @@ TextureImporter:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ScrollRegler_0
+      name: InventoryWholeV2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 32
-        height: 73
+        width: 615
+        height: 1080
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 22, z: 0, w: 42}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9f8c3a767193fa7c0800000000000000
-      internalID: -4057961966551709447
+      spriteID: 3f7c7df8fe683f150800000000000000
+      internalID: 5905211899881441267
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 25887050425d1f24a8fa1afcfb58161c
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ScrollRegler_0: -4057961966551709447
+      InventoryWholeV2_0: 5905211899881441267
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

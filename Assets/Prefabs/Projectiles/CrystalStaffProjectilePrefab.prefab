@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -5721924253729464847}
   - component: {fileID: 3678556042877228813}
   - component: {fileID: 2863938897316122031}
+  - component: {fileID: -2420159738036957940}
   m_Layer: 0
   m_Name: CrystalStaffProjectilePrefab
   m_TagString: Untagged
@@ -115,7 +116,7 @@ MonoBehaviour:
   targetType: 0
   objectToSpawn: {fileID: 0}
   lifeSteal: 0
-  projectileSpeed: 5
+  projectileSpeed: 9
   hitLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -126,7 +127,7 @@ MonoBehaviour:
   meleeWeaponScale: 1
   aoeVisualBullet: {fileID: 0}
   maxHeight: 0
-  shrinkEachHit: 1
+  shrinkEachHit: 0.5
   damageReductionEachHit: 0.1
 --- !u!58 &3678556042877228813
 CircleCollider2D:
@@ -191,3 +192,25 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!95 &-2420159738036957940
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4780432458198478164}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 43c9046a3b1c05348ad97fcadae46c29, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

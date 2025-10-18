@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: ea48f7ca795e85a468a1b57934065d13
+guid: 84fa575ed9462e6498de3cfdb1249bea
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4057961966551709447
-    second: ScrollRegler_0
+      213: 8717729305714017621
+    second: Healthbar_L_02_0
+  - first:
+      213: -4200091050671229930
+    second: Healthbar_L_02_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +49,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,23 +116,45 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ScrollRegler_0
+      name: Healthbar_L_02_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 32
-        height: 73
+        x: 27
+        y: 336
+        width: 35
+        height: 151
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 22, z: 0, w: 42}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9f8c3a767193fa7c0800000000000000
-      internalID: -4057961966551709447
+      spriteID: 555c8137d989bf870800000000000000
+      internalID: 8717729305714017621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Healthbar_L_02_1
+      rect:
+        serializedVersion: 2
+        x: 31
+        y: 21
+        width: 44
+        height: 214
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 614b174417746b5c0800000000000000
+      internalID: -4200091050671229930
       vertices: []
       indices: 
       edges: []
@@ -138,7 +163,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 25887050425d1f24a8fa1afcfb58161c
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +173,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ScrollRegler_0: -4057961966551709447
+      Healthbar_L_02_0: 8717729305714017621
+      Healthbar_L_02_1: -4200091050671229930
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
