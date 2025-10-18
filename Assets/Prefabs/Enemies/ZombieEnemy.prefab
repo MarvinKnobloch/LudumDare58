@@ -199,19 +199,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemDropper
   dropValues:
   - item: {fileID: 8528078405184565660, guid: fd6eb892b8b03164aaeb5f432a756970, type: 3}
-    dropChance: 0.08
+    dropChance: 0.03
     amount: 1
   - item: {fileID: 7741480010125886748, guid: d6fc300c09d04f64c9ad22514b764de4, type: 3}
-    dropChance: 0.05
+    dropChance: 0.03
     amount: 1
   - item: {fileID: 4516155264668988267, guid: 5e5c014a036d10b47af9a13a505201f9, type: 3}
     dropChance: 0.03
     amount: 1
   - item: {fileID: 6470082067476660639, guid: 70d4a570e1df89647bc3d75335d3cf22, type: 3}
-    dropChance: 0.03
+    dropChance: 0.02
     amount: 1
   - item: {fileID: 7885124235534674744, guid: 89793a0455be2af4193bdbfdc56cac54, type: 3}
-    dropChance: 0.03
+    dropChance: 0.02
+    amount: 1
+  - item: {fileID: 3339317642567587124, guid: 69e2421f3313ba7468529e551f32f61b, type: 3}
+    dropChance: 0.02
+    amount: 1
+  - item: {fileID: 3339317642567587124, guid: 4693c37a272065a4fb61e02c536db07d, type: 3}
+    dropChance: 0.02
     amount: 1
   scatterRadius: 2
   useAnimation: 1

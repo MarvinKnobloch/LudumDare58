@@ -66,6 +66,8 @@ MonoBehaviour:
   enemiesAlive: 0
   activeSpawners: 0
   levelToDisplay: 0
+  LootGooberPrefab: {fileID: 7094063083417003790, guid: 2ea103c2b04c48143983a0c2ec071e55, type: 3}
+  lootGoblinSpawnChance: 0
   sortObjects: {fileID: 5199166517060203952}
 --- !u!114 &5199166517060203952
 MonoBehaviour:

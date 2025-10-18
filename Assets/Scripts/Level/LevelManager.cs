@@ -8,7 +8,6 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour, IPoolingList
 {
     public static LevelManager Instance;
-    public GameObject LootGooberPrefab;
     public Transform[] enemyWayPoints;
 
     [Space]
@@ -23,7 +22,11 @@ public class LevelManager : MonoBehaviour, IPoolingList
     [SerializeField] private int activeSpawners;
     [SerializeField] private int levelToDisplay;
 
-    [Space]
+    [Header("LootGoblin")]
+    [SerializeField] private GameObject LootGooberPrefab;
+    [SerializeField] private float lootGoblinSpawnChance;
+
+    [Header("Other")]
     [SerializeField] private SortObjects sortObjects;
 
 
@@ -88,7 +91,7 @@ public class LevelManager : MonoBehaviour, IPoolingList
             amount++;
 
             var gooberChance = UnityEngine.Random.Range(0f, 100f);
-            if (gooberChance > 0.0 && gooberChance < 10.0f)
+            if (gooberChance > 0.0 && gooberChance < lootGoblinSpawnChance)
             {
                 PoolingSystem.SpawnObject(LootGooberPrefab, enemyWayPoints[0].position, Quaternion.identity, PoolingSystem.PoolingParentGameObject.Enemy);
             }

@@ -19,7 +19,6 @@ public class Tutorial : MonoBehaviour
     {
         if (GameManager.Instance.showTutorial)
         {
-            GameManager.Instance.showTutorial = false;
             StartTutorial();
         }
 
@@ -49,6 +48,8 @@ public class Tutorial : MonoBehaviour
 
         if (currentHint > tutorialHints.Length - 1)
         {
+            GameManager.Instance.showTutorial = false;
+
             skipTutorialButton.SetActive(false);
             startRoundButton.SetActive(true);
 
@@ -86,6 +87,8 @@ public class Tutorial : MonoBehaviour
 
     private void ShowArrowForCurrentHint()
     {
+        if (GameManager.Instance.showTutorial == false) return;
+
         arrowCue.SetActive(true);
         RectTransform arrowRect = arrowCue.GetComponent<RectTransform>();
 

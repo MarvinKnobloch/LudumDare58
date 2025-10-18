@@ -167,20 +167,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ItemDropper
   dropValues:
-  - item: {fileID: 8528078405184565660, guid: 5b7d417b6f315f049a8901a3ac88dca1, type: 3}
-    dropChance: 0.08
-    amount: 1
-  - item: {fileID: 5892243160951536167, guid: 962446aa7e1ffa449855c24745b7cd12, type: 3}
-    dropChance: 0.05
-    amount: 1
-  - item: {fileID: 3848033517144133934, guid: 0d6fdc8a3876e3e489652f5557e2af40, type: 3}
+  - item: {fileID: 8528078405184565660, guid: a84f963e1e3b4864bb0554d7bbb973a9, type: 3}
     dropChance: 0.03
     amount: 1
-  - item: {fileID: 7860965236372227262, guid: 212241474f07fe84289793f23d3bccdd, type: 3}
+  - item: {fileID: 7741480010125886748, guid: 22494ebac0c8aae46b5faf87162d9a6a, type: 3}
     dropChance: 0.03
     amount: 1
-  - item: {fileID: 7885124235534674744, guid: 53745134fbddf0447bdddf6690f2c8b1, type: 3}
+  - item: {fileID: 4516155264668988267, guid: 2652689c84af6b546b5ec74db11d2859, type: 3}
     dropChance: 0.03
+    amount: 1
+  - item: {fileID: 7885124235534674744, guid: 445115c9d7979474cb29d80409479c68, type: 3}
+    dropChance: 0.02
+    amount: 1
+  - item: {fileID: 7885124235534674744, guid: 6d888fe757dbfb64f9547b7ef62475c6, type: 3}
+    dropChance: 0.02
+    amount: 1
+  - item: {fileID: 3339317642567587124, guid: 6d3aed41638ac464aad2be826d6792d6, type: 3}
+    dropChance: 0.02
+    amount: 1
+  - item: {fileID: 3339317642567587124, guid: 29ff60a94cd922646a4d16850b8c4999, type: 3}
+    dropChance: 0.02
     amount: 1
   scatterRadius: 2
   useAnimation: 1
