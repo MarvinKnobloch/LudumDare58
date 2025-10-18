@@ -7,7 +7,9 @@ public class BodySlots : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 {
     public BodyPart bodyPart;
     public GameObject unlockObj;
-    [SerializeField] private Sprite noItemImage;
+
+    private Color transparentColor;
+    private Color fullColor;
 
     [Space]
     public BodyObject bodyObject;
@@ -17,6 +19,16 @@ public class BodySlots : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     private void Awake()
     {
         bodyImage = GetComponent<Image>();
+    }
+    private void Start()
+    {
+        Color color = Color.white;
+        color.a = 255;
+        fullColor = color;
+
+        Color nonColor = Color.white;
+        nonColor.a = 0;
+        transparentColor = nonColor;
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -34,12 +46,14 @@ public class BodySlots : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     public void UpdateSlot(BodyObject obj)
     {
         bodyObject = obj;
+        bodyImage.color = fullColor;
         bodyImage.sprite = bodyObject.Sprite;
     }
     public void ClearSlot()
     {
         bodyObject = null;
         if(bodyImage == null) bodyImage = GetComponent<Image>();
-        bodyImage.sprite = noItemImage;
+        bodyImage.sprite = null;
+        bodyImage.color = transparentColor;
     }
 }

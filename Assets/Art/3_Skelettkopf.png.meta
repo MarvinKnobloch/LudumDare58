@@ -116,12 +116,12 @@ TextureImporter:
       name: 3_Skelettkopf_0
       rect:
         serializedVersion: 2
-        x: 241
-        y: 236
-        width: 341
-        height: 396
+        x: 225
+        y: 222
+        width: 369
+        height: 429
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: ad3f8d457d7f9b3418515d77d44fb73c
     internalID: 0
     vertices: []
     indices: 
