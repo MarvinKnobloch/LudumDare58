@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FrostTower
   m_EditorClassIdentifier: Assembly-CSharp::TowerValues
   damageScalingPercantage: 50
-  startBonusAttack: 6
+  startBonusAttack: 7
   baseAttackSpeed: 1.8
   rangeScalingPercantage: 100
   startBonusRange: 6

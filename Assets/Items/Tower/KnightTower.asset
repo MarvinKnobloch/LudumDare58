@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: KnightTower
   m_EditorClassIdentifier: Assembly-CSharp::TowerValues
   damageScalingPercantage: 80
-  startBonusAttack: 8
+  startBonusAttack: 9
   baseAttackSpeed: 1
   rangeScalingPercantage: 70
   startBonusRange: 5

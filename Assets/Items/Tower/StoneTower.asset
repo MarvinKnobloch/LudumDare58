@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: StoneTower
   m_EditorClassIdentifier: Assembly-CSharp::TowerValues
   damageScalingPercantage: 70
-  startBonusAttack: 6
+  startBonusAttack: 7
   baseAttackSpeed: 0.5
   rangeScalingPercantage: 90
   startBonusRange: 5

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FlameTower
   m_EditorClassIdentifier: Assembly-CSharp::TowerValues
   damageScalingPercantage: 60
-  startBonusAttack: 7
+  startBonusAttack: 8
   baseAttackSpeed: 1.5
   rangeScalingPercantage: 90
   startBonusRange: 6

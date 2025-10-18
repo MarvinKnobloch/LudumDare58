@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ThiefTower
   m_EditorClassIdentifier: Assembly-CSharp::TowerValues
   damageScalingPercantage: 60
-  startBonusAttack: 6
+  startBonusAttack: 7
   baseAttackSpeed: 0.4
   rangeScalingPercantage: 60
   startBonusRange: 5

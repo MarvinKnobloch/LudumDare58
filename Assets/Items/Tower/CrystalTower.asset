@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CrystalTower
   m_EditorClassIdentifier: Assembly-CSharp::TowerValues
   damageScalingPercantage: 70
-  startBonusAttack: 7
+  startBonusAttack: 8
   baseAttackSpeed: 1.4
   rangeScalingPercantage: 120
   startBonusRange: 8

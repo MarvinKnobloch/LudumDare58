@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ArcherTower
   m_EditorClassIdentifier: Assembly-CSharp::TowerValues
   damageScalingPercantage: 80
-  startBonusAttack: 6
+  startBonusAttack: 7
   baseAttackSpeed: 1.3
   rangeScalingPercantage: 110
   startBonusRange: 6
@@ -25,3 +25,4 @@ MonoBehaviour:
   additionalProjectiles: 1
   objectToSpawn: {fileID: 0}
   chanceForDoubleDamage: 0
+  lifeSteal: 0
