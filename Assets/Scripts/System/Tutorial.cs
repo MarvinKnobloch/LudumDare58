@@ -13,7 +13,11 @@ public class Tutorial : MonoBehaviour
     [SerializeField] private GameObject arrowCue;
     [SerializeField] private Vector2[] arrowPositions;
 
+    
+
     private int currentHint;
+    public Vector2 towerPos;
+
 
     private void Start()
     {
@@ -110,16 +114,18 @@ public class Tutorial : MonoBehaviour
         else if (currentHint == 2)
         {
 
-            arrowRect.anchoredPosition = new Vector2(426.2f, 282.5f);
-            arrowRect.localRotation = Quaternion.Euler(0f, 0f, 10.7f);
-     
+            arrowRect.transform.position = towerPos + new Vector2(170f, 100f);
+
 
         }
 
+        //DragItem to Craft
         else if (currentHint == 3)
         {
 
-            arrowRect.anchoredPosition = new Vector2(573.84f, 500.7f);
+            arrowRect.anchoredPosition = new Vector2(-641.5f, 467.5f);
+            arrowRect.localRotation = Quaternion.Euler(0f, 0f, 6.8f);
+
         }
 
         else if (currentHint == 4)

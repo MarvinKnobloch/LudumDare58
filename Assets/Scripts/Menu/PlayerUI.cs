@@ -18,6 +18,9 @@ public class PlayerUI : MonoBehaviour
     [Header("Inventory")]
     public Inventory inventory;
 
+    [Header("Tutorial")]
+    public Tutorial tutorial;
+
 
 
 
