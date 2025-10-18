@@ -383,9 +383,9 @@ public class Projectile : MonoBehaviour, IPoolingList
                 dealDmgOnEnter.baseScaling = objectToSpawn.transform.localScale;
             }
 
-            float xScale = objectToSpawn.transform.localScale.x * (aoeRadius + 1);
+            float xScale = objectToSpawn.transform.localScale.x * aoeRadius;
             if (xScale < 0.1f) xScale = 0.1f;
-            float yScale = objectToSpawn.transform.localScale.y * (aoeRadius + 1);
+            float yScale = objectToSpawn.transform.localScale.y * aoeRadius;
             if (yScale < 0.1f) yScale = 0.1f;
             dealDmgOnEnter.transform.localScale = new Vector3(xScale, yScale, 1);
         }

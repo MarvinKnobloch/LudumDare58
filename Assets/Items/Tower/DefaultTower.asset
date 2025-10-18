@@ -10,18 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c77b3a024aa5ce44a8b8b6ab5bc5c03c, type: 3}
-  m_Name: BolderTower
+  m_Name: DefaultTower
   m_EditorClassIdentifier: Assembly-CSharp::TowerValues
-  damageScalingPercantage: 100
-  startBonusAttack: 2
-  baseAttackSpeed: 2
-  rangeScalingPercantage: 100
-  startBonusRange: 7
-  aoeRadius: 0.1
-  projectilePrefab: {fileID: 4780432458198478164, guid: 427b4d8c0b4f7724ca492c19bece37af, type: 3}
-  targetType: 3
+  damageScalingPercantage: 70
+  startBonusAttack: 5
+  baseAttackSpeed: 1
+  rangeScalingPercantage: 70
+  startBonusRange: 5
+  aoeRadius: -4
+  projectilePrefab: {fileID: 4780432458198478164, guid: 23de8da67dce62a5daae89654ac2efa2, type: 3}
+  targetType: 0
   slowPercentage: 0
   slowDuration: 0
   additionalProjectiles: 0
   objectToSpawn: {fileID: 0}
   chanceForDoubleDamage: 0
+  lifeSteal: 0

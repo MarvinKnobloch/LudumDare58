@@ -12,16 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77b3a024aa5ce44a8b8b6ab5bc5c03c, type: 3}
   m_Name: ThiefTower
   m_EditorClassIdentifier: Assembly-CSharp::TowerValues
-  damageScalingPercantage: 50
-  startBonusAttack: 2
+  damageScalingPercantage: 60
+  startBonusAttack: 6
   baseAttackSpeed: 0.4
-  rangeScalingPercantage: 50
+  rangeScalingPercantage: 60
   startBonusRange: 5
-  aoeRadius: 0.2
+  aoeRadius: -2.5
   projectilePrefab: {fileID: 9078845085941661987, guid: 5f1581ce7987799419e09d652d7747cf, type: 3}
   targetType: 4
   slowPercentage: 0
   slowDuration: 0
   additionalProjectiles: 0
   objectToSpawn: {fileID: 0}
-  chanceForDoubleDamage: 0
+  chanceForDoubleDamage: 1
+  lifeSteal: 0

@@ -21,4 +21,6 @@ public class TowerValues : ScriptableObject
     public GameObject objectToSpawn;
     [Space]
     public bool chanceForDoubleDamage;
+    [Space]
+    public bool lifeSteal;
 }

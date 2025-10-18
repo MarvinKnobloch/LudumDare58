@@ -127,7 +127,7 @@ MonoBehaviour:
   meleeWeaponScale: 1
   aoeVisualBullet: {fileID: 0}
   maxHeight: 0
-  shrinkEachHit: 0.5
+  shrinkEachHit: 0.3
   damageReductionEachHit: 0.1
 --- !u!58 &3678556042877228813
 CircleCollider2D:

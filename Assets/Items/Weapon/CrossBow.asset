@@ -16,7 +16,7 @@ MonoBehaviour:
   <Description>k__BackingField: 
   <Part>k__BackingField: 4
   <Type>k__BackingField: 2
-  <BonusDamage>k__BackingField: 1
+  <BonusDamage>k__BackingField: 3
   <BonusAttackSpeed>k__BackingField: 0
   <BonusRange>k__BackingField: 2
   <BonusAoeRadius>k__BackingField: 0
@@ -24,7 +24,7 @@ MonoBehaviour:
   <ProjectilePrefab>k__BackingField: {fileID: 7056902295061036921, guid: 4977d07f84a50aa42b0c547871180675, type: 3}
   <TargetType>k__BackingField: 0
   <DamageScalingPercentage>k__BackingField: 120
-  <BaseAttackSpeed>k__BackingField: 1.2
+  <BaseAttackSpeed>k__BackingField: 2
   <RangeScalingPercentage>k__BackingField: 120
   <SlowPercentage>k__BackingField: 0
   <SlowDuration>k__BackingField: 0
