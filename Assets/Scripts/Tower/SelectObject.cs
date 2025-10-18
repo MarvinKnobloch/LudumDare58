@@ -7,6 +7,8 @@ public class SelectObject : MonoBehaviour
     private Controls controls;
     [SerializeField] private RangeIndicator rangeIndicator;
 
+    [SerializeField] private Tutorial tutorial; //desi
+
     private void Awake()
     {
         controls = new Controls();
@@ -29,12 +31,22 @@ public class SelectObject : MonoBehaviour
 
             if(cols.Length > 0)
             {
+
                 for (int i = 0; i < cols.Length; i++)
                 {
                     if (cols[i].TryGetComponent(out WorldItem worldItem))
                     {
+
                         IngameController.Instance.playerUI.inventory.AddResource(worldItem.itemInformationen, worldItem.dropAmount);
                         if (worldItem.testItem == false) worldItem.ReturnToItemPool();
+
+
+                        //desi
+                        if (tutorial != null)
+                        {
+                            tutorial.TryAdvanceHint(1);
+                        }
+
                     }
                     else if (cols[i].TryGetComponent(out TowerBase towerBase))
                     {

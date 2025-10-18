@@ -23,6 +23,9 @@ public class TowerPreview : MonoBehaviour
 
     private Controls controls;
 
+
+
+
     private void Awake()
     {
         controls = new Controls();
@@ -58,6 +61,9 @@ public class TowerPreview : MonoBehaviour
             {
                 Instantiate(towerToBuild,transform.root.position, Quaternion.identity);
                 Player.Instance.BuyTower();
+
+               
+
 
                 //after BuildingTower
                 if (Player.Instance.CheckForTowerCosts() == false) 

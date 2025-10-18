@@ -17,6 +17,11 @@ public class BuildTowerButton : MonoBehaviour
     private GameObject towerPreview;
     private bool towerPreviewActive;
 
+
+    [SerializeField] private Tutorial tutorial; //desi
+
+
+
     private void Awake()
     {
         controls = new Controls();
@@ -64,6 +69,8 @@ public class BuildTowerButton : MonoBehaviour
 
             towerUIPreview.transform.position = Input.mousePosition;
             towerUIPreview.SetActive(true);
+
+            
         }
     }
     private void ButtonReleased()
@@ -71,6 +78,14 @@ public class BuildTowerButton : MonoBehaviour
         towerUIPreview.SetActive(false);
         buttonImage.sprite = buttonReleasedSprite;
         towerPreviewActive = false;
+
+        //desi
+        if (tutorial != null)
+        {
+            tutorial.TryAdvanceHint(0); 
+        }
+
+
     }
     private void CheckLights(int amount)
     {

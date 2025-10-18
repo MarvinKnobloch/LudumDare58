@@ -19,6 +19,8 @@ public class PlayerUI : MonoBehaviour
     public Inventory inventory;
 
 
+
+
     [field: SerializeField, Header("ToolTip")] public GameObject itemTooltipWindow { get; private set; }
     [field: SerializeField] public TextMeshProUGUI itmeTooltipText { get; private set; }
     [field: SerializeField] public GameObject statsTooltipWindow { get; private set; }
@@ -28,6 +30,7 @@ public class PlayerUI : MonoBehaviour
     [field: SerializeField,Header("Other")] public GameObject startNextLevelButton { get; private set; }
     [field: SerializeField] public GameObject gameOverScreen { get; private set; }
     [field: SerializeField] public GameObject victoryScreen { get; private set; }
+
 
     public void HealthUIUpdate(int current, int max)
     {
@@ -49,5 +52,7 @@ public class PlayerUI : MonoBehaviour
     public void StartNextLevel()
     {
         LevelManager.Instance.StartNextLevel();
+
+       
     }
 }

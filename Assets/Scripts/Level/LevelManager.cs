@@ -26,6 +26,7 @@ public class LevelManager : MonoBehaviour, IPoolingList
     [Space]
     [SerializeField] private SortObjects sortObjects;
 
+
     public PoolingSystem.PoolObjectInfo poolingList { get; set; }
     private void Awake()
     {
@@ -59,6 +60,9 @@ public class LevelManager : MonoBehaviour, IPoolingList
     }
     public void StartNextLevel()
     {
+        
+
+
         sortObjects.enabled = true;
         if (startLevelButton != null) startLevelButton.SetActive(false);
 
