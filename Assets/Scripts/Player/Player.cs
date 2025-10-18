@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
     {
         currentHealth = maxHealth;
         UpdateSouls(soulsStartAmount);
+
+        IngameController.Instance.playerUI.HealthUIUpdate(currentHealth, maxHealth);
     }
 
     public void TakeDamage(int amount)

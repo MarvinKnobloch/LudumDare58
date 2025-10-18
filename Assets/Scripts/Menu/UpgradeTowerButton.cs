@@ -8,7 +8,10 @@ public class UpgradeTowerButton : MonoBehaviour
 
     [SerializeField] private Image upgradeProgressionBar;
 
-
+    private void Start()
+    {
+        upgradeProgressionBar.fillAmount = 0;
+    }
     public void UpgradeTower()
     {
         IngameController.Instance.playerUI.inventory.currentSelectedTower.UpgradeTower();
