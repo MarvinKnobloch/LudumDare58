@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: aa8fa016b634f624c98a61e9a69ed89f
+guid: f1d16a3923ed3e34288ba804e062e016
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4406821754670784039
-    second: ScrollClosed_0
+      213: 4412927193806439123
+    second: ScrollClosed 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -73,9 +73,9 @@ TextureImporter:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ScrollClosed_0
+      name: ScrollClosed 1_0
       rect:
         serializedVersion: 2
         x: 1
         y: 0
         width: 587
-        height: 160
+        height: 134
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9d1626466f2d7d2c0800000000000000
-      internalID: -4406821754670784039
+      spriteID: 3d28e7ee6eddd3d30800000000000000
+      internalID: 4412927193806439123
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ScrollClosed_0: -4406821754670784039
+      ScrollClosed 1_0: 4412927193806439123
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

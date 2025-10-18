@@ -10,18 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c77b3a024aa5ce44a8b8b6ab5bc5c03c, type: 3}
-  m_Name: DefaultTower
+  m_Name: SniperTower
   m_EditorClassIdentifier: Assembly-CSharp::TowerValues
-  damageScalingPercantage: 70
-  startBonusAttack: 5
-  baseAttackSpeed: 1
-  rangeScalingPercantage: 70
-  startBonusRange: 5
-  aoeRadius: -10
-  projectilePrefab: {fileID: 4780432458198478164, guid: 23de8da67dce62a5daae89654ac2efa2, type: 3}
+  damageScalingPercantage: 130
+  startBonusAttack: 8
+  baseAttackSpeed: 1.8
+  rangeScalingPercantage: 130
+  startBonusRange: 6
+  aoeRadius: -2
+  projectilePrefab: {fileID: 7056902295061036921, guid: 4977d07f84a50aa42b0c547871180675, type: 3}
   targetType: 0
   slowPercentage: 0
   slowDuration: 0
   additionalProjectiles: 0
   objectToSpawn: {fileID: 0}
   chanceForDoubleDamage: 0
+  lifeSteal: 1

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bc1c5ac6bdc4f0a9f145e7dd4ae5231, type: 3}
-  m_Name: CrystalTower
+  m_Name: CrystalTowerRecipe
   m_EditorClassIdentifier: Assembly-CSharp::Tower.TowerRecipe
   towerName: Crystal Tower
   towerIcon: {fileID: 3300596019201047825, guid: 1776880fee1c09543aaaa065d2c44e50, type: 3}

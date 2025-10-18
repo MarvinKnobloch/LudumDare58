@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Marvin.PoolingSystem;
-using Unity.Mathematics.Geometry;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -33,20 +32,20 @@ namespace Tower
         private float bonusRange;
         [field: SerializeField] public float finalRange { get; private set; }
 
-        [field: SerializeField] public float _currentAoeRadius { get; private set; }
-        private int _slowPercentage;
-        private float _slowDuration;
+        [field: SerializeField] public float currentAoeRadius { get; private set; }
+        private int slowPercentage;
+        private float slowDuration;
         private int additionalProjectiles;
-        private GameObject _projectilePrefab;
-        private GameObject _objectToSpawn;
+        private GameObject projectilePrefab;
+        private GameObject objectToSpawn;
 
         [SerializeField] private bool canDoDoubleDamage;
         private float doubleDamageChance;
 
-        [SerializeField] private bool lifeSteal;
+        [SerializeField] private bool lifesteal;
 
         //Targeting
-        [SerializeField] private TargetType _targetType = TargetType.FollowTarget;
+        [SerializeField] private TargetType targetType = TargetType.FollowTarget;
         private float timer;
         private float checkForEnemiesTimer;
         private float checkForEnemiesInterval = 0.05f;
@@ -83,14 +82,15 @@ namespace Tower
             baseAttackSpeed = towerValues.baseAttackSpeed;
             rangeScaling = towerValues.rangeScalingPercantage;
             bonusRange = towerValues.startBonusRange;
-            _currentAoeRadius = towerValues.aoeRadius;
-            _projectilePrefab = towerValues.projectilePrefab;
-            _targetType = towerValues.targetType;
-            _slowPercentage = towerValues.slowPercentage;
-            _slowDuration = towerValues.slowDuration;
+            currentAoeRadius = towerValues.aoeRadius;
+            projectilePrefab = towerValues.projectilePrefab;
+            targetType = towerValues.targetType;
+            slowPercentage = towerValues.slowPercentage;
+            slowDuration = towerValues.slowDuration;
             additionalProjectiles = towerValues.additionalProjectiles;
-            _objectToSpawn = towerValues.objectToSpawn;
+            objectToSpawn = towerValues.objectToSpawn;
             canDoDoubleDamage = towerValues.chanceForDoubleDamage;
+            lifesteal = towerValues.lifeSteal;
 
             finalDamage = CalculateDamage();
             finalAttackSpeed = CalculateAttackSpeed();
@@ -131,18 +131,17 @@ namespace Tower
                 case BodyPart.Accessory:
                     if (currentAccessoires != null)
                     {
-                        _slowPercentage -= currentAccessoires.SlowPercentage;
-                        _slowDuration -= currentAccessoires.SlowDuration;
+                        slowPercentage -= currentAccessoires.SlowPercentage;
+                        slowDuration -= currentAccessoires.SlowDuration;
                         additionalProjectiles -= currentAccessoires.AdditionalProjectiles;
 
                         OnBodyPartUnequipped(tower, currentAccessoires); 
                     }
 
                     currentAccessoires = bodyObject;
-                    _slowPercentage += bodyObject.SlowPercentage;
-                    _slowDuration += bodyObject.SlowDuration;
+                    slowPercentage += bodyObject.SlowPercentage;
+                    slowDuration += bodyObject.SlowDuration;
                     additionalProjectiles += bodyObject.AdditionalProjectiles;
-                    lifeSteal = bodyObject.LifeSteal;
 
                     if(towerValues.chanceForDoubleDamage == false)
                     {
@@ -152,6 +151,16 @@ namespace Tower
                             if (currentWeapon.ChanceForDoubleDamage == false) canDoDoubleDamage = bodyObject.ChanceForDoubleDamage;
                         }
                         else canDoDoubleDamage = bodyObject.ChanceForDoubleDamage;
+                    }
+
+                    if (towerValues.lifeSteal == false)
+                    {
+                        if (currentWeapon != null)
+                        {
+                            //check if the weapon has lifesteal
+                            if (currentWeapon.LifeSteal == false) lifesteal = bodyObject.LifeSteal;
+                        }
+                        else lifesteal = bodyObject.LifeSteal;
                     }
 
                     break;
@@ -170,20 +179,22 @@ namespace Tower
                 case BodyPart.Weapon:
                     if (currentWeapon != null)
                     {
-                        _slowPercentage -= currentWeapon.SlowPercentage;
-                        _slowDuration -= currentWeapon.SlowDuration;
+                        slowPercentage -= currentWeapon.SlowPercentage;
+                        slowDuration -= currentWeapon.SlowDuration;
                         additionalProjectiles -= currentWeapon.AdditionalProjectiles;
                         OnBodyPartUnequipped(tower, currentWeapon); 
                     }
 
                     currentWeapon = bodyObject;
 
-                    _targetType = bodyObject.TargetType;
-                    _projectilePrefab = bodyObject.ProjectilePrefab;
-                    _slowPercentage += bodyObject.SlowPercentage;
-                    _slowDuration += bodyObject.SlowDuration;
+                    targetType = bodyObject.TargetType;
+                    projectilePrefab = bodyObject.ProjectilePrefab;
+                    slowPercentage += bodyObject.SlowPercentage;
+                    slowDuration += bodyObject.SlowDuration;
                     additionalProjectiles += bodyObject.AdditionalProjectiles;
-                    _objectToSpawn = bodyObject.ObjectToSpawn;
+                    objectToSpawn = bodyObject.ObjectToSpawn;
+                    canDoDoubleDamage = bodyObject.ChanceForDoubleDamage;
+                    lifesteal = bodyObject.LifeSteal;
 
                     damageScaling = bodyObject.DamageScalingPercentage;
                     baseAttackSpeed = bodyObject.BaseAttackSpeed;
@@ -199,7 +210,7 @@ namespace Tower
             bonusAttackSpeed += bodyObject.BonusAttackSpeed;
             bonusDamage += bodyObject.BonusDamage;
             bonusRange += bodyObject.BonusRange;
-            _currentAoeRadius += bodyObject.BonusAoeRadius;
+            currentAoeRadius += bodyObject.BonusAoeRadius;
 
             finalDamage = CalculateDamage();
             finalAttackSpeed = CalculateAttackSpeed();
@@ -218,7 +229,7 @@ namespace Tower
             bonusDamage -= bodyObject.BonusDamage;
             bonusRange -= bodyObject.BonusRange;
 
-            _currentAoeRadius -= bodyObject.BonusAoeRadius;
+            currentAoeRadius -= bodyObject.BonusAoeRadius;
 
             EquippedBodyObjects.Remove(bodyObject);
         }
@@ -289,7 +300,7 @@ namespace Tower
             //because of pooling
             if (currentTarget != null) if (currentTarget.gameObject.activeSelf == false) currentTarget = null;
 
-            switch (_targetType)
+            switch (targetType)
             {
                 case TargetType.FollowTarget:
                     StayOnTarget();
@@ -385,7 +396,7 @@ namespace Tower
         private void CreateProjectile(Transform targetEnemy)
         {
             Projectile projectile = PoolingSystem.SpawnObject
-                (_projectilePrefab, transform.position, Quaternion.identity, PoolingSystem.PoolingParentGameObject.Projectile).GetComponent<Projectile>();
+                (projectilePrefab, transform.position, Quaternion.identity, PoolingSystem.PoolingParentGameObject.Projectile).GetComponent<Projectile>();
 
             projectile.damage = finalDamage;
             if (canDoDoubleDamage)
@@ -395,13 +406,13 @@ namespace Tower
                     projectile.damage = finalDamage * 2;
                 }
             }
-            projectile.aoeRadius = _currentAoeRadius;
+            projectile.aoeRadius = currentAoeRadius;
             projectile.range = finalRange;
-            projectile.slowPercentage = _slowPercentage;
-            projectile.slowDuration = _slowDuration;
-            projectile.targetType = _targetType;
-            projectile.objectToSpawn = _objectToSpawn;
-            projectile.lifeSteal = lifeSteal;
+            projectile.slowPercentage = slowPercentage;
+            projectile.slowDuration = slowDuration;
+            projectile.targetType = targetType;
+            projectile.objectToSpawn = objectToSpawn;
+            projectile.lifeSteal = lifesteal;
 
             projectile.SetValues(targetEnemy);
         }
@@ -419,11 +430,11 @@ namespace Tower
         }
         public int GetSlow()
         {
-            return _slowPercentage;
+            return slowPercentage;
         }
         public bool GetLifesteal()
         {
-            return lifeSteal;
+            return lifesteal;
         }
         public bool GetDoubleDamage()
         {

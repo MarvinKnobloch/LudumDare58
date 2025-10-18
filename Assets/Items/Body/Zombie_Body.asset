@@ -16,10 +16,10 @@ MonoBehaviour:
   <Description>k__BackingField: "Das ist ein k\xF6rperteil"
   <Part>k__BackingField: 3
   <Type>k__BackingField: 1
-  <BonusDamage>k__BackingField: 1
-  <BonusAttackSpeed>k__BackingField: 0
-  <BonusRange>k__BackingField: 2
-  <BonusAoeRadius>k__BackingField: 0
+  <BonusDamage>k__BackingField: 2
+  <BonusAttackSpeed>k__BackingField: 5
+  <BonusRange>k__BackingField: 0.5
+  <BonusAoeRadius>k__BackingField: -0.5
   <Sprite>k__BackingField: {fileID: -8941455791655456836, guid: 742b56a5f54a58a4f909f0d39f17288a, type: 3}
   <ProjectilePrefab>k__BackingField: {fileID: 0}
   <TargetType>k__BackingField: 0

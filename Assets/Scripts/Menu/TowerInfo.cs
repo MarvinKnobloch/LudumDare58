@@ -37,7 +37,7 @@ public class TowerInfo : MonoBehaviour
         }
         else
         {
-            numberText.text = tower.finalDamage + "\n" + tower.finalAttackSpeed + "\n" + tower.finalRange + "\n" + tower._currentAoeRadius;
+            numberText.text = tower.finalDamage + "\n" + tower.finalAttackSpeed + "\n" + tower.finalRange + "\n" + tower.currentAoeRadius;
             specialText.text = string.Empty;
 
             int values = 0;

@@ -10,18 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c77b3a024aa5ce44a8b8b6ab5bc5c03c, type: 3}
-  m_Name: ArcherTower
+  m_Name: KnightTower
   m_EditorClassIdentifier: Assembly-CSharp::TowerValues
-  damageScalingPercantage: 100
-  startBonusAttack: 2
-  baseAttackSpeed: 1.5
-  rangeScalingPercantage: 100
+  damageScalingPercantage: 80
+  startBonusAttack: 8
+  baseAttackSpeed: 1
+  rangeScalingPercantage: 70
   startBonusRange: 5
-  aoeRadius: 0
-  projectilePrefab: {fileID: 7056902295061036921, guid: 4977d07f84a50aa42b0c547871180675, type: 3}
-  targetType: 0
+  aoeRadius: -1
+  projectilePrefab: {fileID: 8614331895747358253, guid: b7f3f501f971a964387aebb6d0da5105, type: 3}
+  targetType: 2
   slowPercentage: 0
   slowDuration: 0
-  additionalProjectiles: 3
+  additionalProjectiles: 0
   objectToSpawn: {fileID: 0}
   chanceForDoubleDamage: 0
+  lifeSteal: 0
