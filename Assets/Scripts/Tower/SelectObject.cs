@@ -21,6 +21,8 @@ public class SelectObject : MonoBehaviour
     }
     private void Update()
     {
+        if (IngameController.Instance.menuController.gameIsPaused) return;
+
         if (controls.Player.Confirm.WasPerformedThisFrame())
         {
             Collider2D[] cols = Physics2D.OverlapCircleAll(Utility.MousePostion(), 0.01f);

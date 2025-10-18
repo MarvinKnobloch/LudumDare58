@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bc15996bd6c0f7440b172226ce3d2a81
+guid: 8718e11d278d37144937bfb6ad85a03f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6658931774631305606
-    second: Eisstab_0
+      213: 6663505070113963608
+    second: ItemBackgroundUnknown_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,12 +46,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 500
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Eisstab_0
+      name: ItemBackgroundUnknown_0
       rect:
         serializedVersion: 2
-        x: 236
-        y: 80
-        width: 530
-        height: 686
+        x: 0
+        y: 0
+        width: 102
+        height: 102
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 681e5722b27496c50800000000000000
-      internalID: 6658931774631305606
+      spriteID: 85e38277e86897c50800000000000000
+      internalID: 6663505070113963608
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Eisstab_0: 6658931774631305606
+      ItemBackgroundUnknown_0: 6663505070113963608
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
