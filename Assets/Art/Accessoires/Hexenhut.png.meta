@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 961b7c12aa28f854e87a12c2db49442e
+guid: ba91919d1e9d43f468dac5ef6553506a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7761084475144170963
-    second: 1_OrcTorso_wo_Stitches_0
+      213: -7341628307850105576
+    second: Hexenhut_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 400
+  spritePixelsToUnits: 325
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 1_OrcTorso_wo_Stitches_0
+      name: Hexenhut_0
       rect:
         serializedVersion: 2
-        x: 187
-        y: 234
-        width: 393
-        height: 415
+        x: 122
+        y: 149
+        width: 388
+        height: 325
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3dd64ccc539e4bb60800000000000000
-      internalID: 7761084475144170963
+      spriteID: 81d64ad93fb4d1a90800000000000000
+      internalID: -7341628307850105576
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: d82bf79ee89bd394e965cf896242a9fc
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      1_OrcTorso_wo_Stitches_0: 7761084475144170963
+      Hexenhut_0: -7341628307850105576
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

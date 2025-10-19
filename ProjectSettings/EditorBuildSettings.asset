@@ -6,11 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/TitelScreen.unity
-    guid: cdaf2c0d57a9a2a49a3524107aa65967
-  - enabled: 1
-    path: Assets/Scenes/MarvinTest.unity
-    guid: 480658eaa43a44747890ed678d3b022b
+    path: Assets/Scenes/MainScene.unity
+    guid: a59a7bf2d89e32947b62d58e5bbef4ee
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
