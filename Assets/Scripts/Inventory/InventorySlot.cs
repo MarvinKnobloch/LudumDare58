@@ -1,10 +1,8 @@
 using System.Collections;
 using TMPro;
 using Tower;
-using UnityEditor.PackageManager.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
@@ -19,15 +17,11 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public BodyObject bodyObject;
 
 
+    [SerializeField] private Image inventoryIconImage;
     [SerializeField] private TextMeshProUGUI amountText;
-    private Image inventoryImage;
 
     private Image dragImage;
 
-    private void Awake()
-    {
-        inventoryImage = GetComponent<Image>();
-    }
     private void Start()
     {
         playerUI = IngameController.Instance.playerUI;
@@ -40,7 +34,8 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         {
             amountText.gameObject.SetActive(true);
             amountText.text = slotAmount.ToString();
-            inventoryImage.sprite = icon;
+            inventoryIconImage.enabled = true;
+            inventoryIconImage.sprite = icon;
         }
         else
         {
@@ -49,8 +44,8 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     }
     public void HideText()
     {
+        inventoryIconImage.enabled = false;
         amountText.gameObject.SetActive(false);
-
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -95,11 +90,23 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             {
                 inventory.AddResource(bodyObject, -1);
                 inventory.currentBodySlots.SlotUpdate(bodyObject);
+
+                if (bodyObject.Part == BodyPart.Weapon)
+                {
+                    inventory.currentWeaponSlot = bodyObject;
+                }
+
                 inventory.currentSelectedTower.OnBodyPartEquipped(inventory.currentSelectedTower, bodyObject);
                 inventory.SetRangeIndicator();
                 inventory.currentSelectedTower.CheckForRecipe();
                 inventory.SetUpgradeTowerButton();
                 inventory.SetTowerInfo();
+
+                if (inventory.currentWeaponSlot != null)
+                {
+                    Debug.Log("recipeUpdate");
+                    inventory.CheckForRecipeUIUpdate(bodyObject.Part);
+                }
             }
 
             //desi
@@ -115,8 +122,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         if (bodyObject == null) return;
 
-        SetText();
-        SetWindowPosition();
+        SetWindow();
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -124,9 +130,11 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         playerUI.ToggleTooltipWindow(false, playerUI.itemTooltipWindow);
     }
 
-    private void SetText()
+    private void SetWindow()
     {
         if (bodyObject == null) return;
+
+        playerUI.ToggleTooltipWindow(true, playerUI.itemTooltipWindow);
 
         TextMeshProUGUI itemText = playerUI.itmeTooltipText;
         itemText.text = string.Empty;
@@ -181,32 +189,5 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
         if(bodyObject.AdditionalProjectiles == 1) itemText.text += "<color=green>+" + bodyObject.AdditionalProjectiles + "</color> Projectile";
         else if (bodyObject.AdditionalProjectiles > 1) itemText.text += "<color=green>+" + bodyObject.AdditionalProjectiles + "</color> Projectiles";
-    }
-
-    private void SetWindowPosition()
-    {
-        GameObject window = playerUI.itemTooltipWindow;
-        playerUI.ToggleTooltipWindow(true, window);
-        //Braucht ein Frame um die Height vom ContenSizeFitter zu setzen. Scale wird für den einen Frame auf 0 gesetzt damit dann das FEnster nicht springen sieht
-        //StartCoroutine(SetWindowPostionAfterResize());
-    }
-    IEnumerator SetWindowPostionAfterResize()
-    {
-        yield return null;
-        GameObject window = playerUI.itemTooltipWindow;
-        playerUI.ToggleTooltipWindow(true, window);
-
-        ////window.transform.localScale = new Vector3(1, 1, 1);
-        ////Ist keine Formel, einfach ein bisschen ausprobiert was passt
-        float widthOffset = Screen.width / 9.5f;  //7
-
-        float heigthoffset = ((Screen.height * 0.5f) - Input.mousePosition.y) / 70;              //Bestimmt ob das Fenster nach unten oder oben geht.
-
-        ////if (heigthoffset > 0) heigthoffset += tooltipRect.rect.height * rectHeightMultiplier;    //Wie weit das Fenster nach unten/oben geht basierend auf der Größe
-        ////else heigthoffset -= tooltipRect.rect.height * rectHeightMultiplier;
-
-        ////links oder rechts von mousePosition          1.35f = 35% vom rechten Bildschirmrand
-        if (Screen.width / Input.mousePosition.x > 1.43f) window.transform.position = Input.mousePosition + new Vector3(widthOffset, heigthoffset, 0);
-        else window.transform.position = Input.mousePosition + new Vector3(widthOffset * -1, heigthoffset, 0);
     }
 }

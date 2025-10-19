@@ -32,3 +32,5 @@ MonoBehaviour:
   <ObjectToSpawn>k__BackingField: {fileID: 0}
   <ChanceForDoubleDamage>k__BackingField: 0
   <LifeSteal>k__BackingField: 0
+  <mainPartOfRecipe>k__BackingField:
+  - {fileID: 11400000, guid: 0f51461a634d53a49aeca85542e73bbe, type: 2}

@@ -19,5 +19,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d0c4ac64fe0645745bbcf1e91630bf83, type: 2}
   - {fileID: 11400000, guid: 54dfd845158db72418d36084eeaf4236, type: 2}
   - {fileID: 11400000, guid: 49882684399521941b52cc0eb3e572ae, type: 2}
+  partUnlocked: 01000000
+  defaultUnlockState: 01000000
   recipeTowerPrefab: {fileID: 5971555673173559965, guid: a8a6fee65da4afe4ea00dff09897aed7, type: 3}
-  shownPartsIfNotUnlocked: 1

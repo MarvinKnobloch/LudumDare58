@@ -10,8 +10,8 @@ namespace Tower
         public string towerName;
         public Sprite towerIcon;
         public List<BodyObject> Recipe = new();
-        public List<bool> partUnlocked = new();
+        [HideInInspector] public List<bool> partUnlocked = new();
+        public List<bool> defaultUnlockState = new();
         public GameObject recipeTowerPrefab;
     }
-
 }
