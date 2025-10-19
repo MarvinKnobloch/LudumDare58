@@ -82,7 +82,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -199
   m_Sprite: {fileID: 8787291131096080919, guid: 3e310c073bca6264cac0f4c1adb33f44, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -109,10 +109,14 @@ MonoBehaviour:
   hitLayer:
     serializedVersion: 2
     m_Bits: 512
-  lifeTime: 1
+  lifeTime: 0.6
   damage: 2
   baseScalingSaved: 1
   baseScaling: {x: 0.2, y: 1, z: 1}
+  slowPercentage: 0
+  slowDuration: 0
+  canDoDoubleDamage: 0
+  lifeSteal: 0
   ResetRotation: 1
 --- !u!61 &-1703407970058486565
 BoxCollider2D:

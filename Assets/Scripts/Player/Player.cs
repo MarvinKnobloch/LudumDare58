@@ -71,6 +71,7 @@ public class Player : MonoBehaviour
     }
     private void ResetRecipesUnlockState()
     {
+#if UNITY_EDITOR
         for (int i = 0; i < towerRecipes.Length; i++)
         {
             towerRecipes[i].partUnlocked.Clear();
@@ -85,6 +86,7 @@ public class Player : MonoBehaviour
             }
 
         }
+#endif
     }
     public int GetCurrentSouls() => currentSouls;
     public int GetTowerCosts() => defaultTowerCosts;

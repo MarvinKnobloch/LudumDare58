@@ -72,8 +72,12 @@ public class Inventory : MonoBehaviour
         else
         {
             resources[bodyObject].slotAmount += amount;
-
             slots[resources[bodyObject].slotPosition].SetValues(amount, bodyObject.Sprite);
+
+            if (resources[bodyObject].slotAmount <= 0)
+            {
+                resources.Remove(bodyObject);
+            }
         }
     }
     private int GetEmptySlot()
@@ -258,7 +262,6 @@ public class Inventory : MonoBehaviour
             }
             if (towerRecipeSlot == null) break;
 
-            Debug.Log("got recipe");
             //Only check for the body part that is update, if the weapon is changed need to check all slots.
             switch (bodyPart)
             {
@@ -285,14 +288,12 @@ public class Inventory : MonoBehaviour
     }
     private void CheckRecipeSlots(int number, BodySlots bodySlot)
     {
-        Debug.Log("check1");
         //After adding the new item to the tower, check if the recipe contains the item
         if (currentRecipe.Recipe.Contains(bodySlot.bodyObject))
         {
             //Get the position of the item and update the Recipe UI
             int postion = currentRecipe.Recipe.IndexOf(bodySlot.bodyObject);
             currentRecipe.partUnlocked[postion] = true;
-            Debug.Log("check2");
             towerRecipeSlot.UpdateSlots();
         }
     }

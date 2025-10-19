@@ -30,7 +30,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public void SetValues(int amount, Sprite icon)
     {
         slotAmount += amount;
-        if (amount > 0)
+        if (slotAmount > 0)
         {
             amountText.gameObject.SetActive(true);
             amountText.text = slotAmount.ToString();
@@ -39,7 +39,11 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         }
         else
         {
-            amountText.text = slotAmount.ToString();
+            bodyObject = null;
+            slotIsFull = false;
+            slotAmount = 0;
+            inventoryIconImage.enabled = false;
+            amountText.gameObject.SetActive(false);
         }
     }
     public void HideText()
@@ -88,7 +92,6 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         {
             if (inventory.currentBodySlots.bodyPart == bodyObject.Part)
             {
-                inventory.AddResource(bodyObject, -1);
                 inventory.currentBodySlots.SlotUpdate(bodyObject);
 
                 if (bodyObject.Part == BodyPart.Weapon)
@@ -104,11 +107,12 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
                 if (inventory.currentWeaponSlot != null)
                 {
-                    Debug.Log("recipeUpdate");
                     inventory.CheckForRecipeUIUpdate(bodyObject.Part);
                 }
 
                 IngameController.Instance.playerUI.SetToolTipWindow(bodyObject);
+
+                inventory.AddResource(bodyObject, -1);
             }
 
             //desi

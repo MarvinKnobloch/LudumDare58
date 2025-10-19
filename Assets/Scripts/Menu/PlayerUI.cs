@@ -81,11 +81,11 @@ public class PlayerUI : MonoBehaviour
 
         if (bodyObject.BonusRange != 0) baseStat = true;
         if (bodyObject.BonusRange > 0) itemText.text += "<color=green>+" + bodyObject.BonusRange + "</color> Range\n";
-        else if (bodyObject.BonusRange > 0) itemText.text += "<color=red>" + bodyObject.BonusRange + "</color> Range\n";
+        else if (bodyObject.BonusRange < 0) itemText.text += "<color=red>" + bodyObject.BonusRange + "</color> Range\n";
 
         if (bodyObject.BonusAoeRadius != 0) baseStat = true;
         if (bodyObject.BonusAoeRadius > 0) itemText.text += "<color=green>+" + bodyObject.BonusAoeRadius + "</color> Area Size\n";
-        else if (bodyObject.BonusAoeRadius > 0) itemText.text += "<color=red>" + bodyObject.BonusAoeRadius + "</color> Area Size\n";
+        else if (bodyObject.BonusAoeRadius < 0) itemText.text += "<color=red>" + bodyObject.BonusAoeRadius + "</color> Area Size\n";
         if (baseStat == true) itemText.text += "\n";
 
         if (bodyObject.DamageScalingPercentage > 0)
