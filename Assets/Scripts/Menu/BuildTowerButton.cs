@@ -25,6 +25,7 @@ public class BuildTowerButton : MonoBehaviour
     private void Awake()
     {
         controls = new Controls();
+
     }
     private void OnEnable()
     {
