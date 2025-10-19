@@ -13,7 +13,6 @@ public class Tutorial : MonoBehaviour
     [SerializeField] private GameObject arrowCue;
     [SerializeField] private Vector2[] arrowPositions;
 
-    [SerializeField] private Transform parentTransform;
     [SerializeField] private GameObject arrowCueHealth;
     [SerializeField] private GameObject arrowCueSoul;
     
@@ -108,7 +107,6 @@ public class Tutorial : MonoBehaviour
         // Von FirstArrow durch ButtonRelease zum Item
         else if (currentHint == 1)
         {
-            Debug.Log("Wird sind bei hint 1");
 
             arrowRect.anchoredPosition = new Vector2(101.1f, 61.4f);
             arrowRect.localRotation = Quaternion.Euler(0f, 0f, 15.6f);
@@ -117,7 +115,6 @@ public class Tutorial : MonoBehaviour
         //Von Item durch SelectObjectItem zum currentTower
         else if (currentHint == 2)
         {
-            Debug.Log("Wird sind bei hint 2");
             arrowRect.transform.position = towerPos + new Vector2(170f, 100f);
 
 
