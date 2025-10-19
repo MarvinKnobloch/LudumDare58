@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 23e5341204802e14088e12e9053a7fe8
+guid: e32f0b7d7f403db40af13ce39bc08418
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9020345168841866645
-    second: 1_OrcTorso_0
+      213: -7637356668094680475
+    second: Skeleton Necklace_umheimlich_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 1_OrcTorso_0
+      name: Skeleton Necklace_umheimlich_0
       rect:
         serializedVersion: 2
-        x: 171
-        y: 217
-        width: 430
-        height: 459
+        x: 82
+        y: 102
+        width: 466
+        height: 413
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 59dfa34a324be2d70800000000000000
-      internalID: 9020345168841866645
+      spriteID: 56271472398a20690800000000000000
+      internalID: -7637356668094680475
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: b6589979d1611ba4fa608c1b6666cd49
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      1_OrcTorso_0: 9020345168841866645
+      Skeleton Necklace_umheimlich_0: -7637356668094680475
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 23e5341204802e14088e12e9053a7fe8
+guid: 6ee419e199f68254daaafbe3810e67ba
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9020345168841866645
-    second: 1_OrcTorso_0
+      213: -6746410599082082327
+    second: Bogen_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 400
+  spritePixelsToUnits: 350
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 1_OrcTorso_0
+      name: Bogen_0
       rect:
         serializedVersion: 2
-        x: 171
-        y: 217
-        width: 430
-        height: 459
+        x: 109
+        y: 58
+        width: 363
+        height: 513
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 59dfa34a324be2d70800000000000000
-      internalID: 9020345168841866645
+      spriteID: 9ef38ccdd4fef52a0800000000000000
+      internalID: -6746410599082082327
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      1_OrcTorso_0: 9020345168841866645
+      Bogen_0: -6746410599082082327
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

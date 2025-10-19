@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 23e5341204802e14088e12e9053a7fe8
+guid: 0f5bb6183d6088648952a9dd07064dec
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9020345168841866645
-    second: 1_OrcTorso_0
+      213: -2838901464972333436
+    second: Zombie Brain_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: 1_OrcTorso_0
+      name: Zombie Brain_0
       rect:
         serializedVersion: 2
-        x: 171
-        y: 217
-        width: 430
-        height: 459
+        x: 85
+        y: 72
+        width: 427
+        height: 438
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 59dfa34a324be2d70800000000000000
-      internalID: 9020345168841866645
+      spriteID: 48eecf3a8223a98d0800000000000000
+      internalID: -2838901464972333436
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: a83c72aa9e489594a96a3f5a5acc79cd
     internalID: 0
     vertices: []
     indices: 
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      1_OrcTorso_0: 9020345168841866645
+      Zombie Brain_0: -2838901464972333436
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

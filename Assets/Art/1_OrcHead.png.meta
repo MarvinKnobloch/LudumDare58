@@ -116,12 +116,12 @@ TextureImporter:
       name: 1_OrcHead_0
       rect:
         serializedVersion: 2
-        x: 220
-        y: 175
-        width: 401
-        height: 467
+        x: 197
+        y: 149
+        width: 449
+        height: 518
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: e4aa3f70b1bd6504f8ba440e12997ce3
     internalID: 0
     vertices: []
     indices: 
