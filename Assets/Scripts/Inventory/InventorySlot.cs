@@ -107,6 +107,8 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                     Debug.Log("recipeUpdate");
                     inventory.CheckForRecipeUIUpdate(bodyObject.Part);
                 }
+
+                IngameController.Instance.playerUI.SetToolTipWindow(bodyObject);
             }
 
             //desi
@@ -122,72 +124,11 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         if (bodyObject == null) return;
 
-        SetWindow();
+        IngameController.Instance.playerUI.SetToolTipWindow(bodyObject);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         playerUI.ToggleTooltipWindow(false, playerUI.itemTooltipWindow);
-    }
-
-    private void SetWindow()
-    {
-        if (bodyObject == null) return;
-
-        playerUI.ToggleTooltipWindow(true, playerUI.itemTooltipWindow);
-
-        TextMeshProUGUI itemText = playerUI.itmeTooltipText;
-        itemText.text = string.Empty;
-        itemText.text += "<u><b>" + bodyObject.Name + "</u></b>\n\n";
-        bool baseStat = false;
-        bool towerStat = false;
-
-        if (bodyObject.BonusDamage != 0) baseStat = true;
-        if (bodyObject.BonusDamage > 0) itemText.text += "<color=green>+" + bodyObject.BonusDamage + "</color> Damage\n";
-        else if (bodyObject.BonusDamage < 0) itemText.text += "<color=red>" + bodyObject.BonusDamage + "</color> Damage\n";
-
-        if (bodyObject.BonusAttackSpeed != 0) baseStat = true;
-        if (bodyObject.BonusAttackSpeed > 0) itemText.text += "<color=green>+" + bodyObject.BonusAttackSpeed + "%</color> Attack Speed\n";
-        else if (bodyObject.BonusAttackSpeed < 0) itemText.text += "<color=red>" + bodyObject.BonusAttackSpeed + "%</color> Attack Speed\n";
-
-        if (bodyObject.BonusRange != 0) baseStat = true;
-        if (bodyObject.BonusRange > 0) itemText.text += "<color=green>+" + bodyObject.BonusRange + "</color> Range\n";
-        else if (bodyObject.BonusRange > 0) itemText.text += "<color=red>" + bodyObject.BonusRange + "</color> Range\n";
-
-        if (bodyObject.BonusAoeRadius != 0) baseStat = true;
-        if (bodyObject.BonusAoeRadius > 0) itemText.text += "<color=green>+" + bodyObject.BonusAoeRadius + "</color> Area Size\n";
-        else if (bodyObject.BonusAoeRadius > 0) itemText.text += "<color=red>" + bodyObject.BonusAoeRadius + "</color> Area Size\n";
-
-        if (baseStat == true) itemText.text += "\n";
-
-        if (bodyObject.DamageScalingPercentage > 0) 
-        {
-            towerStat = true;
-            itemText.text += "<color=green>" + bodyObject.DamageScalingPercentage + "%</color> Damage Scaling\n"; 
-        }
-
-        if (bodyObject.BaseAttackSpeed > 0)
-        {
-            towerStat = true;
-            itemText.text += "<color=green>" + bodyObject.BaseAttackSpeed + "</color> Base Attack Speed\n"; 
-        }
-
-        if (bodyObject.RangeScalingPercentage > 0)
-        {
-            towerStat = true;
-            itemText.text += "<color=green>" + bodyObject.RangeScalingPercentage + "%</color> Range Scaling\n"; 
-        }
-
-        if (towerStat == true) itemText.text += "\n";
-
-        if (bodyObject.SlowPercentage > 0) itemText.text += "<color=green>+" + bodyObject.SlowPercentage + "%</color> Slow\n";
-        if (bodyObject.SlowDuration > 0) itemText.text += "<color=green>+" + bodyObject.SlowDuration + "</color> Slow Duration\n";
-
-        if (bodyObject.LifeSteal == true) itemText.text += "Lifesteal on kill (<color=green>" + Player.Instance.GetLifeStealChance() + "%</color> chance)\n";
-
-        if (bodyObject.ChanceForDoubleDamage == true) itemText.text += "Double Damage (<color=green>" + Player.Instance.GetDoubleDamageChance() + "%</color> chance)\n";
-
-        if(bodyObject.AdditionalProjectiles == 1) itemText.text += "<color=green>+" + bodyObject.AdditionalProjectiles + "</color> Projectile";
-        else if (bodyObject.AdditionalProjectiles > 1) itemText.text += "<color=green>+" + bodyObject.AdditionalProjectiles + "</color> Projectiles";
     }
 }
