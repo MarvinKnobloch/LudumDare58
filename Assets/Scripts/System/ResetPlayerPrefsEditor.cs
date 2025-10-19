@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEditor;
 
+#if UNITY_EDITOR
 [CustomEditor(typeof(ResetPlayerPrefs))]
 public class ResetPlayerPrefsEditor : Editor
 {
@@ -13,3 +14,4 @@ public class ResetPlayerPrefsEditor : Editor
         }
     }
 }
+#endif

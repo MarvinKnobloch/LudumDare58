@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using Tower;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
@@ -11,11 +13,11 @@ public class RecipeUI : MonoBehaviour
     [SerializeField] private GameObject recipeBackground;
 
     [Space]
-    [SerializeField] private Transform openPositionTransform;
+    [SerializeField] private RectTransform uiRectTransform;
+    [SerializeField] private RectTransform openPositionTransform;
+    [SerializeField] private RectTransform closedPositionTransform;
     [SerializeField] private float moveTime;
-    private Transform uiOpenPosition;
-    private Vector3 uiClosedPosition;
-    private Vector3 endPosition;
+    private RectTransform endPosition;
     private bool isOpen;
     private float timer;
 
@@ -28,8 +30,6 @@ public class RecipeUI : MonoBehaviour
     private void Awake()
     {
         controls = new Controls();
-        uiClosedPosition = transform.position;
-        uiOpenPosition = openPositionTransform;
     }
 
     private void OnEnable()
@@ -79,8 +79,8 @@ public class RecipeUI : MonoBehaviour
         StopAllCoroutines();
         timer = 0;
 
-        if (isOpen == false) endPosition = uiOpenPosition.position;
-        else endPosition = uiClosedPosition;
+        if (isOpen == false) endPosition = openPositionTransform;
+        else endPosition = closedPositionTransform;
 
         isOpen = !isOpen;
         StartCoroutine(MoveUI());
@@ -91,7 +91,7 @@ public class RecipeUI : MonoBehaviour
         while (timer < moveTime)
         {
             timer += Time.deltaTime;
-            transform.position = Vector3.Lerp(transform.position, endPosition, timer / moveTime);
+            uiRectTransform.anchoredPosition = Vector2.Lerp(uiRectTransform.anchoredPosition, endPosition.anchoredPosition, timer / moveTime);
             yield return null;
         }
 
