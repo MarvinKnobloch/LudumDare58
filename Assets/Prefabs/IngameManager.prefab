@@ -79,6 +79,7 @@ MonoBehaviour:
   - {x: 0, y: 0}
   - {x: 0, y: 0}
   - {x: 0, y: 0}
+  towerPos: {x: 0, y: 0}
 --- !u!1 &1760213909716899
 GameObject:
   m_ObjectHideFlags: 0
@@ -7900,7 +7901,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 5155583813887768062}
   m_Direction: 2
   m_Value: -0.00000023523373
-  m_Size: 0.46684653
+  m_Size: 0.46681878
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -13075,8 +13076,10 @@ MonoBehaviour:
   rangeIndicator: {fileID: 3355200274213809234}
   currentBodySlots: {fileID: 0}
   currentSelectedTower: {fileID: 0}
+  currentWeaponSlot: {fileID: 0}
   upgradeTowerButton: {fileID: 3398907491648985286}
   towerInfo: {fileID: 617995526483924885}
+  recipeUI: {fileID: 8180621137631856805}
 --- !u!1 &8012358508575057902
 GameObject:
   m_ObjectHideFlags: 0
@@ -13551,7 +13554,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 260, y: 194.59967}
+  m_AnchoredPosition: {x: 260, y: 194.59961}
   m_SizeDelta: {x: 528.5858, y: 730}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &8263319202288417698
@@ -13881,6 +13884,7 @@ MonoBehaviour:
   moveTime: 1.5
   towerRepicePrefab: {fileID: 7631289270363011112, guid: eb398321384163847a2ad35f5a704b14, type: 3}
   towerSlotsGrid: {fileID: 5487975734175756989}
+  recipes: []
 --- !u!1 &8377124645711065821
 GameObject:
   m_ObjectHideFlags: 0
@@ -15173,6 +15177,7 @@ MonoBehaviour:
   soulsText: {fileID: 6804844530650702710}
   dialogBox: {fileID: 9108948567383507396}
   inventory: {fileID: 1062560286086154118}
+  tutorial: {fileID: 0}
   <itemTooltipWindow>k__BackingField: {fileID: 5120433682639653432}
   <itmeTooltipText>k__BackingField: {fileID: 4067975301734725252}
   <statsTooltipWindow>k__BackingField: {fileID: 6089910044471663833}

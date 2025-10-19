@@ -25,7 +25,7 @@ public class RecipeUI : MonoBehaviour
     [SerializeField] private GameObject towerRepicePrefab;
     [SerializeField] private GameObject towerSlotsGrid;
 
-    private List<TowerRecipeSlot> recipes = new List<TowerRecipeSlot>();
+    public List<TowerRecipeSlot> recipes = new List<TowerRecipeSlot>();
 
     private void Awake()
     {
