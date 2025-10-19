@@ -9,6 +9,8 @@ using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
 {
+
+
     private PlayerUI playerUI;
 
     [HideInInspector] public Inventory inventory;
@@ -48,6 +50,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public void HideText()
     {
         amountText.gameObject.SetActive(false);
+
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -98,6 +101,11 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 inventory.SetUpgradeTowerButton();
                 inventory.SetTowerInfo();
             }
+
+            Debug.Log("ItemDropped");
+            Debug.Log(playerUI.tutorial);
+            IngameController.Instance.playerUI.tutorial.TryAdvanceHint(3);
+
         }
 
         inventory.currentBodySlots = null;

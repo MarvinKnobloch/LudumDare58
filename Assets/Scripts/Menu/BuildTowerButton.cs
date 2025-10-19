@@ -25,6 +25,8 @@ public class BuildTowerButton : MonoBehaviour
     private void Awake()
     {
         controls = new Controls();
+
+        
     }
     private void OnEnable()
     {
@@ -58,7 +60,7 @@ public class BuildTowerButton : MonoBehaviour
             Debug.Log("towerPreview: " + towerPreview);
             Debug.Log("towerUIPreview: " + towerUIPreview);
             Debug.Log("Player.Instance: " + Player.Instance);
-            Debug.Log("IngameController.Instance: " + IngameController.Instance);
+            Debug.Log("IngameController.Instance: " + IngameController.Instance); 
 
             towerPreviewActive = true;
             buttonImage.sprite = buttonPressedSprite;

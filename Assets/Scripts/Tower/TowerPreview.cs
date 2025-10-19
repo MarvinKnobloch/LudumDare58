@@ -23,6 +23,10 @@ public class TowerPreview : MonoBehaviour
 
     private Controls controls;
 
+    //desi
+    
+
+
 
 
 
@@ -59,18 +63,22 @@ public class TowerPreview : MonoBehaviour
             BuildCheck();
             if (canBuild == true && Player.Instance.CheckForTowerCosts() == true)
             {
-                Instantiate(towerToBuild,transform.root.position, Quaternion.identity);
+                Instantiate(towerToBuild, transform.root.position, Quaternion.identity);
                 Player.Instance.BuyTower();
 
                 if (GameManager.Instance.showTutorial == true)
                 {
-
+                    //desi
                     IngameController.Instance.playerUI.tutorial.towerPos = Input.mousePosition;
+                  
+
+
+
 
                 }
 
                 //after BuildingTower
-                if (Player.Instance.CheckForTowerCosts() == false) 
+                if (Player.Instance.CheckForTowerCosts() == false)
                 {
                     CancelBuildMode();
                 }
@@ -94,7 +102,7 @@ public class TowerPreview : MonoBehaviour
         else
         {
             Collider2D[] area = Physics2D.OverlapCircleAll(transform.position + offset, circleCollider.radius * transform.localScale.x, buildArea);
-            if(area.Length > 0)
+            if (area.Length > 0)
             {
                 canBuild = true;
                 spriteRenderer.color = canBuildColor;
@@ -120,4 +128,12 @@ public class TowerPreview : MonoBehaviour
         rangeIndicator.gameObject.SetActive(true);
         rangeIndicator.DrawCircle(defaultTower.rangeScalingPercantage * (defaultTower.startBonusRange * 0.01f));
     }
+
+
+
+
+
+
+
+
 }
