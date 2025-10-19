@@ -1,8 +1,10 @@
 using System.Collections;
 using TMPro;
 using Tower;
+using UnityEditor.PackageManager.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
@@ -100,8 +102,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 inventory.SetTowerInfo();
             }
 
-            Debug.Log("ItemDropped");
-            Debug.Log(playerUI.tutorial);
+            //desi
             IngameController.Instance.playerUI.tutorial.TryAdvanceHint(3);
 
         }

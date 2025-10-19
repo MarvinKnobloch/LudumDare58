@@ -38,13 +38,12 @@ public class SelectObject : MonoBehaviour
 
                         IngameController.Instance.playerUI.inventory.AddResource(worldItem.itemInformationen, worldItem.dropAmount);
                         if (worldItem.testItem == false) worldItem.ReturnToItemPool();
-
-
                         //desi
                         if (tutorial != null)
                         {
                             tutorial.TryAdvanceHint(1);
                         }
+
 
                     }
                     else if (cols[i].TryGetComponent(out TowerBase towerBase))

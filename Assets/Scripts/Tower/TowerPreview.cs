@@ -70,8 +70,6 @@ public class TowerPreview : MonoBehaviour
                 {
                     //desi
                     IngameController.Instance.playerUI.tutorial.towerPos = Input.mousePosition;
-                  
-
 
 
 
