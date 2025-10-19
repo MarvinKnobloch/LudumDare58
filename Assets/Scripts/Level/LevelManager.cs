@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Marvin.PoolingSystem;
 using TMPro;
 using Unity.VisualScripting;
@@ -9,6 +10,7 @@ public class LevelManager : MonoBehaviour, IPoolingList
 {
     public static LevelManager Instance;
     public Transform[] enemyWayPoints;
+    public List<Transform> LootGooberWayPoints;
 
     [Space]
     [SerializeField] public LevelObj[] levels;
@@ -61,11 +63,12 @@ public class LevelManager : MonoBehaviour, IPoolingList
     {
         return enemyWayPoints[number].position;
     }
+    public Vector3 GetGooberWayPoint(int number)
+    {
+        return LootGooberWayPoints[number].position;
+    }
     public void StartNextLevel()
     {
-        
-
-
         sortObjects.enabled = true;
         if (startLevelButton != null) startLevelButton.SetActive(false);
 
@@ -93,7 +96,9 @@ public class LevelManager : MonoBehaviour, IPoolingList
             var gooberChance = UnityEngine.Random.Range(0f, 100f);
             if (gooberChance > 0.0 && gooberChance < lootGoblinSpawnChance)
             {
-                PoolingSystem.SpawnObject(LootGooberPrefab, enemyWayPoints[0].position, Quaternion.identity, PoolingSystem.PoolingParentGameObject.Enemy);
+                var goober = PoolingSystem.SpawnObject(LootGooberPrefab, enemyWayPoints[0].position, Quaternion.identity, PoolingSystem.PoolingParentGameObject.Enemy);
+                var lootGooberComponent = goober.GetComponent<LootGoober>();
+                lootGooberComponent.LootGooberWayPoints = LootGooberWayPoints;
             }
 
             if (amount >= enemyObj.amount) activeSpawners--;
