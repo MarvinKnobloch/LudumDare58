@@ -42,7 +42,7 @@ public class SelectObject : MonoBehaviour
                         //desi
                         if (GameManager.Instance.showTutorial == true)
                         {
-                            tutorial.TryAdvanceHint(1);
+                            tutorial.TryAdvanceHint(2);
                         }
 
 
@@ -52,7 +52,7 @@ public class SelectObject : MonoBehaviour
                         //desi
                         if (GameManager.Instance.showTutorial == true)
                         {
-                            tutorial.TryAdvanceHint(2);
+                            tutorial.TryAdvanceHint(3);
                         }
                        
 

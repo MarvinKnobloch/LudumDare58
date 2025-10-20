@@ -104,72 +104,62 @@ public class Tutorial : MonoBehaviour
         //First Arrow 
         if (currentHint == 0)
         {
-            arrowRect.anchoredPosition = new Vector2(-612f, -240f);
+            Debug.Log("Hint 0");
+            arrowCue.SetActive(false);
         }
 
-        // Von FirstArrow durch ButtonRelease zum Item
-        else if (currentHint == 1)
+
+        if (currentHint == 1)
         {
+            Debug.Log("Hint 1");
+
+            arrowCue.SetActive(true);
+            arrowRect.anchoredPosition = new Vector2(-649.3f, -287.9f);
+        }
+
+        else if (currentHint == 2)
+        {
+            Debug.Log("Hint 2");
 
             arrowRect.anchoredPosition = new Vector2(101.1f, 61.4f);
             arrowRect.localRotation = Quaternion.Euler(0f, 0f, 15.6f);
         }
 
-        //Von Item durch SelectObjectItem zum currentTower
-        else if (currentHint == 2)
+        else if (currentHint == 3)
         {
+
+            Debug.Log("Hint 3");
             arrowRect.transform.position = towerPos + new Vector2(170f, 100f);
 
 
         }
 
-        //Von currentTower durch SelectObjectTower zum Inventar   ------ hier könnte Arrow anim machen 
-        else if (currentHint == 3)
+        else if (currentHint == 4)
         {
 
             arrowRect.anchoredPosition = new Vector2(-658.5f, 441.5f);
             arrowRect.localRotation = Quaternion.Euler(0f, 0f, -6.8f);
-            
+
         }
 
-        //Von Inventar durch ItemWurdeInsCraftedGelegt zum Modifying 
-        else if (currentHint == 4)
+        else if (currentHint == 5)
         {
 
             arrowRect.anchoredPosition = new Vector2(-189.8f, 10f);
 
         }
 
-        //Von Modifying durch GotIt! zur EnergyBar
-        else if (currentHint == 5)
+        else if (currentHint == 6)
         {
 
             arrowRect.anchoredPosition = new Vector2(-308.2f, 90f);
         }
 
-        //Von Energybar durch GotIt! zur Health und Souls Bar
 
-        else if (currentHint == 6)
+        else if (currentHint ==7)
         {
 
-            arrowCue.SetActive(false);
-
-
-            arrowCueSoul.SetActive(true);
-            RectTransform arrowSoulRect = arrowCueSoul.GetComponent<RectTransform>();
-            arrowSoulRect.anchoredPosition = new Vector2(-663.5f, 112.8f); 
-
-            arrowCueHealth.SetActive(true);
-            RectTransform arrowHealthRect = arrowCueHealth.GetComponent<RectTransform>();
-            arrowHealthRect.anchoredPosition = new Vector2(-189.2f, -181f);
-
-        }
-
-        //Von Health und Souls durch GotIt! zum Recipe
-        else if (currentHint == 7)
-        {
-            arrowCueSoul.SetActive(false);
-            arrowCueHealth.SetActive(false);
+            arrowCue.SetActive(true);
 
             arrowRect.anchoredPosition = new Vector2(711, 464.2f);
             arrowRect.localScale = new Vector3(-1, 1, 1);
@@ -177,13 +167,35 @@ public class Tutorial : MonoBehaviour
 
         }
 
-
+        //Von Health und Souls durch GotIt! zum Recipe
         else if (currentHint == 8)
         {
+       
 
             arrowCue.SetActive(false);
 
+
+            arrowCueSoul.SetActive(true);
+            RectTransform arrowSoulRect = arrowCueSoul.GetComponent<RectTransform>();
+            arrowSoulRect.anchoredPosition = new Vector2(-670f, 185.6f);
+
+            arrowCueHealth.SetActive(true);
+            RectTransform arrowHealthRect = arrowCueHealth.GetComponent<RectTransform>();
+            arrowHealthRect.anchoredPosition = new Vector2(-189.2f, -181f);
+
         }
+
+
+        else if (currentHint == 9)
+        {
+
+            arrowCueSoul.SetActive(false);
+            arrowCueHealth.SetActive(false);
+            arrowCue.SetActive(false);
+
+        }
+
+         
 
 
     }
