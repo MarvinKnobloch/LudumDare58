@@ -33,6 +33,9 @@ public class Inventory : MonoBehaviour
 
     [Space]
     [SerializeField] private TowerInfo towerInfo;
+    [HideInInspector] public bool canRecycle;
+
+
 
     [Header("Recipes")]
     [SerializeField] private RecipeUI recipeUI;
