@@ -80,8 +80,10 @@ public class BuildTowerButton : MonoBehaviour
         buttonImage.sprite = buttonReleasedSprite;
         towerPreviewActive = false;
 
+
+
         //desi
-        if (tutorial != null)
+        if (GameManager.Instance.showTutorial == true)
         {
             tutorial.TryAdvanceHint(0); 
         }

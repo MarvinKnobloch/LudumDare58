@@ -70,6 +70,9 @@ public class Tutorial : MonoBehaviour
 
     public void SkipTutorial()
     {
+        GameManager.Instance.showTutorial = false;
+
+
         skipTutorialButton.SetActive(false);
         tutorialHints[currentHint].SetActive(false);
         startRoundButton.SetActive(true);
@@ -133,9 +136,7 @@ public class Tutorial : MonoBehaviour
         else if (currentHint == 4)
         {
 
-
-            arrowRect.anchoredPosition = new Vector2(-308.2f, 90f);
-
+            arrowRect.anchoredPosition = new Vector2(-189.8f, 10f);
 
         }
 
@@ -143,7 +144,7 @@ public class Tutorial : MonoBehaviour
         else if (currentHint == 5)
         {
 
-            arrowRect.anchoredPosition = new Vector2(-189.8f, 10f);
+            arrowRect.anchoredPosition = new Vector2(-308.2f, 90f);
         }
 
         //Von Energybar durch GotIt! zur Health und Souls Bar
