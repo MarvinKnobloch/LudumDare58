@@ -15,7 +15,6 @@ public class Enemy : MonoBehaviour, IPoolingList
     private bool faceRight;
     private SpriteRenderer spriteRenderer;
 
-
     [SerializeField] private float baseMovementSpeed = 4;
     private float currentMovementSpeed;
     [SerializeField] private int baseHealth;
@@ -48,6 +47,9 @@ public class Enemy : MonoBehaviour, IPoolingList
     private Coroutine blinkEffect;
     private int currentHitEffectAmount;
     [SerializeField] private float hitEffectDuration = 0.1f;
+
+    [Header("HealthbarUI")]
+    [SerializeField] private Image healthBar;
 
     //animator
     private Animator animator;
@@ -154,11 +156,14 @@ public class Enemy : MonoBehaviour, IPoolingList
     public void TakeDamage(int amount, bool lifeSteal)
     {
         if (amount == 0) return;
+        if (Value <= 0) return;
 
         Value -= amount;
 
         IngameController.Instance.floatingNumberController.displaynumber(transform.position, amount, Color.red);
 
+        UpdateHealthbar();
+        
         if (currentHealth > 0) 
         { 
             BlinkEffect();
@@ -241,6 +246,12 @@ public class Enemy : MonoBehaviour, IPoolingList
         currentMovementSpeed = baseMovementSpeed;
 
         slowCoroutine = null;
+    }
+    public void UpdateHealthbar()
+    {
+        if (healthBar == null) return;
+
+        healthBar.fillAmount = (float)Value / MaxValue;
     }
     private void Despawn()
     {

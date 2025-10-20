@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using Tower;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour
 {
@@ -27,12 +26,18 @@ public class Inventory : MonoBehaviour
 
     [HideInInspector] public BodySlots currentBodySlots;
     [HideInInspector] public TowerBase currentSelectedTower;
+    public BodyObject currentWeaponSlot;
 
     [Space]
     [SerializeField] private UpgradeTowerButton upgradeTowerButton;
 
     [Space]
     [SerializeField] private TowerInfo towerInfo;
+
+    [Header("Recipes")]
+    [SerializeField] private RecipeUI recipeUI;
+    private TowerRecipeSlot towerRecipeSlot;
+    private TowerRecipe currentRecipe;
 
     private void Awake()
     {
@@ -67,8 +72,12 @@ public class Inventory : MonoBehaviour
         else
         {
             resources[bodyObject].slotAmount += amount;
-
             slots[resources[bodyObject].slotPosition].SetValues(amount, bodyObject.Sprite);
+
+            if (resources[bodyObject].slotAmount <= 0)
+            {
+                resources.Remove(bodyObject);
+            }
         }
     }
     private int GetEmptySlot()
@@ -103,6 +112,7 @@ public class Inventory : MonoBehaviour
             SetSlots(bodySlot, currentSelectedTower.currentBody);
 
             SetSlots(weaponSlot, currentSelectedTower.currentWeapon);
+            currentWeaponSlot = currentSelectedTower.currentWeapon;
             weaponSlot.gameObject.SetActive(true);
         }
         else
@@ -117,6 +127,7 @@ public class Inventory : MonoBehaviour
             else SetLockedState(bodySlot);
 
             SetLockedState(weaponSlot);
+            currentWeaponSlot = null;
             weaponSlot.gameObject.SetActive(false);
         }
 
@@ -229,6 +240,62 @@ public class Inventory : MonoBehaviour
     public void SetTowerInfo()
     {
         towerInfo.TowerInfoUpdate();
+    }
+
+    public void CheckForRecipeUIUpdate(BodyPart bodyPart)
+    {
+        currentRecipe = null;
+        //Loop through all recipes that needed to be updated
+        for (int i = 0; i < currentWeaponSlot.mainPartOfRecipe.Length; i++)
+        {
+            towerRecipeSlot = null;
+            currentRecipe = currentWeaponSlot.mainPartOfRecipe[i];
+
+            //Get the repice slot form the UI
+            for (int t = 0; t < recipeUI.recipes.Count; t++)
+            {
+                if(recipeUI.recipes[t].towerRecipe == currentRecipe)
+                {
+                    towerRecipeSlot = recipeUI.recipes[t];
+                    break;
+                }
+            }
+            if (towerRecipeSlot == null) break;
+
+            //Only check for the body part that is update, if the weapon is changed need to check all slots.
+            switch (bodyPart)
+            {
+                case BodyPart.Accessory:
+                    CheckRecipeSlots(i, accessoiresSlot);
+                    break;
+                case BodyPart.Head:
+                    CheckRecipeSlots(i, headSlot);
+                    break;
+                case BodyPart.Arm:
+                    CheckRecipeSlots(i, armsSlot);
+                    break;
+                case BodyPart.Torso:
+                    CheckRecipeSlots(i, bodySlot);
+                    break;
+                case BodyPart.Weapon:
+                    CheckRecipeSlots(i, accessoiresSlot);
+                    CheckRecipeSlots(i, headSlot);
+                    CheckRecipeSlots(i, armsSlot);
+                    CheckRecipeSlots(i, bodySlot);
+                    break;
+            }
+        }
+    }
+    private void CheckRecipeSlots(int number, BodySlots bodySlot)
+    {
+        //After adding the new item to the tower, check if the recipe contains the item
+        if (currentRecipe.Recipe.Contains(bodySlot.bodyObject))
+        {
+            //Get the position of the item and update the Recipe UI
+            int postion = currentRecipe.Recipe.IndexOf(bodySlot.bodyObject);
+            currentRecipe.partUnlocked[postion] = true;
+            towerRecipeSlot.UpdateSlots();
+        }
     }
 
     [Serializable]

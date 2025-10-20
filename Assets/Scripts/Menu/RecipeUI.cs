@@ -1,11 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using DG.Tweening;
 using Tower;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 public class RecipeUI : MonoBehaviour
 {
@@ -25,7 +22,7 @@ public class RecipeUI : MonoBehaviour
     [SerializeField] private GameObject towerRepicePrefab;
     [SerializeField] private GameObject towerSlotsGrid;
 
-    private List<TowerRecipeSlot> recipes = new List<TowerRecipeSlot>();
+    public List<TowerRecipeSlot> recipes = new List<TowerRecipeSlot>();
 
     private void Awake()
     {

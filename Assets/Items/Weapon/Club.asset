@@ -23,12 +23,14 @@ MonoBehaviour:
   <Sprite>k__BackingField: {fileID: -7472107021573867463, guid: 4dad08ea913a2764e8f9cd52554c27ac, type: 3}
   <ProjectilePrefab>k__BackingField: {fileID: 8614331895747358253, guid: 54f395334482dd845bfaf345dda02e16, type: 3}
   <TargetType>k__BackingField: 2
-  <DamageScalingPercentage>k__BackingField: 80
-  <BaseAttackSpeed>k__BackingField: 1.6
-  <RangeScalingPercentage>k__BackingField: 80
+  <DamageScalingPercentage>k__BackingField: 90
+  <BaseAttackSpeed>k__BackingField: 1.9
+  <RangeScalingPercentage>k__BackingField: 50
   <SlowPercentage>k__BackingField: 0
   <SlowDuration>k__BackingField: 0
   <AdditionalProjectiles>k__BackingField: 0
   <ObjectToSpawn>k__BackingField: {fileID: 0}
   <ChanceForDoubleDamage>k__BackingField: 0
   <LifeSteal>k__BackingField: 0
+  <mainPartOfRecipe>k__BackingField:
+  - {fileID: 11400000, guid: 342b55b225d27334fb275d95e95991a8, type: 2}

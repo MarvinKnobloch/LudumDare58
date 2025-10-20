@@ -11,6 +11,11 @@ public class DealDmgOnEnter : MonoBehaviour, IPoolingList
     [HideInInspector] public bool baseScalingSaved;
     [HideInInspector] public Vector3 baseScaling;
 
+    [HideInInspector] public float slowPercentage;
+    [HideInInspector] public float slowDuration;
+    [HideInInspector] public bool canDoDoubleDamage;
+    [HideInInspector] public bool lifeSteal;
+
     public bool ResetRotation = false;
 
     private GifPlayer _gifPlayer;
@@ -33,7 +38,9 @@ public class DealDmgOnEnter : MonoBehaviour, IPoolingList
         {
             if (collision.gameObject.TryGetComponent(out Enemy enemy))
             {
-                enemy.TakeDamage(damage, false);
+                enemy.TakeDamage(damage, lifeSteal);
+
+                if (slowPercentage > 0 && enemy.gameObject.activeSelf == true) enemy.DoSlow(slowPercentage, slowDuration);
             }
         }
     }
