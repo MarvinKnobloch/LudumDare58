@@ -115,7 +115,7 @@ MonoBehaviour:
   targetType: 0
   objectToSpawn: {fileID: 0}
   lifeSteal: 0
-  projectileSpeed: 18
+  projectileSpeed: 23
   hitLayer:
     serializedVersion: 2
     m_Bits: 512
@@ -125,6 +125,7 @@ MonoBehaviour:
   meleeWeaponOffset: 0.5
   meleeWeaponScale: 1
   aoeVisualBullet: {fileID: 0}
+  bulletShadow: {fileID: 0}
   maxHeight: 0
   shrinkEachHit: 0.2
   damageReductionEachHit: 0.1
