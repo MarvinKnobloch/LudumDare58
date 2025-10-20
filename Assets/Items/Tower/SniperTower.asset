@@ -15,8 +15,8 @@ MonoBehaviour:
   damageScalingPercantage: 130
   startBonusAttack: 10
   baseAttackSpeed: 1.8
-  rangeScalingPercantage: 130
-  startBonusRange: 5
+  rangeScalingPercantage: 120
+  startBonusRange: 6
   aoeRadius: -2
   projectilePrefab: {fileID: 7056902295061036921, guid: 4977d07f84a50aa42b0c547871180675, type: 3}
   targetType: 0

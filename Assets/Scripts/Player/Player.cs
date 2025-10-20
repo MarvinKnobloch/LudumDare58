@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] private int soulsStartAmount = 90;
     private int currentSouls;
     [SerializeField] private int defaultTowerCosts = 50;
+    [SerializeField] private int recycleSoulsAmount = 1;
     public TowerRecipe[] towerRecipes;
 
     [Header("Slots")]
@@ -97,4 +98,5 @@ public class Player : MonoBehaviour
     public int GetBodyCosts() => bodySlotCosts;
     public int GetLifeStealChance() => lifeStealChance;
     public int GetDoubleDamageChance() => doubleDamageChance;
+    public int GetRecycleSoulsAmount() => recycleSoulsAmount;
   }

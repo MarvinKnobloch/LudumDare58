@@ -35,8 +35,6 @@ public class Inventory : MonoBehaviour
     [SerializeField] private TowerInfo towerInfo;
     [HideInInspector] public bool canRecycle;
 
-
-
     [Header("Recipes")]
     [SerializeField] private RecipeUI recipeUI;
     private TowerRecipeSlot towerRecipeSlot;
@@ -79,6 +77,8 @@ public class Inventory : MonoBehaviour
 
             if (resources[bodyObject].slotAmount <= 0)
             {
+                slots.Remove(slots[resources[bodyObject].slotPosition]);
+                slots.Add(slots[resources[bodyObject].slotPosition]);
                 resources.Remove(bodyObject);
             }
         }
