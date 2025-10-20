@@ -2237,10 +2237,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 50401b40fd75378429ba64553700b6af, type: 2}
   - {fileID: 11400000, guid: 0f51461a634d53a49aeca85542e73bbe, type: 2}
   - {fileID: 11400000, guid: 342b55b225d27334fb275d95e95991a8, type: 2}
-  accessoiresSlotCosts: 3
-  headSlotCosts: 2
-  armSlotCosts: 1
-  bodySlotCosts: 2
+  accessoiresSlotCosts: 9
+  headSlotCosts: 7
+  armSlotCosts: 7
+  bodySlotCosts: 7
   lifeStealChance: 5
   doubleDamageChance: 25
 --- !u!114 &4758475083404523561
@@ -13592,8 +13592,10 @@ MonoBehaviour:
   rangeIndicator: {fileID: 3355200274213809234}
   currentBodySlots: {fileID: 0}
   currentSelectedTower: {fileID: 0}
+  currentWeaponSlot: {fileID: 0}
   upgradeTowerButton: {fileID: 3398907491648985286}
   towerInfo: {fileID: 617995526483924885}
+  recipeUI: {fileID: 8180621137631856805}
 --- !u!1 &8012358508575057902
 GameObject:
   m_ObjectHideFlags: 0
@@ -14398,6 +14400,7 @@ MonoBehaviour:
   moveTime: 1.5
   towerRepicePrefab: {fileID: 7631289270363011112, guid: eb398321384163847a2ad35f5a704b14, type: 3}
   towerSlotsGrid: {fileID: 5487975734175756989}
+  recipes: []
 --- !u!1 &8377124645711065821
 GameObject:
   m_ObjectHideFlags: 0
