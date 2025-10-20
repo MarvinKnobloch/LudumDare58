@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 9063273166960193225}
   - component: {fileID: -5989598834997940642}
   m_Layer: 9
-  m_Name: DrowBig
+  m_Name: DrowBoss
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

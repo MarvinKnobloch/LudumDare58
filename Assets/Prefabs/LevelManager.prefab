@@ -59,10 +59,33 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  LootGooberWayPoints: []
   levels:
   - {fileID: 11400000, guid: aa014166a5f4ccd4085617cb86cedc10, type: 2}
   - {fileID: 11400000, guid: 6f651012539d3c74f9ec14900f415570, type: 2}
   - {fileID: 11400000, guid: b6e36db01d8af0d45a439be6f9ff7bff, type: 2}
+  - {fileID: 11400000, guid: 687c0a8b9a76fcc45aff178e9bd80a2f, type: 2}
+  - {fileID: 11400000, guid: 530562c50ca5a314cb1ee0e3d89e89f5, type: 2}
+  - {fileID: 11400000, guid: c3af028ca3447c04096749f7d0ca3a7a, type: 2}
+  - {fileID: 11400000, guid: b2e148f763bec304cb8dc40b403f7f9d, type: 2}
+  - {fileID: 11400000, guid: d6bbbf97e8ae3b5408fb1868d26ad771, type: 2}
+  - {fileID: 11400000, guid: 8807520a3ca8b864caf576f13723f3d1, type: 2}
+  - {fileID: 11400000, guid: 7c97fa9ad9e6fbd49b7203c7cd7dbdd8, type: 2}
+  - {fileID: 11400000, guid: 6ccd0ec0c6390c24a914727f0ae2a24c, type: 2}
+  - {fileID: 11400000, guid: 271a1f7f5ba915247b65a23d950ecc53, type: 2}
+  - {fileID: 11400000, guid: 5d10122d190d1c348838b4a8a5a02072, type: 2}
+  - {fileID: 11400000, guid: 63082a2bf948bd442babe793d3580298, type: 2}
+  - {fileID: 11400000, guid: e918faaf6a626cf489ca289b2512cc93, type: 2}
+  - {fileID: 11400000, guid: c434875479cdc574d9036111b808a95e, type: 2}
+  - {fileID: 11400000, guid: 6de3d26dfa6acc644b8050d5e2d02138, type: 2}
+  - {fileID: 11400000, guid: c5faa3be489180e489d823d76dfae60b, type: 2}
+  - {fileID: 11400000, guid: a06d93013dac5094a8734adaa8a50a28, type: 2}
+  - {fileID: 11400000, guid: 5e9d37358841cdb4d995cda7d79ba864, type: 2}
+  - {fileID: 11400000, guid: 1f415fa6351b4f247bcaf506cb2ccb40, type: 2}
+  - {fileID: 11400000, guid: d2381014ba68d0141a990946c789fe2a, type: 2}
+  - {fileID: 11400000, guid: 08addff7c4357d945852d903478d664d, type: 2}
+  - {fileID: 11400000, guid: 27ca2fa5d063193448bcb1166ba5fba9, type: 2}
+  - {fileID: 11400000, guid: b11ccb7851efb3145a711c6d3c8b0f3a, type: 2}
   enemiesAlive: 0
   activeSpawners: 0
   levelToDisplay: 0

@@ -227,7 +227,8 @@ public class Inventory : MonoBehaviour
     {
         if (currentSelectedTower.isRecipeTower)
         {
-            upgradeTowerButton.gameObject.SetActive(false);
+            upgradeTowerButton.gameObject.SetActive(true);
+            upgradeTowerButton.UpdateUpgradeTowerInfo(false, 100);
         }
         else
         {

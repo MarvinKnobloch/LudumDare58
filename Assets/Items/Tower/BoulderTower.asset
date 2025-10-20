@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: BoulderTower
   m_EditorClassIdentifier: Assembly-CSharp::TowerValues
   damageScalingPercantage: 120
-  startBonusAttack: 11
-  baseAttackSpeed: 2.2
+  startBonusAttack: 8
+  baseAttackSpeed: 2.3
   rangeScalingPercantage: 100
   startBonusRange: 6
   aoeRadius: 1

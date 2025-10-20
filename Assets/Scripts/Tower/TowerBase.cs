@@ -97,6 +97,8 @@ namespace Tower
             finalRange = CalculateRange();
 
             animator = GetComponentInChildren<Animator>();
+
+            timer = finalAttackSpeed;
         }
         private void Start()
         {

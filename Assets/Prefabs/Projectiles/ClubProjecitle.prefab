@@ -217,23 +217,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 912c8d252406eef48876b2214d461cd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Projectile
+  currenttarget: {fileID: 0}
   spriteRenderer: {fileID: 7942157806999034462}
   damage: 0
   range: 0
   aoeRadius: 0
-  slow: 0
   slowPercentage: 0
   slowDuration: 0
   targetType: 0
   objectToSpawn: {fileID: 0}
+  lifeSteal: 0
   projectileSpeed: 0.25
   hitLayer:
     serializedVersion: 2
     m_Bits: 512
   disableTimeAfterHit: 0
   sortingLayerOnEnable: 20
-  sortingLayerAfterHit: -99
+  sortingLayerAfterHit: -198
   meleeWeaponOffset: 0.8
   meleeWeaponScale: 0.6
   aoeVisualBullet: {fileID: 0}
+  bulletShadow: {fileID: 0}
   maxHeight: 0
+  shrinkEachHit: 0.2
+  damageReductionEachHit: 0.1

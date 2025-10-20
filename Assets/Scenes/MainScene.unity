@@ -733,7 +733,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 784841727011037784, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -194.5995
+      value: -19.600067
       objectReference: {fileID: 0}
     - target: {fileID: 864389745890475447, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_Name
@@ -1009,74 +1009,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3603229808143785386, guid: bd77d823d29509a448bb8d4eb1352845, type: 3}
-      propertyPath: levels.Array.size
-      value: 16
-      objectReference: {fileID: 0}
-    - target: {fileID: 3603229808143785386, guid: bd77d823d29509a448bb8d4eb1352845, type: 3}
-      propertyPath: 'levels.Array.data[0]'
-      value: 
-      objectReference: {fileID: 11400000, guid: aa014166a5f4ccd4085617cb86cedc10, type: 2}
-    - target: {fileID: 3603229808143785386, guid: bd77d823d29509a448bb8d4eb1352845, type: 3}
-      propertyPath: 'levels.Array.data[1]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 6f651012539d3c74f9ec14900f415570, type: 2}
-    - target: {fileID: 3603229808143785386, guid: bd77d823d29509a448bb8d4eb1352845, type: 3}
-      propertyPath: 'levels.Array.data[2]'
-      value: 
-      objectReference: {fileID: 11400000, guid: b6e36db01d8af0d45a439be6f9ff7bff, type: 2}
-    - target: {fileID: 3603229808143785386, guid: bd77d823d29509a448bb8d4eb1352845, type: 3}
-      propertyPath: 'levels.Array.data[3]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 687c0a8b9a76fcc45aff178e9bd80a2f, type: 2}
-    - target: {fileID: 3603229808143785386, guid: bd77d823d29509a448bb8d4eb1352845, type: 3}
-      propertyPath: 'levels.Array.data[4]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 530562c50ca5a314cb1ee0e3d89e89f5, type: 2}
-    - target: {fileID: 3603229808143785386, guid: bd77d823d29509a448bb8d4eb1352845, type: 3}
-      propertyPath: 'levels.Array.data[5]'
-      value: 
-      objectReference: {fileID: 11400000, guid: c3af028ca3447c04096749f7d0ca3a7a, type: 2}
-    - target: {fileID: 3603229808143785386, guid: bd77d823d29509a448bb8d4eb1352845, type: 3}
-      propertyPath: 'levels.Array.data[6]'
-      value: 
-      objectReference: {fileID: 11400000, guid: b2e148f763bec304cb8dc40b403f7f9d, type: 2}
-    - target: {fileID: 3603229808143785386, guid: bd77d823d29509a448bb8d4eb1352845, type: 3}
-      propertyPath: 'levels.Array.data[7]'
-      value: 
-      objectReference: {fileID: 11400000, guid: d6bbbf97e8ae3b5408fb1868d26ad771, type: 2}
-    - target: {fileID: 3603229808143785386, guid: bd77d823d29509a448bb8d4eb1352845, type: 3}
-      propertyPath: 'levels.Array.data[8]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 8807520a3ca8b864caf576f13723f3d1, type: 2}
-    - target: {fileID: 3603229808143785386, guid: bd77d823d29509a448bb8d4eb1352845, type: 3}
-      propertyPath: 'levels.Array.data[9]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 7c97fa9ad9e6fbd49b7203c7cd7dbdd8, type: 2}
-    - target: {fileID: 3603229808143785386, guid: bd77d823d29509a448bb8d4eb1352845, type: 3}
-      propertyPath: 'levels.Array.data[10]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 6ccd0ec0c6390c24a914727f0ae2a24c, type: 2}
-    - target: {fileID: 3603229808143785386, guid: bd77d823d29509a448bb8d4eb1352845, type: 3}
-      propertyPath: 'levels.Array.data[11]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 271a1f7f5ba915247b65a23d950ecc53, type: 2}
-    - target: {fileID: 3603229808143785386, guid: bd77d823d29509a448bb8d4eb1352845, type: 3}
-      propertyPath: 'levels.Array.data[12]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 5d10122d190d1c348838b4a8a5a02072, type: 2}
-    - target: {fileID: 3603229808143785386, guid: bd77d823d29509a448bb8d4eb1352845, type: 3}
-      propertyPath: 'levels.Array.data[13]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 63082a2bf948bd442babe793d3580298, type: 2}
-    - target: {fileID: 3603229808143785386, guid: bd77d823d29509a448bb8d4eb1352845, type: 3}
-      propertyPath: 'levels.Array.data[14]'
-      value: 
-      objectReference: {fileID: 11400000, guid: e918faaf6a626cf489ca289b2512cc93, type: 2}
-    - target: {fileID: 3603229808143785386, guid: bd77d823d29509a448bb8d4eb1352845, type: 3}
-      propertyPath: 'levels.Array.data[15]'
-      value: 
-      objectReference: {fileID: 11400000, guid: c434875479cdc574d9036111b808a95e, type: 2}
     - target: {fileID: 3603229808143785386, guid: bd77d823d29509a448bb8d4eb1352845, type: 3}
       propertyPath: 'enemyWayPoints.Array.data[0]'
       value: 

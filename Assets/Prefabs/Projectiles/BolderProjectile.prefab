@@ -78,7 +78,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -100
+  m_SortingOrder: -199
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
   m_Color: {r: 0.066037714, g: 0.066037714, b: 0.066037714, a: 0.84313726}
   m_FlipX: 0
@@ -244,7 +244,7 @@ MonoBehaviour:
     m_Bits: 512
   disableTimeAfterHit: 1
   sortingLayerOnEnable: 20
-  sortingLayerAfterHit: -199
+  sortingLayerAfterHit: -198
   meleeWeaponOffset: 0.5
   meleeWeaponScale: 1
   aoeVisualBullet: {fileID: 2550540949759951556}
