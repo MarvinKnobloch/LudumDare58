@@ -48,7 +48,6 @@ public class Projectile : MonoBehaviour, IPoolingList
 
     [Header("ThrowValues")]
     [SerializeField] private GameObject aoeVisualBullet;
-    [SerializeField] private GameObject bulletShadow;
     private float startHeight;
     [SerializeField] private float maxHeight;
     private float bulletLifeTime;
@@ -152,9 +151,6 @@ public class Projectile : MonoBehaviour, IPoolingList
     }
     private void SetThrow()
     {
-        if (aoeVisualBullet != null) aoeVisualBullet.transform.localScale = new Vector3(1 * aoeRadius, 1 * aoeRadius, 1);
-        if (bulletShadow != null) bulletShadow.transform.localScale = new Vector3(0.8f * aoeRadius, 0.8f * aoeRadius, 1);
-
         direction = ((Vector2)enemyPositionOnProjectileLaunch - (Vector2)transform.position).normalized;
 
         float distance = Vector2.Distance(enemyPositionOnProjectileLaunch, transform.position);
@@ -381,9 +377,6 @@ public class Projectile : MonoBehaviour, IPoolingList
             }
 
             dealDmgOnEnter.damage = damage;
-            dealDmgOnEnter.slowPercentage = slowPercentage;
-            dealDmgOnEnter.slowDuration = slowDuration;
-            dealDmgOnEnter.lifeSteal = lifeSteal;
             if (dealDmgOnEnter.baseScalingSaved == false)
             {
                 dealDmgOnEnter.baseScalingSaved = true;

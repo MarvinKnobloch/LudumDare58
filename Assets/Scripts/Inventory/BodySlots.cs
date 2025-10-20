@@ -33,14 +33,11 @@ public class BodySlots : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     public void OnPointerEnter(PointerEventData eventData)
     {
         IngameController.Instance.playerUI.inventory.currentBodySlots = this;
-        IngameController.Instance.playerUI.SetToolTipWindow(bodyObject);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         IngameController.Instance.playerUI.inventory.currentBodySlots = null;
-        IngameController.Instance.playerUI.ToggleTooltipWindow(false, IngameController.Instance.playerUI.itemTooltipWindow);
-
     }
     public void SlotUpdate(BodyObject obj)
     {

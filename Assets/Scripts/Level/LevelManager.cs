@@ -91,7 +91,6 @@ public class LevelManager : MonoBehaviour, IPoolingList
             enemiesAlive++;
             Enemy enemy = PoolingSystem.SpawnObject(enemyObj.enemy, enemyWayPoints[0].position, Quaternion.identity, PoolingSystem.PoolingParentGameObject.Enemy).GetComponent<Enemy>();
             enemy.SetMaxHealth(enemyObj.healthScaling);
-            enemy.UpdateHealthbar();
             amount++;
 
             var gooberChance = UnityEngine.Random.Range(0f, 100f);
