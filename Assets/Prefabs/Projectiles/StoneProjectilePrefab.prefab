@@ -119,7 +119,7 @@ MonoBehaviour:
     m_Bits: 512
   disableTimeAfterHit: 0.7
   sortingLayerOnEnable: 20
-  sortingLayerAfterHit: -199
+  sortingLayerAfterHit: -198
   meleeWeaponOffset: 0.5
   meleeWeaponScale: 1
   aoeVisualBullet: {fileID: 0}

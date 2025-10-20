@@ -41,7 +41,7 @@ public class Projectile : MonoBehaviour, IPoolingList
     //Swing
     [Header("Melee")]
     [SerializeField] private float meleeWeaponOffset = 0.5f;
-    [SerializeField] private float meleeWeaponScale = 1;
+    [SerializeField] private float meleeWeaponScale = 1f;
     private float startRotation;
     private float endRotation;
     private float lerpPercentage;

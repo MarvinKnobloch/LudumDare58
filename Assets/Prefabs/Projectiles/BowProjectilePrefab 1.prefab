@@ -121,10 +121,11 @@ MonoBehaviour:
     m_Bits: 512
   disableTimeAfterHit: 0.05
   sortingLayerOnEnable: 20
-  sortingLayerAfterHit: -99
+  sortingLayerAfterHit: -198
   meleeWeaponOffset: 0.5
   meleeWeaponScale: 1
   aoeVisualBullet: {fileID: 0}
+  bulletShadow: {fileID: 0}
   maxHeight: 0
   shrinkEachHit: 0.2
   damageReductionEachHit: 0.1

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 9063273166960193225}
   - component: {fileID: -5989598834997940642}
   m_Layer: 9
-  m_Name: OgerBig
+  m_Name: OgerFast
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.91377, y: 0.64633, z: 0}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4084337682187251020}
@@ -107,14 +107,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2327c55b77bada947ab9af9e2fcd0048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  baseMovementSpeed: 2.7
+  baseMovementSpeed: 8
   baseHealth: 4
   armorType: 0
   currentHealth: 0
   maxHealth: 0
   slowColor: {r: 0, g: 0.5299373, b: 0.9339623, a: 1}
   damageToPlayer: 1
-  soulsDropAmount: 4
+  soulsDropAmount: 1
   bulletTarget: {fileID: 4084337682187251020}
   hitEffectAmount: 3
   hitEffectDuration: 0.08
@@ -169,25 +169,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemDropper
   dropValues:
   - item: {fileID: 8528078405184565660, guid: 5b7d417b6f315f049a8901a3ac88dca1, type: 3}
-    dropChance: 0.1
+    dropChance: 0.05
     amount: 1
   - item: {fileID: 5892243160951536167, guid: 962446aa7e1ffa449855c24745b7cd12, type: 3}
-    dropChance: 0.1
+    dropChance: 0.05
     amount: 1
   - item: {fileID: 3848033517144133934, guid: 0d6fdc8a3876e3e489652f5557e2af40, type: 3}
-    dropChance: 0.1
+    dropChance: 0.05
     amount: 1
   - item: {fileID: 7860965236372227262, guid: 212241474f07fe84289793f23d3bccdd, type: 3}
-    dropChance: 0.08
+    dropChance: 0.04
     amount: 1
   - item: {fileID: 7885124235534674744, guid: 53745134fbddf0447bdddf6690f2c8b1, type: 3}
-    dropChance: 0.08
+    dropChance: 0.04
     amount: 1
   - item: {fileID: 3339317642567587124, guid: c0bab4f89a900b04da5b4b14b3022628, type: 3}
-    dropChance: 0.06
+    dropChance: 0.03
     amount: 1
   - item: {fileID: 3339317642567587124, guid: 37e6f9675fd1db042801bd94739d45a9, type: 3}
-    dropChance: 0.06
+    dropChance: 0.03
     amount: 1
   scatterRadius: 2
   useAnimation: 1
@@ -227,7 +227,7 @@ Animator:
   m_GameObject: {fileID: 6034090055483278207}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a3d361f06044f0844b177fd7e7e2b4aa, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8f89acdb0c8c1e046b570a1f00290ba1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
