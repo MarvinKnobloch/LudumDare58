@@ -85,7 +85,7 @@ public class BuildTowerButton : MonoBehaviour
         //desi
         if (GameManager.Instance.showTutorial == true)
         {
-            tutorial.TryAdvanceHint(0); 
+            tutorial.TryAdvanceHint(1);
         }
 
 

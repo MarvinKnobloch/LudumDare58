@@ -116,7 +116,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             }
 
             //desi
-            IngameController.Instance.playerUI.tutorial.TryAdvanceHint(3);
+            IngameController.Instance.playerUI.tutorial.TryAdvanceHint(4);
 
         }
 
