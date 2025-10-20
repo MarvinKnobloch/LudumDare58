@@ -77,9 +77,19 @@ public class Inventory : MonoBehaviour
 
             if (resources[bodyObject].slotAmount <= 0)
             {
+                int position = resources[bodyObject].slotPosition;
+
                 slots.Remove(slots[resources[bodyObject].slotPosition]);
                 slots.Add(slots[resources[bodyObject].slotPosition]);
                 resources.Remove(bodyObject);
+
+                foreach (InventoryInfo item in resources.Values)
+                {
+                    if(item.slotPosition > position)
+                    {
+                        item.slotPosition -= 1;
+                    }
+                }
             }
         }
     }
