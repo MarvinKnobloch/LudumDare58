@@ -418,7 +418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3848033517144133934, guid: 0d6fdc8a3876e3e489652f5557e2af40, type: 3}
       propertyPath: m_Name
-      value: Goblin Head_WorldItem
+      value: Orc Head_WorldItem
       objectReference: {fileID: 0}
     - target: {fileID: 6835082333475869730, guid: 0d6fdc8a3876e3e489652f5557e2af40, type: 3}
       propertyPath: testItem
@@ -1098,7 +1098,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8528078405184565660, guid: c62398e7d1e6f3e43bb4496f49ad0887, type: 3}
       propertyPath: m_Name
-      value: Skelett Arm_WorldItem
+      value: Skeleton Arm_WorldItem
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1573,7 +1573,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8528078405184565660, guid: 5b7d417b6f315f049a8901a3ac88dca1, type: 3}
       propertyPath: m_Name
-      value: Oger Arm_WorldItem
+      value: Orc Arm_WorldItem
       objectReference: {fileID: 0}
     - target: {fileID: 8528078405184565660, guid: 5b7d417b6f315f049a8901a3ac88dca1, type: 3}
       propertyPath: m_IsActive
@@ -2141,7 +2141,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9057325997660116790, guid: fc7c02c31d38fe441902eb2d1d199932, type: 3}
       propertyPath: m_Name
-      value: Elfen Head_WorldItem
+      value: Elf Head_WorldItem
       objectReference: {fileID: 0}
     - target: {fileID: 9057325997660116790, guid: fc7c02c31d38fe441902eb2d1d199932, type: 3}
       propertyPath: m_IsActive
@@ -2461,7 +2461,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 784841727011037784, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -194.63281
+      value: -19.59996
       objectReference: {fileID: 0}
     - target: {fileID: 864389745890475447, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_Name
@@ -3081,7 +3081,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5287573034633626664, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5375507884678927060, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -3781,6 +3781,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 707888618337428814, guid: 02c8c031bb7299d4baa7aeedd5101b37, type: 3}
+      propertyPath: m_Name
+      value: Elf Arm_WorldItem
+      objectReference: {fileID: 0}
     - target: {fileID: 5613255825219640585, guid: 02c8c031bb7299d4baa7aeedd5101b37, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

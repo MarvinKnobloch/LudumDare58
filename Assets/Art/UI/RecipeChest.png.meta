@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 37c2c1605fc3a2941b6af3f3bbf4bce2
+guid: bd11e75ff16077f4f8cff5463c9e5da3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1631887897713636878
-    second: OpenedInactiveUpgrade_0
+      213: -8539473482339341575
+    second: RecipeChest_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: OpenedInactiveUpgrade_0
+      name: RecipeChest_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 5
-        width: 67
-        height: 74
+        x: 0
+        y: 0
+        width: 102
+        height: 102
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e06fa789561a5a610800000000000000
-      internalID: 1631887897713636878
+      spriteID: 9faab44ac12bd7980800000000000000
+      internalID: -8539473482339341575
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      OpenedInactiveUpgrade_0: 1631887897713636878
+      RecipeChest_0: -8539473482339341575
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

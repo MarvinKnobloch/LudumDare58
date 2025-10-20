@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 37c2c1605fc3a2941b6af3f3bbf4bce2
+guid: 57a419fdc46f3264ab6d38b82cee5c26
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1631887897713636878
-    second: OpenedInactiveUpgrade_0
+      213: -5353979706895453673
+    second: SlotLock_0
+  - first:
+      213: -474668968627320956
+    second: SlotLock_1
+  - first:
+      213: -4867471162248460081
+    second: SlotLock_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +119,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: OpenedInactiveUpgrade_0
+      name: SlotLock_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 5
-        width: 67
-        height: 74
+        x: 0
+        y: 0
+        width: 131
+        height: 145
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +134,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e06fa789561a5a610800000000000000
-      internalID: 1631887897713636878
+      spriteID: 712b8dbb2d7d2b5b0800000000000000
+      internalID: -5353979706895453673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlotLock_1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 61
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48741138613a969f0800000000000000
+      internalID: -474668968627320956
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SlotLock_2
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 69
+        width: 9
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc809b354c4437cb0800000000000000
+      internalID: -4867471162248460081
       vertices: []
       indices: 
       edges: []
@@ -148,7 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      OpenedInactiveUpgrade_0: 1631887897713636878
+      SlotLock_0: -5353979706895453673
+      SlotLock_1: -474668968627320956
+      SlotLock_2: -4867471162248460081
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

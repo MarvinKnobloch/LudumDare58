@@ -14,12 +14,8 @@ public class BodySlots : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     [Space]
     public BodyObject bodyObject;
 
-    private Image bodyImage;
+    [SerializeField] Image bodyImage;
 
-    private void Awake()
-    {
-        bodyImage = GetComponent<Image>();
-    }
     private void Start()
     {
         Color color = Color.white;

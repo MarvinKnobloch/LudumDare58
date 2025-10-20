@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 37c2c1605fc3a2941b6af3f3bbf4bce2
+guid: be27f20a11bff424887c502c54f1ceae
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1631887897713636878
-    second: OpenedInactiveUpgrade_0
+      213: 1019864570315821996
+    second: Recipesword_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: OpenedInactiveUpgrade_0
+      name: Recipesword_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 5
-        width: 67
-        height: 74
+        x: 0
+        y: 0
+        width: 102
+        height: 102
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e06fa789561a5a610800000000000000
-      internalID: 1631887897713636878
+      spriteID: ca35ea85c69472e00800000000000000
+      internalID: 1019864570315821996
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      OpenedInactiveUpgrade_0: 1631887897713636878
+      Recipesword_0: 1019864570315821996
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
