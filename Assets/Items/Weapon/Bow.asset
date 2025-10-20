@@ -16,7 +16,7 @@ MonoBehaviour:
   <Description>k__BackingField: 
   <Part>k__BackingField: 4
   <Type>k__BackingField: 2
-  <BonusDamage>k__BackingField: 1
+  <BonusDamage>k__BackingField: -1
   <BonusAttackSpeed>k__BackingField: 0
   <BonusRange>k__BackingField: 1
   <BonusAoeRadius>k__BackingField: 0
@@ -25,10 +25,12 @@ MonoBehaviour:
   <TargetType>k__BackingField: 0
   <DamageScalingPercentage>k__BackingField: 65
   <BaseAttackSpeed>k__BackingField: 1.5
-  <RangeScalingPercentage>k__BackingField: 100
+  <RangeScalingPercentage>k__BackingField: 90
   <SlowPercentage>k__BackingField: 0
   <SlowDuration>k__BackingField: 0
   <AdditionalProjectiles>k__BackingField: 1
   <ObjectToSpawn>k__BackingField: {fileID: 0}
   <ChanceForDoubleDamage>k__BackingField: 0
   <LifeSteal>k__BackingField: 0
+  <mainPartOfRecipe>k__BackingField:
+  - {fileID: 11400000, guid: 07e7243efcc9baf43976cbc32602df99, type: 2}

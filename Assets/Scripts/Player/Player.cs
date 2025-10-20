@@ -28,6 +28,8 @@ public class Player : MonoBehaviour
     {
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
+
+        ResetRecipesUnlockState();
     }
     private void Start()
     {
@@ -66,6 +68,25 @@ public class Player : MonoBehaviour
     public void BuyTower()
     {
         UpdateSouls(-defaultTowerCosts);
+    }
+    private void ResetRecipesUnlockState()
+    {
+#if UNITY_EDITOR
+        for (int i = 0; i < towerRecipes.Length; i++)
+        {
+            towerRecipes[i].partUnlocked.Clear();
+            for (int t = 0; t < towerRecipes[i].defaultUnlockState.Count; t++)
+            {
+                towerRecipes[i].partUnlocked.Add(false);
+                if (towerRecipes[i].defaultUnlockState[t] == true)
+                {
+                    towerRecipes[i].partUnlocked[t] = true;
+                }
+                else towerRecipes[i].partUnlocked[t] = false;
+            }
+
+        }
+#endif
     }
     public int GetCurrentSouls() => currentSouls;
     public int GetTowerCosts() => defaultTowerCosts;

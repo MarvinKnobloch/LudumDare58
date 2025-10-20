@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +10,8 @@ namespace Tower
         public string towerName;
         public Sprite towerIcon;
         public List<BodyObject> Recipe = new();
+        [HideInInspector] public List<bool> partUnlocked = new();
+        public List<bool> defaultUnlockState = new();
         public GameObject recipeTowerPrefab;
-        public int shownPartsIfNotUnlocked;
     }
 }

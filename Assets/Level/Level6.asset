@@ -17,5 +17,5 @@ MonoBehaviour:
     amount: 10
     spawnRate: 1.2
     waveStartDelay: 0
-    healthScaling: 3
+    healthScaling: 4.2
   description: 
