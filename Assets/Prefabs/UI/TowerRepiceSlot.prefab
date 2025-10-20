@@ -550,7 +550,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6182565095181046619
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1146,6 +1146,19 @@ MonoBehaviour:
   - {fileID: 4766106132555983825}
   - {fileID: 1870100085547572809}
   - {fileID: 4331871227786208493}
+  slotChilds:
+  - {fileID: 3764536671490948095}
+  - {fileID: 2755319431492788428}
+  - {fileID: 826665820126303378}
+  - {fileID: 1690765546081347518}
+  - {fileID: 2485785225811481065}
+  slotImages:
+  - {fileID: 21300000, guid: f93c2b5e6385b3142b0648df2b4a8234, type: 3}
+  - {fileID: 21300000, guid: 12dad0171d8aac440b6163ee702c374d, type: 3}
+  - {fileID: 21300000, guid: e7aaffca56d4d544d84ccf80807a90d3, type: 3}
+  - {fileID: 21300000, guid: bd11e75ff16077f4f8cff5463c9e5da3, type: 3}
+  - {fileID: 21300000, guid: be27f20a11bff424887c502c54f1ceae, type: 3}
+  towerRecipe: {fileID: 0}
 --- !u!1 &7731068902509600700
 GameObject:
   m_ObjectHideFlags: 0

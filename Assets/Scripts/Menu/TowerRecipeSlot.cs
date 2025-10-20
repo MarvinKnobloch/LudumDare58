@@ -8,6 +8,9 @@ public class TowerRecipeSlot : MonoBehaviour
     [SerializeField] private TextMeshProUGUI towerName;
     [SerializeField] private Image towerIcon;
     [SerializeField] private GameObject[] slots;
+    [SerializeField] private Image[] slotChilds;
+    [SerializeField] private Sprite[] slotImages;
+
     public TowerRecipe towerRecipe;
 
     public void SetSlot(TowerRecipe _towerRecipe)
@@ -39,7 +42,25 @@ public class TowerRecipeSlot : MonoBehaviour
                 else
                 {
                     slots[i].SetActive(true);
-                    slots[i].transform.GetChild(1).gameObject.SetActive(true);
+                    slotChilds[i].gameObject.SetActive(true);
+                    switch (towerRecipe.Recipe[i].Part)
+                    {
+                        case BodyPart.Accessory:
+                            slotChilds[i].sprite = slotImages[0];
+                            break;
+                        case BodyPart.Head:
+                            slotChilds[i].sprite = slotImages[1];
+                            break;
+                        case BodyPart.Arm:
+                            slotChilds[i].sprite = slotImages[2];
+                            break;
+                        case BodyPart.Torso:
+                            slotChilds[i].sprite = slotImages[3];
+                            break;
+                        case BodyPart.Weapon:
+                            slotChilds[i].sprite = slotImages[4];
+                            break;
+                    }
                 }
             }
         }
