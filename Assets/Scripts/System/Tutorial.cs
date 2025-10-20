@@ -179,7 +179,9 @@ public class Tutorial : MonoBehaviour
 
         else if (currentHint == 8)
         {
-            arrowRect.anchoredPosition = new Vector2(573.84f, 500.7f);
+
+            arrowCue.SetActive(false);
+
         }
 
 
