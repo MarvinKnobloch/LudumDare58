@@ -20,7 +20,7 @@ MonoBehaviour:
   <BonusAttackSpeed>k__BackingField: 10
   <BonusRange>k__BackingField: 0.5
   <BonusAoeRadius>k__BackingField: 0
-  <Sprite>k__BackingField: {fileID: -2447753097424933429, guid: cc0030d866cc26f4ca42a39669bca0fd, type: 3}
+  <Sprite>k__BackingField: {fileID: -2137457993569028341, guid: 7304e3c0a93ed174bb74c7bcec077504, type: 3}
   <ProjectilePrefab>k__BackingField: {fileID: 0}
   <TargetType>k__BackingField: 0
   <DamageScalingPercentage>k__BackingField: 0
@@ -32,3 +32,4 @@ MonoBehaviour:
   <ObjectToSpawn>k__BackingField: {fileID: 0}
   <ChanceForDoubleDamage>k__BackingField: 0
   <LifeSteal>k__BackingField: 0
+  <mainPartOfRecipe>k__BackingField: []

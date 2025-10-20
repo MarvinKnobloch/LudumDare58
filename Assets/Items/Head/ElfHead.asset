@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fb730ab8f8b4d00984553cfe4f19369, type: 3}
   m_Name: ElfHead
   m_EditorClassIdentifier: Assembly-CSharp::Tower.BodyObject
-  <Name>k__BackingField: Elfen Head
+  <Name>k__BackingField: Elf Head
   <Description>k__BackingField: "Das ist ein k\xF6rperteil"
   <Part>k__BackingField: 2
   <Type>k__BackingField: 2
@@ -32,3 +32,4 @@ MonoBehaviour:
   <ObjectToSpawn>k__BackingField: {fileID: 0}
   <ChanceForDoubleDamage>k__BackingField: 0
   <LifeSteal>k__BackingField: 0
+  <mainPartOfRecipe>k__BackingField: []

@@ -14,19 +14,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2479923647592137073, guid: 9e8429d7025b33843a222d07c90de4c2, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
-      value: 0.81
+      value: 1.046
       objectReference: {fileID: 0}
     - target: {fileID: 2479923647592137073, guid: 9e8429d7025b33843a222d07c90de4c2, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.y
-      value: 0.566
+      value: 0.99
       objectReference: {fileID: 0}
     - target: {fileID: 2479923647592137073, guid: 9e8429d7025b33843a222d07c90de4c2, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1.058
+      value: 1.1238096
       objectReference: {fileID: 0}
     - target: {fileID: 2479923647592137073, guid: 9e8429d7025b33843a222d07c90de4c2, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.222
+      value: 1.1695238
       objectReference: {fileID: 0}
     - target: {fileID: 2819417139433317347, guid: 9e8429d7025b33843a222d07c90de4c2, type: 3}
       propertyPath: itemInformationen
@@ -34,16 +34,16 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 54dfd845158db72418d36084eeaf4236, type: 2}
     - target: {fileID: 5320115045231732281, guid: 9e8429d7025b33843a222d07c90de4c2, type: 3}
       propertyPath: m_Size.x
-      value: 0.81
+      value: 1.046
       objectReference: {fileID: 0}
     - target: {fileID: 5320115045231732281, guid: 9e8429d7025b33843a222d07c90de4c2, type: 3}
       propertyPath: m_Size.y
-      value: 0.566
+      value: 0.99
       objectReference: {fileID: 0}
     - target: {fileID: 5320115045231732281, guid: 9e8429d7025b33843a222d07c90de4c2, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 8537505610655266202, guid: 3240de5a60ea8144db51f9418b638040, type: 3}
+      objectReference: {fileID: 451662029141192345, guid: e70905c342636384dbbd5a959182b718, type: 3}
     - target: {fileID: 5320115045231732281, guid: 9e8429d7025b33843a222d07c90de4c2, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1

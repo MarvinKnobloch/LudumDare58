@@ -733,7 +733,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 784841727011037784, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -194.59938
+      value: -194.5995
       objectReference: {fileID: 0}
     - target: {fileID: 864389745890475447, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_Name
@@ -855,6 +855,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 707888618337428814, guid: 02c8c031bb7299d4baa7aeedd5101b37, type: 3}
+      propertyPath: m_Name
+      value: Elf Arm_WorldItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 1660940401047006546, guid: 02c8c031bb7299d4baa7aeedd5101b37, type: 3}
+      propertyPath: m_Name
+      value: Zombie Head_WorldItem
+      objectReference: {fileID: 0}
+    - target: {fileID: 3533399125451424008, guid: 02c8c031bb7299d4baa7aeedd5101b37, type: 3}
+      propertyPath: m_Name
+      value: Zombie Arm_WorldItem
+      objectReference: {fileID: 0}
     - target: {fileID: 5613255825219640585, guid: 02c8c031bb7299d4baa7aeedd5101b37, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
