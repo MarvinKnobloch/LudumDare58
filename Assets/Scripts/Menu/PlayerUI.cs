@@ -31,7 +31,7 @@ public class PlayerUI : MonoBehaviour
     [field: SerializeField] public TextMeshProUGUI statsTooltipText { get; private set; }
 
 
-    [field: SerializeField,Header("Other")] public GameObject startNextLevelButton { get; private set; }
+    [field: SerializeField,Header("Other")] public NextLevelButton startNextLevelButton { get; private set; }
     [field: SerializeField] public GameObject gameOverScreen { get; private set; }
     [field: SerializeField] public GameObject victoryScreen { get; private set; }
 

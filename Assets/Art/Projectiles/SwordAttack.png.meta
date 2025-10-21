@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: 4ee5e0aebe78b3c458e1472d9d54e56b
+guid: f87f659ca32cebf4f9db0e46da39efa5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -255293854489120883
-    second: ScrollOpen_0
+      213: 8001177981862706944
+    second: SwordAttack_0
+  - first:
+      213: 4647455399271330675
+    second: SwordAttack_1
+  - first:
+      213: 3035868469971643810
+    second: SwordAttack_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -49,9 +55,9 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  alignment: 9
+  spritePivot: {x: 0.15238981, y: 0.50413823}
+  spritePixelsToUnits: 400
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -73,9 +79,9 @@ TextureImporter:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 1
+    resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -113,23 +119,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ScrollOpen_0
+      name: SwordAttack_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 0
-        width: 1516
-        height: 1073
+        x: 184
+        y: 519
+        width: 21
+        height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d8fe5d98793057cf0800000000000000
-      internalID: -255293854489120883
+      spriteID: 00f7a918bf4e90f60800000000000000
+      internalID: 8001177981862706944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwordAttack_1
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 285
+        width: 713
+        height: 230
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 373f907ff041f7040800000000000000
+      internalID: 4647455399271330675
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SwordAttack_2
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 265
+        width: 21
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ade779e942912a20800000000000000
+      internalID: 3035868469971643810
       vertices: []
       indices: 
       edges: []
@@ -139,7 +189,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -148,7 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ScrollOpen_0: -255293854489120883
+      SwordAttack_0: 8001177981862706944
+      SwordAttack_1: 4647455399271330675
+      SwordAttack_2: 3035868469971643810
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -91,9 +91,9 @@ MonoBehaviour:
   levelToDisplay: 0
   LootGooberPrefab: {fileID: 7094063083417003790, guid: 2ea103c2b04c48143983a0c2ec071e55, type: 3}
   lootGoblinSpawnChance: 0
-  daySprite: {fileID: 7778020723083000888, guid: 618408a20c82eb145961065519641321, type: 3}
+  daySprite: {fileID: -9091828991286926061, guid: f3b6b17d0aaf8b3419f6863dfff05c0c, type: 3}
   nightSprite: {fileID: -9091828991286926061, guid: f3b6b17d0aaf8b3419f6863dfff05c0c, type: 3}
-  backgroundImage: {fileID: 0}
+  backgroundRenderer: {fileID: 0}
   sortObjects: {fileID: 5199166517060203952}
 --- !u!114 &5199166517060203952
 MonoBehaviour:

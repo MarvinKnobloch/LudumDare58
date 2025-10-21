@@ -141,7 +141,7 @@ public class Projectile : MonoBehaviour, IPoolingList
         targ.x = targ.x - objectPos.x;
         targ.y = targ.y - objectPos.y;
 
-        float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg - 55;     //45 = Png angle
+        float angle = Mathf.Atan2(targ.y, targ.x) * Mathf.Rad2Deg - 55;     //45 = Png angle   55
         float size = aoeRadius;
         if (size < 0.1f) size = 0.1f;
         startRotation = angle + (20 * size);

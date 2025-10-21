@@ -42,7 +42,12 @@ public class TowerInfo : MonoBehaviour
             damageText.text = tower.finalDamage.ToString();
             attackSpeedText.text = tower.finalAttackSpeed.ToString();
             rangeText.text = tower.finalRange.ToString();
-            aoeText.text = tower.currentAoeRadius.ToString();
+            if (tower.currentAoeRadius >= 0) aoeText.text = tower.currentAoeRadius.ToString();
+            else
+            {
+                float number = tower.currentAoeRadius * -1;
+                aoeText.text = "- " + number;
+            }
 
             //if(tower.currentAoeRadius >= 0) aoeText.text = "<color=green>" + tower.currentAoeRadius + "</color>";
             //else aoeText.text = "<color=red>" + tower.currentAoeRadius + "</color>";

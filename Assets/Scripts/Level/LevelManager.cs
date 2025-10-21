@@ -15,9 +15,9 @@ public class LevelManager : MonoBehaviour, IPoolingList
     [Space]
     [SerializeField] public LevelObj[] levels;
 
-    private GameObject startLevelButton;
+    private NextLevelButton startLevelButton;
     private TextMeshProUGUI startLevelButtonText;
-    private string startButtonText = "Start Level";
+    private string startButtonText = "Start Night";
 
     [HideInInspector] public int currentLevel { get; private set; }
 
@@ -58,7 +58,7 @@ public class LevelManager : MonoBehaviour, IPoolingList
         startLevelButtonText = startLevelButton.GetComponentInChildren<TextMeshProUGUI>();
         startLevelButtonText.text = startButtonText + " " + levelToDisplay;
 
-        startLevelButton.SetActive(true);
+        if(GameManager.Instance.showTutorial == false) startLevelButton.ShowButton();
     }
     private void OnEnable()
     {
@@ -79,7 +79,7 @@ public class LevelManager : MonoBehaviour, IPoolingList
     public void StartNextLevel()
     {
         sortObjects.enabled = true;
-        if (startLevelButton != null) startLevelButton.SetActive(false);
+        if (startLevelButton != null) startLevelButton.HideButton();
         if (backgroundRenderer != null) backgroundRenderer.sprite = nightSprite;
 
         if (currentLevel < levels.Length)
@@ -131,7 +131,7 @@ public class LevelManager : MonoBehaviour, IPoolingList
             if (currentLevel < levels.Length)
             {
                 startLevelButtonText.text = startButtonText + " " + levelToDisplay;
-                startLevelButton.SetActive(true);
+                startLevelButton.ShowButton();
             }
             else
             {

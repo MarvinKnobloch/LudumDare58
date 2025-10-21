@@ -5,7 +5,7 @@ public class Tutorial : MonoBehaviour
 {
     [SerializeField] private GameObject[] tutorialHints;
     [SerializeField] private GameObject skipTutorialButton;
-    [SerializeField] private GameObject startRoundButton;
+    [SerializeField] private NextLevelButton startRoundButton;
 
 
     [SerializeField] private GameObject BuildButton;
@@ -35,16 +35,8 @@ public class Tutorial : MonoBehaviour
     {
         skipTutorialButton.SetActive(true);
         tutorialHints[currentHint].SetActive(true);
-        StartCoroutine(HideNextRoundButton());
-
 
         ShowArrowForCurrentHint();
-    }
-
-    IEnumerator HideNextRoundButton()
-    {
-        yield return null;
-        startRoundButton.SetActive(false);
     }
 
     public void NextHint()
@@ -57,7 +49,7 @@ public class Tutorial : MonoBehaviour
             GameManager.Instance.showTutorial = false;
 
             skipTutorialButton.SetActive(false);
-            startRoundButton.SetActive(true);
+            startRoundButton.ShowButton();
 
             arrowCue.SetActive(false);
         }
@@ -75,7 +67,7 @@ public class Tutorial : MonoBehaviour
 
         skipTutorialButton.SetActive(false);
         tutorialHints[currentHint].SetActive(false);
-        startRoundButton.SetActive(true);
+        startRoundButton.ShowButton();
         arrowCue.SetActive(false);
     }
 

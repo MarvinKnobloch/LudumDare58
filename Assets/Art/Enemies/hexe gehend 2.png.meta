@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 4ee5e0aebe78b3c458e1472d9d54e56b
+guid: 48430f57b4c574b4990116712dcdc761
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -255293854489120883
-    second: ScrollOpen_0
+      213: -8989759873721727350
+    second: hexe gehend 2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,9 +49,9 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  alignment: 9
+  spritePivot: {x: 0.5, y: 0.25}
+  spritePixelsToUnits: 400
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ScrollOpen_0
+      name: hexe gehend 2_0
       rect:
         serializedVersion: 2
-        x: 1
-        y: 0
-        width: 1516
-        height: 1073
+        x: 282
+        y: 16
+        width: 478
+        height: 741
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d8fe5d98793057cf0800000000000000
-      internalID: -255293854489120883
+      spriteID: a8681ce4605fd3380800000000000000
+      internalID: -8989759873721727350
       vertices: []
       indices: 
       edges: []
@@ -139,7 +139,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      ScrollOpen_0: -255293854489120883
+      hexe gehend 2_0: -8989759873721727350
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

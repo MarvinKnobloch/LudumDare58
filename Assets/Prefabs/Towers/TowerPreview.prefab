@@ -273,7 +273,7 @@ MonoBehaviour:
   buildArea:
     serializedVersion: 2
     m_Bits: 4096
-  canBuildColor: {r: 0, g: 0.509434, b: 0.055200957, a: 0.3137255}
+  canBuildColor: {r: 0, g: 0.745283, b: 0.0802612, a: 0.3137255}
   cantBuildColor: {r: 0.5377358, g: 0, b: 0.02714382, a: 0.3137255}
   offset: {x: 0, y: 0, z: 0}
 --- !u!50 &4652260026523848089
