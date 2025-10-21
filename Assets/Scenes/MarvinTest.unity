@@ -378,7 +378,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1274865333498098403, guid: 1ede538d9eaa93445a753cded39c8854, type: 3}
       propertyPath: showIntro
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1274865333498098403, guid: 1ede538d9eaa93445a753cded39c8854, type: 3}
       propertyPath: showTutorial
@@ -1006,7 +1006,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2677866757682183673, guid: 431c03a080fc56d4abedda0c52c6bf46, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5034784185674230047, guid: 431c03a080fc56d4abedda0c52c6bf46, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1490,11 +1490,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5034784185674230047, guid: 0de7fc8f928fb554aa691a8a028116de, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.3333333
+      value: 6.4
       objectReference: {fileID: 0}
     - target: {fileID: 5034784185674230047, guid: 0de7fc8f928fb554aa691a8a028116de, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.08962
+      value: 4.5
       objectReference: {fileID: 0}
     - target: {fileID: 5034784185674230047, guid: 0de7fc8f928fb554aa691a8a028116de, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2962,7 +2962,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3855980295498600054, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -194.59969
+      value: -194.59952
       objectReference: {fileID: 0}
     - target: {fileID: 5183651379440502080, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2975,6 +2975,10 @@ PrefabInstance:
     - target: {fileID: 5183651379440502080, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6101780230387084660, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
+      propertyPath: maxHealth
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6653753867708965893, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3106,6 +3110,10 @@ PrefabInstance:
       propertyPath: LootGooberPrefab
       value: 
       objectReference: {fileID: 7094063083417003790, guid: 2ea103c2b04c48143983a0c2ec071e55, type: 3}
+    - target: {fileID: 3603229808143785386, guid: bd77d823d29509a448bb8d4eb1352845, type: 3}
+      propertyPath: levels.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3603229808143785386, guid: bd77d823d29509a448bb8d4eb1352845, type: 3}
       propertyPath: 'enemyWayPoints.Array.data[0]'
       value: 

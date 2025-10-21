@@ -1,5 +1,6 @@
 using Marvin.PoolingSystem;
 using Tower;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class SelectObject : MonoBehaviour
@@ -44,8 +45,6 @@ public class SelectObject : MonoBehaviour
                         {
                             tutorial.TryAdvanceHint(2);
                         }
-
-
                     }
                     else if (cols[i].TryGetComponent(out TowerBase towerBase))
                     {
@@ -54,16 +53,14 @@ public class SelectObject : MonoBehaviour
                         {
                             tutorial.TryAdvanceHint(3);
                         }
-                       
-
 
                         IngameController.Instance.playerUI.inventory.SetCurrentTower(towerBase);
                         break;
-
-                        
-
                     }
-
+                    else if (cols[i].TryGetComponent(out DeselectArea deselectArea))
+                    {
+                        IngameController.Instance.playerUI.inventory.DeselectTower();
+                    }
                 }
             }
         }

@@ -1,0 +1,356 @@
+fileFormatVersion: 2
+guid: 97e757ad2c3d5a6459d2395157ad661e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1266191284591032379
+    second: BaseTowerAnimation_0
+  - first:
+      213: 4698095249179866765
+    second: BaseTowerAnimation_1
+  - first:
+      213: 7173032942476642922
+    second: BaseTowerAnimation_2
+  - first:
+      213: 8597989179278831050
+    second: BaseTowerAnimation_3
+  - first:
+      213: -9181672066698358434
+    second: BaseTowerAnimation_4
+  - first:
+      213: 3739038945219136266
+    second: BaseTowerAnimation_5
+  - first:
+      213: 6857330153914519915
+    second: BaseTowerAnimation_6
+  - first:
+      213: -6957244318130761980
+    second: BaseTowerAnimation_7
+  - first:
+      213: 7103497537963206848
+    second: BaseTowerAnimation_8
+  - first:
+      213: -5670029247469459106
+    second: BaseTowerAnimation_9
+  - first:
+      213: 1570686457096471866
+    second: BaseTowerAnimation_10
+  - first:
+      213: -9031408489697864758
+    second: BaseTowerAnimation_11
+  - first:
+      213: 898376223300068343
+    second: BaseTowerAnimation_12
+  - first:
+      213: 7735784838969983167
+    second: BaseTowerAnimation_13
+  - first:
+      213: -8433502376392293978
+    second: BaseTowerAnimation_14
+  - first:
+      213: -1180668396696432497
+    second: BaseTowerAnimation_15
+  - first:
+      213: -9143755827663271991
+    second: BaseTowerAnimation_16
+  - first:
+      213: -8959349086752408367
+    second: BaseTowerAnimation_17
+  - first:
+      213: 4367238115239237874
+    second: BaseTowerAnimation_18
+  - first:
+      213: 8092167484571056883
+    second: BaseTowerAnimation_19
+  - first:
+      213: 8346677631138889050
+    second: BaseTowerAnimation_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 80
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BaseTowerAnimation_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 560
+        width: 240
+        height: 280
+      alignment: 9
+      pivot: {x: 0.4999999, y: 0.2579143}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b387eb7c34a629110800000000000000
+      internalID: 1266191284591032379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseTowerAnimation_1
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 560
+        width: 240
+        height: 280
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d86f050dcbcf23140800000000000000
+      internalID: 4698095249179866765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseTowerAnimation_2
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 560
+        width: 240
+        height: 280
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6ace72f47bbb8360800000000000000
+      internalID: 7173032942476642922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseTowerAnimation_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 280
+        width: 240
+        height: 280
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acd219dba91325770800000000000000
+      internalID: 8597989179278831050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseTowerAnimation_4
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 280
+        width: 240
+        height: 280
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e515154e6e5249080800000000000000
+      internalID: -9181672066698358434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseTowerAnimation_5
+      rect:
+        serializedVersion: 2
+        x: 480
+        y: 280
+        width: 240
+        height: 280
+      alignment: 9
+      pivot: {x: 0.5, y: 0.26}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0b43234c1cb3e330800000000000000
+      internalID: 3739038945219136266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BaseTowerAnimation_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 240
+        height: 280
+      alignment: 9
+      pivot: {x: 0.51, y: 0.22}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6156ab71712a2f50800000000000000
+      internalID: 6857330153914519915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: ece94cb80a74354469239ff89ace6941
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":3.0},"gridSpriteSize":{"x":240.0,"y":280.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      BaseTowerAnimation_0: 1266191284591032379
+      BaseTowerAnimation_1: 4698095249179866765
+      BaseTowerAnimation_2: 7173032942476642922
+      BaseTowerAnimation_3: 8597989179278831050
+      BaseTowerAnimation_4: -9181672066698358434
+      BaseTowerAnimation_5: 3739038945219136266
+      BaseTowerAnimation_6: 6857330153914519915
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

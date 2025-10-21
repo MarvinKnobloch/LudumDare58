@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Marvin.PoolingSystem;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -74,6 +75,14 @@ namespace Tower
 
         public List<BodyObject> EquippedBodyObjects = new();
 
+        [Header("Visual")]
+        [SerializeField] private Sprite headSprite;
+        [SerializeField] private Sprite armsSprite;
+        [SerializeField] private Sprite torsoSprite; 
+        [SerializeField] private Sprite headArmsSprite;
+        [SerializeField] private Sprite headTorsoSprite;
+        [SerializeField] private Sprite armsTorsoSprite;
+        [SerializeField] private Sprite allSprite;
 
         private void Awake()
         {
@@ -206,6 +215,7 @@ namespace Tower
                     break;
             }
             AddTowerValues(bodyObject);
+            VisualUpdate(bodyObject.Part);
         }
         private void AddTowerValues(BodyObject bodyObject)
         {
@@ -425,6 +435,36 @@ namespace Tower
 
             projectile.SetValues(targetEnemy);
         }
+        private void VisualUpdate(BodyPart addedPart)
+        {
+            return;
+            switch (addedPart)
+            {
+                case BodyPart.Head:
+                    bool arms = false;
+                    bool torso = false;
+                    if (currentArms != null) arms = true;
+                    if (currentBody != null) torso = true;
+
+                    if (arms && torso == true)
+                    {
+                        spriteRenderer.sprite = allSprite;
+                    }
+                    else if (arms == true) spriteRenderer.sprite = headArmsSprite;
+                    else if (torso == true) spriteRenderer.sprite = headTorsoSprite;
+                    break;
+                //    break;
+                //case BodyPart.Arm:
+                //    if (currentArms != null) OnBodyPartUnequipped(tower, currentArms);
+                //    currentArms = bodyObject;
+                //    break;
+                //case BodyPart.Torso:
+                //    if (currentBody != null) OnBodyPartUnequipped(tower, currentBody);
+                //    currentBody = bodyObject;
+                //    break;
+            }
+        }
+
         public float GetTowerRange()
         {
             return finalRange;
