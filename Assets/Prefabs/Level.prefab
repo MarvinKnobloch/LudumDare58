@@ -244,6 +244,12 @@ PolygonCollider2D:
       - {x: -1.0727435, y: -6.7596335}
       - {x: -3.5600467, y: -6.672752}
       - {x: -3.9828649, y: -3.3615336}
+      - {x: -3.332129, y: -0.71213484}
+      - {x: -1.6036777, y: 2.0734181}
+      - {x: -0.83049023, y: 4.5635123}
+      - {x: -1.3567891, y: 6.68101}
+      - {x: -1.1351678, y: 9.849501}
+      - {x: -5.995697, y: 9.619696}
       - {x: -5.89452, y: -0.5405034}
       - {x: -6.270238, y: -1.1213822}
       - {x: -4.5261374, y: -4.154513}
@@ -503,6 +509,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1791054151304063007}
   - component: {fileID: 5134019795221374715}
+  - component: {fileID: 3847742276911123385}
   m_Layer: 0
   m_Name: BackGround
   m_TagString: Untagged
@@ -519,7 +526,7 @@ Transform:
   m_GameObject: {fileID: 2578067511198543977}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 5.7, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -572,7 +579,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -200
-  m_Sprite: {fileID: 21300000, guid: 5eb2cabcdf181384cbb6a49cfc36fcce, type: 3}
+  m_Sprite: {fileID: 7778020723083000888, guid: 618408a20c82eb145961065519641321, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -583,6 +590,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3847742276911123385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2578067511198543977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b7010301d8f0354b8eb5c4e2056f51c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SetBackgroundImage
 --- !u!1 &2759976682969175147
 GameObject:
   m_ObjectHideFlags: 0
@@ -822,7 +841,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2829661609240300098}
-  - component: {fileID: 4967196749814693780}
+  - component: {fileID: 6812458460404442693}
   m_Layer: 12
   m_Name: BuildArea
   m_TagString: Untagged
@@ -845,8 +864,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5613255825219640585}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &4967196749814693780
-BoxCollider2D:
+--- !u!60 &6812458460404442693
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -879,7 +898,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.03125}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -889,8 +908,28 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1.0625}
-  m_EdgeRadius: 0
+  m_Points:
+    m_Paths:
+    - - {x: 0.49361637, y: 0.23617044}
+      - {x: 0.46828383, y: 0.31114447}
+      - {x: 0.42438057, y: 0.4916547}
+      - {x: 0.1783247, y: 0.48642254}
+      - {x: -0.012894781, y: 0.46296698}
+      - {x: -0.1108581, y: 0.4570662}
+      - {x: -0.24142437, y: 0.48874965}
+      - {x: -0.30276972, y: 0.065584004}
+      - {x: -0.4003288, y: -0.13599646}
+      - {x: -0.4385602, y: -0.28266716}
+      - {x: -0.46095464, y: -0.5253374}
+      - {x: -0.3369674, y: -0.5347488}
+      - {x: -0.2107374, y: -0.45596677}
+      - {x: -0.13182946, y: -0.49008426}
+      - {x: -0.04841096, y: -0.422775}
+      - {x: 0.20138611, y: -0.41453594}
+      - {x: 0.44412687, y: -0.48230413}
+      - {x: 0.5174894, y: -0.3830092}
+      - {x: 0.51626164, y: 0.13718212}
+  m_UseDelaunayMesh: 0
 --- !u!1 &5601732700293026855
 GameObject:
   m_ObjectHideFlags: 0
@@ -1482,7 +1521,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8528078405184565660, guid: c75468285786f8743b77e20d1af40145, type: 3}
       propertyPath: m_Name
-      value: Elfen Arm_WorldItem
+      value: Elf Arm_WorldItem
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

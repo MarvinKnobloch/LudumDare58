@@ -3,8 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Marvin.PoolingSystem;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour, IPoolingList
 {
@@ -29,6 +29,11 @@ public class LevelManager : MonoBehaviour, IPoolingList
     [Header("LootGoblin")]
     [SerializeField] private GameObject LootGooberPrefab;
     [SerializeField] private float lootGoblinSpawnChance;
+
+    [Header("Background")]
+    [SerializeField] private Sprite daySprite;
+    [SerializeField] private Sprite nightSprite;
+    public SpriteRenderer backgroundRenderer;                //Script on the background sets Image on start
 
     [Header("Other")]
     [SerializeField] private SortObjects sortObjects;
@@ -75,6 +80,7 @@ public class LevelManager : MonoBehaviour, IPoolingList
     {
         sortObjects.enabled = true;
         if (startLevelButton != null) startLevelButton.SetActive(false);
+        if (backgroundRenderer != null) backgroundRenderer.sprite = nightSprite;
 
         if (currentLevel < levels.Length)
         {
@@ -119,6 +125,8 @@ public class LevelManager : MonoBehaviour, IPoolingList
             currentLevel++;
             levelToDisplay = currentLevel + 1;
             sortObjects.enabled = false;
+
+            if (backgroundRenderer != null) backgroundRenderer.sprite = daySprite;
 
             if (currentLevel < levels.Length)
             {
