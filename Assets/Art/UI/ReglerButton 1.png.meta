@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3ec115a0bc8f62a42bc65ec996b8747d
+guid: c49769695f47f00469c9d573334b7ff7
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7438594525722685931
-    second: Healthbar_L_01 1_0
+      213: 6110018736451041761
+    second: ReglerButton 1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Healthbar_L_01 1_0
+      name: ReglerButton 1_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 0
         y: 0
-        width: 81
-        height: 572
+        width: 42
+        height: 35
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: be1bddd4f423b3760800000000000000
-      internalID: 7438594525722685931
+      spriteID: 1e935252ba52bc450800000000000000
+      internalID: 6110018736451041761
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Healthbar_L_01 1_0: 7438594525722685931
+      ReglerButton 1_0: 6110018736451041761
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
