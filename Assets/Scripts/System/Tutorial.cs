@@ -159,12 +159,17 @@ public class Tutorial : MonoBehaviour
 
         }
 
-        // Health 
+        //Von Health und Souls durch GotIt! zum Recipe
         else if (currentHint == 8)
         {
        
 
             arrowCue.SetActive(false);
+
+
+            arrowCueSoul.SetActive(true);
+            RectTransform arrowSoulRect = arrowCueSoul.GetComponent<RectTransform>();
+            arrowSoulRect.anchoredPosition = new Vector2(-670f, 185.6f);
 
             arrowCueHealth.SetActive(true);
             RectTransform arrowHealthRect = arrowCueHealth.GetComponent<RectTransform>();
@@ -172,24 +177,8 @@ public class Tutorial : MonoBehaviour
 
         }
 
-        //Soul
 
         else if (currentHint == 9)
-        {
-
-            arrowCue.SetActive(false);
-            arrowCueHealth.SetActive(false);
-
-
-            arrowCueSoul.SetActive(true);
-            RectTransform arrowSoulRect = arrowCueSoul.GetComponent<RectTransform>();
-            arrowSoulRect.anchoredPosition = new Vector2(-670f, 185.6f);
-
-            
-
-        }
-
-        else if (currentHint == 10)
         {
 
             arrowCueSoul.SetActive(false);
