@@ -25,7 +25,7 @@ MonoBehaviour:
   <TargetType>k__BackingField: 1
   <DamageScalingPercentage>k__BackingField: 50
   <BaseAttackSpeed>k__BackingField: 1.6
-  <RangeScalingPercentage>k__BackingField: 80
+  <RangeScalingPercentage>k__BackingField: 70
   <SlowPercentage>k__BackingField: 0
   <SlowDuration>k__BackingField: 0
   <AdditionalProjectiles>k__BackingField: 0

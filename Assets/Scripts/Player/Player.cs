@@ -52,6 +52,8 @@ public class Player : MonoBehaviour
     }
     public void Heal(int amount)
     {
+        if (currentHealth >= maxHealth) return;
+
         currentHealth += amount;
         IngameController.Instance.playerUI.HealthUIUpdate(currentHealth, maxHealth);
     }

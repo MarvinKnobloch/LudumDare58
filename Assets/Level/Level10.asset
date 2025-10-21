@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Level10
   m_EditorClassIdentifier: Assembly-CSharp::LevelObj
   levelEnemyValues:
-  - enemy: {fileID: 6034090055483278207, guid: 75739d48d6cbf764dba2c05dd81635e3, type: 3}
+  - enemy: {fileID: 6034090055483278207, guid: ab847e425ac55f542a86d63ff79472c2, type: 3}
     amount: 1
     spawnRate: 1.5
     waveStartDelay: 0
-    healthScaling: 30
+    healthScaling: 35
   description: 

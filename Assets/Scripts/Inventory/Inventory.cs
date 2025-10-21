@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Tower;
 using UnityEngine;
@@ -72,15 +73,17 @@ public class Inventory : MonoBehaviour
 
         else
         {
+            InventorySlot slot = slots[resources[bodyObject].slotPosition];
             resources[bodyObject].slotAmount += amount;
-            slots[resources[bodyObject].slotPosition].SetValues(amount, bodyObject.Sprite);
+            slot.SetValues(amount, bodyObject.Sprite);
 
             if (resources[bodyObject].slotAmount <= 0)
             {
                 int position = resources[bodyObject].slotPosition;
 
-                slots.Remove(slots[resources[bodyObject].slotPosition]);
-                slots.Add(slots[resources[bodyObject].slotPosition]);
+                slots.Remove(slot);
+                slots.Sort((a,b) => a.transform.GetSiblingIndex().CompareTo(b.transform.GetSiblingIndex()));
+                slots.Add(slot);
                 resources.Remove(bodyObject);
 
                 foreach (InventoryInfo item in resources.Values)

@@ -2576,7 +2576,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d18782809d206664ba4385992418e6b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  maxHealth: 30
+  maxHealth: 20
   currentHealth: 0
   soulsStartAmount: 70
   defaultTowerCosts: 40
@@ -2587,11 +2587,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 07e7243efcc9baf43976cbc32602df99, type: 2}
   - {fileID: 11400000, guid: eb2de376aa2088146874907205892be2, type: 2}
   - {fileID: 11400000, guid: 173b8eacc4047bb4c9b8f8e1639e538a, type: 2}
+  - {fileID: 11400000, guid: 342b55b225d27334fb275d95e95991a8, type: 2}
   - {fileID: 11400000, guid: 4391c8ef26008474588a1a315cd54c95, type: 2}
   - {fileID: 11400000, guid: c5346dd2eb6d0a049889fb813232690a, type: 2}
   - {fileID: 11400000, guid: 50401b40fd75378429ba64553700b6af, type: 2}
   - {fileID: 11400000, guid: 0f51461a634d53a49aeca85542e73bbe, type: 2}
-  - {fileID: 11400000, guid: 342b55b225d27334fb275d95e95991a8, type: 2}
   accessoiresSlotCosts: 9
   headSlotCosts: 7
   armSlotCosts: 7

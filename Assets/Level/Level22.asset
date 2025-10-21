@@ -23,7 +23,7 @@ MonoBehaviour:
     spawnRate: 1.6
     waveStartDelay: 0.8
     healthScaling: 12
-  - enemy: {fileID: 6034090055483278207, guid: 73380b6e43dd29640a739fec4d35e9ff, type: 3}
+  - enemy: {fileID: 6034090055483278207, guid: 8e0eaad26383d8d42ade5e17b6361766, type: 3}
     amount: 2
     spawnRate: 6.4
     waveStartDelay: 6.4

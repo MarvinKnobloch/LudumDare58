@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LevelObj
   levelEnemyValues:
   - enemy: {fileID: 6034090055483278207, guid: 5623b230b1f25a34cb30880c28aa9732, type: 3}
-    amount: 8
+    amount: 10
     spawnRate: 2
     waveStartDelay: 0
-    healthScaling: 5.6
+    healthScaling: 6
   - enemy: {fileID: 6034090055483278207, guid: c123dc819530e264283e71b9d2645fd6, type: 3}
-    amount: 8
+    amount: 10
     spawnRate: 2
     waveStartDelay: 1
-    healthScaling: 5.6
+    healthScaling: 6
   description: 
