@@ -24,7 +24,7 @@ MonoBehaviour:
   <ProjectilePrefab>k__BackingField: {fileID: 8614331895747358253, guid: b7f3f501f971a964387aebb6d0da5105, type: 3}
   <TargetType>k__BackingField: 2
   <DamageScalingPercentage>k__BackingField: 65
-  <BaseAttackSpeed>k__BackingField: 1.1
+  <BaseAttackSpeed>k__BackingField: 1.2
   <RangeScalingPercentage>k__BackingField: 50
   <SlowPercentage>k__BackingField: 0
   <SlowDuration>k__BackingField: 0

@@ -234,7 +234,7 @@ MonoBehaviour:
   disableTimeAfterHit: 0
   sortingLayerOnEnable: 20
   sortingLayerAfterHit: -198
-  meleeWeaponOffset: 0.8
+  meleeWeaponOffset: 0.6
   meleeWeaponScale: 0.6
   aoeVisualBullet: {fileID: 0}
   bulletShadow: {fileID: 0}

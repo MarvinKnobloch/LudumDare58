@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: ea27cd0e83bf1864599d48579512a821
+guid: 640239ab0bef66543a5fbabd621b8eae
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5075230056192899191
-    second: TowerBase_0
+      213: 1682859925529446120
+    second: StoneTower_0
   - first:
-      213: 7921731053811611534
-    second: TowerBase_1
+      213: 3217913697317087084
+    second: StoneTower_1
   - first:
-      213: -2105860346893036930
-    second: TowerBase_2
+      213: -2473527353302653940
+    second: StoneTower_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -119,67 +119,67 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TowerBase_0
+      name: StoneTower_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 130
+        y: 142
         width: 8
         height: 13
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 77873cca8d6de6640800000000000000
-      internalID: 5075230056192899191
+      spriteID: 8e64ce3af28ba5710800000000000000
+      internalID: 1682859925529446120
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TowerBase_1
+      name: StoneTower_1
       rect:
         serializedVersion: 2
-        x: 10
+        x: 7
         y: 0
-        width: 166
-        height: 203
+        width: 169
+        height: 260
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e873f9c1c64afed60800000000000000
-      internalID: 7921731053811611534
+      spriteID: c67e27e557358ac20800000000000000
+      internalID: 3217913697317087084
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TowerBase_2
+      name: StoneTower_2
       rect:
         serializedVersion: 2
         x: 167
-        y: 104
+        y: 116
         width: 8
         height: 9
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e721cdcfb2b76c2e0800000000000000
-      internalID: -2105860346893036930
+      spriteID: c04ee2c3af34cadd0800000000000000
+      internalID: -2473527353302653940
       vertices: []
       indices: 
       edges: []
@@ -189,7 +189,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -198,9 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      TowerBase_0: 5075230056192899191
-      TowerBase_1: 7921731053811611534
-      TowerBase_2: -2105860346893036930
+      StoneTower_0: 1682859925529446120
+      StoneTower_1: 3217913697317087084
+      StoneTower_2: -2473527353302653940
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

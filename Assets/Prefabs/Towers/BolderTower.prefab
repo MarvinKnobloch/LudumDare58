@@ -9,16 +9,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 47459961506918954, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e210193767bf02547a84ff3d163433ca, type: 3}
+    - target: {fileID: 47459961506918954, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: m_Color.b
-      value: 0.58431375
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 47459961506918954, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 47459961506918954, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: m_Color.r
-      value: 0.28352877
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3588843796145617972, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -63,6 +67,10 @@ PrefabInstance:
     - target: {fileID: 5852628107453491410, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: m_Name
       value: BolderTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 7260583049973566631, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.2658927
       objectReference: {fileID: 0}
     - target: {fileID: 7828311766438679498, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: towerValues
