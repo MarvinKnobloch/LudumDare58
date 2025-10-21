@@ -30,7 +30,6 @@ public class Player : MonoBehaviour
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
 
-        ResetRecipesUnlockState();
     }
     private void Start()
     {
@@ -38,6 +37,8 @@ public class Player : MonoBehaviour
         UpdateSouls(soulsStartAmount);
 
         IngameController.Instance.playerUI.HealthUIUpdate(currentHealth, maxHealth);
+
+        ResetRecipesUnlockState();
     }
 
     public void TakeDamage(int amount)
@@ -74,7 +75,8 @@ public class Player : MonoBehaviour
     }
     private void ResetRecipesUnlockState()
     {
-#if UNITY_EDITOR
+        if (GameManager.Instance.resetRecipeObjects == false) return;
+
         for (int i = 0; i < towerRecipes.Length; i++)
         {
             towerRecipes[i].partUnlocked.Clear();
@@ -89,7 +91,6 @@ public class Player : MonoBehaviour
             }
 
         }
-#endif
     }
     public int GetCurrentSouls() => currentSouls;
     public int GetTowerCosts() => defaultTowerCosts;

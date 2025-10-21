@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2327c55b77bada947ab9af9e2fcd0048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  baseMovementSpeed: 2.7
+  baseMovementSpeed: 3.2
   baseHealth: 4
   armorType: 0
   currentHealth: 0
@@ -118,6 +118,7 @@ MonoBehaviour:
   bulletTarget: {fileID: 4084337682187251020}
   hitEffectAmount: 3
   hitEffectDuration: 0.08
+  healthBar: {fileID: 0}
 --- !u!58 &2701071940875089523
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -168,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemDropper
   dropValues:
   - item: {fileID: 8528078405184565660, guid: 5b7d417b6f315f049a8901a3ac88dca1, type: 3}
-    dropChance: 0.05
+    dropChance: 0.06
     amount: 1
   - item: {fileID: 5892243160951536167, guid: 962446aa7e1ffa449855c24745b7cd12, type: 3}
     dropChance: 0.05
