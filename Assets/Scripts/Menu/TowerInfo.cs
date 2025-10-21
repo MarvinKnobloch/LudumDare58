@@ -7,7 +7,10 @@ public class TowerInfo : MonoBehaviour
     [SerializeField] private GameObject scrollClosed;
     [SerializeField] private GameObject scrollOpened;
 
-    [SerializeField] private TextMeshProUGUI numberText;
+    [SerializeField] private TextMeshProUGUI damageText;
+    [SerializeField] private TextMeshProUGUI attackSpeedText;
+    [SerializeField] private TextMeshProUGUI rangeText;
+    [SerializeField] private TextMeshProUGUI aoeText;
     [SerializeField] private TextMeshProUGUI specialText;
 
 
@@ -23,8 +26,8 @@ public class TowerInfo : MonoBehaviour
         {
             scrollClosed.SetActive(true);
             scrollOpened.SetActive(false);
-            numberText.text = string.Empty;
-            specialText.text = string.Empty;
+
+            ClearText();
         }
     }
     public void TowerInfoUpdate()
@@ -32,12 +35,18 @@ public class TowerInfo : MonoBehaviour
         TowerBase tower = IngameController.Instance.playerUI.inventory.currentSelectedTower;
         if (tower == null)
         {
-            numberText.text = string.Empty;
-            specialText.text = string.Empty;
+            ClearText();
         }
         else
         {
-            numberText.text = tower.finalDamage + "\n" + tower.finalAttackSpeed + "\n" + tower.finalRange + "\n" + tower.currentAoeRadius;
+            damageText.text = tower.finalDamage.ToString();
+            attackSpeedText.text = tower.finalAttackSpeed.ToString();
+            rangeText.text = tower.finalRange.ToString();
+            aoeText.text = tower.currentAoeRadius.ToString();
+
+            //if(tower.currentAoeRadius >= 0) aoeText.text = "<color=green>" + tower.currentAoeRadius + "</color>";
+            //else aoeText.text = "<color=red>" + tower.currentAoeRadius + "</color>";
+
             specialText.text = string.Empty;
 
             int values = 0;
@@ -65,5 +74,13 @@ public class TowerInfo : MonoBehaviour
 
             }
         }
+    }
+    private void ClearText()
+    {
+        damageText.text = string.Empty;
+        attackSpeedText.text = string.Empty;
+        rangeText.text = string.Empty;
+        aoeText.text = string.Empty;
+        specialText.text = string.Empty;
     }
 }
