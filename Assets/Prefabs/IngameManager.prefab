@@ -5475,7 +5475,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 260, y: -194.59941}
+  m_AnchoredPosition: {x: 260, y: -194.59975}
   m_SizeDelta: {x: 528.5858, y: 730}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &9039410272545500761
@@ -11242,8 +11242,8 @@ MonoBehaviour:
   - {fileID: 4284786146107583567}
   - {fileID: 3174208248268131540}
   - {fileID: 4260031635824457639}
-  skipTutorialButton: {fileID: 8106734868770691922}
-  startRoundButton: {fileID: 4352801539941662648}
+  skipTutorialButton: {fileID: 1680668833586923273}
+  startRoundButton: {fileID: 8949374877567389630}
   BuildButton: {fileID: 3757422859341623846}
   arrowCue: {fileID: 4648004744307876025}
   arrowPositions:
@@ -12671,8 +12671,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7949626207446807465}
   m_HandleRect: {fileID: 6653753867708965893}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.46684504
+  m_Value: 1.0000006
+  m_Size: 0.46420372
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
