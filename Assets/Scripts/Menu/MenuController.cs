@@ -105,7 +105,7 @@ public class MenuController : MonoBehaviour
     }
     public void SetRestartGameConfirm()
     {
-        OpenConfirmController(RestartGame, "Restart Game");
+        OpenConfirmController(RestartGame, "Restart Game?");
     }
 
     public void SetBackToMainMenuConfirm()

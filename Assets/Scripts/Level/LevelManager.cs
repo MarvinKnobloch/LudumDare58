@@ -16,6 +16,8 @@ public class LevelManager : MonoBehaviour, IPoolingList
     [SerializeField] public LevelObj[] levels;
 
     private GameObject startLevelButton;
+    private TextMeshProUGUI startLevelButtonText;
+    private string startButtonText = "Start Level";
 
     [HideInInspector] public int currentLevel { get; private set; }
 
@@ -48,6 +50,8 @@ public class LevelManager : MonoBehaviour, IPoolingList
     private void Start()
     {
         startLevelButton = IngameController.Instance.playerUI.startNextLevelButton;
+        startLevelButtonText = startLevelButton.GetComponentInChildren<TextMeshProUGUI>();
+        startLevelButtonText.text = startButtonText + " " + levelToDisplay;
 
         startLevelButton.SetActive(true);
     }
@@ -118,6 +122,7 @@ public class LevelManager : MonoBehaviour, IPoolingList
 
             if (currentLevel < levels.Length)
             {
+                startLevelButtonText.text = startButtonText + " " + levelToDisplay;
                 startLevelButton.SetActive(true);
             }
             else

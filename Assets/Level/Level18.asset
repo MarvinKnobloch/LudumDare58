@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::LevelObj
   levelEnemyValues:
   - enemy: {fileID: 6034090055483278207, guid: b9f462005673143419b5a541cf288181, type: 3}
-    amount: 3
+    amount: 4
     spawnRate: 5
     waveStartDelay: 3
-    healthScaling: 13
+    healthScaling: 19
   - enemy: {fileID: 6034090055483278207, guid: c123dc819530e264283e71b9d2645fd6, type: 3}
     amount: 8
     spawnRate: 3
     waveStartDelay: 0
-    healthScaling: 7
+    healthScaling: 15
   - enemy: {fileID: 6034090055483278207, guid: dbbdb816fa52d754f8b16c1d4cc8931c, type: 3}
     amount: 8
     spawnRate: 3

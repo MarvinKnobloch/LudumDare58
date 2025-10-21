@@ -88,7 +88,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.5688889, y: 0.5688889}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -126,6 +126,7 @@ MonoBehaviour:
   meleeWeaponOffset: 0.5
   meleeWeaponScale: 1
   aoeVisualBullet: {fileID: 0}
+  bulletShadow: {fileID: 0}
   maxHeight: 0
   shrinkEachHit: 0.3
   damageReductionEachHit: 0.1

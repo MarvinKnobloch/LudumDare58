@@ -44,6 +44,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
             slotAmount = 0;
             inventoryIconImage.enabled = false;
             amountText.gameObject.SetActive(false);
+            transform.SetAsLastSibling();
         }
     }
     public void HideText()
@@ -68,7 +69,11 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         if (slotAmount == 0 || bodyObject == null) return;
 
-        if (inventory.currentBodySlots == null) dragImage.color = Color.red;
+        if (inventory.currentBodySlots == null && inventory.canRecycle == false) dragImage.color = Color.red;
+        else if (inventory.canRecycle == true)
+        {
+            dragImage.color = Color.green;
+        }
         else
         {
             if (inventory.currentBodySlots.bodyPart == bodyObject.Part)
@@ -88,7 +93,12 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         if (slotAmount == 0 || bodyObject == null) return;
 
-        if(inventory.currentBodySlots != null)
+        if(inventory.canRecycle == true)
+        {
+            Player.Instance.UpdateSouls(Player.Instance.GetRecycleSoulsAmount());
+            inventory.AddResource(bodyObject, -1);
+        }
+        else if(inventory.currentBodySlots != null)
         {
             if (inventory.currentBodySlots.bodyPart == bodyObject.Part)
             {
@@ -115,8 +125,11 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 inventory.AddResource(bodyObject, -1);
             }
 
-            //desi
-            IngameController.Instance.playerUI.tutorial.TryAdvanceHint(4);
+            if (GameManager.Instance.showTutorial == true)
+            {
+                //desi
+                IngameController.Instance.playerUI.tutorial.TryAdvanceHint(4);
+            }
 
         }
 

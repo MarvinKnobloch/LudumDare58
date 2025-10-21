@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     [Header("GameSettings")]
     public bool showIntro;
     public bool showTutorial;
+    public bool resetRecipeObjects;
 
     private void Awake()
     {

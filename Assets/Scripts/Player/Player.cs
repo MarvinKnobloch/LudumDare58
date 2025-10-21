@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] private int soulsStartAmount = 90;
     private int currentSouls;
     [SerializeField] private int defaultTowerCosts = 50;
+    [SerializeField] private int recycleSoulsAmount = 1;
     public TowerRecipe[] towerRecipes;
 
     [Header("Slots")]
@@ -29,7 +30,6 @@ public class Player : MonoBehaviour
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
 
-        ResetRecipesUnlockState();
     }
     private void Start()
     {
@@ -37,6 +37,8 @@ public class Player : MonoBehaviour
         UpdateSouls(soulsStartAmount);
 
         IngameController.Instance.playerUI.HealthUIUpdate(currentHealth, maxHealth);
+
+        ResetRecipesUnlockState();
     }
 
     public void TakeDamage(int amount)
@@ -51,6 +53,8 @@ public class Player : MonoBehaviour
     }
     public void Heal(int amount)
     {
+        if (currentHealth >= maxHealth) return;
+
         currentHealth += amount;
         IngameController.Instance.playerUI.HealthUIUpdate(currentHealth, maxHealth);
     }
@@ -71,7 +75,8 @@ public class Player : MonoBehaviour
     }
     private void ResetRecipesUnlockState()
     {
-#if UNITY_EDITOR
+        if (GameManager.Instance.resetRecipeObjects == false) return;
+
         for (int i = 0; i < towerRecipes.Length; i++)
         {
             towerRecipes[i].partUnlocked.Clear();
@@ -86,7 +91,6 @@ public class Player : MonoBehaviour
             }
 
         }
-#endif
     }
     public int GetCurrentSouls() => currentSouls;
     public int GetTowerCosts() => defaultTowerCosts;
@@ -97,4 +101,5 @@ public class Player : MonoBehaviour
     public int GetBodyCosts() => bodySlotCosts;
     public int GetLifeStealChance() => lifeStealChance;
     public int GetDoubleDamageChance() => doubleDamageChance;
+    public int GetRecycleSoulsAmount() => recycleSoulsAmount;
   }

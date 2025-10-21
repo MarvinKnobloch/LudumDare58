@@ -302,13 +302,13 @@ public class Projectile : MonoBehaviour, IPoolingList
         }
 
         bool singleTarget = false;
-        if (aoeRadius <= 0) 
+        if (aoeRadius <= 0.1f) 
         {
             singleTarget = true;
             aoeRadius = 0.1f;
         }
 
-        Collider2D[] colls = Physics2D.OverlapCircleAll(position, aoeRadius, hitLayer);
+        Collider2D[] colls = Physics2D.OverlapCircleAll(position, aoeRadius * 0.5f, hitLayer);
 
         foreach (Collider2D coll in colls)
         {

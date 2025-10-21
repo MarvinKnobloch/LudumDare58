@@ -145,6 +145,14 @@ public class Enemy : MonoBehaviour, IPoolingList
         localScale = transform.localScale;
         localScale.x *= -1;
         transform.localScale = localScale;
+
+        if(healthBar != null)
+        {
+            Vector3 healthBarScale;
+            healthBarScale = healthBar.transform.localScale;
+            healthBarScale.x *= -1;
+            healthBar.transform.localScale = healthBarScale;
+        }
     }
     public void SetMaxHealth(float scaling)
     {

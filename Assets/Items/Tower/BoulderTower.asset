@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77b3a024aa5ce44a8b8b6ab5bc5c03c, type: 3}
   m_Name: BoulderTower
   m_EditorClassIdentifier: Assembly-CSharp::TowerValues
-  damageScalingPercantage: 120
-  startBonusAttack: 8
+  damageScalingPercantage: 115
+  startBonusAttack: 10
   baseAttackSpeed: 2.3
-  rangeScalingPercantage: 100
+  rangeScalingPercantage: 95
   startBonusRange: 6
-  aoeRadius: 1
+  aoeRadius: 0.9
   projectilePrefab: {fileID: 4780432458198478164, guid: 427b4d8c0b4f7724ca492c19bece37af, type: 3}
   targetType: 3
   slowPercentage: 0

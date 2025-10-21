@@ -176,6 +176,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boulder_WorldItem
       objectReference: {fileID: 0}
+    - target: {fileID: 7885124235534674744, guid: 53745134fbddf0447bdddf6690f2c8b1, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -276,7 +280,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5971555673173559965, guid: 24dd503daac691a4a82f492a5a8486c0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -997,7 +1001,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2677866757682183673, guid: bbc4456aa75845346af026e02e5bab1e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5034784185674230047, guid: bbc4456aa75845346af026e02e5bab1e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2461,7 +2465,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 784841727011037784, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -194.59946
+      value: -194.5995
       objectReference: {fileID: 0}
     - target: {fileID: 864389745890475447, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_Name

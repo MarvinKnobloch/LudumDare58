@@ -95,6 +95,7 @@ namespace Tower
             finalDamage = CalculateDamage();
             finalAttackSpeed = CalculateAttackSpeed();
             finalRange = CalculateRange();
+            currentAoeRadius = RoundAoeRadius();
 
             animator = GetComponentInChildren<Animator>();
 
@@ -217,6 +218,7 @@ namespace Tower
             finalDamage = CalculateDamage();
             finalAttackSpeed = CalculateAttackSpeed();
             finalRange = CalculateRange();
+            currentAoeRadius = RoundAoeRadius();
 
             EquippedBodyObjects.Add(bodyObject);
         }
@@ -295,6 +297,10 @@ namespace Tower
         private float CalculateRange()
         {
             return (float)System.Math.Round(rangeScaling * (bonusRange * 0.01f),1); 
+        }
+        private float RoundAoeRadius()
+        {
+            return (float)System.Math.Round(currentAoeRadius,1);
         }
 
         private bool Attack()

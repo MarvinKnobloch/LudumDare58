@@ -107,8 +107,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2327c55b77bada947ab9af9e2fcd0048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
-  baseMovementSpeed: 2.7
-  baseHealth: 4
+  baseMovementSpeed: 3.2
+  baseHealth: 6
   armorType: 0
   currentHealth: 0
   maxHealth: 0
@@ -169,13 +169,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ItemDropper
   dropValues:
   - item: {fileID: 8528078405184565660, guid: 5b7d417b6f315f049a8901a3ac88dca1, type: 3}
-    dropChance: 0.1
+    dropChance: 0.12
     amount: 1
   - item: {fileID: 5892243160951536167, guid: 962446aa7e1ffa449855c24745b7cd12, type: 3}
-    dropChance: 0.1
+    dropChance: 0.12
     amount: 1
   - item: {fileID: 3848033517144133934, guid: 0d6fdc8a3876e3e489652f5557e2af40, type: 3}
-    dropChance: 0.1
+    dropChance: 0.12
     amount: 1
   - item: {fileID: 7860965236372227262, guid: 212241474f07fe84289793f23d3bccdd, type: 3}
     dropChance: 0.08
