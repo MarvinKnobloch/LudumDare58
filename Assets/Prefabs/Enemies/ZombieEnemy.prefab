@@ -139,7 +139,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Enemy
   baseMovementSpeed: 4.1
-  baseHealth: 4
+  baseHealth: 6
   armorType: 0
   currentHealth: 0
   maxHealth: 0
@@ -203,10 +203,10 @@ MonoBehaviour:
     dropChance: 0.06
     amount: 1
   - item: {fileID: 7741480010125886748, guid: d6fc300c09d04f64c9ad22514b764de4, type: 3}
-    dropChance: 0.05
+    dropChance: 0.06
     amount: 1
   - item: {fileID: 4516155264668988267, guid: 5e5c014a036d10b47af9a13a505201f9, type: 3}
-    dropChance: 0.05
+    dropChance: 0.06
     amount: 1
   - item: {fileID: 6470082067476660639, guid: 70d4a570e1df89647bc3d75335d3cf22, type: 3}
     dropChance: 0.04

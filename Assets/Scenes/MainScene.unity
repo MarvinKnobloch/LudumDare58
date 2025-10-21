@@ -160,6 +160,10 @@ PrefabInstance:
       propertyPath: showTutorial
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1274865333498098403, guid: 1ede538d9eaa93445a753cded39c8854, type: 3}
+      propertyPath: resetRecipeObjects
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3302836490448873121, guid: 1ede538d9eaa93445a753cded39c8854, type: 3}
       propertyPath: m_LocalPosition.x
       value: 36.9357
@@ -733,7 +737,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 784841727011037784, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -194.59946
+      value: -194.59944
       objectReference: {fileID: 0}
     - target: {fileID: 864389745890475447, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_Name

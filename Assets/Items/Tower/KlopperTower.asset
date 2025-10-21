@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: KlopperTower
   m_EditorClassIdentifier: Assembly-CSharp::TowerValues
   damageScalingPercantage: 100
-  startBonusAttack: 12
+  startBonusAttack: 14
   baseAttackSpeed: 1.8
   rangeScalingPercantage: 60
   startBonusRange: 5

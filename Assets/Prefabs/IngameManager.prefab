@@ -2593,9 +2593,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 50401b40fd75378429ba64553700b6af, type: 2}
   - {fileID: 11400000, guid: 0f51461a634d53a49aeca85542e73bbe, type: 2}
   accessoiresSlotCosts: 8
-  headSlotCosts: 6
-  armSlotCosts: 6
-  bodySlotCosts: 6
+  headSlotCosts: 5
+  armSlotCosts: 5
+  bodySlotCosts: 5
   lifeStealChance: 5
   doubleDamageChance: 25
 --- !u!114 &4758475083404523561

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SniperTower
   m_EditorClassIdentifier: Assembly-CSharp::TowerValues
   damageScalingPercantage: 130
-  startBonusAttack: 10
+  startBonusAttack: 12
   baseAttackSpeed: 1.8
   rangeScalingPercantage: 120
   startBonusRange: 6

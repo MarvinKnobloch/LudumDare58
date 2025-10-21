@@ -15,7 +15,7 @@ MonoBehaviour:
   levelEnemyValues:
   - enemy: {fileID: 6034090055483278207, guid: b9f462005673143419b5a541cf288181, type: 3}
     amount: 5
-    spawnRate: 3
+    spawnRate: 2.7
     waveStartDelay: 0
-    healthScaling: 15
+    healthScaling: 21
   description: 
