@@ -68,6 +68,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: KlopperTower
       objectReference: {fileID: 0}
+    - target: {fileID: 6294358464862024457, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6294358464862024457, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 7260583049973566631, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.01
