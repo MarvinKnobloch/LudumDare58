@@ -65,15 +65,13 @@ public class TowerPreview : MonoBehaviour
             {
                 Instantiate(towerToBuild, transform.root.position, Quaternion.identity);
                 Player.Instance.BuyTower();
-
                 if (GameManager.Instance.showTutorial == true)
                 {
                     //desi
                     IngameController.Instance.playerUI.tutorial.towerPos = Input.mousePosition;
-
-
-
+                  
                 }
+
 
                 //after BuildingTower
                 if (Player.Instance.CheckForTowerCosts() == false)

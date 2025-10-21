@@ -22,7 +22,13 @@ public class RecipeUI : MonoBehaviour
     [SerializeField] private GameObject towerRepicePrefab;
     [SerializeField] private GameObject towerSlotsGrid;
 
+    
+
     public List<TowerRecipeSlot> recipes = new List<TowerRecipeSlot>();
+
+    //Desi
+    [Space]
+    [SerializeField] private Tutorial tutorial;
 
     private void Awake()
     {
@@ -70,6 +76,8 @@ public class RecipeUI : MonoBehaviour
         if (IngameController.Instance.menuController.gameIsPaused) return;
 
         ToggleRepiceUI();
+
+
     }
     public void ToggleRepiceUI()
     {
