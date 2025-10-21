@@ -23,7 +23,7 @@ MonoBehaviour:
   <Sprite>k__BackingField: {fileID: -8856724558991738367, guid: 2df9816e5fcb5674c9376207d0d7801d, type: 3}
   <ProjectilePrefab>k__BackingField: {fileID: 4780432458198478164, guid: f06a95e9dba9f2f478089e8d393f79c0, type: 3}
   <TargetType>k__BackingField: 5
-  <DamageScalingPercentage>k__BackingField: 55
+  <DamageScalingPercentage>k__BackingField: 65
   <BaseAttackSpeed>k__BackingField: 1.5
   <RangeScalingPercentage>k__BackingField: 110
   <SlowPercentage>k__BackingField: 0
