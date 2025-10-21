@@ -17,6 +17,7 @@ namespace Tower
         [SerializeField] private SpriteRenderer spriteRenderer;
 
         [SerializeField] private TowerValues towerValues;
+        [SerializeField] private Transform projectileLaunchPosition;
 
         [Space]
         [SerializeField] private LayerMask attackLayer;
@@ -404,7 +405,7 @@ namespace Tower
         private void CreateProjectile(Transform targetEnemy)
         {
             Projectile projectile = PoolingSystem.SpawnObject
-                (projectilePrefab, transform.position, Quaternion.identity, PoolingSystem.PoolingParentGameObject.Projectile).GetComponent<Projectile>();
+                (projectilePrefab, projectileLaunchPosition.position, Quaternion.identity, PoolingSystem.PoolingParentGameObject.Projectile).GetComponent<Projectile>();
 
             projectile.damage = finalDamage;
             if (canDoDoubleDamage)

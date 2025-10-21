@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: ea27cd0e83bf1864599d48579512a821
+guid: 73bf751aaa5bf3845a978114a4e271f8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5075230056192899191
-    second: TowerBase_0
+      213: 2752975627599598643
+    second: BowTower_0
   - first:
-      213: 7921731053811611534
-    second: TowerBase_1
+      213: -4311003638694595003
+    second: BowTower_1
   - first:
-      213: -2105860346893036930
-    second: TowerBase_2
+      213: 6685330896952166394
+    second: BowTower_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -43,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
+    filterMode: 1
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -56,7 +56,7 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 9
-  spritePivot: {x: 0.51, y: 0.22}
+  spritePivot: {x: 0.51, y: 0.18}
   spritePixelsToUnits: 80
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -119,7 +119,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TowerBase_0
+      name: BowTower_0
       rect:
         serializedVersion: 2
         x: 0
@@ -134,20 +134,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 77873cca8d6de6640800000000000000
-      internalID: 5075230056192899191
+      spriteID: 334d1665fb8843620800000000000000
+      internalID: 2752975627599598643
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TowerBase_1
+      name: BowTower_1
       rect:
         serializedVersion: 2
         x: 10
         y: 0
         width: 166
-        height: 203
+        height: 248
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,14 +156,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e873f9c1c64afed60800000000000000
-      internalID: 7921731053811611534
+      spriteID: 5463132080d3c24c0800000000000000
+      internalID: -4311003638694595003
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TowerBase_2
+      name: BowTower_2
       rect:
         serializedVersion: 2
         x: 167
@@ -178,8 +178,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e721cdcfb2b76c2e0800000000000000
-      internalID: -2105860346893036930
+      spriteID: af707c6c70117cc50800000000000000
+      internalID: 6685330896952166394
       vertices: []
       indices: 
       edges: []
@@ -198,9 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      TowerBase_0: 5075230056192899191
-      TowerBase_1: 7921731053811611534
-      TowerBase_2: -2105860346893036930
+      BowTower_0: 2752975627599598643
+      BowTower_1: -4311003638694595003
+      BowTower_2: 6685330896952166394
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

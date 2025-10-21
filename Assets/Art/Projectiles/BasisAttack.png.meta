@@ -1,16 +1,13 @@
 fileFormatVersion: 2
-guid: ea27cd0e83bf1864599d48579512a821
+guid: 3ce50b1e1640c664097ad8763c9de472
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5075230056192899191
-    second: TowerBase_0
+      213: 7342033823796398283
+    second: BasisAttack_0
   - first:
-      213: 7921731053811611534
-    second: TowerBase_1
-  - first:
-      213: -2105860346893036930
-    second: TowerBase_2
+      213: 3715024470015232285
+    second: BasisAttack_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -52,12 +49,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.51, y: 0.22}
-  spritePixelsToUnits: 80
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 60
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -119,35 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TowerBase_0
+      name: BasisAttack_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 130
-        width: 8
-        height: 13
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 77873cca8d6de6640800000000000000
-      internalID: 5075230056192899191
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: TowerBase_1
-      rect:
-        serializedVersion: 2
-        x: 10
         y: 0
-        width: 166
-        height: 203
+        width: 38
+        height: 38
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,20 +131,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e873f9c1c64afed60800000000000000
-      internalID: 7921731053811611534
+      spriteID: bc8894cecd424e560800000000000000
+      internalID: 7342033823796398283
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TowerBase_2
+      name: BasisAttack_1
       rect:
         serializedVersion: 2
-        x: 167
-        y: 104
-        width: 8
-        height: 9
+        x: 38
+        y: 0
+        width: 38
+        height: 38
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,8 +153,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e721cdcfb2b76c2e0800000000000000
-      internalID: -2105860346893036930
+      spriteID: d19442b821b6e8330800000000000000
+      internalID: 3715024470015232285
       vertices: []
       indices: 
       edges: []
@@ -188,19 +163,20 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    spriteID: f137f7777b4666f4485c3fb9f098d4c8
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":1.0},"gridSpriteSize":{"x":38.0,"y":38.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      TowerBase_0: 5075230056192899191
-      TowerBase_1: 7921731053811611534
-      TowerBase_2: -2105860346893036930
+      BasisAttack_0: 7342033823796398283
+      BasisAttack_1: 3715024470015232285
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

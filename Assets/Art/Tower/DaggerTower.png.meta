@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: ea27cd0e83bf1864599d48579512a821
+guid: a31c9c9df4dba504fa90e523ef0ee947
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5075230056192899191
-    second: TowerBase_0
+      213: -4840923531245113274
+    second: DaggerTower_0
   - first:
-      213: 7921731053811611534
-    second: TowerBase_1
+      213: -4992787946044469053
+    second: DaggerTower_1
   - first:
-      213: -2105860346893036930
-    second: TowerBase_2
+      213: -2684588753627235600
+    second: DaggerTower_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -56,7 +56,7 @@ TextureImporter:
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 9
-  spritePivot: {x: 0.51, y: 0.22}
+  spritePivot: {x: 0.51, y: 0.18}
   spritePixelsToUnits: 80
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
@@ -119,7 +119,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TowerBase_0
+      name: DaggerTower_0
       rect:
         serializedVersion: 2
         x: 0
@@ -127,43 +127,43 @@ TextureImporter:
         width: 8
         height: 13
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 77873cca8d6de6640800000000000000
-      internalID: 5075230056192899191
+      spriteID: 6403e4752b591dcb0800000000000000
+      internalID: -4840923531245113274
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TowerBase_1
+      name: DaggerTower_1
       rect:
         serializedVersion: 2
         x: 10
         y: 0
         width: 166
-        height: 203
+        height: 248
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e873f9c1c64afed60800000000000000
-      internalID: 7921731053811611534
+      spriteID: 3c0da25e0dd06bab0800000000000000
+      internalID: -4992787946044469053
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: TowerBase_2
+      name: DaggerTower_2
       rect:
         serializedVersion: 2
         x: 167
@@ -171,15 +171,15 @@ TextureImporter:
         width: 8
         height: 9
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e721cdcfb2b76c2e0800000000000000
-      internalID: -2105860346893036930
+      spriteID: 0fa3a0c80cc6ebad0800000000000000
+      internalID: -2684588753627235600
       vertices: []
       indices: 
       edges: []
@@ -189,7 +189,7 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 1537655665
+    internalID: 0
     vertices: []
     indices: 
     edges: []
@@ -198,9 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      TowerBase_0: 5075230056192899191
-      TowerBase_1: 7921731053811611534
-      TowerBase_2: -2105860346893036930
+      DaggerTower_0: -4840923531245113274
+      DaggerTower_1: -4992787946044469053
+      DaggerTower_2: -2684588753627235600
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
