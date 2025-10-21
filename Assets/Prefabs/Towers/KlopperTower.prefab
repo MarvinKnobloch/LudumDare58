@@ -9,12 +9,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 47459961506918954, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: db01f3e8062c179408f1b11245dc7b32, type: 3}
+    - target: {fileID: 47459961506918954, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: m_Color.b
-      value: 0.08018869
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 47459961506918954, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: m_Color.g
-      value: 0.9794524
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 47459961506918954, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: m_Color.r
@@ -62,7 +66,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5852628107453491410, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: m_Name
-      value: ClubTower
+      value: KlopperTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 7260583049973566631, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7260583049973566631, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.42
       objectReference: {fileID: 0}
     - target: {fileID: 7828311766438679498, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: baseRange

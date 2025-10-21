@@ -1,13 +1,16 @@
 fileFormatVersion: 2
-guid: 6a0351fea32b1944b8a864a88d15dd7e
+guid: 73bf751aaa5bf3845a978114a4e271f8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3481049112120950181
-    second: AlchemistBrows_0
+      213: 2752975627599598643
+    second: BowTower_0
   - first:
-      213: 6280620548783365357
-    second: AlchemistBrows_1
+      213: -4311003638694595003
+    second: BowTower_1
+  - first:
+      213: 6685330896952166394
+    second: BowTower_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,12 +52,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  alignment: 9
+  spritePivot: {x: 0.51, y: 0.18}
+  spritePixelsToUnits: 80
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -76,9 +79,9 @@ TextureImporter:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 0
+    resizeAlgorithm: 1
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -99,49 +102,84 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AlchemistBrows_0
+      name: BowTower_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 4
-        width: 68
-        height: 34
+        y: 130
+        width: 8
+        height: 13
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5ad78ad59bb2f4030800000000000000
-      internalID: 3481049112120950181
+      spriteID: 334d1665fb8843620800000000000000
+      internalID: 2752975627599598643
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AlchemistBrows_1
+      name: BowTower_1
       rect:
         serializedVersion: 2
-        x: 80
+        x: 10
         y: 0
-        width: 72
-        height: 38
+        width: 166
+        height: 248
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dec504bec1f392750800000000000000
-      internalID: 6280620548783365357
+      spriteID: 5463132080d3c24c0800000000000000
+      internalID: -4311003638694595003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BowTower_2
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 104
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: af707c6c70117cc50800000000000000
+      internalID: 6685330896952166394
       vertices: []
       indices: 
       edges: []
@@ -150,8 +188,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
-    internalID: 0
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -160,8 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      AlchemistBrows_0: 3481049112120950181
-      AlchemistBrows_1: 6280620548783365357
+      BowTower_0: 2752975627599598643
+      BowTower_1: -4311003638694595003
+      BowTower_2: 6685330896952166394
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

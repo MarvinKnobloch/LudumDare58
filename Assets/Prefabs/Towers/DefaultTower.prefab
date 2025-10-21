@@ -88,6 +88,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: DefaultTower
       objectReference: {fileID: 0}
+    - target: {fileID: 7260583049973566631, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.006
+      objectReference: {fileID: 0}
+    - target: {fileID: 7260583049973566631, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.041
+      objectReference: {fileID: 0}
     - target: {fileID: 7714313199865040720, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: m_Size.x
       value: 1.1

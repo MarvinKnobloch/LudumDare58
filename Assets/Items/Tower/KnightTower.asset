@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TowerValues
   damageScalingPercantage: 80
   startBonusAttack: 11
-  baseAttackSpeed: 1
+  baseAttackSpeed: 1.1
   rangeScalingPercantage: 60
   startBonusRange: 4
   aoeRadius: -1.8

@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 6a0351fea32b1944b8a864a88d15dd7e
+guid: e210193767bf02547a84ff3d163433ca
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3481049112120950181
-    second: AlchemistBrows_0
+      213: -6172753081831424023
+    second: BoulderTower_0
   - first:
-      213: 6280620548783365357
-    second: AlchemistBrows_1
+      213: 56574085214626674
+    second: BoulderTower_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,7 +40,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -49,12 +49,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  alignment: 9
+  spritePivot: {x: 0.55, y: 0.18}
+  spritePixelsToUnits: 80
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -76,9 +76,9 @@ TextureImporter:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 0
+    resizeAlgorithm: 1
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -99,49 +99,62 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AlchemistBrows_0
+      name: BoulderTower_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 4
-        width: 68
-        height: 34
+        y: 0
+        width: 192
+        height: 248
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5ad78ad59bb2f4030800000000000000
-      internalID: 3481049112120950181
+      spriteID: 9ef7d37d6c9f55aa0800000000000000
+      internalID: -6172753081831424023
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AlchemistBrows_1
+      name: BoulderTower_1
       rect:
         serializedVersion: 2
-        x: 80
-        y: 0
-        width: 72
-        height: 38
+        x: 183
+        y: 104
+        width: 8
+        height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dec504bec1f392750800000000000000
-      internalID: 6280620548783365357
+      spriteID: 273e5bca4ddf8c000800000000000000
+      internalID: 56574085214626674
       vertices: []
       indices: 
       edges: []
@@ -150,8 +163,8 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
-    internalID: 0
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
@@ -160,8 +173,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      AlchemistBrows_0: 3481049112120950181
-      AlchemistBrows_1: 6280620548783365357
+      BoulderTower_0: -6172753081831424023
+      BoulderTower_1: 56574085214626674
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

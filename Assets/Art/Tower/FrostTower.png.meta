@@ -1,13 +1,16 @@
 fileFormatVersion: 2
-guid: 6a0351fea32b1944b8a864a88d15dd7e
+guid: 8ed48188b1cd6da4d9ec984c0e48c81e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3481049112120950181
-    second: AlchemistBrows_0
+      213: -7640645784331865333
+    second: FrostTower_0
   - first:
-      213: 6280620548783365357
-    second: AlchemistBrows_1
+      213: 6983365634096411342
+    second: FrostTower_1
+  - first:
+      213: -318580391632901060
+    second: FrostTower_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -40,7 +43,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -49,12 +52,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  alignment: 9
+  spritePivot: {x: 0.51, y: 0.18}
+  spritePixelsToUnits: 80
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -76,9 +79,9 @@ TextureImporter:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
-    resizeAlgorithm: 0
+    resizeAlgorithm: 1
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -99,17 +102,30 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AlchemistBrows_0
+      name: FrostTower_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 4
-        width: 68
-        height: 34
+        y: 0
+        width: 176
+        height: 248
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +134,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5ad78ad59bb2f4030800000000000000
-      internalID: 3481049112120950181
+      spriteID: b03305a1429f6f590800000000000000
+      internalID: -7640645784331865333
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AlchemistBrows_1
+      name: FrostTower_1
       rect:
         serializedVersion: 2
-        x: 80
-        y: 0
-        width: 72
-        height: 38
+        x: 0
+        y: 130
+        width: 7
+        height: 11
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,8 +156,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: dec504bec1f392750800000000000000
-      internalID: 6280620548783365357
+      spriteID: ec2bcf47b06e9e060800000000000000
+      internalID: 6983365634096411342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FrostTower_2
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 104
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3ce05c52dc249bf0800000000000000
+      internalID: -318580391632901060
       vertices: []
       indices: 
       edges: []
@@ -150,7 +188,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -160,8 +198,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      AlchemistBrows_0: 3481049112120950181
-      AlchemistBrows_1: 6280620548783365357
+      FrostTower_0: -7640645784331865333
+      FrostTower_1: 6983365634096411342
+      FrostTower_2: -318580391632901060
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
