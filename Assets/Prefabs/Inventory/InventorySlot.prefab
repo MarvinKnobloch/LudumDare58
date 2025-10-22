@@ -171,6 +171,8 @@ MonoBehaviour:
   bodyObject: {fileID: 0}
   inventoryIconImage: {fileID: 5065169349677837132}
   amountText: {fileID: 5284603129730158357}
+  dropItemSound: {fileID: 11400000, guid: 1fb59062f0589cc4f90bd444845144e1, type: 2}
+  recycleSound: {fileID: 11400000, guid: a33bd26f709c6be4ea1a3775f17a1d01, type: 2}
 --- !u!1 &5054446359219333345
 GameObject:
   m_ObjectHideFlags: 0

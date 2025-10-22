@@ -1,4 +1,5 @@
 using System.Collections;
+using Marvin.AudioSystem;
 using TMPro;
 using Tower;
 using UnityEngine;
@@ -19,6 +20,9 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     [SerializeField] private Image inventoryIconImage;
     [SerializeField] private TextMeshProUGUI amountText;
+
+    [SerializeField] private AudioObj dropItemSound;
+    [SerializeField] private AudioObj recycleSound;
 
     private Image dragImage;
 
@@ -97,6 +101,8 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         {
             Player.Instance.UpdateSouls(Player.Instance.GetRecycleSoulsAmount());
             inventory.AddResource(bodyObject, -1);
+
+            AudioManager.Instance.PlayAudioObjOneShot(recycleSound);
         }
         else if(inventory.currentBodySlots != null)
         {
@@ -123,6 +129,8 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
                 IngameController.Instance.playerUI.SetToolTipWindow(bodyObject);
 
                 inventory.AddResource(bodyObject, -1);
+
+                AudioManager.Instance.PlayAudioObjOneShot(dropItemSound);
             }
 
             if (GameManager.Instance.showTutorial == true)

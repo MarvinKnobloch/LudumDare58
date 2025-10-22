@@ -1,4 +1,5 @@
 using System;
+using Marvin.AudioSystem;
 using Tower;
 using UnityEngine;
 
@@ -25,6 +26,9 @@ public class Player : MonoBehaviour
     [SerializeField] private int lifeStealChance = 5;
     [SerializeField] private int doubleDamageChance = 25;
 
+    [Space]
+    [SerializeField] private AudioObj takeDamageSound;
+
     private void Awake()
     {
         if (Instance == null) Instance = this;
@@ -46,7 +50,9 @@ public class Player : MonoBehaviour
         currentHealth -= amount;
         IngameController.Instance.playerUI.HealthUIUpdate(currentHealth, maxHealth);
 
-        if(currentHealth <= 0)
+        AudioManager.Instance.PlayAudioObjOneShot(takeDamageSound);
+
+        if (currentHealth <= 0)
         {
             IngameController.Instance.playerUI.gameOverScreen.SetActive(true);
         }

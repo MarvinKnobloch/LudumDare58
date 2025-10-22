@@ -1,3 +1,4 @@
+using Marvin.AudioSystem;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,12 +9,15 @@ public class UpgradeTowerButton : MonoBehaviour
 
     [SerializeField] private Image upgradeProgressionBar;
 
+    [SerializeField] private AudioObj upgradeSound;
+
     private void Start()
     {
         upgradeProgressionBar.fillAmount = 0;
     }
     public void UpgradeTower()
     {
+        AudioManager.Instance.PlayAudioObjOneShot(upgradeSound);
         IngameController.Instance.playerUI.inventory.currentSelectedTower.UpgradeTower();
     }
     public void UpdateUpgradeTowerInfo(bool toggle, int percantage)

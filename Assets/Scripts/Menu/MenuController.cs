@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.Events;
 using TMPro;
 using UnityEngine.InputSystem;
+using Marvin.AudioSystem;
 
 public class MenuController : MonoBehaviour
 {
@@ -203,6 +204,6 @@ public class MenuController : MonoBehaviour
 
     private void PlayMenuSound()
     {
-        //AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.utilitySounds[(int)AudioManager.UtilitySounds.MenuSelect]);
+        AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.utilitySounds[(int)AudioManager.UtilitySounds.MenuSelect]);
     }
 }

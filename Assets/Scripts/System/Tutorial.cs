@@ -1,4 +1,5 @@
 using System.Collections;
+using Marvin.AudioSystem;
 using UnityEngine;
 
 public class Tutorial : MonoBehaviour
@@ -96,6 +97,8 @@ public class Tutorial : MonoBehaviour
         RectTransform arrowRect = arrowCue.GetComponent<RectTransform>();
 
   
+        if(currentHint > 0) AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.utilitySounds[(int)AudioManager.UtilitySounds.MenuSelect]);
+
         if (currentHint == 0)
         {
             Debug.Log("Hint 0");

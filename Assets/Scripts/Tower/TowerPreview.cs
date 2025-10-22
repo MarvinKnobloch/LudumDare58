@@ -1,4 +1,5 @@
 using System;
+using Marvin.AudioSystem;
 using Tower;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -24,12 +25,8 @@ public class TowerPreview : MonoBehaviour
     private Controls controls;
 
     //desi
-    
 
-
-
-
-
+    [SerializeField] private AudioObj buildSound;
     private void Awake()
     {
         controls = new Controls();
@@ -83,6 +80,8 @@ public class TowerPreview : MonoBehaviour
                     CancelBuildMode();
                 }
                 BuildCheck();
+
+                AudioManager.Instance.PlayAudioObjOneShot(buildSound);
             }
         }
         if (controls.Player.Cancel.WasPerformedThisFrame() || controls.Menu.MenuEsc.WasPerformedThisFrame())

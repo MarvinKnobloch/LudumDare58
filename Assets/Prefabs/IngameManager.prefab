@@ -1975,7 +1975,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 0.7761665, g: 0.1514774, b: 0.8679245, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -3112,7 +3112,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -7, y: -20}
+  m_AnchoredPosition: {x: -12, y: -20}
   m_SizeDelta: {x: 93, y: 50}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &3858654179146672341
@@ -3143,7 +3143,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 31452ee9e24f77b43955d44be7069f65, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b3661ca38552ab943bd677ee3c6fbf5e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3957,7 +3957,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 450, y: -10}
+  m_AnchoredPosition: {x: 445, y: -10}
   m_SizeDelta: {x: 460, y: 819}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &5805032988178675611
@@ -6190,7 +6190,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -445, y: -20}
+  m_AnchoredPosition: {x: -440, y: -20}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 1, y: 1}
 --- !u!1 &2576170433226834072
@@ -6882,7 +6882,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 260, y: -194.59956}
+  m_AnchoredPosition: {x: 260, y: -194.59961}
   m_SizeDelta: {x: 528.5858, y: 730}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &9039410272545500761
@@ -9074,6 +9074,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SelectTower
   rangeIndicator: {fileID: 1914529614725511873}
   tutorial: {fileID: 1508951565318196011}
+  pickUpItemSound: {fileID: 11400000, guid: 563d35490f9f3aa4cbcc91a74fc84544, type: 2}
 --- !u!1 &3490409274301209132
 GameObject:
   m_ObjectHideFlags: 0
@@ -10883,10 +10884,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1489170093327194070}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6, y: 22}
-  m_SizeDelta: {x: 40, y: 39}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 5.800001, y: 24.099995}
+  m_SizeDelta: {x: -43.6, y: -535.8}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2048670211361688852
 CanvasRenderer:
@@ -12117,7 +12118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -15116,8 +15117,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7949626207446807465}
   m_HandleRect: {fileID: 6653753867708965893}
   m_Direction: 2
-  m_Value: 1.0000004
-  m_Size: 0.46671522
+  m_Value: 1.0000006
+  m_Size: 0.4663054
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -19100,6 +19101,7 @@ MonoBehaviour:
   upgradeClosed: {fileID: 9016047237992433426}
   upgradeOpen: {fileID: 3831058922193572818}
   upgradeProgressionBar: {fileID: 4857542095189565192}
+  upgradeSound: {fileID: 11400000, guid: 13999f0cf457e1245be5dce98f13bc19, type: 2}
 --- !u!1 &7739646156400670660
 GameObject:
   m_ObjectHideFlags: 0
@@ -20503,7 +20505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -21769,7 +21771,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -21855,7 +21857,7 @@ MonoBehaviour:
   currentHealth: 0
   soulsStartAmount: 70
   defaultTowerCosts: 40
-  recycleSoulsAmount: 1
+  recycleSoulsAmount: 2
   towerRecipes:
   - {fileID: 11400000, guid: 02483ea9b07e5f8458c4363d05f5d67f, type: 2}
   - {fileID: 11400000, guid: 5b61dc3a677809347ab07398b00d03b5, type: 2}
@@ -21873,6 +21875,7 @@ MonoBehaviour:
   bodySlotCosts: 5
   lifeStealChance: 5
   doubleDamageChance: 25
+  takeDamageSound: {fileID: 11400000, guid: a8a5637d7dcdae542a8ba4561e432978, type: 2}
 --- !u!114 &8888812027060965051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22083,6 +22086,7 @@ MonoBehaviour:
   towerInfo: {fileID: 8903371037828272324}
   canRecycle: 0
   recipeUI: {fileID: 2092799871936637582}
+  buySound: {fileID: 11400000, guid: a33bd26f709c6be4ea1a3775f17a1d01, type: 2}
 --- !u!1 &8889656908033223045
 GameObject:
   m_ObjectHideFlags: 0

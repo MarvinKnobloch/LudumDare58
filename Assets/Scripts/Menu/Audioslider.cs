@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Audio;
 using TMPro;
+using Marvin.AudioSystem;
 //using Marvin.AudioSystem;
 
 public class Audioslider : MonoBehaviour
@@ -36,7 +37,7 @@ public class Audioslider : MonoBehaviour
             skipFirstSound = false;
             return;
         }
-        //else AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.utilitySounds[(int)AudioManager.UtilitySounds.MenuSelect]);
+        else AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.utilitySounds[(int)AudioManager.UtilitySounds.MenuSelect]);
     }
     public void MusicValueChange(float slidervalue)
     {
@@ -57,7 +58,7 @@ public class Audioslider : MonoBehaviour
             skipFirstSound = false;
             return;
         }
-        //else AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.utilitySounds[(int)AudioManager.UtilitySounds.MenuSelect]);
+        else AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.utilitySounds[(int)AudioManager.UtilitySounds.MenuSelect]);
     }
     private void SetDecibel(float sliderValue, string audioString, int maxDecibel)
     {

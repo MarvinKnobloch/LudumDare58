@@ -988,6 +988,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SniperTower
       objectReference: {fileID: 0}
+    - target: {fileID: 5971555673173559965, guid: 9c1ebcefb6342214593e81531d4c75b1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1392,7 +1396,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2677866757682183673, guid: bbc4456aa75845346af026e02e5bab1e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5034784185674230047, guid: bbc4456aa75845346af026e02e5bab1e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2151,11 +2155,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3614611579739201147, guid: a8a6fee65da4afe4ea00dff09897aed7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.78
+      value: 4.8
       objectReference: {fileID: 0}
     - target: {fileID: 3614611579739201147, guid: a8a6fee65da4afe4ea00dff09897aed7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.97
+      value: 3.6
       objectReference: {fileID: 0}
     - target: {fileID: 3614611579739201147, guid: a8a6fee65da4afe4ea00dff09897aed7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2195,7 +2199,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5971555673173559965, guid: a8a6fee65da4afe4ea00dff09897aed7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2515,7 +2519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5971555673173559965, guid: 7d15f0b7cea70b04fa025cbff47086f1, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3230,7 +3234,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3855980295498600054, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -194.60005
+      value: -194.59943
       objectReference: {fileID: 0}
     - target: {fileID: 5183651379440502080, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_AnchorMax.x
@@ -3246,7 +3250,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6101780230387084660, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: maxHealth
-      value: 1
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6101780230387084660, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
+      propertyPath: soulsStartAmount
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 6653753867708965893, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_AnchorMax.x

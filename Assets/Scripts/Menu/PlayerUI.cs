@@ -67,7 +67,7 @@ public class PlayerUI : MonoBehaviour
 
         TextMeshProUGUI itemText = itmeTooltipText;
         itemText.text = string.Empty;
-        itemText.text += "<u><b>" + bodyObject.Name + "</u></b>\n\n";
+        itemText.text += "<u><b>" + bodyObject.Name + "</u></b>\n\n" + bodyObject.Part + "\n";
         bool baseStat = false;
         bool towerStat = false;
 

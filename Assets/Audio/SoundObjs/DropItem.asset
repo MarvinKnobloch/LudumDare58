@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: DropItem
   m_EditorClassIdentifier: 
   Name: Drop Item
-  AudioClip: {fileID: 8300000, guid: e91f4eb8d69041f49a9dfb7e1b1085a7, type: 3}
-  Volume: 0.3
+  AudioClip: {fileID: 8300000, guid: 0568640cb2414064e89e64752c223f0f, type: 3}
+  Volume: 0.55
   randomPitch: 0

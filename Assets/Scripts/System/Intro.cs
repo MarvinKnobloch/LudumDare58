@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Marvin.AudioSystem;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -25,7 +26,12 @@ public class Intro : MonoBehaviour
             GameManager.Instance.showIntro = false;
             dialogWindow.SetActive(true);
             blackScreen.gameObject.SetActive(true);
-            NextDialog();
+
+            //Becaue of first sound
+            characterNameText.text = dialog[currentDialogLine].characterName;
+            dialogText.text = dialog[currentDialogLine].dialogText;
+            currentDialogLine++;
+            //NextDialog();
         }
     }
 
@@ -36,9 +42,11 @@ public class Intro : MonoBehaviour
             characterNameText.text = dialog[currentDialogLine].characterName;
             dialogText.text = dialog[currentDialogLine].dialogText;
             currentDialogLine++;
+            AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.utilitySounds[(int)AudioManager.UtilitySounds.MenuSelect]);
         }
         else
         {
+            AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.utilitySounds[(int)AudioManager.UtilitySounds.MenuSelect]);
             dialogWindow.SetActive(false);
             StartCoroutine(FadeOutBlackscreen());
         }

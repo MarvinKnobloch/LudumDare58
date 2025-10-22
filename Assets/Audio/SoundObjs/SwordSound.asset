@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: SwordSound
   m_EditorClassIdentifier: com.Marvin.AudioSystem::Marvin.AudioSystem.AudioObj
   Name: Sword
-  AudioClip: {fileID: 8300000, guid: 5ef2d471198c58d4682292705ef897c4, type: 3}
+  AudioClip: {fileID: 8300000, guid: 13be4138766da554f94c3268845ec339, type: 3}
   Volume: 0.3
   randomPitch: 0

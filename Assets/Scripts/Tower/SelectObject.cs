@@ -1,6 +1,6 @@
+using Marvin.AudioSystem;
 using Marvin.PoolingSystem;
 using Tower;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class SelectObject : MonoBehaviour
@@ -9,6 +9,8 @@ public class SelectObject : MonoBehaviour
     [SerializeField] private RangeIndicator rangeIndicator;
 
     [SerializeField] private Tutorial tutorial; //desi
+
+    [SerializeField] private AudioObj pickUpItemSound;
 
     private void Awake()
     {
@@ -39,6 +41,8 @@ public class SelectObject : MonoBehaviour
 
                         IngameController.Instance.playerUI.inventory.AddResource(worldItem.itemInformationen, worldItem.dropAmount);
                         if (worldItem.testItem == false) worldItem.ReturnToItemPool();
+
+                        AudioManager.Instance.PlayAudioObjOneShot(pickUpItemSound);
 
                         //desi
                         if (GameManager.Instance.showTutorial == true)

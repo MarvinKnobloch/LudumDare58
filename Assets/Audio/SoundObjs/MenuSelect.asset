@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: MenuSelect
   AudioClip: {fileID: 8300000, guid: 46ced03ba0cac5a4e9cc7cf3c15708aa, type: 3}
-  Volume: 0.675
+  Volume: 0.55
   randomPitch: 0

@@ -319,11 +319,6 @@ MonoBehaviour:
     audioObj: {fileID: 0}
   utilitySounds:
   - Name: MenuSelect
-    audioObj: {fileID: 0}
-  playerSounds:
-  - Name: PlayerJump
-    audioObj: {fileID: 0}
+    audioObj: {fileID: 11400000, guid: b6299fa647eb00547b687e13ebb61bc5, type: 2}
+  playerSounds: []
   enemySounds: []
-  minPitch: 0
-  maxPitch: 0
-  randomVolumeMultipler: 0

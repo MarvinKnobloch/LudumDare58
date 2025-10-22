@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Marvin.AudioSystem;
 using TMPro;
 using Tower;
 using UnityEngine;
@@ -40,6 +41,9 @@ public class Inventory : MonoBehaviour
     [SerializeField] private RecipeUI recipeUI;
     private TowerRecipeSlot towerRecipeSlot;
     private TowerRecipe currentRecipe;
+
+    [Space]
+    [SerializeField] private AudioObj buySound;
 
     private void Awake()
     {
@@ -226,6 +230,8 @@ public class Inventory : MonoBehaviour
         bodySlot.unlockObj.SetActive(false);
         bodySlot.enabled = true;
         Player.Instance.UpdateSouls(-costs);
+
+        AudioManager.Instance.PlayAudioObjOneShot(buySound);
     }
 
     public void SetRangeIndicator()
