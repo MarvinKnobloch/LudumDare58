@@ -39,6 +39,7 @@ public class LevelManager : MonoBehaviour, IPoolingList
     [Header("Other")]
     [SerializeField] private SortObjects sortObjects;
     [SerializeField] private AudioObj startNightSound;
+    public GameObject tutorialArm;
 
 
     public PoolingSystem.PoolObjectInfo poolingList { get; set; }

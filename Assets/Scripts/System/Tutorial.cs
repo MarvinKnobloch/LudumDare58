@@ -16,7 +16,6 @@ public class Tutorial : MonoBehaviour
 
     [SerializeField] private GameObject arrowCueHealth;
     [SerializeField] private GameObject arrowCueSoul;
-    
 
     public int currentHint;
     public Vector2 towerPos;
@@ -58,6 +57,11 @@ public class Tutorial : MonoBehaviour
         }
         else
         {
+            if (currentHint == 2 && LevelManager.Instance.tutorialArm == null)
+            {
+                currentHint++;
+            }
+
             tutorialHints[currentHint].SetActive(true);
             ShowArrowForCurrentHint();
         }
@@ -100,7 +104,6 @@ public class Tutorial : MonoBehaviour
         arrowCue.SetActive(true);
         RectTransform arrowRect = arrowCue.GetComponent<RectTransform>();
 
-  
         if(currentHint > 0) AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.utilitySounds[(int)AudioManager.UtilitySounds.MenuSelect]);
 
         if (currentHint == 0)
