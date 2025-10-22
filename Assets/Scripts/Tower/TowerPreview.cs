@@ -9,6 +9,7 @@ public class TowerPreview : MonoBehaviour
     [SerializeField] private GameObject towerToBuild;
     [SerializeField] private RangeIndicator rangeIndicator;
     [SerializeField] private TowerValues defaultTower;
+    [SerializeField] private GameObject buildTowerEffect;
 
     [Space]
     [SerializeField] private LayerMask buildLayer;
@@ -80,6 +81,8 @@ public class TowerPreview : MonoBehaviour
                     CancelBuildMode();
                 }
                 BuildCheck();
+
+                Instantiate(buildTowerEffect, transform.position, Quaternion.identity);
 
                 AudioManager.Instance.PlayAudioObjOneShot(buildSound);
             }
