@@ -210,6 +210,8 @@ public class Projectile : MonoBehaviour, IPoolingList
             dealedDamage = true;
             spriteRenderer.sortingOrder = sortingLayerAfterHit;
             Invoke("DisableProjectile", disableTimeAfterHit);
+
+            if (audioOnLand != null) AudioManager.Instance.PlayAudioObjOneShot(audioOnLand);
         }
     }
     private void Swing()

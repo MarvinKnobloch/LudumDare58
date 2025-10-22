@@ -26,6 +26,7 @@ public class GameOver : MonoBehaviour
     {
         if (gameOverStarted) return;
 
+        gameOverText.text = "You survived " + LevelManager.Instance.currentLevel + " nights";
         StartCoroutine(FadeInGameOver());
     }
     IEnumerator FadeInGameOver()

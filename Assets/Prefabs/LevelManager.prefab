@@ -95,6 +95,7 @@ MonoBehaviour:
   nightSprite: {fileID: -9091828991286926061, guid: f3b6b17d0aaf8b3419f6863dfff05c0c, type: 3}
   backgroundRenderer: {fileID: 0}
   sortObjects: {fileID: 5199166517060203952}
+  startNightSound: {fileID: 11400000, guid: 72bbbdc6e19ec9e49a73e1c5d3e9c31d, type: 2}
 --- !u!114 &5199166517060203952
 MonoBehaviour:
   m_ObjectHideFlags: 0

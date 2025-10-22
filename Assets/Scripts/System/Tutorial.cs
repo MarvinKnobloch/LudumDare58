@@ -53,6 +53,8 @@ public class Tutorial : MonoBehaviour
             startRoundButton.ShowButton();
 
             arrowCue.SetActive(false);
+
+            AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.utilitySounds[(int)AudioManager.UtilitySounds.MenuSelect]);
         }
         else
         {
@@ -72,6 +74,8 @@ public class Tutorial : MonoBehaviour
         arrowCue.SetActive(false);
         arrowCueHealth.SetActive(false);
         arrowCueSoul.SetActive(false);
+
+        AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.utilitySounds[(int)AudioManager.UtilitySounds.MenuSelect]);
     }
 
 
@@ -180,15 +184,16 @@ public class Tutorial : MonoBehaviour
             arrowCue.SetActive(true);
             arrowRect.anchoredPosition = new Vector2(-636f, 130.1f);
            
+        }
 
-
-    
+        else if (currentHint == 10)
+        {
+            arrowCue.SetActive(true);
+            arrowRect.anchoredPosition = new Vector2(-400f, -390.1f);
 
         }
 
-
-
-        else if (currentHint == 10)
+        else if (currentHint == 11)
         {
 
             arrowCueSoul.SetActive(false);

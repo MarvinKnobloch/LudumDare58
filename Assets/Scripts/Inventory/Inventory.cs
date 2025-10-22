@@ -165,6 +165,7 @@ public class Inventory : MonoBehaviour
         DisableSlot(bodySlot);
         DisableSlot(weaponSlot);
 
+        upgradeTowerButton.UpdateUpgradeTowerInfo(false, 0);
         DisableRangeIndicator();
         currentSelectedTower = null;
         towerInfo.TowerInfoUpdate();

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -5663957369430903067}
   - component: {fileID: -969661777201276555}
   m_Layer: 0
-  m_Name: BowProjectilePrefab 1
+  m_Name: BowProjectilePrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

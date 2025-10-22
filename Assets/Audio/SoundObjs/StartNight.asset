@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d33e9170e19c02f4a9baaba286ae93c4, type: 3}
-  m_Name: ArrowShot
-  m_EditorClassIdentifier: 
-  Name: Arrow Shot
-  AudioClip: {fileID: 8300000, guid: c544a7c18c4fa0546b8428517e658a07, type: 3}
-  Volume: 0.2
+  m_Name: StartNight
+  m_EditorClassIdentifier: com.Marvin.AudioSystem::Marvin.AudioSystem.AudioObj
+  Name: Start Night
+  AudioClip: {fileID: 8300000, guid: 2cc64d326e1954e49ac71492c5da9921, type: 3}
+  Volume: 0.06
   randomPitch: 0

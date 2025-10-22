@@ -1,3 +1,4 @@
+using Marvin.AudioSystem;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -20,6 +21,8 @@ public class BuildTowerButton : MonoBehaviour
 
     [SerializeField] private Tutorial tutorial; //desi
 
+    [Space]
+    [SerializeField] private AudioObj selectButton;
 
 
     private void Awake()
@@ -76,7 +79,7 @@ public class BuildTowerButton : MonoBehaviour
             towerUIPreview.transform.position = Input.mousePosition;
             towerUIPreview.SetActive(true);
 
-            
+            AudioManager.Instance.PlayAudioObjOneShot(selectButton);
         }
     }
     private void ButtonReleased()

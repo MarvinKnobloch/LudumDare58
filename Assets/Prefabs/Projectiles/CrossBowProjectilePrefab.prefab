@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: -2319068227056350433}
   - component: {fileID: -5663957369430903067}
   - component: {fileID: -969661777201276555}
-  - component: {fileID: 222516181151916937}
   m_Layer: 0
   m_Name: CrossBowProjectilePrefab
   m_TagString: Untagged
@@ -194,17 +193,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &222516181151916937
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7056902295061036921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60a77f24e7f8fcf438b05128bae0c756, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: com.Marvin.AudioSystem::Marvin.AudioSystem.AudioOnSpawn
-  audioObj: {fileID: 11400000, guid: 3008468eb5b0a59468729594cee330c2, type: 2}
-  audioPlayMode: 0

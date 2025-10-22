@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: -5721924253729464847}
   - component: {fileID: 3678556042877228813}
   - component: {fileID: 2863938897316122031}
-  - component: {fileID: 1699251285360819219}
   - component: {fileID: 7573150740356774848}
   - component: {fileID: 4677749588214397371}
   m_Layer: 0
@@ -132,6 +131,7 @@ MonoBehaviour:
   maxHeight: 0
   shrinkEachHit: 0.2
   damageReductionEachHit: 0.1
+  audioOnLand: {fileID: 0}
 --- !u!58 &3678556042877228813
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -195,20 +195,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1699251285360819219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4780432458198478164}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60a77f24e7f8fcf438b05128bae0c756, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: com.Marvin.AudioSystem::Marvin.AudioSystem.AudioOnSpawn
-  audioObj: {fileID: 11400000, guid: b2e971e77852bdb41920747aafc0d5d9, type: 2}
-  audioPlayMode: 0
 --- !u!199 &7573150740356774848
 ParticleSystemRenderer:
   serializedVersion: 6

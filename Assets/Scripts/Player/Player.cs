@@ -2,11 +2,14 @@ using System;
 using Marvin.AudioSystem;
 using Tower;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
     public static Player Instance;
     public static event Action<int> soulsChanged;
+
+    private Controls controls;
 
     [SerializeField] private int maxHealth = 30;
     [SerializeField] private int currentHealth;
@@ -34,6 +37,17 @@ public class Player : MonoBehaviour
         if (Instance == null) Instance = this;
         else Destroy(gameObject);
 
+        controls = new Controls();
+    }
+    private void OnEnable()
+    {
+        controls.Enable();
+        controls.Player.Cancel.performed += DeselectTowerHotkey;
+    }
+    private void OnDisable()
+    {
+        controls.Disable();
+        controls.Player.Cancel.performed -= DeselectTowerHotkey;
     }
     private void Start()
     {
@@ -97,6 +111,10 @@ public class Player : MonoBehaviour
             }
 
         }
+    }
+    private void DeselectTowerHotkey(InputAction.CallbackContext context)
+    {
+        IngameController.Instance.playerUI.inventory.DeselectTower();
     }
     public int GetCurrentSouls() => currentSouls;
     public int GetTowerCosts() => defaultTowerCosts;

@@ -1,8 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Marvin.AudioSystem;
 using Marvin.PoolingSystem;
 using TMPro;
+using Unity.VisualScripting;
+using UnityEditor.ShaderGraph;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -37,6 +40,7 @@ public class LevelManager : MonoBehaviour, IPoolingList
 
     [Header("Other")]
     [SerializeField] private SortObjects sortObjects;
+    [SerializeField] private AudioObj startNightSound;
 
 
     public PoolingSystem.PoolObjectInfo poolingList { get; set; }
@@ -89,6 +93,7 @@ public class LevelManager : MonoBehaviour, IPoolingList
                 activeSpawners++;
                 StartCoroutine(StartEnemySpawn(levels[currentLevel].levelEnemyValues[i], levels[currentLevel].levelEnemyValues[i].waveStartDelay));
             }
+            AudioManager.Instance.PlayAudioObjOneShot(startNightSound);
         }
     }
     private IEnumerator StartEnemySpawn(LevelEnemyValues enemyObj, float waveStartDelay)

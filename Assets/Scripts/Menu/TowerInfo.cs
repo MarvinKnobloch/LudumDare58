@@ -1,3 +1,4 @@
+using Marvin.AudioSystem;
 using TMPro;
 using Tower;
 using UnityEngine;
@@ -12,6 +13,9 @@ public class TowerInfo : MonoBehaviour
     [SerializeField] private TextMeshProUGUI rangeText;
     [SerializeField] private TextMeshProUGUI aoeText;
     [SerializeField] private TextMeshProUGUI specialText;
+
+    [Space]
+    [SerializeField] private AudioObj scrollSound;
 
 
     public void ToggleScrolls()
@@ -29,6 +33,7 @@ public class TowerInfo : MonoBehaviour
 
             ClearText();
         }
+        AudioManager.Instance.PlayAudioObjOneShot(scrollSound);
     }
     public void TowerInfoUpdate()
     {

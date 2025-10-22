@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Marvin.AudioSystem;
 using Marvin.PoolingSystem;
 using UnityEngine;
 using UnityEngine.Events;
@@ -85,6 +86,9 @@ namespace Tower
         [Space]
         [SerializeField] private Animator animator;
         [SerializeField] private GameObject sparkEffect;
+
+        [Space]
+        [SerializeField] private AudioObj launchSound;
 
         private void Awake()
         {
@@ -212,6 +216,8 @@ namespace Tower
                     damageScaling = bodyObject.DamageScalingPercentage;
                     baseAttackSpeed = bodyObject.BaseAttackSpeed;
                     rangeScaling = bodyObject.RangeScalingPercentage;
+
+                    launchSound = bodyObject.WeaponSound;
                     break;
             }
             AddTowerValues(bodyObject);
@@ -390,6 +396,8 @@ namespace Tower
         private void HandleRangedStandardAttack(Transform targetEnemy)
         {
             CreateProjectile(targetEnemy);
+
+            if(launchSound != null) AudioManager.Instance.PlayAudioObjOneShot(launchSound);
 
             if (additionalProjectiles > 0)
             {

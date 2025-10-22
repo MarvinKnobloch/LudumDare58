@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: IceProjectile
   m_EditorClassIdentifier: 
   Name: Ice Projectile
-  AudioClip: {fileID: 8300000, guid: 308b9dff9820bb74a800ae51eb5d1f13, type: 3}
-  Volume: 0.02
+  AudioClip: {fileID: 8300000, guid: 9a8d582352f4c0f4fab62e9349cd1e53, type: 3}
+  Volume: 0.04
   randomPitch: 0

@@ -252,7 +252,7 @@ MonoBehaviour:
   maxHeight: 4
   shrinkEachHit: 0.2
   damageReductionEachHit: 0.1
-  audioOnLand: {fileID: 0}
+  audioOnLand: {fileID: 11400000, guid: cc56261973dc8744c978d1e090d4b45d, type: 2}
 --- !u!58 &3678556042877228813
 CircleCollider2D:
   m_ObjectHideFlags: 0

@@ -26,6 +26,7 @@ MonoBehaviour:
   <DamageScalingPercentage>k__BackingField: 60
   <BaseAttackSpeed>k__BackingField: 1.5
   <RangeScalingPercentage>k__BackingField: 95
+  <WeaponSound>k__BackingField: {fileID: 11400000, guid: 8b2d3e611e704ec49869291862b33be8, type: 2}
   <SlowPercentage>k__BackingField: 0
   <SlowDuration>k__BackingField: 0
   <AdditionalProjectiles>k__BackingField: 1

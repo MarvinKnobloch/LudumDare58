@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Marvin.AudioSystem;
 using Tower;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -23,6 +24,9 @@ public class RecipeUI : MonoBehaviour
     [SerializeField] private GameObject towerSlotsGrid;
 
     public List<TowerRecipeSlot> recipes = new List<TowerRecipeSlot>();
+
+    [Space]
+    [SerializeField] private AudioObj selectButton;
 
     private void Awake()
     {
@@ -92,6 +96,7 @@ public class RecipeUI : MonoBehaviour
         isOpen = !isOpen;
         StartCoroutine(MoveUI());
 
+        AudioManager.Instance.PlayAudioObjOneShot(selectButton);
     }
 
     

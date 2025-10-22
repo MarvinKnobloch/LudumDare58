@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: com.Marvin.AudioSystem::Marvin.AudioSystem.AudioObj
   Name: Item Pick up
   AudioClip: {fileID: 8300000, guid: e91f4eb8d69041f49a9dfb7e1b1085a7, type: 3}
-  Volume: 0.55
+  Volume: 0.45
   randomPitch: 0

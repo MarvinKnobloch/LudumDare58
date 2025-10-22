@@ -85,6 +85,10 @@ PrefabInstance:
       value: 0.328
       objectReference: {fileID: 0}
     - target: {fileID: 7828311766438679498, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
+      propertyPath: launchSound
+      value: 
+      objectReference: {fileID: 11400000, guid: ded8b9a5200d2f44f9219d4d76404ab8, type: 2}
+    - target: {fileID: 7828311766438679498, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: towerValues
       value: 
       objectReference: {fileID: 11400000, guid: f2c7f948d9cffe84e83ee49c9bb1bcc2, type: 2}

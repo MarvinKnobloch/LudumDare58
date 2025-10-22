@@ -1,3 +1,4 @@
+using Marvin.AudioSystem;
 using UnityEngine;
 
 namespace Tower
@@ -28,6 +29,7 @@ namespace Tower
         [field: SerializeField] public int DamageScalingPercentage { get; private set; }
         [field: SerializeField] public float BaseAttackSpeed { get; private set; }
         [field: SerializeField] public int RangeScalingPercentage { get; private set; }
+        [field: SerializeField] public AudioObj WeaponSound { get; private set; }
 
         [field: SerializeField, Header("Additional Values")] public int SlowPercentage { get; private set; }
         [field: SerializeField] public float SlowDuration { get; private set; }

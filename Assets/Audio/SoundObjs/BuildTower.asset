@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BuildTower
   m_EditorClassIdentifier: com.Marvin.AudioSystem::Marvin.AudioSystem.AudioObj
   Name: Build Tower
-  AudioClip: {fileID: 8300000, guid: 2c86d6077a8e10142b9be2351a219eb4, type: 3}
-  Volume: 0.3
+  AudioClip: {fileID: 8300000, guid: 624a9254e890d1047888770ae04f539d, type: 3}
+  Volume: 0.1
   randomPitch: 0
