@@ -70,8 +70,10 @@ public class TowerPreview : MonoBehaviour
                 {
                     //desi
                     IngameController.Instance.playerUI.tutorial.towerPos = Input.mousePosition;
+                    IngameController.Instance.playerUI.tutorial.TryAdvanceHint(1);
 
-
+                   // CancelBuildMode();
+                   // return; 
 
                 }
 

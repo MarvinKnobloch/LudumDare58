@@ -57,10 +57,7 @@ public class SelectObject : MonoBehaviour
                         IngameController.Instance.playerUI.inventory.SetCurrentTower(towerBase);
                         break;
                     }
-                    else if (cols[i].TryGetComponent(out DeselectArea deselectArea))
-                    {
-                        IngameController.Instance.playerUI.inventory.DeselectTower();
-                    }
+                   
                 }
             }
         }
