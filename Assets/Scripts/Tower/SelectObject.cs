@@ -50,6 +50,7 @@ public class SelectObject : MonoBehaviour
                         {
                             tutorial.TryAdvanceHint(2);
                         }
+                        break;
                     }
                     else if (cols[i].TryGetComponent(out TowerBase towerBase))
                     {
