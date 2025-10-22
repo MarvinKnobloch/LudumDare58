@@ -1,0 +1,264 @@
+fileFormatVersion: 2
+guid: 39c8a450e1e60e5428497aa1e50d0ecf
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -178199284439542842
+    second: TowerZapAnimation_0
+  - first:
+      213: -6540021207760907320
+    second: TowerZapAnimation_1
+  - first:
+      213: 1666698369266570530
+    second: TowerZapAnimation_2
+  - first:
+      213: 2083874148644317482
+    second: TowerZapAnimation_3
+  - first:
+      213: 5954297230411468566
+    second: TowerZapAnimation_4
+  - first:
+      213: 3104104263504700625
+    second: TowerZapAnimation_5
+  - first:
+      213: 6363877065334846237
+    second: TowerZapAnimation_6
+  - first:
+      213: -6967356112536231443
+    second: TowerZapAnimation_7
+  - first:
+      213: -8436216121350528241
+    second: TowerZapAnimation_8
+  - first:
+      213: 5682316644030792759
+    second: TowerZapAnimation_9
+  - first:
+      213: 1074642813156117250
+    second: TowerZapAnimation_10
+  - first:
+      213: 8339288496893862553
+    second: TowerZapAnimation_11
+  - first:
+      213: 3929458977891520223
+    second: TowerZapAnimation_12
+  - first:
+      213: -6321888909536454893
+    second: TowerZapAnimation_13
+  - first:
+      213: 8956099065702504526
+    second: TowerZapAnimation_14
+  - first:
+      213: -4169028169056858247
+    second: TowerZapAnimation_15
+  - first:
+      213: 2825748008014243720
+    second: TowerZapAnimation_16
+  - first:
+      213: -177458143820283382
+    second: TowerZapAnimation_17
+  - first:
+      213: 901692036575033762
+    second: TowerZapAnimation_18
+  - first:
+      213: 7162095530178946943
+    second: TowerZapAnimation_19
+  - first:
+      213: 5835078615740149980
+    second: TowerZapAnimation_20
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 90
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TowerZapAnimation_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 280
+        width: 240
+        height: 280
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c390c7e1b8e68df0800000000000000
+      internalID: -178199284439542842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TowerZapAnimation_1
+      rect:
+        serializedVersion: 2
+        x: 240
+        y: 280
+        width: 240
+        height: 280
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c3d3efac5d2d35a0800000000000000
+      internalID: -6540021207760907320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TowerZapAnimation_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 240
+        height: 280
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2255bd7165d412710800000000000000
+      internalID: 1666698369266570530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 2d2efea0974c89049af00cba1a53eea3
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":2.0,"y":2.0},"gridSpriteSize":{"x":240.0,"y":280.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      TowerZapAnimation_0: -178199284439542842
+      TowerZapAnimation_1: -6540021207760907320
+      TowerZapAnimation_2: 1666698369266570530
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

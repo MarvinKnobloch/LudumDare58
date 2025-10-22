@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Marvin.AudioSystem;
 using Marvin.PoolingSystem;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -38,6 +39,7 @@ public class Enemy : MonoBehaviour, IPoolingList
     [SerializeField] private int damageToPlayer;
     [SerializeField] private int soulsDropAmount;
     [SerializeField] private Transform bulletTarget;
+    [SerializeField] private AudioObj deathSound;
 
     [Header("Drops")]
     private EnemyDrop itemDropper;
@@ -190,6 +192,8 @@ public class Enemy : MonoBehaviour, IPoolingList
                     Player.Instance.Heal(1);
                 }
             }
+            if (deathSound != null) AudioManager.Instance.PlayAudioObjOneShot(deathSound);
+
             //DesiDONE
             Player.Instance.UpdateSouls(soulsDropAmount);
             Despawn();
