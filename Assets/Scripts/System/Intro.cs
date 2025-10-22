@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using JetBrains.Annotations;
 using Marvin.AudioSystem;
 using TMPro;
 using UnityEngine;
@@ -12,9 +13,8 @@ public class Intro : MonoBehaviour
 
     [Header("DialogUI")]
     [SerializeField] private GameObject dialogWindow;
-    [SerializeField] private TextMeshProUGUI characterNameText;
     [SerializeField] private TextMeshProUGUI dialogText;
-    [SerializeField] private Image blackScreen;
+    [SerializeField] private Image introImage;
     [SerializeField] private float fadeOutTime;
 
     private float timer;
@@ -23,12 +23,10 @@ public class Intro : MonoBehaviour
     {
         if (GameManager.Instance.showIntro == true)
         {
-            GameManager.Instance.showIntro = false;
             dialogWindow.SetActive(true);
-            blackScreen.gameObject.SetActive(true);
+            introImage.gameObject.SetActive(true);
 
             //Becaue of first sound
-            characterNameText.text = dialog[currentDialogLine].characterName;
             dialogText.text = dialog[currentDialogLine].dialogText;
             currentDialogLine++;
             //NextDialog();
@@ -39,13 +37,14 @@ public class Intro : MonoBehaviour
     {
         if (currentDialogLine < dialog.Length)
         {
-            characterNameText.text = dialog[currentDialogLine].characterName;
             dialogText.text = dialog[currentDialogLine].dialogText;
+            introImage.sprite = dialog[currentDialogLine].imageToDisplay;
             currentDialogLine++;
             AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.utilitySounds[(int)AudioManager.UtilitySounds.MenuSelect]);
         }
         else
         {
+            GameManager.Instance.showIntro = false;
             AudioManager.Instance.PlayAudioFileOneShot(AudioManager.Instance.utilitySounds[(int)AudioManager.UtilitySounds.MenuSelect]);
             dialogWindow.SetActive(false);
             StartCoroutine(FadeOutBlackscreen());
@@ -53,20 +52,20 @@ public class Intro : MonoBehaviour
     }
     IEnumerator FadeOutBlackscreen()
     {
-        blackScreen.raycastTarget = false;
-        Color color = blackScreen.color;
+        introImage.raycastTarget = false;
+        Color color = introImage.color;
         color.a = 1;
-        blackScreen.color = color;
-        blackScreen.gameObject.SetActive(true);
+        introImage.color = color;
+        introImage.gameObject.SetActive(true);
         timer = fadeOutTime;
 
         while (timer > 0)
         {
             timer -= Time.deltaTime;
             float alpha = Mathf.Clamp01(timer /fadeOutTime);
-            color = blackScreen.color;
+            color = introImage.color;
             color.a = alpha;
-            blackScreen.color = color;
+            introImage.color = color;
             yield return null;
         }
 
@@ -84,5 +83,6 @@ public class Intro : MonoBehaviour
     {
         public string characterName;
         [TextArea (4, 4)] public string dialogText;
+        public Sprite imageToDisplay;
     }
 }

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: com.Marvin.AudioSystem::Marvin.AudioSystem.AudioObj
   Name: Skeleton Death
   AudioClip: {fileID: 8300000, guid: 8299e36261542c142b34f8e2aa39139e, type: 3}
-  Volume: 0.05
+  Volume: 0.03
   randomPitch: 0

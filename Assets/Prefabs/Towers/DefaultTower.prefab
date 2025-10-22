@@ -220,6 +220,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: cfe17b424a256074fa29977e97fde8d4, type: 3}
     - target: {fileID: 7828311766438679498, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
+      propertyPath: launchSound
+      value: 
+      objectReference: {fileID: 11400000, guid: c004341332069784e9ad0d86ee8c7764, type: 2}
+    - target: {fileID: 7828311766438679498, guid: 6bb3d567fac672f56aca956e3f15efdb, type: 3}
       propertyPath: sparkEffect
       value: 
       objectReference: {fileID: 2670316177588144439}
