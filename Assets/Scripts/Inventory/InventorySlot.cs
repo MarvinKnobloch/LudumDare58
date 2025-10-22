@@ -108,7 +108,7 @@ public class InventorySlot : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         {
             if (inventory.currentBodySlots.bodyPart == bodyObject.Part)
             {
-                inventory.currentBodySlots.SlotUpdate(bodyObject);
+                inventory.currentBodySlots.PlaceItem(bodyObject);
 
                 if (bodyObject.Part == BodyPart.Weapon)
                 {

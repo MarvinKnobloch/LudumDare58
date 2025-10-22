@@ -443,11 +443,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1274865333498098403, guid: 1ede538d9eaa93445a753cded39c8854, type: 3}
       propertyPath: showIntro
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1274865333498098403, guid: 1ede538d9eaa93445a753cded39c8854, type: 3}
       propertyPath: showTutorial
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3302836490448873121, guid: 1ede538d9eaa93445a753cded39c8854, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3489,7 +3489,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3855980295498600054, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -194.59973
+      value: 194.61642
       objectReference: {fileID: 0}
     - target: {fileID: 5183651379440502080, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_AnchorMax.x

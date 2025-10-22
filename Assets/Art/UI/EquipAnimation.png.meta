@@ -1,0 +1,460 @@
+fileFormatVersion: 2
+guid: 9b8382841c8c9ef46a9e4811f2f4a9a7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3738408946661772326
+    second: EquipAnimation_0
+  - first:
+      213: -4732311766999430157
+    second: EquipAnimation_1
+  - first:
+      213: -2109217952663398894
+    second: EquipAnimation_2
+  - first:
+      213: -4896630989749659682
+    second: EquipAnimation_3
+  - first:
+      213: -226503627415045767
+    second: EquipAnimation_4
+  - first:
+      213: 4713701318490253582
+    second: EquipAnimation_5
+  - first:
+      213: -805065430968400601
+    second: EquipAnimation_6
+  - first:
+      213: 6550147996095801567
+    second: EquipAnimation_7
+  - first:
+      213: -1389682456297594679
+    second: EquipAnimation_8
+  - first:
+      213: -784732495579496780
+    second: EquipAnimation_9
+  - first:
+      213: -5915780038589385323
+    second: EquipAnimation_10
+  - first:
+      213: 2781470050468446785
+    second: EquipAnimation_11
+  - first:
+      213: -7410379387554694925
+    second: EquipAnimation_12
+  - first:
+      213: -6848540612327271533
+    second: EquipAnimation_13
+  - first:
+      213: 8730874643097216848
+    second: EquipAnimation_14
+  - first:
+      213: -2222823455378491990
+    second: EquipAnimation_15
+  - first:
+      213: -7276790391057220821
+    second: EquipAnimation_16
+  - first:
+      213: -3251298678194005299
+    second: EquipAnimation_17
+  - first:
+      213: -872116986835784216
+    second: EquipAnimation_18
+  - first:
+      213: -1259067571244919649
+    second: EquipAnimation_19
+  - first:
+      213: -908993440368951193
+    second: EquipAnimation_20
+  - first:
+      213: 9087088398804074532
+    second: EquipAnimation_21
+  - first:
+      213: 108058735621383951
+    second: EquipAnimation_22
+  - first:
+      213: -2174596405118965517
+    second: EquipAnimation_23
+  - first:
+      213: 7503596887701141343
+    second: EquipAnimation_24
+  - first:
+      213: 3437287761707533529
+    second: EquipAnimation_25
+  - first:
+      213: 3439929932989664823
+    second: EquipAnimation_26
+  - first:
+      213: -5921998490139950529
+    second: EquipAnimation_27
+  - first:
+      213: -3353295963464822115
+    second: EquipAnimation_28
+  - first:
+      213: 7095806276029506833
+    second: EquipAnimation_29
+  - first:
+      213: -1184260831240009396
+    second: EquipAnimation_30
+  - first:
+      213: 7437527787656186581
+    second: EquipAnimation_31
+  - first:
+      213: 5720899195102801724
+    second: EquipAnimation_32
+  - first:
+      213: -4683979605740356030
+    second: EquipAnimation_33
+  - first:
+      213: 7859493167240542700
+    second: EquipAnimation_34
+  - first:
+      213: 1148037999667795005
+    second: EquipAnimation_35
+  - first:
+      213: -3639702394227846623
+    second: EquipAnimation_36
+  - first:
+      213: 8872758501242747089
+    second: EquipAnimation_37
+  - first:
+      213: -5857629527933707268
+    second: EquipAnimation_38
+  - first:
+      213: -8290106074201833844
+    second: EquipAnimation_39
+  - first:
+      213: -7316195850722950540
+    second: EquipAnimation_40
+  - first:
+      213: 174597748799610197
+    second: EquipAnimation_41
+  - first:
+      213: 1356987121675737632
+    second: EquipAnimation_42
+  - first:
+      213: 5439627689343330698
+    second: EquipAnimation_43
+  - first:
+      213: -1829346065092526079
+    second: EquipAnimation_44
+  - first:
+      213: 4722354470855945123
+    second: EquipAnimation_45
+  - first:
+      213: 591060615432599369
+    second: EquipAnimation_46
+  - first:
+      213: 1755603551840421608
+    second: EquipAnimation_47
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: EquipAnimation_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 328
+        width: 164
+        height: 164
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad33515bed08e1cc0800000000000000
+      internalID: -3738408946661772326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EquipAnimation_1
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 328
+        width: 164
+        height: 164
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fb09915583735eb0800000000000000
+      internalID: -4732311766999430157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EquipAnimation_2
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 328
+        width: 164
+        height: 164
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2161f99727d8ab2e0800000000000000
+      internalID: -2109217952663398894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EquipAnimation_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 164
+        width: 164
+        height: 164
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed75dcbee0cab0cb0800000000000000
+      internalID: -4896630989749659682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EquipAnimation_4
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 164
+        width: 164
+        height: 164
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 979b693a62c4bdcf0800000000000000
+      internalID: -226503627415045767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EquipAnimation_5
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 164
+        width: 164
+        height: 164
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e09e6e9ff5e6a6140800000000000000
+      internalID: 4713701318490253582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EquipAnimation_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 164
+        height: 164
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7258e268145d3d4f0800000000000000
+      internalID: -805065430968400601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EquipAnimation_7
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 0
+        width: 164
+        height: 164
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd8e685f5ecc6ea50800000000000000
+      internalID: 6550147996095801567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: f4bb01e8b9f5eda42aac9c7ad4de5f3c
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":3.0,"y":3.0},"gridSpriteSize":{"x":164.0,"y":164.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      EquipAnimation_0: -3738408946661772326
+      EquipAnimation_1: -4732311766999430157
+      EquipAnimation_2: -2109217952663398894
+      EquipAnimation_3: -4896630989749659682
+      EquipAnimation_4: -226503627415045767
+      EquipAnimation_5: 4713701318490253582
+      EquipAnimation_6: -805065430968400601
+      EquipAnimation_7: 6550147996095801567
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

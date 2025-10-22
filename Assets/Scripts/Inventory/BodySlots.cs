@@ -15,6 +15,7 @@ public class BodySlots : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     public BodyObject bodyObject;
 
     [SerializeField] Image bodyImage;
+    [SerializeField] private GameObject placeItemAnimation;
 
     private void Start()
     {
@@ -38,8 +39,9 @@ public class BodySlots : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         IngameController.Instance.playerUI.ToggleTooltipWindow(false, IngameController.Instance.playerUI.itemTooltipWindow);
 
     }
-    public void SlotUpdate(BodyObject obj)
+    public void PlaceItem(BodyObject obj)
     {
+        placeItemAnimation.SetActive(true);
         UpdateSlot(obj);
     }
     public void UpdateSlot(BodyObject obj)
