@@ -17,7 +17,7 @@ public class Tutorial : MonoBehaviour
     [SerializeField] private GameObject arrowCueSoul;
     
 
-    private int currentHint;
+    public int currentHint;
     public Vector2 towerPos;
 
 
@@ -69,6 +69,8 @@ public class Tutorial : MonoBehaviour
         tutorialHints[currentHint].SetActive(false);
         startRoundButton.ShowButton();
         arrowCue.SetActive(false);
+        arrowCueHealth.SetActive(false);
+        arrowCueSoul.SetActive(false);
     }
 
 
@@ -93,18 +95,16 @@ public class Tutorial : MonoBehaviour
         arrowCue.SetActive(true);
         RectTransform arrowRect = arrowCue.GetComponent<RectTransform>();
 
-        //First Arrow 
+  
         if (currentHint == 0)
         {
             Debug.Log("Hint 0");
             arrowCue.SetActive(false);
         }
 
-
         if (currentHint == 1)
         {
             Debug.Log("Hint 1");
-
             arrowCue.SetActive(true);
             arrowRect.anchoredPosition = new Vector2(-649.3f, -287.9f);
         }
@@ -159,7 +159,7 @@ public class Tutorial : MonoBehaviour
 
         }
 
-        //Von Health und Souls durch GotIt! zum Recipe
+       
         else if (currentHint == 8)
         {
        

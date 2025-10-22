@@ -53,6 +53,11 @@ public class BuildTowerButton : MonoBehaviour
     }
     public void SelectTowerButton()
     {
+        if(GameManager.Instance.showTutorial == true && IngameController.Instance.playerUI.tutorial.currentHint > 2)
+        {
+            return;         
+        }
+
         if(towerPreview.activeSelf == false && Player.Instance.CheckForTowerCosts() == true)
         {
             IngameController.Instance.playerUI.inventory.DeselectTower();
@@ -80,14 +85,7 @@ public class BuildTowerButton : MonoBehaviour
         buttonImage.sprite = buttonReleasedSprite;
         towerPreviewActive = false;
 
-
-
-        //desi
-        if (GameManager.Instance.showTutorial == true)
-        {
-            tutorial.TryAdvanceHint(1);
-        }
-
+      
 
     }
     private void CheckLights(int amount)

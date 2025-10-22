@@ -13559,6 +13559,7 @@ MonoBehaviour:
   - {x: 0, y: 0}
   arrowCueHealth: {fileID: 8176992889966674740}
   arrowCueSoul: {fileID: 8784213908125428696}
+  currentHint: 0
   towerPos: {x: 0, y: 0}
 --- !u!1 &5444771550769345799
 GameObject:
@@ -15050,7 +15051,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 6653753867708965893}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.4656868
+  m_Size: 0.46685064
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -21785,7 +21786,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Player
   maxHealth: 20
   currentHealth: 0
-  soulsStartAmount: 10000
+  soulsStartAmount: 70
   defaultTowerCosts: 40
   recycleSoulsAmount: 1
   towerRecipes:
