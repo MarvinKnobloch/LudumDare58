@@ -10,7 +10,7 @@ public class Tutorial : MonoBehaviour
 
     [SerializeField] private GameObject BuildButton;
 
-    [SerializeField] private GameObject arrowCue;
+    [SerializeField] public GameObject arrowCue;
     
 
     [SerializeField] private GameObject arrowCueHealth;
@@ -113,16 +113,18 @@ public class Tutorial : MonoBehaviour
         {
             Debug.Log("Hint 2");
 
-            arrowRect.anchoredPosition = new Vector2(100.1f, 71.4f);
-            arrowRect.localRotation = Quaternion.Euler(0f, 0f, 30.6f);
+            arrowRect.anchoredPosition = new Vector2(30.5f, 123.1f);
+            arrowRect.localRotation = Quaternion.Euler(0f, 0f, 49.5f);
+
         }
+
 
         else if (currentHint == 3)
         {
 
             Debug.Log("Hint 3");
             arrowRect.transform.position = towerPos + new Vector2(170f, 100f);
-
+            arrowRect.localRotation = Quaternion.Euler(0f, 0f, 15f);
 
         }
 
@@ -144,7 +146,8 @@ public class Tutorial : MonoBehaviour
         else if (currentHint == 6)
         {
 
-            arrowRect.anchoredPosition = new Vector2(-308.2f, 90f);
+            arrowRect.anchoredPosition = new Vector2(-270.6f, 190.57f);
+            arrowRect.localRotation = Quaternion.Euler(0f, 0f, 20.3f);
         }
 
 
@@ -155,32 +158,29 @@ public class Tutorial : MonoBehaviour
 
             arrowRect.anchoredPosition = new Vector2(711, 464.2f);
             arrowRect.localScale = new Vector3(-1, 1, 1);
-
+            arrowRect.localRotation = Quaternion.Euler(0f, 0f, 0f);
 
         }
 
        
         else if (currentHint == 8)
         {
-       
-            arrowCue.SetActive(false);
-            arrowCueHealth.SetActive(true);
-            RectTransform arrowHealthRect = arrowCueHealth.GetComponent<RectTransform>();
-            arrowHealthRect.anchoredPosition = new Vector2(-189.2f, -181f);
+
+            arrowCue.SetActive(true);
+            arrowRect.anchoredPosition = new Vector2(-166.47f, -245.2f);
+            arrowRect.localScale = new Vector3(1, 1, 1);
 
         }
 
         else if (currentHint == 9)
         {
+            arrowCue.SetActive(true);
+            arrowRect.anchoredPosition = new Vector2(-636f, 130.1f);
+           
 
 
-            arrowCue.SetActive(false);
-            arrowCueHealth.SetActive(false);
+    
 
-
-            arrowCueSoul.SetActive(true);
-            RectTransform arrowSoulRect = arrowCueSoul.GetComponent<RectTransform>();
-            arrowSoulRect.anchoredPosition = new Vector2(-670f, 185.6f);
         }
 
 

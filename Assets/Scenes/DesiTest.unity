@@ -1114,6 +1114,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 946872797921579848, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
+      propertyPath: m_text
+      value: "Next step is selecting one of my towers by simply clicking on them.
+        \n\nThe perks of a mighty alchemist you could say."
+      objectReference: {fileID: 0}
     - target: {fileID: 2820146201709467349, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1154,9 +1159,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3174208248268131540, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3855980295498600054, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -194.5996
+      value: -194.59949
       objectReference: {fileID: 0}
     - target: {fileID: 4276602598306105439, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_Size
@@ -1184,6 +1193,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6653753867708965893, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
       propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7478167700975674463, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
+      propertyPath: m_text
+      value: Since this lamp is green let me build a tower by clicking here on the
+        build button and dragging it onto the battlefield.
+      objectReference: {fileID: 0}
+    - target: {fileID: 8176992889966674740, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8803824119732284302, guid: 1a4af8516b83f55458db5655a80a13dd, type: 3}

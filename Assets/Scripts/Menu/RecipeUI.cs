@@ -76,6 +76,16 @@ public class RecipeUI : MonoBehaviour
         StopAllCoroutines();
         timer = 0;
 
+        //desi
+        if (GameManager.Instance.showTutorial == true && IngameController.Instance.playerUI.tutorial.currentHint == 7)
+        {
+            IngameController.Instance.playerUI.tutorial.arrowCue.SetActive(false);
+            
+
+        }
+
+        
+
         if (isOpen == false) endPosition = openPositionTransform;
         else endPosition = closedPositionTransform;
 
@@ -83,6 +93,9 @@ public class RecipeUI : MonoBehaviour
         StartCoroutine(MoveUI());
 
     }
+
+    
+
     IEnumerator MoveUI()
     {
         while (timer < moveTime)
