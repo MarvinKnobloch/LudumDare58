@@ -11,7 +11,7 @@ public class Tutorial : MonoBehaviour
     [SerializeField] private GameObject BuildButton;
 
     [SerializeField] private GameObject arrowCue;
-    [SerializeField] private Vector2[] arrowPositions;
+    
 
     [SerializeField] private GameObject arrowCueHealth;
     [SerializeField] private GameObject arrowCueSoul;
@@ -113,8 +113,8 @@ public class Tutorial : MonoBehaviour
         {
             Debug.Log("Hint 2");
 
-            arrowRect.anchoredPosition = new Vector2(101.1f, 61.4f);
-            arrowRect.localRotation = Quaternion.Euler(0f, 0f, 15.6f);
+            arrowRect.anchoredPosition = new Vector2(100.1f, 71.4f);
+            arrowRect.localRotation = Quaternion.Euler(0f, 0f, 30.6f);
         }
 
         else if (currentHint == 3)

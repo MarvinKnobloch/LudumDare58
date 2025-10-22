@@ -6807,7 +6807,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 260, y: -194.59952}
+  m_AnchoredPosition: {x: 260, y: -194.59969}
   m_SizeDelta: {x: 528.5858, y: 730}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &9039410272545500761
@@ -12017,7 +12017,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 25.039}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -109, y: -163}
+  m_AnchoredPosition: {x: 5, y: -138}
   m_SizeDelta: {x: 300, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8962938226387054345
@@ -13548,15 +13548,6 @@ MonoBehaviour:
   startRoundButton: {fileID: 8949374877567389630}
   BuildButton: {fileID: 3757422859341623846}
   arrowCue: {fileID: 4648004744307876025}
-  arrowPositions:
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
-  - {x: 0, y: 0}
   arrowCueHealth: {fileID: 8176992889966674740}
   arrowCueSoul: {fileID: 8784213908125428696}
   currentHint: 0
@@ -15050,8 +15041,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7949626207446807465}
   m_HandleRect: {fileID: 6653753867708965893}
   m_Direction: 2
-  m_Value: 1
-  m_Size: 0.46685064
+  m_Value: 1.0000006
+  m_Size: 0.46685067
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:

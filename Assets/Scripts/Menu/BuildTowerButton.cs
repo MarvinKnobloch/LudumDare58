@@ -53,7 +53,7 @@ public class BuildTowerButton : MonoBehaviour
     }
     public void SelectTowerButton()
     {
-        if(GameManager.Instance.showTutorial == true && IngameController.Instance.playerUI.tutorial.currentHint > 2)
+        if(GameManager.Instance.showTutorial == true && IngameController.Instance.playerUI.tutorial.currentHint != 1)
         {
             return;         
         }
