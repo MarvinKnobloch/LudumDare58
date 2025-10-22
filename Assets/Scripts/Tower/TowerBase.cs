@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Marvin.PoolingSystem;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -58,8 +57,7 @@ namespace Tower
         public TowerRecipe currentRecipe { get; private set; }
         public int recipeMatchPercent { get; private set; } = 0;
 
-        //Animation
-        private Animator animator;
+
 
         [Space]
         public BodyObject currentAccessoires;
@@ -84,6 +82,10 @@ namespace Tower
         [SerializeField] private Sprite armsTorsoSprite;
         [SerializeField] private Sprite allSprite;
 
+        [Space]
+        [SerializeField] private Animator animator;
+        [SerializeField] private GameObject sparkEffect;
+
         private void Awake()
         {
             //SetValues
@@ -106,8 +108,6 @@ namespace Tower
             finalAttackSpeed = CalculateAttackSpeed();
             finalRange = CalculateRange();
             currentAoeRadius = RoundAoeRadius();
-
-            animator = GetComponentInChildren<Animator>();
 
             timer = finalAttackSpeed;
         }
@@ -215,7 +215,8 @@ namespace Tower
                     break;
             }
             AddTowerValues(bodyObject);
-            VisualUpdate(bodyObject.Part);
+
+            if(isRecipeTower == false) VisualUpdate(bodyObject.Part);
         }
         private void AddTowerValues(BodyObject bodyObject)
         {
@@ -437,12 +438,18 @@ namespace Tower
         }
         private void VisualUpdate(BodyPart addedPart)
         {
-            return;
+
+            if (animator == null) return;
+                
+            animator.enabled = false;
+            sparkEffect.SetActive(true);
+
+            bool head = false;
+            bool arms = false;
+            bool torso = false;
             switch (addedPart)
             {
                 case BodyPart.Head:
-                    bool arms = false;
-                    bool torso = false;
                     if (currentArms != null) arms = true;
                     if (currentBody != null) torso = true;
 
@@ -452,16 +459,32 @@ namespace Tower
                     }
                     else if (arms == true) spriteRenderer.sprite = headArmsSprite;
                     else if (torso == true) spriteRenderer.sprite = headTorsoSprite;
+                    else spriteRenderer.sprite = headSprite;
                     break;
-                //    break;
-                //case BodyPart.Arm:
-                //    if (currentArms != null) OnBodyPartUnequipped(tower, currentArms);
-                //    currentArms = bodyObject;
-                //    break;
-                //case BodyPart.Torso:
-                //    if (currentBody != null) OnBodyPartUnequipped(tower, currentBody);
-                //    currentBody = bodyObject;
-                //    break;
+                case BodyPart.Arm:
+                    if (currentHead != null) head = true;
+                    if (currentBody != null) torso = true;
+
+                    if (head && torso == true)
+                    {
+                        spriteRenderer.sprite = allSprite;
+                    }
+                    else if (head == true) spriteRenderer.sprite = headArmsSprite;
+                    else if (torso == true) spriteRenderer.sprite = armsTorsoSprite;
+                    else spriteRenderer.sprite = armsSprite;
+                    break;
+                case BodyPart.Torso:
+                    if (currentHead != null) head = true;
+                    if (currentBody != null) arms = true;
+
+                    if (head &&  arms == true)
+                    {
+                        spriteRenderer.sprite = allSprite;
+                    }
+                    else if (head == true) spriteRenderer.sprite = headTorsoSprite;
+                    else if (torso == true) spriteRenderer.sprite = armsTorsoSprite;
+                    else spriteRenderer.sprite = torsoSprite;
+                    break;
             }
         }
 

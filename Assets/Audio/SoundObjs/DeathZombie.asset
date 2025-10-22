@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d33e9170e19c02f4a9baaba286ae93c4, type: 3}
+  m_Name: DeathZombie
+  m_EditorClassIdentifier: com.Marvin.AudioSystem::Marvin.AudioSystem.AudioObj
+  Name: Zombie Death
+  AudioClip: {fileID: 8300000, guid: f2c9794e37ef0a34fa76d441efa728de, type: 3}
+  Volume: 0.25
+  randomPitch: 0

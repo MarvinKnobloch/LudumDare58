@@ -1,0 +1,858 @@
+fileFormatVersion: 2
+guid: ba055fba80239d1499b1876aabeaaa85
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5078456731063624964
+    second: TowerBuildSmoke_0
+  - first:
+      213: -6538022095300669312
+    second: TowerBuildSmoke_1
+  - first:
+      213: 1363909089850227502
+    second: TowerBuildSmoke_2
+  - first:
+      213: 8755065472655484187
+    second: TowerBuildSmoke_3
+  - first:
+      213: -8556656976128373268
+    second: TowerBuildSmoke_4
+  - first:
+      213: 6737151946167868903
+    second: TowerBuildSmoke_5
+  - first:
+      213: -7283332701810847980
+    second: TowerBuildSmoke_6
+  - first:
+      213: -3784723817101972052
+    second: TowerBuildSmoke_7
+  - first:
+      213: 9201901171684621017
+    second: TowerBuildSmoke_8
+  - first:
+      213: -2752905767506986202
+    second: TowerBuildSmoke_9
+  - first:
+      213: -5374702769304927986
+    second: TowerBuildSmoke_10
+  - first:
+      213: -8137686207142694182
+    second: TowerBuildSmoke_11
+  - first:
+      213: -3654778136610329714
+    second: TowerBuildSmoke_12
+  - first:
+      213: -4070246139442281970
+    second: TowerBuildSmoke_13
+  - first:
+      213: -4242373655424698067
+    second: TowerBuildSmoke_14
+  - first:
+      213: -4794398513264268751
+    second: TowerBuildSmoke_15
+  - first:
+      213: -8610590984878831272
+    second: TowerBuildSmoke_16
+  - first:
+      213: 5061480153146466559
+    second: TowerBuildSmoke_17
+  - first:
+      213: -6291430181006861474
+    second: TowerBuildSmoke_18
+  - first:
+      213: 1275189918766104825
+    second: TowerBuildSmoke_19
+  - first:
+      213: -7404568475617734323
+    second: TowerBuildSmoke_20
+  - first:
+      213: -1182084948478250721
+    second: TowerBuildSmoke_21
+  - first:
+      213: 6010376245869088447
+    second: TowerBuildSmoke_22
+  - first:
+      213: -987284160337138139
+    second: TowerBuildSmoke_23
+  - first:
+      213: -8894226940470803027
+    second: TowerBuildSmoke_24
+  - first:
+      213: 1362415925053081383
+    second: TowerBuildSmoke_25
+  - first:
+      213: 1835196094979102724
+    second: TowerBuildSmoke_26
+  - first:
+      213: 2854925218184284865
+    second: TowerBuildSmoke_27
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TowerBuildSmoke_0
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 502
+        width: 20
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cfad2c98282b589b0800000000000000
+      internalID: -5078456731063624964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TowerBuildSmoke_1
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 489
+        width: 43
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 080d2f35b874445a0800000000000000
+      internalID: -6538022095300669312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TowerBuildSmoke_2
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 510
+        width: 32
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2bf27647149de210800000000000000
+      internalID: 1363909089850227502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TowerBuildSmoke_3
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 458
+        width: 36
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b15eaea39ad308970800000000000000
+      internalID: 8755065472655484187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TowerBuildSmoke_4
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 510
+        width: 26
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ced0009b0d5a04980800000000000000
+      internalID: -8556656976128373268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TowerBuildSmoke_5
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 454
+        width: 32
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7edda25000c2f7d50800000000000000
+      internalID: 6737151946167868903
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TowerBuildSmoke_6
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 485
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41f04971f776cea90800000000000000
+      internalID: -7283332701810847980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TowerBuildSmoke_7
+      rect:
+        serializedVersion: 2
+        x: 204
+        y: 475
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cad2dac9db5f97bc0800000000000000
+      internalID: -3784723817101972052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TowerBuildSmoke_8
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 472
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9da3384ac58b3bf70800000000000000
+      internalID: 9201901171684621017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TowerBuildSmoke_9
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 453
+        width: 23
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62b3f9b3ac6bbc9d0800000000000000
+      internalID: -2752905767506986202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TowerBuildSmoke_10
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 448
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e018546ce483965b0800000000000000
+      internalID: -5374702769304927986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TowerBuildSmoke_11
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 424
+        width: 12
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad2f9a98281211f80800000000000000
+      internalID: -8137686207142694182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TowerBuildSmoke_12
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 437
+        width: 22
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8b2a7a06ae974dc0800000000000000
+      internalID: -3654778136610329714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TowerBuildSmoke_13
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 435
+        width: 23
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e02432683b49387c0800000000000000
+      internalID: -4070246139442281970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TowerBuildSmoke_14
+      rect:
+        serializedVersion: 2
+        x: 298
+        y: 312
+        width: 123
+        height: 125
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d297fef23af0025c0800000000000000
+      internalID: -4242373655424698067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TowerBuildSmoke_15
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 415
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13ae83934ffd67db0800000000000000
+      internalID: -4794398513264268751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TowerBuildSmoke_16
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 400
+        width: 18
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 859cd10ce19018880800000000000000
+      internalID: -8610590984878831272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TowerBuildSmoke_17
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 418
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff02cf5e16dfd3640800000000000000
+      internalID: 5061480153146466559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TowerBuildSmoke_18
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 383
+        width: 17
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5b1ae3759950b8a0800000000000000
+      internalID: -6291430181006861474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TowerBuildSmoke_19
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 377
+        width: 22
+        height: 34
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f08631997262b110800000000000000
+      internalID: 1275189918766104825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TowerBuildSmoke_20
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 363
+        width: 26
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d41dfb7d330bd3990800000000000000
+      internalID: -7404568475617734323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TowerBuildSmoke_21
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 310
+        width: 28
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f113e979004689fe0800000000000000
+      internalID: -1182084948478250721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TowerBuildSmoke_22
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 289
+        width: 21
+        height: 39
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbe097de955296350800000000000000
+      internalID: 6010376245869088447
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TowerBuildSmoke_23
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 321
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52e2cba79467c42f0800000000000000
+      internalID: -987284160337138139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TowerBuildSmoke_24
+      rect:
+        serializedVersion: 2
+        x: 171
+        y: 321
+        width: 53
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da54785a8bb519480800000000000000
+      internalID: -8894226940470803027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TowerBuildSmoke_25
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 291
+        width: 48
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 727cf11c01648e210800000000000000
+      internalID: 1362415925053081383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TowerBuildSmoke_26
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 11
+        width: 192
+        height: 238
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 408d966002de77910800000000000000
+      internalID: 1835196094979102724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TowerBuildSmoke_27
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 1
+        width: 212
+        height: 262
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cacd222c5bbe9720800000000000000
+      internalID: 2854925218184284865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      TowerBuildSmoke_0: -5078456731063624964
+      TowerBuildSmoke_1: -6538022095300669312
+      TowerBuildSmoke_10: -5374702769304927986
+      TowerBuildSmoke_11: -8137686207142694182
+      TowerBuildSmoke_12: -3654778136610329714
+      TowerBuildSmoke_13: -4070246139442281970
+      TowerBuildSmoke_14: -4242373655424698067
+      TowerBuildSmoke_15: -4794398513264268751
+      TowerBuildSmoke_16: -8610590984878831272
+      TowerBuildSmoke_17: 5061480153146466559
+      TowerBuildSmoke_18: -6291430181006861474
+      TowerBuildSmoke_19: 1275189918766104825
+      TowerBuildSmoke_2: 1363909089850227502
+      TowerBuildSmoke_20: -7404568475617734323
+      TowerBuildSmoke_21: -1182084948478250721
+      TowerBuildSmoke_22: 6010376245869088447
+      TowerBuildSmoke_23: -987284160337138139
+      TowerBuildSmoke_24: -8894226940470803027
+      TowerBuildSmoke_25: 1362415925053081383
+      TowerBuildSmoke_26: 1835196094979102724
+      TowerBuildSmoke_27: 2854925218184284865
+      TowerBuildSmoke_3: 8755065472655484187
+      TowerBuildSmoke_4: -8556656976128373268
+      TowerBuildSmoke_5: 6737151946167868903
+      TowerBuildSmoke_6: -7283332701810847980
+      TowerBuildSmoke_7: -3784723817101972052
+      TowerBuildSmoke_8: 9201901171684621017
+      TowerBuildSmoke_9: -2752905767506986202
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

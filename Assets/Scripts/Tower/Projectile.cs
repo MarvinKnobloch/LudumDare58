@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Marvin.AudioSystem;
 using Marvin.PoolingSystem;
 using Tower;
 using Unity.VisualScripting;
@@ -59,6 +60,9 @@ public class Projectile : MonoBehaviour, IPoolingList
     private float shrinkMinSize = 0.3f;
     private int targetsHit;
     private List<Collider2D> pierceList;
+
+    [Header("Ohter")]
+    [SerializeField] private AudioObj audioOnLand;
 
     public PoolingSystem.PoolObjectInfo poolingList { get; set; }
 
@@ -237,6 +241,9 @@ public class Projectile : MonoBehaviour, IPoolingList
             {
                 aoeVisualBullet.transform.position = transform.position;
             }
+
+            if (audioOnLand != null) AudioManager.Instance.PlayAudioObjOneShot(audioOnLand);
+
             return;
         }
         transform.Translate(direction * projectileSpeed * Time.deltaTime, Space.World);
@@ -326,8 +333,8 @@ public class Projectile : MonoBehaviour, IPoolingList
     }
     IEnumerator SwingDamageDelay()
     {
-        yield return new WaitForSeconds(projectileSpeed * 0.2f);
-        DealAoeDamage(currenttarget.position);
+        yield return new WaitForSeconds(projectileSpeed * 0.1f);
+        DealAoeDamage(bulletTarget.position);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

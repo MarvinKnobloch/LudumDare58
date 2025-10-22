@@ -116,6 +116,7 @@ MonoBehaviour:
   damageToPlayer: 1
   soulsDropAmount: 4
   bulletTarget: {fileID: 4084337682187251020}
+  deathSound: {fileID: 11400000, guid: d229eb3eb64c6ce4499060e66cb24361, type: 2}
   hitEffectAmount: 3
   hitEffectDuration: 0.08
   healthBar: {fileID: 0}
