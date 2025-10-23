@@ -114,6 +114,7 @@ public class Player : MonoBehaviour
     }
     private void DeselectTowerHotkey(InputAction.CallbackContext context)
     {
+        if (IngameController.Instance.playerUI.inventory.dragImage.activeSelf == true) return;
         IngameController.Instance.playerUI.inventory.DeselectTower();
     }
     public int GetCurrentSouls() => currentSouls;

@@ -27,14 +27,14 @@ public class StatsTooltip : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         {
             case StatTypes.Attack:
                 if (playerUI.inventory.currentSelectedTower != null) scalingText = playerUI.inventory.currentSelectedTower.GetDamageScaling().ToString();
-                playerUI.statsTooltipText.text = "<u><b>Damage:</u></b>\n\nItem Damage x Tower Attack Scaling (<color=green>" + scalingText + "</color>)";
+                playerUI.statsTooltipText.text = "<u><b>Damage:</u></b>\n\nItem Damage x Tower Attack Scaling (<color=green>" + scalingText + "%</color>)";
                 break;
             case StatTypes.Speed:
                 playerUI.statsTooltipText.text = "<u><b>Attack Speed</u></b>";
                 break;
             case StatTypes.Range:
                 if (playerUI.inventory.currentSelectedTower != null) scalingText = playerUI.inventory.currentSelectedTower.GetRangeScaling().ToString();
-                playerUI.statsTooltipText.text = "<u><b>Range:</u></b>\n\nItem Range x Tower Range Scaling (<color=green>" + scalingText + "</color>)";
+                playerUI.statsTooltipText.text = "<u><b>Range:</u></b>\n\nItem Range x Tower Range Scaling (<color=green>" + scalingText + "%</color>)";
                 break;
             case StatTypes.Aoe:
                 playerUI.statsTooltipText.text = "<u><b>Area Size:</u></b>\n\nIf negative the tower will damage only one enemy.";

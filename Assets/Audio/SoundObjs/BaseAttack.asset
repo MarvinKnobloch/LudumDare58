@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BaseAttack
   m_EditorClassIdentifier: com.Marvin.AudioSystem::Marvin.AudioSystem.AudioObj
   Name: Base Attack
-  AudioClip: {fileID: 8300000, guid: 7e22a3155032b0743825f5b09e163e8f, type: 3}
+  AudioClip: {fileID: 8300000, guid: 55c76d2c8d242fb45bf5cc25de1e94a6, type: 3}
   Volume: 0.15
   randomPitch: 0

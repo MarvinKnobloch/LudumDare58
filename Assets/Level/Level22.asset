@@ -17,20 +17,20 @@ MonoBehaviour:
     amount: 18
     spawnRate: 1.6
     waveStartDelay: 0
-    healthScaling: 14
+    healthScaling: 16
   - enemy: {fileID: 6034090055483278207, guid: c123dc819530e264283e71b9d2645fd6, type: 3}
     amount: 18
     spawnRate: 1.6
     waveStartDelay: 0.8
-    healthScaling: 14
+    healthScaling: 16
   - enemy: {fileID: 6034090055483278207, guid: df9cf12478e1be049bddcb3eb0ed3227, type: 3}
     amount: 2
     spawnRate: 6.4
     waveStartDelay: 6.4
-    healthScaling: 9
+    healthScaling: 10
   - enemy: {fileID: 6034090055483278207, guid: dbbdb816fa52d754f8b16c1d4cc8931c, type: 3}
     amount: 2
     spawnRate: 6.4
     waveStartDelay: 12.8
-    healthScaling: 9
+    healthScaling: 10
   description: 

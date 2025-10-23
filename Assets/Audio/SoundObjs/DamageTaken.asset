@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: DamageTaken
   m_EditorClassIdentifier: com.Marvin.AudioSystem::Marvin.AudioSystem.AudioObj
   Name: Damage Taken
-  AudioClip: {fileID: 8300000, guid: 4d723e92fb39202418ccaab029606750, type: 3}
+  AudioClip: {fileID: 8300000, guid: 5b6d93f38d7f70040acd439dbf1f8ddc, type: 3}
   Volume: 0.15
   randomPitch: 0

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: com.Marvin.AudioSystem::Marvin.AudioSystem.AudioObj
   Name: Orc Death
   AudioClip: {fileID: 8300000, guid: 169d0c73b3e40f44e9438443bc3c24b9, type: 3}
-  Volume: 0.2
+  Volume: 0.25
   randomPitch: 0

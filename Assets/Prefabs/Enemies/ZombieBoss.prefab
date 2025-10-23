@@ -146,7 +146,7 @@ MonoBehaviour:
   maxHealth: 0
   slowColor: {r: 0, g: 0.5299373, b: 0.9339623, a: 1}
   damageToPlayer: 1
-  soulsDropAmount: 1
+  soulsDropAmount: 12
   bulletTarget: {fileID: 7764766482462737639}
   deathSound: {fileID: 11400000, guid: 1860d8f9e80cfb34880e62e862a1a6e0, type: 2}
   hitEffectAmount: 3

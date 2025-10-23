@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77b3a024aa5ce44a8b8b6ab5bc5c03c, type: 3}
   m_Name: SniperTower
   m_EditorClassIdentifier: Assembly-CSharp::TowerValues
-  damageScalingPercantage: 130
+  damageScalingPercantage: 135
   startBonusAttack: 12
   baseAttackSpeed: 1.8
   rangeScalingPercantage: 120

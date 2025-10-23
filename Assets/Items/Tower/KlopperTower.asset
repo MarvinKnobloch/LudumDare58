@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77b3a024aa5ce44a8b8b6ab5bc5c03c, type: 3}
   m_Name: KlopperTower
   m_EditorClassIdentifier: Assembly-CSharp::TowerValues
-  damageScalingPercantage: 100
+  damageScalingPercantage: 110
   startBonusAttack: 14
-  baseAttackSpeed: 1.8
+  baseAttackSpeed: 1.7
   rangeScalingPercantage: 60
   startBonusRange: 5
   aoeRadius: -0.8

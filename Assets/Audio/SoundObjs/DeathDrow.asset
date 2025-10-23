@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: com.Marvin.AudioSystem::Marvin.AudioSystem.AudioObj
   Name: Drow Death
   AudioClip: {fileID: 8300000, guid: 4007410a814daf74a9c736d29d0ba44d, type: 3}
-  Volume: 0.08
+  Volume: 0.1
   randomPitch: 0

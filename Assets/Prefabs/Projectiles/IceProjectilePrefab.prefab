@@ -121,7 +121,7 @@ MonoBehaviour:
   hitLayer:
     serializedVersion: 2
     m_Bits: 512
-  disableTimeAfterHit: 0.05
+  disableTimeAfterHit: 0.02
   sortingLayerOnEnable: 20
   sortingLayerAfterHit: -99
   meleeWeaponOffset: 0.5

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BoulderLand
   m_EditorClassIdentifier: com.Marvin.AudioSystem::Marvin.AudioSystem.AudioObj
   Name: Boulder Land
-  AudioClip: {fileID: 8300000, guid: a9dcd5291874ca94dadd0522e13cb279, type: 3}
-  Volume: 0.11
+  AudioClip: {fileID: 8300000, guid: 2c01602c2549d5e44b3f2b7f601c9f2e, type: 3}
+  Volume: 0.05
   randomPitch: 0

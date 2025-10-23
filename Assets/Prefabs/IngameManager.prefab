@@ -6976,7 +6976,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 260, y: -194.59956}
+  m_AnchoredPosition: {x: 260, y: -194.59941}
   m_SizeDelta: {x: 528.5858, y: 730}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!222 &9039410272545500761
@@ -7816,22 +7816,22 @@ MonoBehaviour:
     dialogText: 'Deep within a forest, far from civilization, lives an alchemist.
 
 '
-    imageToDisplay: {fileID: -855298285791758126, guid: 29118682b421b8147afab0aa65ea3869, type: 3}
+    imageToDisplay: {fileID: 4120901811166270815, guid: 59395e72d7032614eb5129df50d68ea8, type: 3}
   - characterName: Player
     dialogText: Once shunned by his peers, he never lost sight of his dream.
-    imageToDisplay: {fileID: 2563745189451431643, guid: 0d581bf5c86a37d4f9d063c72d899bd2, type: 3}
+    imageToDisplay: {fileID: -3614479944891599811, guid: cdb853dfdd7eaac4690fec259708b04a, type: 3}
   - characterName: Player
     dialogText: "As a child, he roamed the wilds. Collecting leaves, insects, and
       even the remnants of small animals. \n\nHe could feel the energy within them.
       \nOver time, he learned to harness these essences, crafting strange contraptions
       to push the limits of possibility."
-    imageToDisplay: {fileID: 2563745189451431643, guid: 0d581bf5c86a37d4f9d063c72d899bd2, type: 3}
+    imageToDisplay: {fileID: -3614479944891599811, guid: cdb853dfdd7eaac4690fec259708b04a, type: 3}
   - characterName: Player
     dialogText: 'Now, years later, the woods have changed.
 
       Monsters grow stronger,
       their presence heavier with each passing night.'
-    imageToDisplay: {fileID: -4178046375966092550, guid: 3e3ec37a213aeec4eb9e469a47412fb7, type: 3}
+    imageToDisplay: {fileID: 3326971659086699885, guid: 441ee36b7ab62f841813fd746e6bf427, type: 3}
   - characterName: Player
     dialogText: 'As darkness closes in and distant footsteps echo through the woods...
 
@@ -7840,7 +7840,7 @@ MonoBehaviour:
       emerge.
 
 '
-    imageToDisplay: {fileID: 4130640169021434097, guid: c0ec129ff8e5599479265c1a3e0c9791, type: 3}
+    imageToDisplay: {fileID: 5986244224761071404, guid: 2bdcd92622f1c424c8ec4356dfc6c126, type: 3}
   dialogWindow: {fileID: 8603663149564331929}
   dialogText: {fileID: 3639372892392597824}
   introImage: {fileID: 3276921222833900065}
@@ -7952,9 +7952,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 5744020526399914711}
   - {fileID: 1982862382885152573}
   - {fileID: 3222912489432663591}
-  - {fileID: 5744020526399914711}
   m_Father: {fileID: 2619037700529902128}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -8837,9 +8837,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6413555252727863660}
   - {fileID: 181745055243274374}
   - {fileID: 8252597640273921951}
-  - {fileID: 6413555252727863660}
   m_Father: {fileID: 2619037700529902128}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -9066,9 +9066,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3826371505987457432}
   - {fileID: 3252289491743164000}
   - {fileID: 3809624765515252188}
-  - {fileID: 3826371505987457432}
   m_Father: {fileID: 2619037700529902128}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -9992,7 +9992,7 @@ RectTransform:
   - {fileID: 2902686764872569298}
   - {fileID: 281115866451942116}
   - {fileID: 1618480951323405945}
-  m_Father: {fileID: 9088527423164248997}
+  m_Father: {fileID: 4611795115714830896}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -10930,7 +10930,6 @@ RectTransform:
   m_Children:
   - {fileID: 1506762823161200100}
   - {fileID: 321609452891584077}
-  - {fileID: 994207362799105353}
   m_Father: {fileID: 4611795115714830896}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -12707,9 +12706,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 3968595768440159560}
   - {fileID: 374967464666614863}
   - {fileID: 8957535820038233662}
-  - {fileID: 3968595768440159560}
   m_Father: {fileID: 2619037700529902128}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -13737,7 +13736,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Since this button is green let me build a tower by clicking on the build
+  m_text: Since this lamp is green let me build a tower by clicking on the build
     button and dragging it onto the battlefield.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -15481,8 +15480,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7949626207446807465}
   m_HandleRect: {fileID: 6653753867708965893}
   m_Direction: 2
-  m_Value: 1.0000004
-  m_Size: 0.46684533
+  m_Value: 1
+  m_Size: 0.4667283
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -16169,7 +16168,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -855298285791758126, guid: 29118682b421b8147afab0aa65ea3869, type: 3}
+  m_Sprite: {fileID: 4120901811166270815, guid: 59395e72d7032614eb5129df50d68ea8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -19575,9 +19574,9 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8210793802817619011}
   - {fileID: 248639733103629114}
   - {fileID: 2657788691349994840}
-  - {fileID: 8210793802817619011}
   m_Father: {fileID: 2619037700529902128}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -20908,16 +20907,17 @@ RectTransform:
   - {fileID: 4182577123898161247}
   - {fileID: 5990288085904150552}
   - {fileID: 5173319894649224062}
+  - {fileID: 994207362799105353}
   - {fileID: 9088527423164248997}
   - {fileID: 1461871838347112298}
   - {fileID: 2844287905355835785}
   - {fileID: 7882726123879372099}
   - {fileID: 634926329962855481}
+  - {fileID: 3610080714748990741}
+  - {fileID: 8207369117381876501}
+  - {fileID: 8459260030357007713}
   - {fileID: 6928975038784669861}
   - {fileID: 1936622797648034900}
-  - {fileID: 8459260030357007713}
-  - {fileID: 8207369117381876501}
-  - {fileID: 3610080714748990741}
   - {fileID: 4712325582774058575}
   - {fileID: 7662611635467171831}
   - {fileID: 2636522220139516376}
@@ -22814,15 +22814,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: eb2de376aa2088146874907205892be2, type: 2}
   - {fileID: 11400000, guid: 173b8eacc4047bb4c9b8f8e1639e538a, type: 2}
   - {fileID: 11400000, guid: 342b55b225d27334fb275d95e95991a8, type: 2}
-  - {fileID: 11400000, guid: 4391c8ef26008474588a1a315cd54c95, type: 2}
   - {fileID: 11400000, guid: c5346dd2eb6d0a049889fb813232690a, type: 2}
   - {fileID: 11400000, guid: 50401b40fd75378429ba64553700b6af, type: 2}
+  - {fileID: 11400000, guid: 4391c8ef26008474588a1a315cd54c95, type: 2}
   - {fileID: 11400000, guid: 0f51461a634d53a49aeca85542e73bbe, type: 2}
   accessoiresSlotCosts: 8
   headSlotCosts: 5
   armSlotCosts: 5
   bodySlotCosts: 5
-  lifeStealChance: 8
+  lifeStealChance: 10
   doubleDamageChance: 25
   takeDamageSound: {fileID: 11400000, guid: a8a5637d7dcdae542a8ba4561e432978, type: 2}
 --- !u!114 &8888812027060965051

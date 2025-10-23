@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c77b3a024aa5ce44a8b8b6ab5bc5c03c, type: 3}
   m_Name: ArcherTower
   m_EditorClassIdentifier: Assembly-CSharp::TowerValues
-  damageScalingPercantage: 75
+  damageScalingPercantage: 90
   startBonusAttack: 8
-  baseAttackSpeed: 1.3
+  baseAttackSpeed: 1.2
   rangeScalingPercantage: 105
   startBonusRange: 6
   aoeRadius: -2

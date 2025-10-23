@@ -17,10 +17,10 @@ MonoBehaviour:
     amount: 1
     spawnRate: 5
     waveStartDelay: 0
-    healthScaling: 80
+    healthScaling: 90
   - enemy: {fileID: 6034090055483278207, guid: d0d40b19f32bfc445a38b050ce8b30d9, type: 3}
     amount: 1
     spawnRate: 5
     waveStartDelay: 6
-    healthScaling: 80
+    healthScaling: 90
   description: 

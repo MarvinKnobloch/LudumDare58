@@ -193,6 +193,7 @@ public class Inventory : MonoBehaviour
     }
     private void SetLockedState(BodySlots bodySlots)
     {
+        bodySlots.gameObject.SetActive(true);
         bodySlots.unlockObj.SetActive(true);
         bodySlots.enabled = false;
         bodySlots.ClearSlot();
