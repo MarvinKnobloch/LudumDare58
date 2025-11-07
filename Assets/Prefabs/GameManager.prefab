@@ -45,4 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   capFrameRate: 0
-  targetFrameRate: 144
+  targetFrameRate: 200
+  showIntro: 0
+  showTutorial: 0
+  resetRecipeObjects: 0

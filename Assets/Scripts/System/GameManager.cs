@@ -24,6 +24,6 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         QualitySettings.vSyncCount = 0;
-        if (capFrameRate) Application.targetFrameRate = targetFrameRate;
+        //if (capFrameRate) Application.targetFrameRate = targetFrameRate;
     }
 }
